@@ -11,7 +11,8 @@
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="20"
-        FontFamily="{materialDesign:MaterialDesignFont}"
+        FontFamily="Nunito"
+        
         
         
         Title="Login" Height="650" Width="1000">
@@ -42,7 +43,7 @@
                         FontSize="20"
                         Background="#8699DA" Foreground="White"
                         BorderBrush="{x:Null}" 
-                        Height="50">Sign In</Button>
+                        Height="50" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">Sign In</Button>
                 
                 <Label HorizontalAlignment="Center"
                        FontStyle="Italic" FontWeight="Normal" FontSize="15">Or</Label>
@@ -52,7 +53,7 @@
                         Height="50"
                         FontSize="20"
                         Background="#8699DA" Foreground="White"
-                        BorderBrush="{x:Null}">Exit</Button>
+                        BorderBrush="{x:Null}" FontWeight="Bold">Exit</Button>
 
             </StackPanel>
         </Grid>
