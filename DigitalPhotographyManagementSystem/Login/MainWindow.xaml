@@ -31,16 +31,31 @@
                        >WELCOME BACK!</Label>
 
                 <Label Margin="30,0" Content="Username" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" />
-                <TextBox Margin="30,0,30,30"
-                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                         materialDesign:HintAssist.Hint="username" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" FontWeight="Normal"/>
+                
+                <Border CornerRadius="25" 
+                        BorderThickness="2"
+                        BorderBrush="#789ADE"
+                        Margin="30,0,30,30">
+                    <TextBox BorderThickness="0"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                             materialDesign:HintAssist.Hint="username"
+                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" FontWeight="Normal"/>
+                </Border>
+
 
                 <Label Margin="30,0" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">Password</Label>
-                <PasswordBox Margin="30,0,30,30"
-                             Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
-                             materialDesign:HintAssist.Hint="password" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light"
-                             ></PasswordBox>
-
+                <Border CornerRadius="25" 
+                        BorderThickness="2"
+                        BorderBrush="#789ADE"
+                        Margin="30,0,30,30">
+                    <PasswordBox BorderThickness="0"
+                                 Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                 materialDesign:HintAssist.Hint="password" 
+                                 FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light"></PasswordBox>
+                </Border>                
+                
                 <Button Margin="80,20"
                         FontSize="20"   
                         Background="#8699DA" Foreground="White"
