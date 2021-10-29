@@ -27,50 +27,55 @@
                 <Image></Image>
 
                 <Label HorizontalAlignment="Center"
-                       Margin="0,30" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
+                       Margin="0,30" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" FontWeight="Normal"
                        >WELCOME BACK!</Label>
-
-                <Label Margin="30,0" Content="Username" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" />
+                
+                <Label Margin="45,0" Content="Username" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" FontWeight="Bold" />
                 
                 <Border CornerRadius="25" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
-                        Margin="30,0,30,30">
+                        Margin="40,0,40,30">
                     <TextBox BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                             materialDesign:HintAssist.Hint="username"
                              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" FontWeight="Normal"/>
                 </Border>
 
 
-                <Label Margin="30,0" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">Password</Label>
+                <Label Margin="45,0" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" FontWeight="Bold">Password</Label>
                 <Border CornerRadius="25" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
-                        Margin="30,0,30,30">
+                        Margin="40,0,40,30">
                     <PasswordBox BorderThickness="0"
                                  Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
                                  materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                 materialDesign:HintAssist.Hint="password" 
                                  FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light"></PasswordBox>
-                </Border>                
-                
-                <Button Margin="80,20"
-                        FontSize="20"   
-                        Background="#8699DA" Foreground="White"
-                        BorderBrush="{x:Null}" 
-                        Height="50" FontWeight="Normal" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">Sign In</Button>
-                
+                </Border>
+
+                <Border CornerRadius="25" 
+                        Background="#8699DA"
+                        Margin="80,15">
+                    <Button FontSize="20"
+                            Foreground="White" Background="Transparent"
+                            BorderBrush="{x:Null}" 
+                            Height="50" FontWeight="Normal" 
+                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">Sign In</Button>
+                </Border>
+
                 <Label HorizontalAlignment="Center"
                        FontStyle="Italic" FontWeight="Normal" FontSize="15">Or</Label>
-                
-                <Button Click="Button_Click"   
-                        Margin="80,20"
-                        Height="50"
-                        FontSize="20"
-                        Background="#8699DA" Foreground="White"
-                        BorderBrush="{x:Null}" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">Exit</Button>
+
+                <Border CornerRadius="25"
+                        Background="#8699DA"
+                        Margin="80,15">
+                    <Button Click="Button_Click"   
+                            Height="50"
+                            FontSize="20"
+                            Background="Transparent" Foreground="White"
+                            BorderBrush="{x:Null}" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">Exit</Button>
+                </Border>
 
             </StackPanel>
         </Grid>
