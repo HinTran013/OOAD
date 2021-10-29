@@ -13,5 +13,6 @@ namespace DigitalPhotographyManagementSystem
     /// </summary>
     public partial class App : Application
     {
+       
     }
 }
