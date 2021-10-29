@@ -36,10 +36,13 @@
                          materialDesign:HintAssist.Hint="username" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" FontWeight="Normal"/>
 
                 <Label Margin="30,0" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">Password</Label>
-                <PasswordBox Margin="30,0,30,30"></PasswordBox>
+                <PasswordBox Margin="30,0,30,30"
+                             Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                             materialDesign:HintAssist.Hint="password" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light"
+                             ></PasswordBox>
 
                 <Button Margin="80,20"
-                        FontSize="20"
+                        FontSize="20"   
                         Background="#8699DA" Foreground="White"
                         BorderBrush="{x:Null}" 
                         Height="50" FontWeight="Normal" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">Sign In</Button>
