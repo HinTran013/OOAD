@@ -94,7 +94,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Fonts\Nunito-Black.ttf" />
+    <EmbeddedResource Include="Fonts\Nunito-Black.ttf" />
     <Resource Include="Fonts\Nunito-BlackItalic.ttf" />
     <Resource Include="Fonts\Nunito-Bold.ttf" />
     <Resource Include="Fonts\Nunito-BoldItalic.ttf" />

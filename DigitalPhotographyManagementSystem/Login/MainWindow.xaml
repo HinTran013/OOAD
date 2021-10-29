@@ -11,10 +11,9 @@
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="20"
-        FontFamily="Nunito"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         
-        
-        
+       
         Title="Login" Height="650" Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -28,22 +27,22 @@
                 <Image></Image>
 
                 <Label HorizontalAlignment="Center"
-                       Margin="0,30"
+                       Margin="0,30" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
                        >WELCOME BACK!</Label>
 
-                <Label Margin="30,0" Content="Username" FontFamily=""/>
-                <TextBox Margin="30,0,30,30">
-                   
-                </TextBox>
+                <Label Margin="30,0" Content="Username" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" />
+                <TextBox Margin="30,0,30,30"
+                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                         materialDesign:HintAssist.Hint="username" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" FontWeight="Normal"/>
 
-                <Label Margin="30,0">Password</Label>
+                <Label Margin="30,0" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">Password</Label>
                 <PasswordBox Margin="30,0,30,30"></PasswordBox>
 
                 <Button Margin="80,20"
                         FontSize="20"
                         Background="#8699DA" Foreground="White"
                         BorderBrush="{x:Null}" 
-                        Height="50" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">Sign In</Button>
+                        Height="50" FontWeight="Normal" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">Sign In</Button>
                 
                 <Label HorizontalAlignment="Center"
                        FontStyle="Italic" FontWeight="Normal" FontSize="15">Or</Label>
@@ -53,7 +52,7 @@
                         Height="50"
                         FontSize="20"
                         Background="#8699DA" Foreground="White"
-                        BorderBrush="{x:Null}" FontWeight="Bold">Exit</Button>
+                        BorderBrush="{x:Null}" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">Exit</Button>
 
             </StackPanel>
         </Grid>
