@@ -1,0 +1,90 @@
+﻿<Window x:Class="DigitalPhotographyManagementSystem.View.DashboardMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.View" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="DashboardMain" Height="750" Width="1400" 
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Grid Margin="10" Grid.Column="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="10" ShadowDepth="1" RenderingBias="Quality"/>
+        </Grid.Effect>
+        <Border Grid.ColumnSpan="2" CornerRadius="10" Background="#EFF0F2"/>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0">
+                <Border x:Name="LogoCard" Margin="20" CornerRadius="10" Background="White">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" BlurRadius="10"/>
+                    </Border.Effect>
+                </Border>
+            </Grid>
+            <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                <StackPanel x:Name="SideMenu" Margin ="5"/>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10,5,0,0">
+                        <TextBlock Text="Accounting Department" HorizontalAlignment="Left"
+                               FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
+                               FontSize="20" Foreground="#FF716969"/>
+                        <TextBlock/>
+                        <TextBlock Text=" / " HorizontalAlignment="Left"
+                               FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
+                               FontSize="20"/>
+                        <TextBlock/>
+                        <TextBlock Text="Dashboard" HorizontalAlignment="Left"
+                               FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
+                               FontSize="20" Foreground="#FF383030"/>
+                        <TextBlock/>
+                    </StackPanel>
+                    <TextBlock Text="Dashboard" Grid.Row="1"
+                               FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
+                               FontSize="25" Margin="10,0,0,5"/>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                        <Button VerticalAlignment="Top" Style ="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="40" Height="40"  Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Margin="0,0,0,0">
+                            <materialDesign:PackIcon Kind="WindowClose" Width="30" Height="30"/>
+                        </Button>
+                        <Button VerticalAlignment="Top" Style ="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="40" Height="40"  Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Margin="0,0,0,0">
+                            <materialDesign:PackIcon Kind="WindowMinimize" Width="30" Height="30"/>
+                        </Button>
+                        <TextBlock Text="Le Tran Thanh Hon Tuyen" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black"
+                               FontSize="20" Margin="50,5,0,0">
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <!--Main Content-->
+            <DockPanel x:Name="MainContent" Grid.Row="1">
+
+            </DockPanel>
+        </Grid>
+    </Grid>
+</Window>
