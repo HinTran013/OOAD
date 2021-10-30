@@ -26,13 +26,32 @@ namespace DigitalPhotographyManagementSystem.View
         public DashboardMain()
         {
             InitializeComponent();
-            var menuInput = new List<SubItem>();
-            menuInput.Add(new SubItem("Fund Bdsill"));
-            menuInput.Add(new SubItem("Fund Bdsidssdll"));
-            var home = new ItemMenu("    HOME", menuInput, PackIconKind.Home);
-            var dwda = new ItemMenu("    dsad", menuInput, PackIconKind.Abc);
-            SideMenu.Children.Add(new UserControlMenuDrawer(home, this));
-            SideMenu.Children.Add(new UserControlMenuDrawer(dwda, this));
+            var menuMarketDept = new List<SubItem>();
+            menuMarketDept.Add(new SubItem("Propose new ideas"));
+            menuMarketDept.Add(new SubItem("Ad campaign"));
+            menuMarketDept.Add(new SubItem("Print photos"));
+            var marketSubMenu = new ItemMenu("  MARKETING DEPT", menuMarketDept, PackIconKind.Speaker);
+
+            var menuTransDept = new List<SubItem>();
+            menuTransDept.Add(new SubItem("Create invoice"));
+            menuTransDept.Add(new SubItem("Photo delivery"));
+            menuTransDept.Add(new SubItem("Technical issues resolve"));
+            var transSubMenu = new ItemMenu("  TRANSACTION DEPT", menuTransDept, PackIconKind.Coins);
+
+            var menuAccDept = new List<SubItem>();
+            menuAccDept.Add(new SubItem("Create bill"));
+            menuAccDept.Add(new SubItem("Manage"));
+            menuAccDept.Add(new SubItem("Report price"));
+            var accSubMenu = new ItemMenu("  ACCOUNTING DEPT", menuAccDept, PackIconKind.Calculator);
+
+            var menuTechDept = new List<SubItem>();
+            var techSubMenu = new ItemMenu("  TECHINCAL DEPT", menuTechDept, PackIconKind.Toolbox);
+
+
+            SideMenu.Children.Add(new UserControlMenuDrawer(marketSubMenu, this));
+            SideMenu.Children.Add(new UserControlMenuDrawer(transSubMenu, this));
+            SideMenu.Children.Add(new UserControlMenuDrawer(accSubMenu, this));
+            SideMenu.Children.Add(new UserControlMenuDrawer(techSubMenu, this));
         }
         internal void SwitchScreen(object sender)
         {
@@ -49,6 +68,21 @@ namespace DigitalPhotographyManagementSystem.View
         {
             if (__instance == null) __instance = new DashboardMain();
             return __instance;
+        }
+
+        private void ShutdownBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void TopBar_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

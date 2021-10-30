@@ -31,7 +31,12 @@
                 </Border>
             </Grid>
             <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-                <StackPanel x:Name="SideMenu">
+                <StackPanel x:Name="SideMenu" Margin="5" >
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type TextBox}">
+                            <Setter Property="Margin" Value="0,10"/>
+                        </Style>
+                    </StackPanel.Resources>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
@@ -40,7 +45,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="10*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+            <Grid x:Name="TopBar" Grid.Row="0" MouseDown="TopBar_MouseDown">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -50,34 +55,34 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10,5,0,0">
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10,15,0,0">
                         <TextBlock Text="Accounting Department" HorizontalAlignment="Left"
                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
-                               FontSize="20" Foreground="#FF716969"/>
+                               FontSize="15" Foreground="#FF716969"/>
                         <TextBlock/>
                         <TextBlock Text=" / " HorizontalAlignment="Left"
                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
-                               FontSize="20"/>
+                               FontSize="15"/>
                         <TextBlock/>
                         <TextBlock Text="Dashboard" HorizontalAlignment="Left"
                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
-                               FontSize="20" Foreground="#FF383030"/>
+                               FontSize="15" Foreground="#FF383030"/>
                         <TextBlock/>
                     </StackPanel>
                     <TextBlock Text="Dashboard" Grid.Row="1"
                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
-                               FontSize="25" Margin="10,0,0,5"/>
+                               FontSize="18" Margin="10,0,0,5"/>
                 </Grid>
                 <Grid Grid.Column="1">
                     <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
-                        <Button VerticalAlignment="Top" Style ="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="40" Height="40"  Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Margin="0,0,0,0">
-                            <materialDesign:PackIcon Kind="WindowClose" Width="30" Height="30"/>
+                        <Button x:Name="ShutdownBtn" VerticalAlignment="Top" Style ="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="40" Height="40"  Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Margin="0,0,0,0" Click="ShutdownBtn_Click">
+                            <materialDesign:PackIcon Kind="Shutdown" Width="30" Height="30"/>
                         </Button>
-                        <Button VerticalAlignment="Top" Style ="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="40" Height="40"  Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Margin="0,0,0,0">
+                        <Button x:Name="MinimizeBtn" VerticalAlignment="Top" Style ="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="40" Height="40"  Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Margin="0,0,0,0" Click="MinimizeBtn_Click">
                             <materialDesign:PackIcon Kind="WindowMinimize" Width="30" Height="30"/>
                         </Button>
                         <TextBlock Text="Le Tran Thanh Hon Tuyen" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black"
-                               FontSize="20" Margin="50,5,0,0">
+                               FontSize="15" Margin="50,10,0,0">
                         </TextBlock>
                     </StackPanel>
                 </Grid>

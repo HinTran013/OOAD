@@ -46,21 +46,17 @@ namespace DigitalPhotographyManagementSystem.UserControls
         {
             _context.SwitchScreen(((ItemMenu)((ListBoxItem)sender).DataContext).Screen);
         }
-        bool flag = false;
-        private void ExpanderMenu_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+
+        private void ExpanderMenu_Expanded(object sender, RoutedEventArgs e)
         {
-            if (!flag)
-            {
-                var storyBoard = this.Resources["StoryboardDrawingMenu"] as Storyboard;
-                storyBoard.Begin(this);
-                flag = true;
-            }
-            else
-            {
-                var storyBoard = this.Resources["StoryboardDrawingMenu_Rev"] as Storyboard;
-                storyBoard.Begin(this);
-                flag = false;
-            }
+            var storyBoard = this.Resources["StoryboardDrawingMenu"] as Storyboard;
+            storyBoard.Begin(this);
+        }
+
+        private void ExpanderMenu_Collapsed(object sender, RoutedEventArgs e)
+        {
+            var storyBoard = this.Resources["StoryboardDrawingMenu_Rev"] as Storyboard;
+            storyBoard.Begin(this);
         }
     }
 }
