@@ -190,3 +190,5 @@ git_stats/*
 StyleCop.Cache
 bin
 obj
+.vs/DigitalPhotographyManagementSystem/v16/TestStore/0/000.testlog
+.vs/DigitalPhotographyManagementSystem/v16/TestStore/0/testlog.manifest
