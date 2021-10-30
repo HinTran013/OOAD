@@ -13,21 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DigitalPhotographyManagementSystem
+namespace DigitalPhotographyManagementSystem.UserControls
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for UserControlMenuDrawer.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class UserControlMenuDrawer : UserControl
     {
-        public LoginWindow()
+        public UserControlMenuDrawer()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Application.Current.Shutdown();
+
+        }
+
+        private void ListViewItemMenu_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

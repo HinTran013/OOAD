@@ -1,9 +1,9 @@
-﻿<Window x:Class="DigitalPhotographyManagementSystem.LoginWindow"
+﻿<Window x:Class="DigitalPhotographyManagementSystem.View.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DigitalPhotographyManagementSystem"
+        xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.View"
         mc:Ignorable="d"
         
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -29,9 +29,9 @@
                 <Label HorizontalAlignment="Center"
                        Margin="0,30" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" FontWeight="Normal"
                        >WELCOME BACK!</Label>
-                
+
                 <Label Margin="45,0" Content="Username" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" FontWeight="Bold" />
-                
+
                 <Border CornerRadius="25" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
@@ -79,6 +79,6 @@
 
             </StackPanel>
         </Grid>
-        
+
     </Grid>
 </Window>
