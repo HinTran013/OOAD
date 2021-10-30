@@ -25,15 +25,20 @@
                        >Proposing Idea Form</Label>
 
             <TextBlock HorizontalAlignment="Right"
-                       VerticalAlignment="Center">date time: 21/10/2021</TextBlock>
+                       VerticalAlignment="Center"
+                       FontSize="18"
+                       FontWeight="Medium"
+                       FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">
+                        Date time: 21/10/2021
+            </TextBlock>
         </Grid>
 
         <Grid Grid.Row="1">
             <StackPanel Background="AliceBlue">
-                <Border CornerRadius="25" 
+                <Border CornerRadius="10" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
-                        Margin="30,20,700,0">
+                        Margin="30,5,700,0">
                     <TextBox x:Name="idea_textbox"
                              BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
@@ -42,15 +47,15 @@
                              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" FontWeight="Normal"/>
                 </Border>
 
-                <Border CornerRadius="25" 
+                <Border CornerRadius="10" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
-                        Margin="30,20,30,0">
+                        Margin="30,10,30,0">
                     <TextBox BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                              materialDesign:HintAssist.Hint="Description of the idea"
-                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" FontWeight="Normal" Height="380"/>
+                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" FontWeight="Normal" Height="422"/>
                 </Border>
             </StackPanel>
         </Grid>
