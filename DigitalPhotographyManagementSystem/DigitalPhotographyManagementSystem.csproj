@@ -65,12 +65,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< HEAD
     <Compile Include="UserControls\PhotoDelivery.xaml.cs">
       <DependentUpon>PhotoDelivery.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\PrintPhoto.xaml.cs">
       <DependentUpon>PrintPhoto.xaml</DependentUpon>
     </Compile>
+=======
+    <Compile Include="ServiceClass\ItemMenu.cs" />
+    <Compile Include="ServiceClass\SubItem.cs" />
+>>>>>>> 176dec87d5e9d6209cdd3f27931e8f8835a0ad8c
     <Compile Include="UserControls\UserControlMenuDrawer.xaml.cs">
       <DependentUpon>UserControlMenuDrawer.xaml</DependentUpon>
     </Compile>
