@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.View" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="DashboardMain" Height="750" Width="1400" 
+        Title="DashboardMain" Height="750" Width="1400"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent">
@@ -31,7 +31,8 @@
                 </Border>
             </Grid>
             <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-                <StackPanel x:Name="SideMenu" Margin ="5"/>
+                <StackPanel x:Name="SideMenu">
+                </StackPanel>
             </ScrollViewer>
         </Grid>
         <Grid Grid.Column="1">

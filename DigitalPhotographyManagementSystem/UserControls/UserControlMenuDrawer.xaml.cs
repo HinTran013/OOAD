@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DigitalPhotographyManagementSystem.ServiceClass;
+using DigitalPhotographyManagementSystem.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +8,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -20,19 +24,43 @@ namespace DigitalPhotographyManagementSystem.UserControls
     /// </summary>
     public partial class UserControlMenuDrawer : UserControl
     {
-        public UserControlMenuDrawer()
+        ItemMenu itemmenu;
+        DashboardMain _context;
+        public UserControlMenuDrawer(ItemMenu itemMenu, DashboardMain context)
         {
             InitializeComponent();
-        }
+            InitializeComponent();
+            _context = context;
 
+            ExpanderMenu.Visibility = itemMenu.SubItems == null ? Visibility.Collapsed : Visibility.Visible;
+            ListViewItemMenu.Visibility = itemMenu.SubItems == null ? Visibility.Visible : Visibility.Collapsed;
+            itemmenu = itemMenu;
+            this.DataContext = itemMenu;
+        }
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            _context.SwitchScreen(((TextBlock)sender).Tag);
         }
 
         private void ListViewItemMenu_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            _context.SwitchScreen(((ItemMenu)((ListBoxItem)sender).DataContext).Screen);
+        }
+        bool flag = false;
+        private void ExpanderMenu_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!flag)
+            {
+                var storyBoard = this.Resources["StoryboardDrawingMenu"] as Storyboard;
+                storyBoard.Begin(this);
+                flag = true;
+            }
+            else
+            {
+                var storyBoard = this.Resources["StoryboardDrawingMenu_Rev"] as Storyboard;
+                storyBoard.Begin(this);
+                flag = false;
+            }
         }
     }
 }
