@@ -3,17 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.UserControls" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d" 
-             >
+             xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.UserControls" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Storyboard x:Key="StoryboardDrawingMenu">
+            <ThicknessAnimationUsingKeyFrames x:Name="OpenAnimation" Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="border">
+                <EasingThicknessKeyFrame KeyTime="0" Value="0,6,230,6"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="0,1,0,0"/>
+            </ThicknessAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="packIcon">
+                <EasingThicknessKeyFrame KeyTime="0" Value="10"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="10,16,10,10"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="StoryboardDrawingMenu_Rev">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="border">
+                <SplineThicknessKeyFrame KeyTime="0" Value="0"/>
+                <SplineThicknessKeyFrame KeyTime="0:0:0.5" Value="0,6,230,6"/>
+            </ThicknessAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="packIcon">
+                <EasingThicknessKeyFrame KeyTime="0" Value="10,16,10,10"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="10"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
     <Grid>
-        <materialDesign:PackIcon Kind="{Binding Path=Icon}" Width="15" Height="15" Margin="10 16" Foreground="Black"/>
+        <Border x:Name="border" CornerRadius="5" Background="White" Margin="0,6,230,6">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="1"/>
+            </Border.Effect>
+            <materialDesign:PackIcon x:Name="packIcon" Kind="{Binding Path=Icon}" Width="15" Height="15" Margin="10 10" Foreground="Black" VerticalAlignment="Top"/>
+        </Border>
         <ListBoxItem x:Name="ListViewItemMenu" Content="{Binding Path=Header}" Padding="37 14" FontSize="15" Foreground="Black" PreviewMouseLeftButtonDown="ListViewItemMenu_PreviewMouseLeftButtonDown"/>
-        <Expander x:Name="ExpanderMenu" Header="{Binding Path=Header}" IsExpanded="False" Width="210" HorizontalAlignment="Right" Background="{x:Null}" Foreground="Black">
+        <Expander x:Name="ExpanderMenu" Header="{Binding Path=Header}" IsExpanded="False" Width="235" HorizontalAlignment="Right" Background="{x:Null}" Foreground="Black" Expanded="ExpanderMenu_Expanded" Collapsed="ExpanderMenu_Collapsed" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black">
             <ListView x:Name="ListViewMenu" ItemsSource="{Binding Path=SubItems}" Foreground="Black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Path=Name}" Tag="{ Binding Path=Screen}"  Height="27" Width="208" Padding="20 5" MouseDown="TextBlock_MouseDown"/>
+                        <TextBlock Text="{Binding Path=Name}" Tag="{ Binding Path=Screen}"  Height="27" Width="235" Padding="20 5" MouseDown="TextBlock_MouseDown" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

@@ -65,6 +65,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ServiceClass\ItemMenu.cs" />
+    <Compile Include="ServiceClass\SubItem.cs" />
     <Compile Include="UserControls\UserControlMenuDrawer.xaml.cs">
       <DependentUpon>UserControlMenuDrawer.xaml</DependentUpon>
     </Compile>
