@@ -13,7 +13,7 @@
             TextElement.FontSize="25"
             FontFamily="{DynamicResource MaterialDesignFont}"
              
-             d:DesignHeight="663" d:DesignWidth="1104">
+             Height="663" Width="1104">
 
     <StackPanel Margin="30 30 30 30" Background="White">
        
@@ -35,7 +35,7 @@
 
         <Label Content="LIST BOX OF CUSTOMER'S INVOICE" FontWeight="Bold" HorizontalAlignment="Center"/>
 
-        <Border Margin="60 10 60 0" Height="300" CornerRadius="10" Background="#8699DA">
+        <Border Margin="60 10 60 0" Height="450" CornerRadius="10" Background="#8699DA">
             <Border Margin="5" CornerRadius="10" Background="White">
         <ListView Name="listInvoice">
             <ListView.View>

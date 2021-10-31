@@ -29,12 +29,12 @@ namespace DigitalPhotographyManagementSystem.View
             var menuMarketDept = new List<SubItem>();
             menuMarketDept.Add(new SubItem("Propose new ideas"));
             menuMarketDept.Add(new SubItem("Ad campaign"));
-            menuMarketDept.Add(new SubItem("Print photos"));
+            menuMarketDept.Add(new SubItem("Print photos", new PrintPhoto()));
             var marketSubMenu = new ItemMenu("  MARKETING DEPT", menuMarketDept, PackIconKind.Speaker);
 
             var menuTransDept = new List<SubItem>();
             menuTransDept.Add(new SubItem("Create invoice"));
-            menuTransDept.Add(new SubItem("Photo delivery"));
+            menuTransDept.Add(new SubItem("Photo delivery", new PhotoDelivery()));
             menuTransDept.Add(new SubItem("Technical issues resolve"));
             var transSubMenu = new ItemMenu("  TRANSACTION DEPT", menuTransDept, PackIconKind.Coins);
 
