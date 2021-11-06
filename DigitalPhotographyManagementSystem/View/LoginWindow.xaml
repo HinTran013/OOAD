@@ -13,7 +13,7 @@
         TextElement.FontSize="20"
         FontFamily="{DynamicResource MaterialDesignFont}"
         
-       
+        
         Title="Login" Height="650" Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -21,13 +21,14 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0">
-            <StackPanel Margin="30,30,10,30" Background="AliceBlue">
+        <Grid Grid.Column="0" Background="#FFFFFF">
+            <StackPanel Margin="30,30,10,30">
 
-                <Image></Image>
+                <Image Source="/ImageSrc/logo_demo.png"
+                       Height="130"></Image>
 
                 <Label HorizontalAlignment="Center"
-                       Margin="0,30" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" FontWeight="Normal"
+                       Margin="0,5" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" FontWeight="Bold"
                        >WELCOME BACK!</Label>
 
                 <Label Margin="45,0" Content="Username" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" FontWeight="Bold" />
@@ -35,7 +36,7 @@
                 <Border CornerRadius="25" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
-                        Margin="40,0,40,30">
+                        Margin="50,0,50,20">
                     <TextBox BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -47,7 +48,7 @@
                 <Border CornerRadius="25" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
-                        Margin="40,0,40,30">
+                        Margin="50,0,50,20">
                     <PasswordBox BorderThickness="0"
                                  Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
                                  materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -56,20 +57,20 @@
 
                 <Border CornerRadius="25" 
                         Background="#8699DA"
-                        Margin="80,15">
+                        Margin="50,2">
                     <Button FontSize="20"
                             Foreground="White" Background="Transparent"
                             BorderBrush="{x:Null}" 
-                            Height="50" FontWeight="Normal" 
+                            Height="50" FontWeight="Normal"
                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">Sign In</Button>
                 </Border>
 
                 <Label HorizontalAlignment="Center"
-                       FontStyle="Italic" FontWeight="Normal" FontSize="15">Or</Label>
+                       FontStyle="Italic" FontWeight="Normal" FontSize="13">Or</Label>
 
                 <Border CornerRadius="25"
                         Background="#8699DA"
-                        Margin="80,15">
+                        Margin="50,2">
                     <Button Click="Button_Click"   
                             Height="50"
                             FontSize="20"
@@ -78,6 +79,10 @@
                 </Border>
 
             </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1" Background="#FFFFFF">
+            <Image Source="/ImageSrc/login_illustrate.jpg"></Image>
         </Grid>
 
     </Grid>
