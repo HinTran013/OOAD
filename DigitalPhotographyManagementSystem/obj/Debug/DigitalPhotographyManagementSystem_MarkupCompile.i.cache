@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\OOAD Project\DigitalPhotographyManagementSystem\OOAD\DigitalPhotographyManagementSystem\obj\Debug\
+D:\git\OOAD\DigitalPhotographyManagementSystem\obj\Debug\
 DigitalPhotographyManagementSystem
 none
 false
 DEBUG;TRACE
-D:\OOAD Project\DigitalPhotographyManagementSystem\OOAD\DigitalPhotographyManagementSystem\App.xaml
-51387581502
+D:\git\OOAD\DigitalPhotographyManagementSystem\App.xaml
+7-2118697851
 
-12-1988555395
-17-1544103186
-UserControls\PhotoDelivery.xaml;UserControls\PrintPhoto.xaml;UserControls\UserControlMenuDrawer.xaml;View\DashboardMain.xaml;View\LoginWindow.xaml;
+14-989793406
+17-1082834106
+UserControls\IdeaProposing.xaml;UserControls\InvoiceCreating.xaml;UserControls\PhotoDelivery.xaml;UserControls\PrintPhoto.xaml;UserControls\UserControlMenuDrawer.xaml;View\DashboardMain.xaml;View\LoginWindow.xaml;
 
 True
 
