@@ -6,13 +6,13 @@
              xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.View"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             Height="700" Width="1104"
+             Height="800" Width="1104"
              Background="White">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.2*"/>
-            <RowDefinition Height="2.5*"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2.7*"/>
+            <RowDefinition Height="6.5*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
@@ -54,13 +54,32 @@
             <Grid Grid.Column="0">
                 <Label HorizontalAlignment="Left"
                    VerticalAlignment="Top"
-                   Margin="30,0,0,0" 
+                   Margin="30,10,0,0" 
                    FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
                    FontWeight="Bold"
                    FontSize="22"
                        >Customer's Information</Label>
 
-                <StackPanel Margin="0,40,0,0">
+                <Border VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        Margin="0,5,35,0"
+                        Width="180" 
+                        Height="50"
+                        Background="#8699DA">
+                    <DatePicker FontSize="14"
+                                Foreground="White"
+                                FontWeight="Bold"
+                                Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                                BorderBrush="White"
+                                BorderThickness="0"
+                                SelectedDateChanged="DatePicker_LoadDatabase"
+                                materialDesign:HintAssist.IsFloating="True"
+                                materialDesign:HintAssist.Hint="Due Date"
+                                PreviewTextInput="Date_PreviewTextInput"/>
+                </Border>
+
+                <StackPanel Margin="0,60,0,0">
                     <Border CornerRadius="10" 
                             BorderThickness="2"
                             BorderBrush="#789ADE"
@@ -87,7 +106,8 @@
             </Grid>
 
             <Grid Grid.Column="1">
-                <StackPanel Margin="0,40,0,0">
+                <StackPanel Margin="0,60,0,0">
+
                     <Border CornerRadius="10" 
                             BorderThickness="2"
                             BorderBrush="#789ADE"
@@ -114,6 +134,51 @@
             </Grid>
         </Grid>
 
+        <Grid Grid.Row="2">
+            <StackPanel>
+                <Border CornerRadius="10" 
+                        BorderThickness="2"
+                        BorderBrush="#789ADE"
+                        Margin="30,5,30,0" 
+                        Height="120">
+                    <TextBox BorderThickness="0"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                             materialDesign:HintAssist.Hint="Request detail"
+                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
+                             FontWeight="Normal" 
+                             Height="422"/>
+                </Border>
+
+                <Border Margin="30,5,30,0"
+                        CornerRadius="10" 
+                        Background="#8699DA"
+                        Height="290">
+                    <Border Margin="5" 
+                            CornerRadius="10" 
+                            Background="White">
+                        <ListView>
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="No." Width="110" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
+                                    <GridViewColumn Header="Invoice ID" Width="270" DisplayMemberBinding="{Binding invoiceID}" ></GridViewColumn>
+                                    <GridViewColumn Header="Service" Width="350" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
+                                    <GridViewColumn Header="Action" Width="150">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Content="Done" Background="#8699DA"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Border>
+                </Border>
+            </StackPanel>
+
+        </Grid>
+        
         <Grid Grid.Row="3">
 
             <Label FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 

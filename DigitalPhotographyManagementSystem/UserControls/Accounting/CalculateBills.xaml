@@ -8,14 +8,14 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
              
-             Height="663" Width="1104"
+             Height="700" Width="1104"
              Background="White" >
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="1.7*"/>
             <RowDefinition Height="3*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
@@ -30,7 +30,7 @@
             <Border CornerRadius="10" 
                     BorderThickness="2"
                     BorderBrush="#789ADE"
-                    Margin="30,62,654,5">
+                    Margin="30,62,654,0">
                 <TextBox 
                           BorderThickness="0"
                           Style="{StaticResource MaterialDesignOutlinedTextBox}"
@@ -131,22 +131,46 @@
            
         </Grid>
         
-        <Grid Grid.Row="2" Background="AliceBlue">
-            <TextBlock>This is left blank for future purpuse</TextBlock>
+        <Grid Grid.Row="2">
+            <Border Margin="30,0,30,0"
+                        CornerRadius="10" 
+                        Background="#8699DA"
+                        Height="270">
+                <Border Margin="5" 
+                            CornerRadius="10" 
+                            Background="White">
+                    <ListView>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="No." Width="110" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
+                                <GridViewColumn Header="Invoice ID" Width="270" DisplayMemberBinding="{Binding invoiceID}" ></GridViewColumn>
+                                <GridViewColumn Header="Service" Width="350" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
+                                <GridViewColumn Header="Action" Width="150">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Content="Done" Background="#8699DA"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Border>
+            </Border>
         </Grid>
 
         <Grid Grid.Row="3">
             <Label FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
                    FontWeight="Bold"
                    FontSize="30" 
-                   Margin="0,22,280,0"
+                   Margin="0,12,280,0"
                    HorizontalAlignment="Right"
                    VerticalAlignment="Top" >
                 Total:
             </Label>
             <Border CornerRadius="25" 
                     Background="#8699DA"
-                    Margin="0,15,15,0"
+                    Margin="0,5,15,0"
                     Width="250"
                     Height="60"
                     HorizontalAlignment="Right"
@@ -164,7 +188,7 @@
 
             <Border CornerRadius="15" 
                     Background="#8699DA"
-                    Margin="940,86,0,10"
+                    Margin="940,70,0,10"
                     Width="150"
                     Height="60">
                 <Button FontSize="20"
@@ -178,7 +202,7 @@
 
             <Border CornerRadius="15" 
                     Background="#8699DA"
-                    Margin="778,86,176,10"
+                    Margin="778,70,176,10"
                     Width="150"
                     Height="60">
                 <Button FontSize="20"
@@ -192,7 +216,7 @@
 
             <Border CornerRadius="15" 
                     Background="#EA9769"
-                    Margin="610,86,344,10"
+                    Margin="610,70,344,10"
                     Width="150"
                     Height="60">
                 <Button FontSize="20"
