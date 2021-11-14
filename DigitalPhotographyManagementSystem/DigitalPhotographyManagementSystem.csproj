@@ -65,6 +65,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UserControls\Accounting\CalculateBills.xaml.cs">
+      <DependentUpon>CalculateBills.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\IdeaProposing.xaml.cs">
       <DependentUpon>IdeaProposing.xaml</DependentUpon>
     </Compile>
@@ -92,6 +95,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\Accounting\CalculateBills.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\IdeaProposing.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

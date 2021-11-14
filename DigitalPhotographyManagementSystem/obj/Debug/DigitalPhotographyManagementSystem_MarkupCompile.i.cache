@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\git\OOAD\DigitalPhotographyManagementSystem\App.xaml
-7-2118697851
+81795887313
 
-14-989793406
+151134325265
 17-1082834106
-UserControls\IdeaProposing.xaml;UserControls\InvoiceCreating.xaml;UserControls\PhotoDelivery.xaml;UserControls\PrintPhoto.xaml;UserControls\UserControlMenuDrawer.xaml;View\DashboardMain.xaml;View\LoginWindow.xaml;
+UserControls\Accounting\CalculateBills.xaml;UserControls\IdeaProposing.xaml;UserControls\InvoiceCreating.xaml;UserControls\PhotoDelivery.xaml;UserControls\PrintPhoto.xaml;UserControls\UserControlMenuDrawer.xaml;View\DashboardMain.xaml;View\LoginWindow.xaml;
 
-True
+False
 

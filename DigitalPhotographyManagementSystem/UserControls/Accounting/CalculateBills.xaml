@@ -1,29 +1,44 @@
-﻿<UserControl x:Class="DigitalPhotographyManagementSystem.View.InvoiceCreating"
+﻿<UserControl x:Class="DigitalPhotographyManagementSystem.UserControls.Accounting.CalculateBills"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.View"
+             xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.UserControls.Accounting"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             Height="700" Width="1104"
-             Background="White">
+             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
+             
+             Height="663" Width="1104"
+             Background="White" >
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.2*"/>
-            <RowDefinition Height="2.5*"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
             <Label HorizontalAlignment="Left"
                    VerticalAlignment="Center"
-                   Margin="30,0,0,0" 
+                   Margin="30,0,0,45" 
                    FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
                    FontWeight="Bold"
                    FontSize="30"
-                       >Invoice Creating</Label>
+                       >Creating Payment Bills</Label>
+            
+            <Border CornerRadius="10" 
+                    BorderThickness="2"
+                    BorderBrush="#789ADE"
+                    Margin="30,62,654,5">
+                <TextBox 
+                          BorderThickness="0"
+                          Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                          materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                          materialDesign:HintAssist.Hint="The invoice ID"
+                          FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
+                          FontWeight="Normal"/>
+            </Border>
 
             <TextBlock HorizontalAlignment="Right"
                        VerticalAlignment="Center"
@@ -41,8 +56,9 @@
                        FontSize="18"
                        FontWeight="Medium"
                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">
-                        ID: This is an ID
+                        ID: This is an ID 
             </TextBlock>
+
         </Grid>
 
         <Grid Grid.Row="1">
@@ -59,7 +75,7 @@
                    FontWeight="Bold"
                    FontSize="22"
                        >Customer's Information</Label>
-
+                
                 <StackPanel Margin="0,40,0,0">
                     <Border CornerRadius="10" 
                             BorderThickness="2"
@@ -112,23 +128,29 @@
                     </Border>
                 </StackPanel>
             </Grid>
+           
+        </Grid>
+        
+        <Grid Grid.Row="2" Background="AliceBlue">
+            <TextBlock>This is left blank for future purpuse</TextBlock>
         </Grid>
 
         <Grid Grid.Row="3">
-
             <Label FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
                    FontWeight="Bold"
                    FontSize="30" 
-                   Margin="740,8,0,68"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center" >
+                   Margin="0,22,280,0"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Top" >
                 Total:
             </Label>
             <Border CornerRadius="25" 
                     Background="#8699DA"
-                    Margin="844,0,10,66"
+                    Margin="0,15,15,0"
                     Width="250"
-                    Height="55">
+                    Height="60"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top" >
                 <TextBlock FontSize="20"
                            Foreground="White" Background="Transparent"
                            TextWrapping="Wrap"
@@ -142,8 +164,8 @@
 
             <Border CornerRadius="15" 
                     Background="#8699DA"
-                    Margin="944,65,10,6"
-                     Width="150"
+                    Margin="940,86,0,10"
+                    Width="150"
                     Height="60">
                 <Button FontSize="20"
                         Foreground="White" Background="Transparent"
@@ -156,7 +178,7 @@
 
             <Border CornerRadius="15" 
                     Background="#8699DA"
-                    Margin="789,65,165,6"
+                    Margin="778,86,176,10"
                     Width="150"
                     Height="60">
                 <Button FontSize="20"
@@ -170,7 +192,7 @@
 
             <Border CornerRadius="15" 
                     Background="#EA9769"
-                    Margin="628,65,326,6"
+                    Margin="610,86,344,10"
                     Width="150"
                     Height="60">
                 <Button FontSize="20"
@@ -182,5 +204,6 @@
                 </Button>
             </Border>
         </Grid>
+        
     </Grid>
 </UserControl>
