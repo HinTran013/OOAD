@@ -74,6 +74,12 @@
     <Compile Include="UserControls\Accounting\ReportPrices.xaml.cs">
       <DependentUpon>ReportPrices.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AdminOnly\CreateAccount.xaml.cs">
+      <DependentUpon>CreateAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AdminOnly\ListAccounts.xaml.cs">
+      <DependentUpon>ListAccounts.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AdminOnly\ListOfPriceChanges.xaml.cs">
       <DependentUpon>ListOfPriceChanges.xaml</DependentUpon>
     </Compile>
@@ -119,6 +125,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Accounting\ReportPrices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AdminOnly\CreateAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AdminOnly\ListAccounts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

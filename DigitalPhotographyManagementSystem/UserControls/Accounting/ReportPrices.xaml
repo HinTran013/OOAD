@@ -13,7 +13,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.7*"/>
-            <RowDefinition Height="6*"/>
+            <RowDefinition Height="6.2*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -28,7 +28,6 @@
 
             <TextBlock HorizontalAlignment="Right"
                        VerticalAlignment="Center"
-   
                        FontSize="18"
                        FontWeight="Medium"
                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
@@ -128,7 +127,7 @@
                         <Border Margin="30,5,30,0"
                                 CornerRadius="10" 
                                 Background="#8699DA"
-                                Height="400">
+                                Height="405">
                             <Border Margin="5" 
                                     CornerRadius="10" 
                                     Background="White">
@@ -136,9 +135,9 @@
                                     <ListView.View>
                                         <GridView>
                                             <GridViewColumn Header="No." Width="85" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
-                                            <GridViewColumn Header="Photo type" Width="200" DisplayMemberBinding="{Binding invoiceID}" ></GridViewColumn>
-                                            <GridViewColumn Header="Old price" Width="295" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
-                                            <GridViewColumn Header="New price" Width="295" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
+                                            <GridViewColumn Header="Photo type" Width="200" DisplayMemberBinding="{Binding photoType}" ></GridViewColumn>
+                                            <GridViewColumn Header="Old price" Width="295" DisplayMemberBinding="{Binding oldPrice}" ></GridViewColumn>
+                                            <GridViewColumn Header="New price" Width="295" DisplayMemberBinding="{Binding newPrice}" ></GridViewColumn>
                                             <GridViewColumn Header="Action" Width="150">
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>

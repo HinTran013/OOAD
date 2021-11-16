@@ -163,7 +163,7 @@
                                 <GridView>
                                     <GridViewColumn Header="No." Width="110" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
                                     <GridViewColumn Header="Invoice ID" Width="270" DisplayMemberBinding="{Binding invoiceID}" ></GridViewColumn>
-                                    <GridViewColumn Header="Service" Width="350" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
+                                    <GridViewColumn Header="Service" Width="350" DisplayMemberBinding="{Binding serviceName}" ></GridViewColumn>
                                     <GridViewColumn Header="Action" Width="150">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>

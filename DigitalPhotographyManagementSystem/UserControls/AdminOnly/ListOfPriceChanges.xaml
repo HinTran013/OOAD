@@ -39,9 +39,9 @@
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="No." Width="85" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
-                                <GridViewColumn Header="Photo type" Width="200" DisplayMemberBinding="{Binding invoiceID}" ></GridViewColumn>
-                                <GridViewColumn Header="Old price" Width="295" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
-                                <GridViewColumn Header="New price" Width="295" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
+                                <GridViewColumn Header="Photo type" Width="200" DisplayMemberBinding="{Binding photoType}" ></GridViewColumn>
+                                <GridViewColumn Header="Old price" Width="295" DisplayMemberBinding="{Binding oldPrice}" ></GridViewColumn>
+                                <GridViewColumn Header="New price" Width="295" DisplayMemberBinding="{Binding newPrice}" ></GridViewColumn>
                                 <GridViewColumn Header="Action" Width="150">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
