@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="DigitalPhotographyManagementSystem.UserControls.Technical.ListOfInvoices"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.UserControls.Technical"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
+              
+             Height="663" Width="1104"
+             Background="White" >
+    <Grid>
+        <StackPanel>
+            <Label HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="30,20,0,0" 
+                   FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
+                   FontWeight="Bold"
+                   FontSize="30"
+                       >List of Invoices (Photos Taking)</Label>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Border 
+                            CornerRadius="10" 
+                            BorderThickness="2"
+                            BorderBrush="#789ADE"
+                            Margin="30,5,10,0">
+                        <TextBox FontSize="15"
+                                 BorderThickness="0"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                 materialDesign:HintAssist.Hint="Search"
+                                 FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
+                                 FontWeight="Normal"/>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Border Margin="5,0,0,0"
+                            Background="#8699DA"
+                            CornerRadius="10"
+                            Width="250"
+                            HorizontalAlignment="Left">
+                        <ComboBox  FontWeight="Bold"
+                                   Foreground="White"
+                                   FontSize="15"
+                                   BorderThickness="0"
+                                   Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                   IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
+                                   materialDesign:HintAssist.Hint="Search type"
+                                   ItemsSource="{Binding ShortStringList}"/>
+                    </Border>
+                </Grid>
+            </Grid>
+
+            <Label Content="LIST BOX OF CUSTOMER'S INVOICE" 
+                   FontWeight="Bold" 
+                   HorizontalAlignment="Center"
+                   FontSize="18" Margin="0,10,0,0"/>
+
+            <Border Margin="30,0,30,0" 
+                    Height="460" 
+                    CornerRadius="10" 
+                    Background="#8699DA">
+                <Border Margin="5" 
+                        CornerRadius="10" 
+                        Background="White">
+                    <ListView Name="listInvoice">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="No." Width="110" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
+                                <GridViewColumn Header="Invoice ID" Width="270" DisplayMemberBinding="{Binding invoiceID}" ></GridViewColumn>
+                                <GridViewColumn Header="Customer Name" Width="270" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
+                                <GridViewColumn Header="Date" Width="180" DisplayMemberBinding="{Binding Date}" ></GridViewColumn>
+                                <GridViewColumn Header="Action" Width="170">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Content="Done" Background="#8699DA"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Border>
+            </Border>
+        </StackPanel> 
+    </Grid>
+</UserControl>
