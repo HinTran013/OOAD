@@ -74,10 +74,10 @@
                                 Style="{StaticResource MaterialDesignOutlinedDatePicker}"
                                 BorderBrush="White"
                                 BorderThickness="0"
-                                SelectedDateChanged="DatePicker_LoadDatabase"
+                               
                                 materialDesign:HintAssist.IsFloating="True"
                                 materialDesign:HintAssist.Hint="Due Date"
-                                PreviewTextInput="Date_PreviewTextInput"/>
+                                />
                 </Border>
 
                 <StackPanel Margin="0,60,30,0">
