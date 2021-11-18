@@ -9,7 +9,7 @@
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
               
              Height="840" Width="1104"
-             Background="White" >
+             Background="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1.2*"/>

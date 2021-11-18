@@ -63,7 +63,7 @@
                                 Background="#8699DA"
                                 CornerRadius="10">
                             <ComboBox   FontWeight="Bold"
-                                        Foreground="White"
+                                        Foreground="Black"
                                         FontSize="15"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
