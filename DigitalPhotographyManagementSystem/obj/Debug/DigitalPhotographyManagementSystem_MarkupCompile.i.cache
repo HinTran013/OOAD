@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\OOAD PROJECT\OOAD\DigitalPhotographyManagementSystem\App.xaml
-7-2118697851
-8-1614229102
-14-989793406
-133780502298
-UserControls\IdeaProposing.xaml;UserControls\InvoiceCreating.xaml;UserControls\PhotoDelivery.xaml;UserControls\PrintPhoto.xaml;UserControls\UserControlMenuDrawer.xaml;View\DashboardMain.xaml;View\LoginWindow.xaml;
+15-263492555
+14-318170586
+221521384175
+133453294025
+UserControls\Accounting\CalculateBills.xaml;UserControls\Accounting\FundBills.xaml;UserControls\Accounting\ReportPrices.xaml;UserControls\AdminOnly\CreateAccount.xaml;UserControls\AdminOnly\ListAccounts.xaml;UserControls\AdminOnly\ListOfPriceChanges.xaml;UserControls\Marketing\IdeaProposing.xaml;UserControls\Marketing\PrintPhoto.xaml;UserControls\Technical\InvoiceDetail.xaml;UserControls\Technical\ListOfInvoices.xaml;UserControls\Transaction\InvoiceCreating.xaml;UserControls\Transaction\PhotoDelivery.xaml;UserControls\UserControlMenuDrawer.xaml;View\DashboardMain.xaml;View\LoginWindow.xaml;
 
 True
 

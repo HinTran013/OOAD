@@ -10,26 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DigitalPhotographyManagementSystem.View
+namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for CreateAccount.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class CreateAccount : UserControl
     {
-        public LoginWindow()
+        public CreateAccount()
         {
             InitializeComponent();
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
         }
     }
 }

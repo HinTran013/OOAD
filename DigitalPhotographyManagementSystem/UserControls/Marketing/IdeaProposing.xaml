@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.View"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DesignHeight="663" d:DesignWidth="1104"
+             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
+             
+             Height="663" Width="1104"
              Background="White">
     <Grid>
         <Grid.RowDefinitions>
@@ -18,7 +20,7 @@
         <Grid Grid.Row="0">
             <Label HorizontalAlignment="Left"
                    VerticalAlignment="Center"
-                   Margin="0,0" 
+                   Margin="30,0,0,0" 
                    FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
                    FontWeight="Bold"
                    FontSize="30"
@@ -26,25 +28,28 @@
 
             <TextBlock HorizontalAlignment="Right"
                        VerticalAlignment="Center"
+   
                        FontSize="18"
                        FontWeight="Medium"
-                       FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">
+                       FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
+                       Margin="0,0,25,0">
                         Date time: 21/10/2021
             </TextBlock>
         </Grid>
 
         <Grid Grid.Row="1">
-            <StackPanel Background="AliceBlue">
+            <StackPanel>
                 <Border CornerRadius="10" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
                         Margin="30,5,700,0">
-                    <TextBox x:Name="idea_textbox"
+                    <TextBox 
                              BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                              materialDesign:HintAssist.Hint="Idea's Subject"
-                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" FontWeight="Normal"/>
+                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
+                             FontWeight="Normal"/>
                 </Border>
 
                 <Border CornerRadius="10" 
@@ -55,13 +60,15 @@
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                              materialDesign:HintAssist.Hint="Description of the idea"
-                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" FontWeight="Normal" Height="422"/>
+                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
+                             FontWeight="Normal" 
+                             Height="422"/>
                 </Border>
             </StackPanel>
         </Grid>
 
         <Grid Grid.Row="2">
-            <Border CornerRadius="25" 
+            <Border CornerRadius="15" 
                     Background="#8699DA"
                     Margin="916,10,30,10"
                     Width="150">
@@ -74,15 +81,15 @@
                 </Button>
             </Border>
 
-            <Border CornerRadius="25" 
-                        Background="#EA9769"
-                        Margin="744,10,210,10"
+            <Border CornerRadius="15" 
+                    Background="#EA9769"
+                    Margin="744,10,210,10"
                     Width="150">
                 <Button FontSize="20"
-                            Foreground="White" Background="Transparent"
-                            BorderBrush="{x:Null}" 
-                            Height="50" FontWeight="Normal"
-                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                        Foreground="White" Background="Transparent"
+                        BorderBrush="{x:Null}" 
+                        Height="50" FontWeight="Normal"
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
                     Cancel
                 </Button>
             </Border>

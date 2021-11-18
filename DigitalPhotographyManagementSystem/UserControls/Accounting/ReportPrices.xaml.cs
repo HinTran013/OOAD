@@ -10,26 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-
-namespace DigitalPhotographyManagementSystem.View
+using DTO;
+using BUS;
+namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for ReportPrices.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class ReportPrices : UserControl
     {
-        public LoginWindow()
+        public ReportPrices()
         {
             InitializeComponent();
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
+            staffBUS.AddNewStaff(new staffDTO("2", "test", "1/1/2001", true, "hihi@gm.com", "234234234", "23tr", "Ai ma biet"));
         }
     }
 }

@@ -10,26 +10,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BUS;
+using DTO;
 
 namespace DigitalPhotographyManagementSystem.View
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for InvoiceCreating.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class InvoiceCreating : UserControl
     {
-        public LoginWindow()
+        public InvoiceCreating()
         {
             InitializeComponent();
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
+            
         }
     }
 }
