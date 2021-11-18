@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="DigitalPhotographyManagementSystem.UserControls.AdminOnly.ListOfPriceChanges"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.UserControls.AdminOnly"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
+              
+             Height="663" Width="1104"
+             Background="White" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="0.8*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Label HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Margin="30,0,0,0" 
+                   FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
+                   FontWeight="Bold"
+                   FontSize="30"
+                       >List of Request for changing Photo prices</Label>
+            
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Border Margin="30,0,30,0"
+                    CornerRadius="10" 
+                    Background="#8699DA">
+                <Border Margin="5" 
+                        CornerRadius="10" 
+                        Background="White">
+                    <ListView>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="No." Width="85" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
+                                <GridViewColumn Header="Photo type" Width="200" DisplayMemberBinding="{Binding photoType}" ></GridViewColumn>
+                                <GridViewColumn Header="Old price" Width="295" DisplayMemberBinding="{Binding oldPrice}" ></GridViewColumn>
+                                <GridViewColumn Header="New price" Width="295" DisplayMemberBinding="{Binding newPrice}" ></GridViewColumn>
+                                <GridViewColumn Header="Action" Width="150">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Content="Delete" Background="#8699DA"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Border>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Border CornerRadius="15" 
+                    Background="#8699DA"
+                    Margin="916,10,30,10"
+                    Width="150">
+                <Button FontSize="20"
+                        Foreground="White" Background="Transparent"
+                        BorderBrush="{x:Null}" 
+                        Height="50" FontWeight="Normal"
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                    Confirm
+                </Button>
+            </Border>
+
+            <Border CornerRadius="15" 
+                    Background="#EA9769"
+                    Margin="744,10,210,10"
+                    Width="150">
+                <Button FontSize="20"
+                        Foreground="White" Background="Transparent"
+                        BorderBrush="{x:Null}" 
+                        Height="50" 
+                        FontWeight="Normal"
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                    Cancel
+                </Button>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>
