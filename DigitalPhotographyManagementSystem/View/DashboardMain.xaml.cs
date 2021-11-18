@@ -33,7 +33,7 @@ namespace DigitalPhotographyManagementSystem.View
             var marketSubMenu = new ItemMenu("  MARKETING DEPT", menuMarketDept, PackIconKind.Speaker);
 
             var menuTransDept = new List<SubItem>();
-            menuTransDept.Add(new SubItem("Create invoice"));
+            menuTransDept.Add(new SubItem("Create invoice", new InvoiceCreating()));
             menuTransDept.Add(new SubItem("Photo delivery", new PhotoDelivery()));
             menuTransDept.Add(new SubItem("Technical issues resolve"));
             var transSubMenu = new ItemMenu("  TRANSACTION DEPT", menuTransDept, PackIconKind.Coins);
