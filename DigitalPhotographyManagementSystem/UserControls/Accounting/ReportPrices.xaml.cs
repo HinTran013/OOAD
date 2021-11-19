@@ -28,7 +28,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            staffBUS.AddNewStaff(new staffDTO("2", "test", "1/1/2001", true, "hihi@gm.com", "234234234", "23tr", "Ai ma biet"));
+            fundBillBUS.AddFundBill(new fundBillDTO("huhu", "13/8/2022", 2324234D, "asdsadasdas", "ai ma biet"));
         }
     }
 }

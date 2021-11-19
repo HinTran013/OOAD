@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fundBillDTO.cs" />
+    <Compile Include="ideaDTO.cs" />
+    <Compile Include="paymentBillDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="staffDTO.cs" />
   </ItemGroup>
