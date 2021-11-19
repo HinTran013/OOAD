@@ -1,15 +1,15 @@
-﻿<UserControl x:Class="DigitalPhotographyManagementSystem.UserControls.Accounting.FundBills"
+﻿<UserControl x:Class="DigitalPhotographyManagementSystem.UserControls.Marketing.AdCampaign"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.UserControls.Accounting"
+             xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.UserControls.Marketing"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
              
              Height="663" Width="1104"
-             Background="White" >
+             Background="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.8*"/>
@@ -24,7 +24,7 @@
                    FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
                    FontWeight="Bold"
                    FontSize="30"
-                       >Expenditure and Revenue</Label>
+                       >Advertisement Campaign</Label>
 
             <TextBlock HorizontalAlignment="Right"
                        VerticalAlignment="Center"
@@ -43,25 +43,28 @@
                         BorderThickness="2"
                         BorderBrush="#789ADE"
                         Margin="30,0,0,5"
-                        Width="370"
-                        HorizontalAlignment="Left">
+                        HorizontalAlignment="Left"
+                        Width="500"
+                        Height="60">
                     <TextBox 
                              BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                             materialDesign:HintAssist.Hint="ID of the Fund Bills (Expenditure and Revenue)"
+                             materialDesign:HintAssist.Hint="Campaign name"
                              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                             FontWeight="Normal"/>
+                             FontWeight="Normal"
+                             FontSize="18"/>
                 </Border>
 
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3.5*"/>
-                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="6*"/>
                     </Grid.ColumnDefinitions>
 
                     <Grid Grid.Column="0">
-                        <Border Margin="30,0,10,0"
+                        <Border Margin="30,0,0,0"
                                 Background="#8699DA"
                                 CornerRadius="10">
                             <ComboBox   FontWeight="Bold"
@@ -70,22 +73,48 @@
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                         IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
-                                        materialDesign:HintAssist.Hint="Bill type"
+                                        materialDesign:HintAssist.Hint="Campaign type"
                                         ItemsSource="{Binding ShortStringList}"/>
                         </Border>
                     </Grid>
+                    
                     <Grid Grid.Column="1">
-                        <Border CornerRadius="10" 
-                                BorderThickness="2"
-                                BorderBrush="#789ADE"
-                                Margin="0,0,450,0">
-                            <TextBox    
+                        <Border VerticalAlignment="Top"
+                                HorizontalAlignment="Right"
+                                Margin="0,0,0,0"
+                                Background="#8699DA"
+                                CornerRadius="10"
+                                Width="270">
+                            <DatePicker FontSize="15"
+                                        Foreground="Black"
+                                        FontWeight="Bold"
+                                        Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                                        BorderBrush="White"
                                         BorderThickness="0"
-                                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                        materialDesign:HintAssist.Hint="Price"
-                                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Normal"/>
+                               
+                                        materialDesign:HintAssist.IsFloating="True"
+                                        materialDesign:HintAssist.Hint="Start Date"/>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Column="2">
+                        <Border VerticalAlignment="Top"
+                                HorizontalAlignment="Right"
+                                Margin="0,0,30,0"
+                                Background="#8699DA"
+                                CornerRadius="10"
+                                Width="270">
+                            <DatePicker FontSize="15"
+                                        Foreground="Black"
+                                        FontWeight="Bold"
+                                        Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                                        BorderBrush="White"
+                                        BorderThickness="0"
+                               
+                                        materialDesign:HintAssist.IsFloating="True"
+                                        materialDesign:HintAssist.Hint="End date"/>
                         </Border>
                     </Grid>
                 </Grid>
@@ -94,17 +123,18 @@
                         BorderThickness="2"
                         BorderBrush="#789ADE"
                         Margin="30,5,30,0"
-                        Height="395">
+                        Height="385">
                     <TextBox BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                             materialDesign:HintAssist.Hint="Description of expenditure and revenue"
+                             materialDesign:HintAssist.Hint="Detail information about the ad campaign"
                              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                             FontWeight="Normal"/>
+                             FontWeight="Normal"
+                             FontSize="16"/>
                 </Border>
             </StackPanel>
         </Grid>
-        
+
 
         <Grid Grid.Row="2">
             <Border CornerRadius="15" 
@@ -116,7 +146,7 @@
                         BorderBrush="{x:Null}" 
                         Height="50" FontWeight="Normal"
                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
-                    Report
+                    Submit
                 </Button>
             </Border>
 
