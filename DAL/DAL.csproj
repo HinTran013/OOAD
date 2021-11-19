@@ -110,6 +110,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fundBillDAL.cs" />
+    <Compile Include="ideaDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="staffDAL.cs" />
   </ItemGroup>
