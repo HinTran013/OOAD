@@ -24,7 +24,7 @@
         <Grid Grid.Column="0" Background="#FFFFFF">
             <StackPanel Margin="30,30,10,30">
 
-                <Image Source="/ImageSrc/logo_demo.png"
+                <Image 
                        Height="130"></Image>
 
                 <Label HorizontalAlignment="Center"

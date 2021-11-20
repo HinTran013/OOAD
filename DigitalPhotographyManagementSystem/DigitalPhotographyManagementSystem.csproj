@@ -318,9 +318,6 @@
     <Resource Include="ImageSrc\login_illustrate.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ImageSrc\logo_demo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BUS\BUS.csproj">
       <Project>{7db7f473-1201-446c-b6ae-e8e716688135}</Project>
       <Name>BUS</Name>
