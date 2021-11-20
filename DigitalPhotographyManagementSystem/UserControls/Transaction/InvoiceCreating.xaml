@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.View"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             Height="800" Width="1099"
-             Background="#EFF0F2"
+             Height="800" Width="1084"
+             Background="White"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">
     <!--<Grid>
         <Grid.RowDefinitions>

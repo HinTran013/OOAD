@@ -8,8 +8,8 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
              
-             Height="658" Width="1099"
-             Background="#EFF0F2">
+             Height="653" Width="1084"
+             Background="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -18,14 +18,18 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Label HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Margin="30,0,0,0" 
-                   FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
-                   FontWeight="Bold"
-                   FontSize="30"
-                       >Proposing Idea Form</Label>
-
+            <Border CornerRadius="10" 
+                        BorderThickness="2"
+                        BorderBrush="#789ADE"
+                        Margin="30,10,700,10" VerticalAlignment="Center">
+                <TextBox 
+                             BorderThickness="0"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                             materialDesign:HintAssist.Hint="Idea's Subject"
+                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
+                             FontWeight="Normal" FontSize="14"/>
+            </Border>
             <TextBlock HorizontalAlignment="Right"
                        VerticalAlignment="Center"
    
@@ -42,19 +46,6 @@
                 <Border CornerRadius="10" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
-                        Margin="30,5,700,0">
-                    <TextBox 
-                             BorderThickness="0"
-                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                             materialDesign:HintAssist.Hint="Idea's Subject"
-                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                             FontWeight="Normal"/>
-                </Border>
-
-                <Border CornerRadius="10" 
-                        BorderThickness="2"
-                        BorderBrush="#789ADE"
                         Margin="30,10,30,0">
                     <TextBox BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
@@ -62,7 +53,7 @@
                              materialDesign:HintAssist.Hint="Description of the idea"
                              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
                              FontWeight="Normal" 
-                             Height="422"/>
+                             Height="465"/>
                 </Border>
             </StackPanel>
         </Grid>
@@ -70,7 +61,7 @@
         <Grid Grid.Row="2">
             <Border CornerRadius="15" 
                     Background="#8699DA"
-                    Margin="916,10,30,10"
+                    Margin="900,10,30,10"
                     Width="150">
                 <Button FontSize="20"
                         Foreground="White" Background="Transparent"
@@ -83,7 +74,7 @@
 
             <Border CornerRadius="15" 
                     Background="#EA9769"
-                    Margin="744,10,210,10"
+                    Margin="720,10,210,10"
                     Width="150">
                 <Button FontSize="20"
                         Foreground="White" Background="Transparent"

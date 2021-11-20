@@ -12,29 +12,22 @@
             TextElement.FontSize="25"
             FontFamily="{DynamicResource MaterialDesignFont}"
              
-             Height="658" Width="1099">
+             Height="653" Width="1084">
 
-    <StackPanel Background="#EFF0F2">
+    <StackPanel Background="White">
        
         <Grid Margin="60 50 60 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.1*"/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <Label Grid.Column="0" Grid.Row="0" Content="PRINT PHOTOS" FontWeight="Bold" />
+            <Label Content="LIST BOX OF CUSTOMER'S INVOICE" FontWeight="Bold" Margin="252,0,0,0" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold"/>
             <Label Grid.Column="1" Grid.Row="0" Content="Date:" HorizontalContentAlignment="Right"/>
             <Label Grid.Column="2" Grid.Row="0" Content="21/12/2021"/>
         </Grid>
 
-        <Label Content="LIST BOX OF CUSTOMER'S INVOICE" FontWeight="Bold" HorizontalAlignment="Center"/>
-
-        <Border Margin="60 10 60 0" Height="450" CornerRadius="10" Background="#8699DA">
+        <Border Margin="60 10 60 0" Height="540" CornerRadius="10" Background="#8699DA">
             <Border Margin="5" CornerRadius="10" Background="White">
         <ListView Name="listInvoice">
             <ListView.View>

@@ -8,18 +8,10 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
               
-             Height="658" Width="1099"
-             Background="#EFF0F2">
+             Height="653" Width="1084"
+             Background="White">
     <Grid>
         <StackPanel>
-            <Label HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Margin="30,20,0,0" 
-                   FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
-                   FontWeight="Bold"
-                   FontSize="30"
-                       >List of Invoices (Photos Taking)</Label>
-
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="7*"/>
@@ -31,7 +23,7 @@
                             CornerRadius="10" 
                             BorderThickness="2"
                             BorderBrush="#789ADE"
-                            Margin="30,5,10,0">
+                            Margin="30,10,10,0">
                         <TextBox FontSize="15"
                                  BorderThickness="0"
                                  Style="{StaticResource MaterialDesignOutlinedTextBox}"
@@ -43,7 +35,7 @@
                 </Grid>
 
                 <Grid Grid.Column="1">
-                    <Border Margin="5,0,0,0"
+                    <Border Margin="5,10,0,0"
                             Background="#8699DA"
                             CornerRadius="10"
                             Width="250"
@@ -62,7 +54,7 @@
 
             <Label Content="LIST BOX OF CUSTOMER'S INVOICE" 
                    FontWeight="Bold" 
-                   HorizontalAlignment="Center"
+                   HorizontalAlignment="Center" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold"
                    FontSize="18" Margin="0,10,0,0"/>
 
             <Border Margin="30,0,30,0" 

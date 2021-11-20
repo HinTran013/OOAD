@@ -8,15 +8,15 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
               
-             Height="658" Width="1099"
-             Background="#EFF0F2">
+             Height="653" Width="1084"
+             Background="White">
     <Grid>
         <StackPanel>
 
-            <Border Margin="30,5,30,0"
+            <Border Margin="30,5,30,5"
                     CornerRadius="10" 
                     Background="#8699DA"
-                    Height="650">
+                    Height="645">
                 <Border Margin="5" 
                         CornerRadius="10" 
                         Background="White">

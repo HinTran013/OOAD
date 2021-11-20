@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"           
-             Height="658" Width="1099"
-             Background="#EFF0F2" >
+             Height="653" Width="1084"
+             Background="White" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="8*"/>
