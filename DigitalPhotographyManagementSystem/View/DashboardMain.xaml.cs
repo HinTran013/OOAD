@@ -30,34 +30,34 @@ namespace DigitalPhotographyManagementSystem.View
         {
             InitializeComponent();
             var menuMarketDept = new List<SubItem>();
-            menuMarketDept.Add(new SubItem("Propose new ideas", new IdeaProposing()));
+            menuMarketDept.Add(new SubItem("Propose New Ideas", new IdeaProposing()));
             //
             //menuMarketDept.Add(new SubItem("Ad campaign"));
-            menuMarketDept.Add(new SubItem("Print photos", new PrintPhoto()));
-            var marketSubMenu = new ItemMenu("  MARKETING DEPT", menuMarketDept, PackIconKind.Speaker);
+            menuMarketDept.Add(new SubItem("Print Photos", new PrintPhoto()));
+            var marketSubMenu = new ItemMenu("MARKETING DEPT", menuMarketDept, PackIconKind.Megaphone);
 
             var menuTransDept = new List<SubItem>();
-            menuTransDept.Add(new SubItem("Create invoice", new InvoiceCreating()));
+            menuTransDept.Add(new SubItem("Create Invoice", new InvoiceCreating()));
             menuTransDept.Add(new SubItem("Photo delivery", new PhotoDelivery()));
             //
             //menuTransDept.Add(new SubItem("Technical issues resolve"));
-            var transSubMenu = new ItemMenu("  TRANSACTION DEPT", menuTransDept, PackIconKind.Coins);
+            var transSubMenu = new ItemMenu("TRANSACTION DEPT", menuTransDept, PackIconKind.Coins);
 
             var menuAccDept = new List<SubItem>();
-            menuAccDept.Add(new SubItem("Create bill", new CalculateBills()));
-            menuAccDept.Add(new SubItem("Manage", new FundBills()));
-            menuAccDept.Add(new SubItem("Report price", new ReportPrices()));
-            var accSubMenu = new ItemMenu("  ACCOUNTING DEPT", menuAccDept, PackIconKind.Calculator);
+            menuAccDept.Add(new SubItem("Create Payment Bill", new CalculateBills()));
+            menuAccDept.Add(new SubItem("Create Fund Bill", new FundBills()));
+            menuAccDept.Add(new SubItem("Report Price of Photos", new ReportPrices()));
+            var accSubMenu = new ItemMenu("ACCOUNTING DEPT", menuAccDept, PackIconKind.Calculator);
 
             var menuTechDept = new List<SubItem>();
-            menuTechDept.Add(new SubItem("Detail of Invoice", new ListOfInvoices()));
-            var techSubMenu = new ItemMenu("  TECHINCAL DEPT", menuTechDept, PackIconKind.Toolbox);
+            menuTechDept.Add(new SubItem("Detail Of Invoice", new ListOfInvoices()));
+            var techSubMenu = new ItemMenu("TECHINCAL DEPT", menuTechDept, PackIconKind.HammerScrewdriver);
 
             var menuAdmin = new List<SubItem>();
             menuAdmin.Add(new SubItem("Create Account", new CreateAccount()));
-            menuAdmin.Add(new SubItem("List of Accounts", new ListAccounts()));
-            menuAdmin.Add(new SubItem("List of Price Changes", new ListOfPriceChanges()));
-            var AdminSubMenu = new ItemMenu("   ADMINISTRATOR", menuAdmin, PackIconKind.Administrator);
+            menuAdmin.Add(new SubItem("Manage Accounts", new ListAccounts()));
+            menuAdmin.Add(new SubItem("Manage Price Changes", new ListOfPriceChanges()));
+            var AdminSubMenu = new ItemMenu("ADMINISTRATOR", menuAdmin, PackIconKind.Administrator);
 
             SideMenu.Children.Add(new UserControlMenuDrawer(marketSubMenu, this));
             SideMenu.Children.Add(new UserControlMenuDrawer(transSubMenu, this));

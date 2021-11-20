@@ -69,12 +69,13 @@
                        FontStyle="Italic" FontWeight="Normal" FontSize="13">Or</Label>
 
                 <Border CornerRadius="25"
-                        Background="#8699DA"
-                        Margin="50,2">
+                        BorderThickness="3"
+                        Background="White"
+                        Margin="50,2" BorderBrush="#FF8699DA">
                     <Button Click="Button_Click"   
                             Height="50"
                             FontSize="20"
-                            Background="Transparent" Foreground="White"
+                            Background="Transparent" Foreground="#8699DA"
                             BorderBrush="{x:Null}" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">Exit</Button>
                 </Border>
 

@@ -8,22 +8,15 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
               
-             Height="663" Width="1104"
-             Background="White" >
+             Height="658" Width="1099"
+             Background="#EFF0F2">
     <Grid>
         <StackPanel>
-            <Label HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Margin="30,10,0,0" 
-                   FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
-                   FontWeight="Bold"
-                   FontSize="30"
-                       >List of Accounts</Label>
 
             <Border Margin="30,5,30,0"
                     CornerRadius="10" 
                     Background="#8699DA"
-                    Height="560">
+                    Height="650">
                 <Border Margin="5" 
                         CornerRadius="10" 
                         Background="White">

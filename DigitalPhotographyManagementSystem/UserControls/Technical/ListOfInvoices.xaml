@@ -8,8 +8,8 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
               
-             Height="663" Width="1104"
-             Background="White" >
+             Height="658" Width="1099"
+             Background="#EFF0F2">
     <Grid>
         <StackPanel>
             <Label HorizontalAlignment="Left"

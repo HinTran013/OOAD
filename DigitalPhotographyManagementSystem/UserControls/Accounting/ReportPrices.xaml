@@ -8,8 +8,8 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
               
-             Height="663" Width="1104"
-             Background="White">
+             Height="658" Width="1099"
+             Background="#EFF0F2">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.7*"/>
@@ -18,14 +18,18 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Label HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Margin="30,0,0,0" 
-                   FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
-                   FontWeight="Bold"
-                   FontSize="30"
-                       >Report Price of Photos</Label>
-
+            <Border CornerRadius="10" 
+                    BorderThickness="2"
+                    BorderBrush="#789ADE"
+                    Margin="30,0,800,5" Background="White">
+                <TextBox x:Name="BillID"                       
+                          BorderThickness="0"
+                          Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                          materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                          materialDesign:HintAssist.Hint="Report's Subject"
+                          FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
+                          FontWeight="Normal" FontSize="14" VerticalAlignment="Center"/>
+            </Border>
             <TextBlock HorizontalAlignment="Right"
                        VerticalAlignment="Center"
                        FontSize="18"
@@ -38,19 +42,6 @@
 
         <Grid Grid.Row="1">
             <StackPanel>
-                <Border CornerRadius="10" 
-                        BorderThickness="2"
-                        BorderBrush="#789ADE"
-                        Margin="30,0,790,5">
-                    <TextBox 
-                             BorderThickness="0"
-                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                             materialDesign:HintAssist.Hint="Report subject"
-                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                             FontWeight="Normal"/>
-                </Border>
-
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="7*"/>
@@ -77,14 +68,14 @@
                         <Border CornerRadius="10" 
                                 BorderThickness="2"
                                 BorderBrush="#789ADE"
-                                Margin="5,0">
+                                Margin="5,0" Background="White">
                             <TextBox    
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="Old price"
                                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Normal"/>
+                                        FontWeight="Normal" FontSize="13"/>
                         </Border>
                     </Grid>
 
@@ -92,17 +83,17 @@
                         <Border CornerRadius="10" 
                                 BorderThickness="2"
                                 BorderBrush="#789ADE"
-                                Margin="5,0">
+                                Margin="5,0" Background="White">
                             <TextBox    
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="New price"
                                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Normal"/>
+                                        FontWeight="Normal" FontSize="13"/>
                         </Border>
                     </Grid>
-                    
+
                     <Grid Grid.Column="3">
                         <Border CornerRadius="15" 
                                 Background="#8699DA"
@@ -127,7 +118,7 @@
                         <Border Margin="30,5,30,0"
                                 CornerRadius="10" 
                                 Background="#8699DA"
-                                Height="405">
+                                Height="450">
                             <Border Margin="5" 
                                     CornerRadius="10" 
                                     Background="White">

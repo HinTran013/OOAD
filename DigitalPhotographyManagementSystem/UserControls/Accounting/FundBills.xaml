@@ -8,24 +8,28 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
              
-             Height="663" Width="1104"
-             Background="White" >
+             Height="658" Width="1099"
+             Background="#EFF0F2" >
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.75*"/>
             <RowDefinition Height="6*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Label HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Margin="30,0,0,0" 
-                   FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
-                   FontWeight="Bold"
-                   FontSize="30"
-                       >Expenditure and Revenue</Label>
-
+            <Border CornerRadius="10" 
+                    BorderThickness="2"
+                    BorderBrush="#789ADE"
+                    Margin="30,0,900,5" Background="White">
+                <TextBox x:Name="BillID"                       
+                          BorderThickness="0"
+                          Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                          materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                          materialDesign:HintAssist.Hint="Fund Bill ID"
+                          FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
+                          FontWeight="Normal" FontSize="14" VerticalAlignment="Center"/>
+            </Border>
             <TextBlock HorizontalAlignment="Right"
                        VerticalAlignment="Center"
    
@@ -39,25 +43,11 @@
 
         <Grid Grid.Row="1">
             <StackPanel>
-                <Border CornerRadius="10" 
-                        BorderThickness="2"
-                        BorderBrush="#789ADE"
-                        Margin="30,0,790,5">
-                    <TextBox 
-                             BorderThickness="0"
-                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                             materialDesign:HintAssist.Hint="ID of the Fund Bills (Expenditure and Revenue)"
-                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                             FontWeight="Normal"/>
-                </Border>
-
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="3.5*"/>
                         <ColumnDefinition Width="8*"/>
                     </Grid.ColumnDefinitions>
-
                     <Grid Grid.Column="0">
                         <Border Margin="30,0,10,0"
                                 Background="#8699DA"
@@ -76,33 +66,34 @@
                         <Border CornerRadius="10" 
                                 BorderThickness="2"
                                 BorderBrush="#789ADE"
-                                Margin="0,0,450,0">
+                                Margin="0,0,450,0" Background="White">
                             <TextBox    
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                        materialDesign:HintAssist.Hint="Price"
+                                        materialDesign:HintAssist.Hint="Cost"
                                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Normal"/>
+                                        FontWeight="Normal" FontSize="13"/>
                         </Border>
                     </Grid>
                 </Grid>
 
                 <Border CornerRadius="10" 
+                        Background="White"
                         BorderThickness="2"
                         BorderBrush="#789ADE"
-                        Margin="30,5,30,0">
+                        Margin="30,5,30,0" Height="444">
                     <TextBox BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                             materialDesign:HintAssist.Hint="Description of expenditure and revenue"
+                             materialDesign:HintAssist.Hint="Description"
                              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
                              FontWeight="Normal" 
-                             Height="375"/>
+                             FontSize="15"/>
                 </Border>
             </StackPanel>
         </Grid>
-        
+
 
         <Grid Grid.Row="2">
             <Border CornerRadius="15" 
