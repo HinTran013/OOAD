@@ -28,9 +28,10 @@
                     <Border.Effect>
                         <DropShadowEffect ShadowDepth="1" BlurRadius="10"/>
                     </Border.Effect>
+                    <Image Source="/ImageSrc/logo.png" Stretch="Uniform"/>
                 </Border>
             </Grid>
-            <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                 <StackPanel x:Name="SideMenu" Margin="5" >
                     <StackPanel.Resources>
                         <Style TargetType="{x:Type TextBox}">
@@ -56,7 +57,7 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10,15,0,0">
-                        <TextBlock Text="Accounting Department" HorizontalAlignment="Left"
+                        <TextBlock x:Name="TxtDeptName" Text="Accounting Department" HorizontalAlignment="Left"
                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
                                FontSize="15" Foreground="#FF716969"/>
                         <TextBlock/>
@@ -64,12 +65,12 @@
                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
                                FontSize="15"/>
                         <TextBlock/>
-                        <TextBlock Text="Dashboard" HorizontalAlignment="Left"
+                        <TextBlock x:Name="TxtTitleSmall" Text="Dashboard" HorizontalAlignment="Left"
                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
                                FontSize="15" Foreground="#FF383030"/>
                         <TextBlock/>
                     </StackPanel>
-                    <TextBlock Text="Dashboard" Grid.Row="1"
+                    <TextBlock x:Name="TxtTitle" Text="Dashboard" Grid.Row="1"
                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
                                FontSize="18" Margin="10,0,0,5"/>
                 </Grid>
@@ -88,7 +89,7 @@
                 </Grid>
             </Grid>
             <!--Main Content-->
-            <DockPanel x:Name="MainContent" Grid.Row="1">
+            <DockPanel x:Name="MainContent" Grid.Row="1" Margin="0,0,5,5">
 
             </DockPanel>
         </Grid>

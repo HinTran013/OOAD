@@ -39,11 +39,51 @@ namespace DigitalPhotographyManagementSystem.UserControls
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
             _context.SwitchScreen(((TextBlock)sender).Tag);
+            switch(ExpanderMenu.Header.ToString().Replace(" ", ""))
+            {
+                case "ACCOUNTINGDEPT":
+                    _context.TxtDeptName.Text = "Accounting Department";
+                    break;
+                case "MARKETINGDEPT":
+                    _context.TxtDeptName.Text = "Marketing Department";
+                    break;
+                case "TRANSACTIONDEPT":
+                    _context.TxtDeptName.Text = "Transaction Department";
+                    break;
+                case "TECHINCALDEPT":
+                    _context.TxtDeptName.Text = "Technical Department";
+                    break;
+                case "ADMINISTRATOR":
+                    _context.TxtDeptName.Text = "Administrator (CEO)";
+                    break;
+            }
+            _context.TxtTitle.Text = ((TextBlock)sender).Text.ToUpper();
+            _context.TxtTitleSmall.Text = ((TextBlock)sender).Text;
         }
 
         private void ListViewItemMenu_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             _context.SwitchScreen(((ItemMenu)((ListBoxItem)sender).DataContext).Screen);
+            switch (ExpanderMenu.Header.ToString().Replace(" ", ""))
+            {
+                case "ACCOUNTINGDEPT":
+                    _context.TxtDeptName.Text = "Accounting Department";
+                    break;
+                case "MARKETINGDEPT":
+                    _context.TxtDeptName.Text = "Marketing Department";
+                    break;
+                case "TRANSACTIONDEPT":
+                    _context.TxtDeptName.Text = "Transaction Department";
+                    break;
+                case "TECHINCALDEPT":
+                    _context.TxtDeptName.Text = "Technical Department";
+                    break;
+                case "ADMINISTRATOR":
+                    _context.TxtDeptName.Text = "Administrator (CEO)";
+                    break;
+            }
+            _context.TxtTitle.Text = ((TextBlock)sender).Text.ToUpper();
+            _context.TxtTitleSmall.Text = ((TextBlock)sender).Text;
         }
 
         private void ExpanderMenu_Expanded(object sender, RoutedEventArgs e)

@@ -276,7 +276,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fonts\Nunito-Black.ttf" />
+    <Resource Include="Fonts\Nunito-Black.ttf" />
     <Resource Include="Fonts\Nunito-BlackItalic.ttf" />
     <Resource Include="Fonts\Nunito-Bold.ttf" />
     <Resource Include="Fonts\Nunito-BoldItalic.ttf" />
@@ -304,6 +304,7 @@
     <Content Include="Core\Compression\Snappy\lib\win\snappy32.dll" />
     <Content Include="Core\Compression\Snappy\lib\win\snappy64.dll" />
     <Content Include="Core\Compression\Zstandard\lib\win\libzstd.dll" />
+    <Resource Include="ImageSrc\logo.png" />
     <Content Include="mongocrypt.dll" />
     <Content Include="bin\Debug\DigitalPhotographyManagementSystem.exe" />
     <Content Include="bin\Debug\DigitalPhotographyManagementSystem.pdb" />
