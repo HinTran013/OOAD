@@ -36,6 +36,12 @@
         <Label Content="LIST BOX OF PHOTO IN STORAGE" FontWeight="Bold" HorizontalAlignment="Center"/>
 
         <Border Margin="60 10 60 0" Height="450" CornerRadius="10" Background="#8699DA">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+            </Border.Effect>
             <Border Margin="5" CornerRadius="10" Background="White">
                 <ListView Name="listInvoice">
                     <ListView.View>

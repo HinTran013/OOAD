@@ -306,12 +306,18 @@
                        >Customer's Information</Label>
 
                     <Border VerticalAlignment="Top"
-                        HorizontalAlignment="Right"
-                        Margin="0,5,35,0"
-                        Width="180" 
-                        Height="50"
-                        Background="#8699DA"
+                            HorizontalAlignment="Right"
+                            Margin="0,5,35,0"
+                            Width="180" 
+                            Height="50"
+                            Background="#8699DA"
                          CornerRadius="10">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                        </Border.Effect>
                         <DatePicker FontSize="14"
                                 Foreground="Black"
                                 FontWeight="Bold"
@@ -397,12 +403,18 @@
                     </Border>
 
                     <Border Margin="30,5,20,0"
-                        CornerRadius="10" 
-                        Background="#8699DA"
-                        Height="290">
-                        <Border Margin="5" 
                             CornerRadius="10" 
-                            Background="White">
+                            Background="#8699DA"
+                            Height="290">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                        </Border.Effect>
+                        <Border Margin="5" 
+                                CornerRadius="10" 
+                                Background="White">
                             <ListView>
                                 <ListView.View>
                                     <GridView>
@@ -442,6 +454,12 @@
                         VerticalAlignment="Top"
                         Width="250"
                         Height="55">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                    </Border.Effect>
                     <TextBlock FontSize="20"
                            Foreground="White" Background="Transparent"
                            TextWrapping="Wrap"
@@ -460,6 +478,12 @@
                         VerticalAlignment="Bottom"
                         Width="140"
                         Height="55">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                    </Border.Effect>
                     <Button FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
@@ -476,6 +500,12 @@
                         VerticalAlignment="Bottom"
                         Width="140"
                         Height="55">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                    </Border.Effect>
                     <Button FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
@@ -492,6 +522,12 @@
                         Height="55"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Bottom">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                    </Border.Effect>
                     <Button FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 

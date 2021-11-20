@@ -152,6 +152,12 @@
                         CornerRadius="10" 
                         Background="#8699DA"
                         Height="270">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                </Border.Effect>
                 <Border Margin="5" 
                             CornerRadius="10" 
                             Background="White">
@@ -198,6 +204,12 @@
                     Height="50"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top" >
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                </Border.Effect>
                 <TextBlock FontSize="18"
                            Foreground="White" Background="Transparent"
                            TextWrapping="Wrap"
@@ -216,6 +228,12 @@
                     Height="50"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                </Border.Effect>
                 <Button FontSize="18"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
@@ -232,6 +250,12 @@
                     Height="50"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                </Border.Effect>
                 <Button FontSize="18"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 

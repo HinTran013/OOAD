@@ -48,6 +48,12 @@
                             CornerRadius="10"
                             Width="250"
                             HorizontalAlignment="Left">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                        </Border.Effect>
                         <ComboBox  FontWeight="Bold"
                                    Foreground="White"
                                    FontSize="15"
@@ -55,7 +61,8 @@
                                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                    IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
                                    materialDesign:HintAssist.Hint="Search type"
-                                   ItemsSource="{Binding ShortStringList}"/>
+                                   ItemsSource="{Binding ShortStringList}"
+                                   VerticalAlignment="Center"/>
                     </Border>
                 </Grid>
             </Grid>
@@ -69,6 +76,12 @@
                     Height="460" 
                     CornerRadius="10" 
                     Background="#8699DA">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                </Border.Effect>
                 <Border Margin="5" 
                         CornerRadius="10" 
                         Background="White">

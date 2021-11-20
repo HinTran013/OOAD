@@ -92,6 +92,12 @@
                                 CornerRadius="10"
                                 HorizontalAlignment="Left"
                                 Width="300">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                            </Border.Effect>
                             <ComboBox   FontWeight="Bold"
                                         Foreground="Black"
                                         FontSize="15"
@@ -106,6 +112,12 @@
                                 CornerRadius="10"
                                 HorizontalAlignment="Right"
                                 Width="200">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                            </Border.Effect>
                             <ComboBox   FontWeight="Bold"
                                         Foreground="Black"
                                         FontSize="15"
@@ -227,10 +239,17 @@
                     Background="#8699DA"
                     Margin="916,5,30,10"
                     Width="150">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                </Border.Effect>
                 <Button FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
-                        Height="50" FontWeight="Normal"
+                        Height="50" 
+                        FontWeight="Normal"
                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
                     Confirm
                 </Button>
@@ -238,8 +257,15 @@
 
             <Border CornerRadius="15" 
                     Background="#EA9769"
-                    Margin="744,5,210,10"
-                    Width="150">
+                    Margin="0,5,200,10"
+                    Width="150"
+                    HorizontalAlignment="Right">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                </Border.Effect>
                 <Button FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 

@@ -67,6 +67,12 @@
                         <Border Margin="30,0,0,0"
                                 Background="#8699DA"
                                 CornerRadius="10">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                            </Border.Effect>
                             <ComboBox   FontWeight="Bold"
                                         Foreground="Black"
                                         FontSize="15"
@@ -85,6 +91,12 @@
                                 Background="#8699DA"
                                 CornerRadius="10"
                                 Width="270">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                            </Border.Effect>
                             <DatePicker FontSize="15"
                                         Foreground="Black"
                                         FontWeight="Bold"
@@ -105,6 +117,12 @@
                                 Background="#8699DA"
                                 CornerRadius="10"
                                 Width="270">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                            </Border.Effect>
                             <DatePicker FontSize="15"
                                         Foreground="Black"
                                         FontWeight="Bold"
@@ -141,6 +159,12 @@
                     Background="#8699DA"
                     Margin="916,10,30,10"
                     Width="150">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                </Border.Effect>
                 <Button FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
@@ -154,6 +178,12 @@
                     Background="#EA9769"
                     Margin="744,10,210,10"
                     Width="150">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                </Border.Effect>
                 <Button FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 

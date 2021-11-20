@@ -15,7 +15,7 @@
             <RowDefinition Height="25*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="48*"/>
-            <RowDefinition Height="9*"/>
+            <RowDefinition Height="9.5*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
@@ -136,7 +136,13 @@
             <Border Margin="30,0,30,0"
                         CornerRadius="10" 
                         Background="#8699DA"
-                        VerticalAlignment="Top" Height="295">
+                        VerticalAlignment="Top" Height="305">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                </Border.Effect>
                 <Border Margin="5" 
                         CornerRadius="10" 
                         Background="White">
@@ -165,43 +171,60 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" Orientation="Horizontal" FlowDirection="LeftToRight" Margin="150,0,0,0">
-                <Label FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
-                   FontWeight="Bold"
-                   FontSize="22" 
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center" >
+            <StackPanel Grid.Column="0" 
+                        Orientation="Horizontal" 
+                        FlowDirection="LeftToRight" 
+                        Margin="120,0,0,0">
+                <Label  FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
+                        FontWeight="Bold"
+                        FontSize="22" 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="0,0,5,10">
                     Total:
                 </Label>
                 <Border CornerRadius="25" 
-                    Background="#8699DA"
-                    Width="240"
-                    Height="52"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center" >
+                        Background="#8699DA"
+                        Width="240"
+                        Height="52"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top" >
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                    </Border.Effect>
                     <TextBlock FontSize="18"
-                           Foreground="White" Background="Transparent"
-                           TextWrapping="Wrap"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           FontWeight="Normal"
-                           FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                                Foreground="White" Background="Transparent"
+                                TextWrapping="Wrap"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                FontWeight="Normal"
+                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
                     Amount
                     </TextBlock>
                 </Border>
             </StackPanel>
-            <StackPanel Grid.Column="1" FlowDirection="RightToLeft" Orientation="Horizontal">
+            <Grid Grid.Column="1">
                 <Border CornerRadius="15" 
                         Background="#8699DA"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
                         Width="140"
-                        Height="55" Margin="30,0,10,0">
+                        Height="55" 
+                        Margin="0,0,30,0">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                    </Border.Effect>
                     <Button FontSize="18"
-                        Foreground="White" Background="Transparent"
-                        BorderBrush="{x:Null}" 
-                        Height="50" FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                            Foreground="White" Background="Transparent"
+                            BorderBrush="{x:Null}" 
+                            Height="50" FontWeight="Normal"
+                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
                         Submit
                     </Button>
                 </Border>
@@ -209,33 +232,47 @@
                 <Border CornerRadius="15" 
                         Background="#8699DA"
                         HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
+                        VerticalAlignment="Top"
                         Width="140"
-                        Height="55" Margin="0,0,10,0">
+                        Height="55" 
+                        Margin="50,0,0,0">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                    </Border.Effect>
                     <Button FontSize="18"
-                        Foreground="White" Background="Transparent"
-                        BorderBrush="{x:Null}" 
-                        Height="50" FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                            Foreground="White" Background="Transparent"
+                            BorderBrush="{x:Null}" 
+                            Height="50" FontWeight="Normal"
+                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
                         Print
                     </Button>
                 </Border>
 
                 <Border CornerRadius="15" 
                         Background="#EA9769"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
                         Width="140"
-                        Height="55">
+                        Height="55"
+                        Margin="80,0,0,0">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                    </Border.Effect>
                     <Button FontSize="18"
-                        Foreground="White" Background="Transparent"
-                        BorderBrush="{x:Null}" 
-                        Height="50" FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                            Foreground="White" Background="Transparent"
+                            BorderBrush="{x:Null}" 
+                            Height="50" FontWeight="Normal"
+                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
                         Cancel
                     </Button>
                 </Border>
-            </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
     <!--<Grid>

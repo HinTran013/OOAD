@@ -58,6 +58,12 @@
                 <Border CornerRadius="25" 
                         Background="#8699DA"
                         Margin="50,2">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                    </Border.Effect>
                     <Button FontSize="20"
                             Foreground="White" Background="Transparent"
                             BorderBrush="{x:Null}" 
@@ -72,6 +78,12 @@
                         BorderThickness="3"
                         Background="White"
                         Margin="50,2" BorderBrush="#FF8699DA">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                    </Border.Effect>
                     <Button Click="Button_Click"   
                             Height="50"
                             FontSize="20"
