@@ -8,14 +8,14 @@
              
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-            Background="#EFF0F2"
+            Background="White"
             TextElement.FontWeight="Medium"
             TextElement.FontSize="25"
             FontFamily="{DynamicResource MaterialDesignFont}"
              
-            Height="658" Width="1099">
+            Height="653" Width="1084">
 
-    <StackPanel Background="#EFF0F2">
+    <StackPanel>
 
         <Grid Margin="60 50 60 0">
             <Grid.ColumnDefinitions>

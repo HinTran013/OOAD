@@ -89,9 +89,14 @@
                 </Grid>
             </Grid>
             <!--Main Content-->
-            <DockPanel x:Name="MainContent" Grid.Row="1" Margin="0,0,5,5">
+            <Border CornerRadius="10" Grid.Row="1" Margin="10,0,0,0" Background="White">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" BlurRadius="10"/>
+                </Border.Effect>
+                <DockPanel x:Name="MainContent" Margin="5">
 
-            </DockPanel>
+                </DockPanel>
+            </Border>
         </Grid>
     </Grid>
 </Window>

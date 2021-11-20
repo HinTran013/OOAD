@@ -8,8 +8,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
              
-             Height="663" Width="1104"
-             Background="White">
+             Height="653" Width="1084" Background="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.8*"/>
@@ -18,14 +17,22 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Label HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Margin="30,0,0,0" 
-                   FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
-                   FontWeight="Bold"
-                   FontSize="30"
-                       >Advertisement Campaign</Label>
-
+            <Border CornerRadius="10" 
+                        BorderThickness="2"
+                        BorderBrush="#789ADE"
+                        Margin="30,0,0,5"
+                        HorizontalAlignment="Left"
+                        Width="500"
+                        Height="60" Background="White">
+                <TextBox 
+                             BorderThickness="0"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                             materialDesign:HintAssist.Hint="Campaign's name"
+                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
+                             FontWeight="Normal"
+                             FontSize="18"/>
+            </Border>
             <TextBlock HorizontalAlignment="Right"
                        VerticalAlignment="Center"
    
@@ -39,23 +46,6 @@
 
         <Grid Grid.Row="1">
             <StackPanel>
-                <Border CornerRadius="10" 
-                        BorderThickness="2"
-                        BorderBrush="#789ADE"
-                        Margin="30,0,0,5"
-                        HorizontalAlignment="Left"
-                        Width="500"
-                        Height="60">
-                    <TextBox 
-                             BorderThickness="0"
-                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                             materialDesign:HintAssist.Hint="Campaign name"
-                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                             FontWeight="Normal"
-                             FontSize="18"/>
-                </Border>
-
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="9*"/>
@@ -140,8 +130,8 @@
                 <Border CornerRadius="10" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
-                        Margin="30,5,30,0"
-                        Height="385">
+                        Margin="30,10,30,0"
+                        Height="440" Background="White">
                     <TextBox BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -157,7 +147,7 @@
         <Grid Grid.Row="2">
             <Border CornerRadius="15" 
                     Background="#8699DA"
-                    Margin="916,10,30,10"
+                    Margin="900,10,30,10"
                     Width="150">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" 
@@ -176,7 +166,7 @@
 
             <Border CornerRadius="15" 
                     Background="#EA9769"
-                    Margin="744,10,210,10"
+                    Margin="720,10,210,10"
                     Width="150">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" 
