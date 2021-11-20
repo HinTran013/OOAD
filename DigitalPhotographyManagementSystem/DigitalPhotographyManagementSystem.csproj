@@ -150,6 +150,9 @@
     <Compile Include="UserControls\AdminOnly\ListOfPriceChanges.xaml.cs">
       <DependentUpon>ListOfPriceChanges.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Marketing\AdCampaign.xaml.cs">
+      <DependentUpon>AdCampaign.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Marketing\IdeaProposing.xaml.cs">
       <DependentUpon>IdeaProposing.xaml</DependentUpon>
     </Compile>
@@ -166,6 +169,9 @@
     </Compile>
     <Compile Include="UserControls\Transaction\InvoiceCreating.xaml.cs">
       <DependentUpon>InvoiceCreating.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Transaction\IssuesReport.xaml.cs">
+      <DependentUpon>IssuesReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Transaction\PhotoDelivery.xaml.cs">
       <DependentUpon>PhotoDelivery.xaml</DependentUpon>
@@ -207,6 +213,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Marketing\AdCampaign.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Marketing\IdeaProposing.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -226,6 +236,10 @@
     <Page Include="UserControls\Transaction\InvoiceCreating.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Transaction\IssuesReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Transaction\PhotoDelivery.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -302,6 +316,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ImageSrc\login_illustrate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImageSrc\logo_demo.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BUS\BUS.csproj">

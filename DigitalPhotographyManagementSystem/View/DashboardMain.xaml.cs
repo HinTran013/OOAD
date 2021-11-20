@@ -3,6 +3,8 @@ using DigitalPhotographyManagementSystem.UserControls;
 using DigitalPhotographyManagementSystem.UserControls.Accounting;
 using DigitalPhotographyManagementSystem.UserControls.Technical;
 using DigitalPhotographyManagementSystem.UserControls.AdminOnly;
+using DigitalPhotographyManagementSystem.UserControls.Marketing;
+using DigitalPhotographyManagementSystem.UserControls.Transaction;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
@@ -31,16 +33,14 @@ namespace DigitalPhotographyManagementSystem.View
             InitializeComponent();
             var menuMarketDept = new List<SubItem>();
             menuMarketDept.Add(new SubItem("Propose New Ideas", new IdeaProposing()));
-            //
-            //menuMarketDept.Add(new SubItem("Ad campaign"));
+            menuMarketDept.Add(new SubItem("Ad Campaign", new AdCampaign() ));
             menuMarketDept.Add(new SubItem("Print Photos", new PrintPhoto()));
             var marketSubMenu = new ItemMenu("MARKETING DEPT", menuMarketDept, PackIconKind.Megaphone);
 
             var menuTransDept = new List<SubItem>();
             menuTransDept.Add(new SubItem("Create Invoice", new InvoiceCreating()));
-            menuTransDept.Add(new SubItem("Photo delivery", new PhotoDelivery()));
-            //
-            //menuTransDept.Add(new SubItem("Technical issues resolve"));
+            menuTransDept.Add(new SubItem("Photo delivery", new PhotoDelivery()));            
+            menuTransDept.Add(new SubItem("Technical issues resolve", new IssuesReport()));
             var transSubMenu = new ItemMenu("TRANSACTION DEPT", menuTransDept, PackIconKind.Coins);
 
             var menuAccDept = new List<SubItem>();
