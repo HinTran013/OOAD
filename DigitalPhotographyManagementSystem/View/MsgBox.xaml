@@ -1,0 +1,120 @@
+﻿<Window x:Class="DigitalPhotographyManagementSystem.View.MsgBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.View"
+        mc:Ignorable="d"
+        Title="MsgBox"  MinHeight="160" 
+        MinWidth="420" MaxHeight="750" MaxWidth="750" 
+        Background="Transparent" 
+        SizeToContent="WidthAndHeight" 
+        WindowStartupLocation="CenterScreen"  
+        ShowInTaskbar="False" ResizeMode="NoResize" 
+        AllowsTransparency="True"
+        WindowStyle="None" Topmost="True">
+    <Grid>
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="10" ShadowDepth="1" RenderingBias="Quality"/>
+        </Grid.Effect>
+        <Border  BorderThickness="1" CornerRadius="10" Background="White" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="0" 
+                Grid.Column="0"  Grid.ColumnSpan="2" Background="#8699DA" CornerRadius="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="1" Background="#8699DA"/>
+                    </Grid>
+                </Border>
+                <Grid Grid.Row="0" Grid.ColumnSpan="2" 
+                MinHeight="40" >
+                    <TextBlock Margin="5,1,0,1" Name="MessageTitle"  
+                    FontWeight="Bold" TextTrimming="CharacterEllipsis" 
+                    LineHeight="22" FontSize="20" 
+                    VerticalAlignment="Center" Foreground="White" TextAlignment="Center" MouseDown="MessageTitle_MouseDown" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold"/>
+                </Grid>
+                <Image Name="img" Margin="5" Grid.Row="1" 
+                Grid.Column="0" Width="50" 
+                Height="50" />
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Border BorderBrush="{x:Null}" MinHeight="50" MaxHeight="100">
+                        <TextBlock VerticalAlignment="Center" 
+                        TextWrapping="Wrap" Name="txtMsg" FontSize="20" 
+                        TextAlignment="Center" FontWeight="Bold" Margin="0,14,9.2,8.6" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"/>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Row="2" Grid.ColumnSpan="2"  
+                Grid.Column="0" >
+                    <StackPanel Orientation="Horizontal"  
+                    HorizontalAlignment="Right" >
+                        <Button Name="btnOk" Content="OK" 
+                        Margin="3,5" MinWidth="70" Height="35"  
+                        Click="Button_Click" Foreground="White" 
+                        FontSize="14" 
+                                Style="{StaticResource MaterialDesignFlatDarkBgButton}"     
+                                Background="#8699DA" VerticalAlignment="Center" 
+                                HorizontalAlignment="Stretch"  
+                                VerticalContentAlignment="Center" 
+                                HorizontalContentAlignment="Center" BorderBrush="#FF8699DA" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" >
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="5" ShadowDepth="1" RenderingBias="Quality"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button Name="btnYes" Content="YES"  
+                                Margin="3,5" MinWidth="70" Height="35" 
+                                Click="Button_Click" Foreground="White" FontSize="14" 
+                                Style="{StaticResource MaterialDesignFlatDarkBgButton}"    
+                                Background="#8699DA" VerticalAlignment="Center" 
+                                HorizontalAlignment="Stretch"  
+                                VerticalContentAlignment="Center" 
+                                HorizontalContentAlignment="Center" BorderBrush="#FF8699DA" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="5" ShadowDepth="1" RenderingBias="Quality"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button Name="btnNo" Content="NO"  
+                        Margin="3,5" MinWidth="70" Height="35" 
+                        Click="Button_Click" Foreground="#EA9769" 
+                        FontSize="14" 
+                                  Style="{StaticResource MaterialDesignFlatDarkBgButton}"   
+                                  Background="White" VerticalAlignment="Center" 
+                                  HorizontalAlignment="Stretch"  
+                                  VerticalContentAlignment="Center" 
+                                  HorizontalContentAlignment="Center" BorderBrush="#EA9769" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="5" ShadowDepth="1" RenderingBias="Quality"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button Name="btnCancel" Margin="3,5" 
+                        Content="CANCEL" MinWidth="70" 
+                        Height="35" Click="Button_Click"
+                                    Style="{StaticResource MaterialDesignFlatDarkBgButton}" 
+                                    Foreground="#EA9769" 
+                                    Background="White" FontSize="14" 
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Stretch" 
+                                    VerticalContentAlignment="Center" 
+                                    HorizontalContentAlignment="Center" BorderBrush="#EA9769" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="5" ShadowDepth="1" RenderingBias="Quality"/>
+                            </Button.Effect>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -179,6 +179,12 @@
     <Compile Include="UserControls\UserControlMenuDrawer.xaml.cs">
       <DependentUpon>UserControlMenuDrawer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UserControlSingleItem.xaml.cs">
+      <DependentUpon>UserControlSingleItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AboutBox.xaml.cs">
+      <DependentUpon>AboutBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DashboardMain.xaml.cs">
       <DependentUpon>DashboardMain.xaml</DependentUpon>
     </Compile>
@@ -188,6 +194,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\MsgBox.xaml.cs">
+      <DependentUpon>MsgBox.xaml</DependentUpon>
     </Compile>
     <Page Include="UserControls\Accounting\CalculateBills.xaml">
       <SubType>Designer</SubType>
@@ -249,11 +258,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\UserControlSingleItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AboutBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\DashboardMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MsgBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -305,6 +326,10 @@
     <Content Include="Core\Compression\Snappy\lib\win\snappy64.dll" />
     <Content Include="Core\Compression\Zstandard\lib\win\libzstd.dll" />
     <Resource Include="ImageSrc\logo.png" />
+    <Resource Include="ImageSrc\Error.png" />
+    <Resource Include="ImageSrc\Information.png" />
+    <Resource Include="ImageSrc\Question.png" />
+    <Resource Include="ImageSrc\Warning.png" />
     <Content Include="mongocrypt.dll" />
     <Content Include="bin\Debug\DigitalPhotographyManagementSystem.exe" />
     <Content Include="bin\Debug\DigitalPhotographyManagementSystem.pdb" />
