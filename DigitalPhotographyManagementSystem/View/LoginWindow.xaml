@@ -73,7 +73,7 @@
                             Foreground="White" Background="Transparent"
                             BorderBrush="{x:Null}" 
                             Height="50" FontWeight="Normal"
-                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" >Sign In</Button>
+                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" IsDefault="True" >Sign In</Button>
                     </Border>
 
                     <Label HorizontalAlignment="Center"
@@ -93,7 +93,7 @@
                             Height="50"
                             FontSize="20"
                             Background="Transparent" Foreground="#8699DA"
-                            BorderBrush="{x:Null}" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">Exit</Button>
+                            BorderBrush="{x:Null}" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" IsCancel="True">Exit</Button>
                     </Border>
 
                 </StackPanel>
