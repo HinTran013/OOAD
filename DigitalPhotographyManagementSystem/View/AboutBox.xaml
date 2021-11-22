@@ -1,0 +1,88 @@
+﻿<Window x:Class="DigitalPhotographyManagementSystem.View.AboutBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.View"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" 
+        AllowsTransparency="True"
+        Background="Transparent"
+        Title="About" Height="400" Width="450">
+    <Border Background="White" CornerRadius="5" BorderThickness="5" Margin="5">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="5" ShadowDepth="1" RenderingBias="Quality"/>
+        </Border.Effect>
+        <Grid Margin="0,0,-0.4,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height= "0.3*"/>
+                <RowDefinition Height= "0.1*"/>
+                <RowDefinition Height= "0.2*"/>
+                <RowDefinition Height= "0.3*"/>
+                <RowDefinition Height= "0.1*"/>
+            </Grid.RowDefinitions>
+
+            <!--The main logo-->
+            <Grid x:Name="LogoPane"  Grid.Row="0" MouseDown="LogoPane_MouseDown">
+                <Grid Margin="20,5" >
+                    <Grid.Background>
+                        <ImageBrush Stretch="Uniform" ImageSource="/DigitalPhotographyManagementSystem;component/ImageSrc/logo.png"/>
+                    </Grid.Background>
+                </Grid>
+            </Grid>
+
+            <!--About-->
+            <Grid Grid.Row="1">
+                <TextBlock x:Name="labelTitle" VerticalAlignment="Center" HorizontalAlignment="Center" Text="About {0}" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" FontSize="18" FontWeight="Bold"/>
+            </Grid>
+
+            <!--Details of the program-->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid>
+                            <TextBlock x:Name="labelVersion" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Version" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" FontSize="15"/>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <TextBlock x:Name="labelProductName" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Product Name" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" FontSize="15" TextWrapping="Wrap" TextAlignment="Center"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <TextBlock x:Name="labelCopyright" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Copyright" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" FontSize="15"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <TextBlock x:Name="labelCompanyName" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Company Name" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" FontSize="15"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <!--Some Descriptions-->
+            <Grid Grid.Row="3">
+                <TextBox AcceptsReturn="True" Margin="10" Style="{StaticResource MaterialDesignOutlinedTextBox}" 
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto" x:Name="textBoxDescription" Text="Description" 
+                    FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" IsReadOnly="True" FontSize="18"/>
+            </Grid>
+
+            <!--OK button-->
+            <Grid Grid.Row="4">
+                <Button Content="OK" Style="{StaticResource MaterialDesignFlatDarkBgButton}" IsDefault ="True" HorizontalAlignment="Center" Width="100" Background="#FF8699DA" BorderBrush="#FF8699DA" Click="Button_Click" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Foreground="White"/>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

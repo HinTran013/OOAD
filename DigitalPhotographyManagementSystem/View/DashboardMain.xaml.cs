@@ -19,6 +19,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static DigitalPhotographyManagementSystem.ServiceClass.ItemMenu;
 
 namespace DigitalPhotographyManagementSystem.View
 {
@@ -28,9 +29,12 @@ namespace DigitalPhotographyManagementSystem.View
     public partial class DashboardMain : Window
     {
         static DashboardMain __instance = null;
+
         public DashboardMain()
         {
             InitializeComponent();
+            var home = new ItemMenu("HOME", /*DashboardMain.GetInstance(),*/ PackIconKind.Home);
+
             var menuMarketDept = new List<SubItem>();
             menuMarketDept.Add(new SubItem("Propose New Ideas", new IdeaProposing()));
             menuMarketDept.Add(new SubItem("Ad Campaign", new AdCampaign() ));
@@ -58,12 +62,26 @@ namespace DigitalPhotographyManagementSystem.View
             menuAdmin.Add(new SubItem("Manage Accounts", new ListAccounts()));
             menuAdmin.Add(new SubItem("Manage Price-Change Requests", new ListOfPriceChanges()));
             var AdminSubMenu = new ItemMenu("ADMINISTRATOR", menuAdmin, PackIconKind.Administrator);
+            
+            //ABOUT popup
+            var about = new ItemMenu("ABOUT", PackIconKind.About, CommandType.About);
 
+            //LOGOUT option
+            var logout = new ItemMenu("LOG OUT", PackIconKind.Logout, CommandType.LogOut);
+
+            //EXIT option
+            var exit = new ItemMenu("EXIT", PackIconKind.Shutdown, CommandType.Exit);
+
+            SideMenu.Children.Add(new UserControlSingleItem(home, this));
             SideMenu.Children.Add(new UserControlMenuDrawer(marketSubMenu, this));
             SideMenu.Children.Add(new UserControlMenuDrawer(transSubMenu, this));
             SideMenu.Children.Add(new UserControlMenuDrawer(accSubMenu, this));
             SideMenu.Children.Add(new UserControlMenuDrawer(techSubMenu, this));
             SideMenu.Children.Add(new UserControlMenuDrawer(AdminSubMenu, this));
+            SideMenu.Children.Add(new UserControlSingleItem(about, this));
+            SideMenu.Children.Add(new UserControlSingleItem(logout, this));
+            SideMenu.Children.Add(new UserControlSingleItem(exit, this));
+
         }
         internal void SwitchScreen(object sender)
         {
@@ -81,7 +99,39 @@ namespace DigitalPhotographyManagementSystem.View
             if (__instance == null) __instance = new DashboardMain();
             return __instance;
         }
+        internal void OpenOutterWindow(CommandType commandType)
+        {
 
+            switch (commandType)
+            {
+                case CommandType.About:
+                    AboutBox aboutBox = new AboutBox();
+                    aboutBox.ShowDialog();
+                    break;
+                case CommandType.Exit:
+                    var messageBoxResult1 = MsgBox.Show("Exit", "Are you sure you want to exit?",
+                                MessageBoxButton.YesNo, MessageBoxImg.Warning);
+                    if (messageBoxResult1 == MessageBoxResult.Yes)
+                    {
+                        //DBConnection_BUS.CloseConnection();
+                        Application.Current.Shutdown();
+                    }
+                    break;
+                case CommandType.LogOut:
+                    /*var messageBoxResult2 = MsgBox.Show("Log out", "Are you sure you want to log out?",
+                                MessageBoxButton.YesNo, MessageBoxImg.Warning);
+                    if (messageBoxResult2 == MessageBoxResult.Yes)
+                    {
+                        DBConnection_BUS.CloseConnection();
+                        this.Release();
+                        MainWindow mainWindow = new MainWindow();
+                        mainWindow.Show();
+                        this.Close();
+                    }*/
+                    break;
+            }
+        }
+        
         private void ShutdownBtn_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();

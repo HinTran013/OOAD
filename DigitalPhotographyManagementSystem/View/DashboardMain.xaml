@@ -51,11 +51,11 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
                 <Grid Grid.Column="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10,15,0,0">
                         <TextBlock x:Name="TxtDeptName" Text="Accounting Department" HorizontalAlignment="Left"
                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
@@ -70,10 +70,10 @@
                                FontSize="15" Foreground="#FF383030"/>
                         <TextBlock/>
                     </StackPanel>
-                    <TextBlock x:Name="TxtTitle" Text="Dashboard" Grid.Row="1"
-                               FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
-                               FontSize="18" Margin="10,0,0,5"/>
                 </Grid>
+                <TextBlock x:Name="TxtTitle" Text="Dashboard"
+                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
+                            FontSize="18" Margin="0,0,0,5" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
                 <Grid Grid.Column="1">
                     <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
                         <Button x:Name="ShutdownBtn" VerticalAlignment="Top" Style ="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="40" Height="40"  Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Margin="0,0,0,0" Click="ShutdownBtn_Click">

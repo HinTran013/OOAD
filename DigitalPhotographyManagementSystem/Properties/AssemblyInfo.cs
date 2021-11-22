@@ -8,10 +8,10 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("DigitalPhotographyManagementSystem")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("This project is implemented by Le Tran Bao Loc, Pham Hon Tuyen, Tran Thanh Hien.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DigitalPhotographyManagementSystem")]
+[assembly: AssemblyCompany("UIT")]
+[assembly: AssemblyProduct("Digital Photography Management System")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

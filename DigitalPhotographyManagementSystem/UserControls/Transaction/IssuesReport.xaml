@@ -17,14 +17,21 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Label HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Margin="30,10,0,0" 
-                   FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
-                   FontWeight="Bold"
-                   FontSize="30"
-                       >Technical Issues Report</Label>
-
+            <Border CornerRadius="10" 
+                        BorderThickness="2"
+                        BorderBrush="#789ADE"
+                        Margin="30,10,0,10"
+                        Width="510"
+                        HorizontalAlignment="Left">
+                <TextBox 
+                             BorderThickness="0"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                             materialDesign:HintAssist.Hint="Name of the issues"
+                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
+                             FontWeight="Bold"
+                             FontSize="18"/>
+            </Border>
             <TextBlock HorizontalAlignment="Right"
                        VerticalAlignment="Center"
    
@@ -47,22 +54,6 @@
 
         <Grid Grid.Row="1">
             <StackPanel>
-                <Border CornerRadius="10" 
-                        BorderThickness="2"
-                        BorderBrush="#789ADE"
-                        Margin="30,0,0,5"
-                        Width="510"
-                        HorizontalAlignment="Left">
-                    <TextBox 
-                             BorderThickness="0"
-                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                             materialDesign:HintAssist.Hint="Name of the issues"
-                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                             FontWeight="Bold"
-                             FontSize="18"/>
-                </Border>
-
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -125,7 +116,7 @@
         <Grid Grid.Row="2">
             <Border CornerRadius="15" 
                     Background="#8699DA"
-                    Margin="916,10,30,10"
+                    Margin="900,10,30,10"
                     Width="150">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" 
@@ -144,7 +135,7 @@
 
             <Border CornerRadius="15" 
                     Background="#EA9769"
-                    Margin="744,10,210,10"
+                    Margin="720,10,210,10"
                     Width="150">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" 

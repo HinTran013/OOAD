@@ -10,13 +10,13 @@
         <Storyboard x:Key="StoryboardDrawingMenu">
             <ThicknessAnimationUsingKeyFrames x:Name="OpenAnimation" Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="border">
                 <EasingThicknessKeyFrame KeyTime="0" Value="0,6,230,6"/>
-                <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="0,6,0,0"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.3" Value="0,6,0,0"/>
             </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="StoryboardDrawingMenu_Rev">
             <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="border">
                 <SplineThicknessKeyFrame KeyTime="0" Value="0,6,0,0"/>
-                <SplineThicknessKeyFrame KeyTime="0:0:0.5" Value="0,6,230,6"/>
+                <SplineThicknessKeyFrame KeyTime="0:0:0.3" Value="0,6,230,6"/>
             </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>

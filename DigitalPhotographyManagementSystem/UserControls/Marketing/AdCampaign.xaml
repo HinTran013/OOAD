@@ -31,7 +31,7 @@
                              materialDesign:HintAssist.Hint="Campaign's name"
                              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
                              FontWeight="Normal"
-                             FontSize="18"/>
+                             FontSize="16"/>
             </Border>
             <TextBlock HorizontalAlignment="Right"
                        VerticalAlignment="Center"
@@ -131,7 +131,7 @@
                         BorderThickness="2"
                         BorderBrush="#789ADE"
                         Margin="30,10,30,0"
-                        Height="440" Background="White">
+                        Height="430" Background="White">
                     <TextBox BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"

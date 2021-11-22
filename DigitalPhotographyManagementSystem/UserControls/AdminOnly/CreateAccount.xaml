@@ -12,14 +12,11 @@
              Background="White">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.7*"/>
             <RowDefinition Height="6*"/>
             <RowDefinition Height="0.7*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0"/>
-
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="0">
             <StackPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -31,28 +28,28 @@
                         <Border CornerRadius="10" 
                                 BorderThickness="2"
                                 BorderBrush="#789ADE"
-                                Margin="30,0,10,0">
+                                Margin="30,10,10,0">
                             <TextBox    
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="Name"
                                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Bold"/>
+                                        FontWeight="Bold" FontSize="14"/>
                         </Border>
                     </Grid>
                     <Grid Grid.Column="1">
                         <Border CornerRadius="10" 
                                 BorderThickness="2"
                                 BorderBrush="#789ADE"
-                                Margin="10,0,30,0">
+                                Margin="10,10,30,0">
                             <TextBox    
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="Phone Number"
                                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Bold"/>
+                                        FontWeight="Bold" FontSize="14"/>
                         </Border>
                     </Grid>
                 </Grid>
@@ -74,7 +71,7 @@
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="Email"
                                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Bold"/>
+                                        FontWeight="Bold" FontSize="14"/>
                         </Border>
                     </Grid>
 
@@ -133,7 +130,7 @@
                               materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                               materialDesign:HintAssist.Hint="Address"
                               FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                              FontWeight="Bold"/>
+                              FontWeight="Bold" FontSize="14"/>
                 </Border>
 
                 <Grid Margin="0,15,0,0">
@@ -154,7 +151,7 @@
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="Username"
                                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Bold"/>
+                                        FontWeight="Bold" FontSize="14"/>
                         </Border>
                     </Grid>
                 </Grid>
@@ -170,13 +167,12 @@
                                 BorderThickness="2"
                                 BorderBrush="#789ADE"
                                 Margin="30,0,10,0">
-                            <TextBox    
-                                        BorderThickness="0"
-                                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            <PasswordBox  BorderThickness="0"
+                                        Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="Password"
                                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Bold"/>
+                                        FontWeight="Bold" FontSize="14"/>
                         </Border>
                     </Grid>
                     <Grid Grid.Column="1">
@@ -184,13 +180,12 @@
                                 BorderThickness="2"
                                 BorderBrush="#789ADE"
                                 Margin="10,0,30,0">
-                            <TextBox    
-                                        BorderThickness="0"
-                                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            <PasswordBox  BorderThickness="0"
+                                        Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="Confirm password"
                                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Bold"/>
+                                        FontWeight="Bold" FontSize="14"/>
                         </Border>
                     </Grid>
                 </Grid>
@@ -207,7 +202,7 @@
                               materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                               materialDesign:HintAssist.Hint="Salary"
                               FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                              FontWeight="Bold"/>
+                              FontWeight="Bold" FontSize="14"/>
                 </Border>
 
                 <Border CornerRadius="10" 
@@ -221,7 +216,7 @@
                               materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                               materialDesign:HintAssist.Hint="Description"
                               FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                              FontWeight="Bold"/>
+                              FontWeight="Bold" FontSize="14"/>
                 </Border>
             </StackPanel>
         </Grid>
