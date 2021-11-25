@@ -8,7 +8,6 @@ namespace DTO
 {
     public class staffDTO
     {
-        private string _ID;
         private string _name;
         private string _birthDate;
         private Nullable<bool> _gender;
@@ -19,7 +18,6 @@ namespace DTO
 
         public staffDTO()
         {
-            this._ID = null;
             this._name = null;
             this._birthDate = null;
             this._gender = null;
@@ -30,7 +28,7 @@ namespace DTO
         }
 
         //constructor with params
-        public staffDTO(string ID,
+        public staffDTO(
         string name,
         string birthDate,
         Nullable<bool> gender,
@@ -39,7 +37,6 @@ namespace DTO
         string salary,
         string type)
         {
-            this._ID = ID;
             this._name = name;
             this._birthDate = birthDate;
             this._gender = gender;
@@ -49,7 +46,6 @@ namespace DTO
             this._type = type;
         }
 
-        public string ID { get => _ID; set => _ID = value; }
         public string name { get => _name; set => _name = value; }
         public string birthDate { get => _birthDate; set => _birthDate = value; }
         public bool gender { get => (bool)_gender; set => _gender = value; }
