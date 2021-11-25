@@ -38,6 +38,16 @@ namespace DigitalPhotographyManagementSystem.UserControls
         }
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            var SingleItems = this._context.SideMenu.Children.OfType<UserControlSingleItem>();
+            foreach (var item in SingleItems)
+            {
+                if (item == this._context.SideMenu.Children[0] && item.border.Margin.Right == 0)
+                {
+                    var storyBoard_rev = item.Resources["StoryboardChooseItem_Rev"] as Storyboard;
+                    storyBoard_rev.Begin(item);
+                }
+            }
+        
             _context.SwitchScreen(((TextBlock)sender).Tag);
             switch(ExpanderMenu.Header.ToString().Replace(" ", ""))
             {
