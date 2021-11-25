@@ -12,6 +12,7 @@ namespace DigitalPhotographyManagementSystem.ServiceClass
     {
         public enum CommandType
         {
+            Home = 0,
             About = 1,
             Exit = 2,
             LogOut = 3

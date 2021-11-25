@@ -35,21 +35,35 @@ namespace DigitalPhotographyManagementSystem.UserControls
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            /* The HOME single item tag (on the left side) 
+                wont be switched to other single item tags, 
+                unless you switch to CONTROL FORM           */
             var SingleItems = this._context.SideMenu.Children.OfType<UserControlSingleItem>();
             foreach (var item in SingleItems)
             {
+                if (item != this._context.SideMenu.Children[0] && item.border.Margin.Right == 0)
+                {
+                    var storyBoard_rev = item.Resources["StoryboardChooseItem_Rev"] as Storyboard;
+                    storyBoard_rev.Begin(item);
+                }
+                //
                 if (item == this && item.border.Margin.Right == 230)
                 {
                     var storyBoard = item.Resources["StoryboardChooseItem"] as Storyboard;
                     storyBoard.Begin(item);
                 }               
-                else if (item != this && item.border.Margin.Right == 0)
+            }
+
+            _context.OpenOutterWindow(itemmenu.commandType);
+
+            foreach (var item in SingleItems)
+            {
+                if (item != this._context.SideMenu.Children[0] && item.border.Margin.Right == 0)
                 {
                     var storyBoard_rev = item.Resources["StoryboardChooseItem_Rev"] as Storyboard;
                     storyBoard_rev.Begin(item);
                 }
             }
-            _context.OpenOutterWindow(itemmenu.commandType);
         }
 
         private void Storyboard_Completed(object sender, EventArgs e)

@@ -129,6 +129,10 @@ namespace DigitalPhotographyManagementSystem.View
                         this.Close();
                     }*/
                     break;
+                case CommandType.Home:
+                    /*Show window here*/
+                    break;
+
             }
         }
         
