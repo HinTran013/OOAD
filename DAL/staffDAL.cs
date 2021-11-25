@@ -26,7 +26,6 @@ namespace DAL
                 var collection = db.GetCollection<BsonDocument>("staffs");
                 var newDoc = new BsonDocument
             {
-                {"staffID", newStaff.ID },
                 { "name" , newStaff.name },
                 {"birthDate", newStaff.birthDate },
                 {"gender", newStaff.gender },

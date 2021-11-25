@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BUS;
+using DTO;
 
 namespace DigitalPhotographyManagementSystem.UserControls.Transaction
 {
@@ -23,6 +25,11 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
         public IssuesReport()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
