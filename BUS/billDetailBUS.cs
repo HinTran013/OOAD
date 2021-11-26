@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    class billDetailBUS
+    public class billDetailBUS
     {
         static billDetailDAL billDetail = new billDetailDAL();
 
