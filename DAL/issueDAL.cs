@@ -9,27 +9,28 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class customerDAL
+    public class issueDAL
     {
         private IMongoDatabase db;
 
-        public customerDAL()
+        public issueDAL()
         {
             var client = new MongoClient("mongodb+srv://HienTranOOAD:123123123@cluster0.guxtk.mongodb.net/PhotographyManagement?retryWrites=true&w=majority");
             this.db = client.GetDatabase("PhotographyManagement");
         }
 
-        public bool InserNewCustomerRecord(customerDTO newCustomer)
+        public bool InsertNewIssueRecord(issueDTO newIssue)
         {
             try
             {
-                var collection = db.GetCollection<BsonDocument>("customers");
+                var collection = db.GetCollection<BsonDocument>("issues");
                 var newDoc = new BsonDocument
             {
-                { "name" , newCustomer.name },
-                {"address", newCustomer.address },
-                {"phoneNumber", newCustomer.phoneNumber },
-                {"email", newCustomer.email }
+                { "issueName" , newIssue.issueName },
+                {"issueDate", newIssue.issueDate },
+                {"issueType", newIssue.issueType },
+                {"issueDescription", newIssue.issueDescription },
+                {"staffID", newIssue.staffID }
             };
 
                 collection.InsertOneAsync(newDoc);
