@@ -36,6 +36,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ImageSrc\logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DnsClient, Version=1.4.0.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
       <HintPath>..\packages\DnsClient.1.4.0\lib\net471\DnsClient.dll</HintPath>
@@ -150,6 +153,9 @@
     <Compile Include="UserControls\AdminOnly\ListOfPriceChanges.xaml.cs">
       <DependentUpon>ListOfPriceChanges.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\DashboardHome.xaml.cs">
+      <DependentUpon>DashboardHome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Marketing\AdCampaign.xaml.cs">
       <DependentUpon>AdCampaign.xaml</DependentUpon>
     </Compile>
@@ -219,6 +225,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\AdminOnly\ListOfPriceChanges.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DashboardHome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -330,6 +340,7 @@
     <Resource Include="ImageSrc\Information.png" />
     <Resource Include="ImageSrc\Question.png" />
     <Resource Include="ImageSrc\Warning.png" />
+    <Resource Include="ImageSrc\logo.ico" />
     <Content Include="mongocrypt.dll" />
     <Content Include="bin\Debug\DigitalPhotographyManagementSystem.exe" />
     <Content Include="bin\Debug\DigitalPhotographyManagementSystem.pdb" />

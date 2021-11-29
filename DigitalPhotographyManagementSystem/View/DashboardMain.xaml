@@ -65,13 +65,13 @@
                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
                                FontSize="15"/>
                         <TextBlock/>
-                        <TextBlock x:Name="TxtTitleSmall" Text="Dashboard" HorizontalAlignment="Left"
+                        <TextBlock x:Name="TxtTitleSmall" Text="HOME" HorizontalAlignment="Left"
                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
                                FontSize="15" Foreground="#FF383030"/>
                         <TextBlock/>
                     </StackPanel>
                 </Grid>
-                <TextBlock x:Name="TxtTitle" Text="Dashboard"
+                <TextBlock x:Name="TxtTitle" Text="HOME"
                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
                             FontSize="18" Margin="0,0,0,5" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
                 <Grid Grid.Column="1">

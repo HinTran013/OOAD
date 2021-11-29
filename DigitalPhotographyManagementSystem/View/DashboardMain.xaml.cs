@@ -33,7 +33,7 @@ namespace DigitalPhotographyManagementSystem.View
         public DashboardMain()
         {
             InitializeComponent();
-            var home = new ItemMenu("HOME", /*DashboardMain.GetInstance(),*/ PackIconKind.Home);
+            var home = new ItemMenu("HOME", PackIconKind.Home, CommandType.UControl, new DashboardHome());
 
             var menuMarketDept = new List<SubItem>();
             menuMarketDept.Add(new SubItem("Propose New Ideas", new IdeaProposing()));
@@ -82,6 +82,7 @@ namespace DigitalPhotographyManagementSystem.View
             SideMenu.Children.Add(new UserControlSingleItem(logout, this));
             SideMenu.Children.Add(new UserControlSingleItem(exit, this));
 
+            SwitchScreen(home.Screen);
         }
         internal void SwitchScreen(object sender)
         {
@@ -99,11 +100,15 @@ namespace DigitalPhotographyManagementSystem.View
             if (__instance == null) __instance = new DashboardMain();
             return __instance;
         }
-        internal void OpenOutterWindow(CommandType commandType)
+        internal void OpenOutterWindow(CommandType commandType, object sender)
         {
 
+            DashboardMain dashboardMain = this;
             switch (commandType)
             {
+                case CommandType.UControl:
+                    dashboardMain.SwitchScreen(sender);
+                    break;
                 case CommandType.About:
                     AboutBox aboutBox = new AboutBox();
                     aboutBox.ShowDialog();
@@ -118,16 +123,16 @@ namespace DigitalPhotographyManagementSystem.View
                     }
                     break;
                 case CommandType.LogOut:
-                    /*var messageBoxResult2 = MsgBox.Show("Log out", "Are you sure you want to log out?",
+                    var messageBoxResult2 = MsgBox.Show("Log out", "Are you sure you want to log out?",
                                 MessageBoxButton.YesNo, MessageBoxImg.Warning);
                     if (messageBoxResult2 == MessageBoxResult.Yes)
                     {
-                        DBConnection_BUS.CloseConnection();
-                        this.Release();
-                        MainWindow mainWindow = new MainWindow();
-                        mainWindow.Show();
-                        this.Close();
-                    }*/
+                        //DBConnection_BUS.CloseConnection();
+                        //this.Release();
+                        LoginWindow login = new LoginWindow();
+                        login.Show();
+                        dashboardMain.Close();
+                    }
                     break;
             }
         }

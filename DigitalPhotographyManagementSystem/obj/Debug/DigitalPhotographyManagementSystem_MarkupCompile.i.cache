@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\OOAD PROJECT\OOAD\DigitalPhotographyManagementSystem\obj\Debug\
+D:\GitHubServer\OOAD\DigitalPhotographyManagementSystem\obj\Debug\
 DigitalPhotographyManagementSystem
 none
 false
 DEBUG;TRACE
-D:\OOAD PROJECT\OOAD\DigitalPhotographyManagementSystem\App.xaml
-20-1579341245
-14-318170586
-27-156342680
-133453294025
-UserControls\Accounting\CalculateBills.xaml;UserControls\Accounting\FundBills.xaml;UserControls\Accounting\ReportPrices.xaml;UserControls\AdminOnly\CreateAccount.xaml;UserControls\AdminOnly\ListAccounts.xaml;UserControls\AdminOnly\ListOfPriceChanges.xaml;UserControls\Marketing\AdCampaign.xaml;UserControls\Marketing\IdeaProposing.xaml;UserControls\Marketing\PrintPhoto.xaml;UserControls\Technical\InvoiceDetail.xaml;UserControls\Technical\ListOfInvoices.xaml;UserControls\Transaction\InvoiceCreating.xaml;UserControls\Transaction\IssuesReport.xaml;UserControls\Transaction\PhotoDelivery.xaml;UserControls\UserControlMenuDrawer.xaml;UserControls\UserControlSingleItem.xaml;View\AboutBox.xaml;View\DashboardMain.xaml;View\LoginWindow.xaml;View\MsgBox.xaml;
+D:\GitHubServer\OOAD\DigitalPhotographyManagementSystem\App.xaml
+211746000908
+14-2057775706
+28-666359757
+133725586043
+UserControls\Accounting\CalculateBills.xaml;UserControls\Accounting\FundBills.xaml;UserControls\Accounting\ReportPrices.xaml;UserControls\AdminOnly\CreateAccount.xaml;UserControls\AdminOnly\ListAccounts.xaml;UserControls\AdminOnly\ListOfPriceChanges.xaml;UserControls\DashboardHome.xaml;UserControls\Marketing\AdCampaign.xaml;UserControls\Marketing\IdeaProposing.xaml;UserControls\Marketing\PrintPhoto.xaml;UserControls\Technical\InvoiceDetail.xaml;UserControls\Technical\ListOfInvoices.xaml;UserControls\Transaction\InvoiceCreating.xaml;UserControls\Transaction\IssuesReport.xaml;UserControls\Transaction\PhotoDelivery.xaml;UserControls\UserControlMenuDrawer.xaml;UserControls\UserControlSingleItem.xaml;View\AboutBox.xaml;View\DashboardMain.xaml;View\LoginWindow.xaml;View\MsgBox.xaml;
 
 True
 
