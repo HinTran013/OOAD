@@ -14,7 +14,8 @@ namespace DigitalPhotographyManagementSystem.ServiceClass
         {
             About = 1,
             Exit = 2,
-            LogOut = 3
+            LogOut = 3,
+            UControl = 4
         }
         public ItemMenu(string header, List<SubItem> subItems, PackIconKind icon)
         {
@@ -22,10 +23,11 @@ namespace DigitalPhotographyManagementSystem.ServiceClass
             SubItems = subItems;
             Icon = icon;
         }
-        public ItemMenu(string header, UserControl uc, PackIconKind icon)
+        public ItemMenu(string header, PackIconKind icon, CommandType commandtype, UserControl uc = null)
         {
             Header = header;
             Screen = uc;
+            commandType = commandtype;
             Icon = icon;
         }
         public ItemMenu(string header, PackIconKind icon)

@@ -27,8 +27,8 @@
             </Border.Effect>
             <materialDesign:PackIcon x:Name="packIcon" Kind="{Binding Path=Icon}" Width="15" Height="15" Margin="10 10" Foreground="Black" VerticalAlignment="Top"/>
         </Border>
-        <Button x:Name="button" Width="265" Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Height="Auto" Click="Button_Click" Padding="37 14" FontSize="12" HorizontalContentAlignment="Left" FontWeight="Normal" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black">
-            <TextBlock Text="{Binding Path=Header}" Padding="18,0,0,0"/>
+        <Button x:Name="button" Tag="{ Binding Path=Screen}" Width="265" Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Height="Auto" PreviewMouseDown="Button_PreviewMouseDown" Padding="37 14" FontSize="12" HorizontalContentAlignment="Left" FontWeight="Normal" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black">
+            <TextBlock x:Name="BtnTxt" Text="{Binding Path=Header}" Padding="18,0,0,0"/>
         </Button>
     </Grid>
 </UserControl>

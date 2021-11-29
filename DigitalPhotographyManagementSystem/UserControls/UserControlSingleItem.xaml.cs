@@ -33,24 +33,6 @@ namespace DigitalPhotographyManagementSystem.UserControls
             itemmenu = itemMenu;
             this.DataContext = itemMenu;
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var SingleItems = this._context.SideMenu.Children.OfType<UserControlSingleItem>();
-            foreach (var item in SingleItems)
-            {
-                if (item == this && item.border.Margin.Right == 230)
-                {
-                    var storyBoard = item.Resources["StoryboardChooseItem"] as Storyboard;
-                    storyBoard.Begin(item);
-                }               
-                else if (item != this && item.border.Margin.Right == 0)
-                {
-                    var storyBoard_rev = item.Resources["StoryboardChooseItem_Rev"] as Storyboard;
-                    storyBoard_rev.Begin(item);
-                }
-            }
-            _context.OpenOutterWindow(itemmenu.commandType);
-        }
 
         private void Storyboard_Completed(object sender, EventArgs e)
         {
@@ -64,6 +46,29 @@ namespace DigitalPhotographyManagementSystem.UserControls
             var Thicc = new Thickness(0, 6, 230, 6);
             border.BeginAnimation(FrameworkElement.MarginProperty, null);
             border.Margin = Thicc;
+        }
+
+        private void Button_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var SingleItems = this._context.SideMenu.Children.OfType<UserControlSingleItem>();
+            foreach (var item in SingleItems)
+            {
+                if (item == this && item.border.Margin.Right == 230)
+                {
+                    var storyBoard = item.Resources["StoryboardChooseItem"] as Storyboard;
+                    storyBoard.Begin(item);
+
+                }
+                else if (item != this && item.border.Margin.Right == 0)
+                {
+                    var storyBoard_rev = item.Resources["StoryboardChooseItem_Rev"] as Storyboard;
+                    storyBoard_rev.Begin(item);
+                }
+            }
+            //_context.TxtDeptName.Text = AccountDept
+            _context.TxtTitle.Text = BtnTxt.Text.ToUpper();
+            _context.TxtTitleSmall.Text = BtnTxt.Text;
+            _context.OpenOutterWindow(itemmenu.commandType, ((Button)sender).Tag);
         }
     }
 }
