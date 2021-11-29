@@ -178,6 +178,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ServiceClass\RevExpChartViewModel.cs" />
     <Compile Include="UserControls\Accounting\CalculateBills.xaml.cs">
       <DependentUpon>CalculateBills.xaml</DependentUpon>
     </Compile>

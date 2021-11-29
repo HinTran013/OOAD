@@ -4,11 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.UserControls"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"        
              mc:Ignorable="d" 
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             xmlns:view="clr-namespace:DigitalPhotographyManagementSystem.ServiceClass"
              Height="653" Width="1084"
              Background="White"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">
+    <UserControl.DataContext>
+        <view:RevExpChartViewModel/>
+        <!-- mark -->
+    </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
@@ -143,9 +149,16 @@
                 </StackPanel>
             </Border>
         </Grid>
-        <Grid Grid.Row="2" Margin="30,0,0,0">
-
-        </Grid>
-
+        <Border Grid.Row="2" Margin="30" CornerRadius="10" Background="White">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
+            </Border.Effect>
+            <Border Margin="10,10,-10,-10" CornerRadius="10" Background="#8699DA">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
+                </Border.Effect>
+                <lvc:CartesianChart Name="RevExpChart" Series="{Binding Series}" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Foreground="White" LegendTextBrush="White"/>
+            </Border>
+        </Border>
     </Grid>
 </UserControl>

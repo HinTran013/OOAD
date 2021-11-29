@@ -93,9 +93,11 @@
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="10"/>
                 </Border.Effect>
-                <DockPanel x:Name="MainContent" Margin="5">
+                <ScrollViewer HorizontalAlignment="Stretch" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <DockPanel x:Name="MainContent" Margin="5">
 
-                </DockPanel>
+                    </DockPanel>
+                </ScrollViewer>
             </Border>
         </Grid>
     </Grid>
