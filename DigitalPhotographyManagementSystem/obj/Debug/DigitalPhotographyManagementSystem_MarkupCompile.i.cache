@@ -11,9 +11,9 @@ false
 DEBUG;TRACE
 D:\GitHubServer\OOAD\DigitalPhotographyManagementSystem\App.xaml
 211746000908
-14-2057775706
+30-754233458
 28-666359757
-133725586043
+148-423226209
 UserControls\Accounting\CalculateBills.xaml;UserControls\Accounting\FundBills.xaml;UserControls\Accounting\ReportPrices.xaml;UserControls\AdminOnly\CreateAccount.xaml;UserControls\AdminOnly\ListAccounts.xaml;UserControls\AdminOnly\ListOfPriceChanges.xaml;UserControls\DashboardHome.xaml;UserControls\Marketing\AdCampaign.xaml;UserControls\Marketing\IdeaProposing.xaml;UserControls\Marketing\PrintPhoto.xaml;UserControls\Technical\InvoiceDetail.xaml;UserControls\Technical\ListOfInvoices.xaml;UserControls\Transaction\InvoiceCreating.xaml;UserControls\Transaction\IssuesReport.xaml;UserControls\Transaction\PhotoDelivery.xaml;UserControls\UserControlMenuDrawer.xaml;UserControls\UserControlSingleItem.xaml;View\AboutBox.xaml;View\DashboardMain.xaml;View\LoginWindow.xaml;View\MsgBox.xaml;
 
 True
