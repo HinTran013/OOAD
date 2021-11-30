@@ -12,7 +12,7 @@ namespace BUS
     {
         static adCampaignDAL adCampaign = new adCampaignDAL();
 
-        public static bool AddNewIssue(adCampaignDTO newAdCampaign)
+        public static bool AddNewAdCampaign(adCampaignDTO newAdCampaign)
         {
             return adCampaign.InsertNewAdCampaignRecord(newAdCampaign);
         }
