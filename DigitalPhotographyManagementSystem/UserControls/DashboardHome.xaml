@@ -4,22 +4,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.UserControls"
-             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"        
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"   
+             xmlns:lvcore="clr-namespace:LiveChartsCore;assembly=LiveChartsCore"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              xmlns:view="clr-namespace:DigitalPhotographyManagementSystem.ServiceClass"
-             Height="653" Width="1084"
+             Height="1013" Width="1084"
              Background="White"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">
     <UserControl.DataContext>
-        <view:RevExpChartViewModel/>
+        <view:ChartViewModel/>
         <!-- mark -->
     </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="5.5*"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="261"/>
+            <RowDefinition Height="360"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <TextBlock Text="Welcome to Digital Photography Management's Dashboard" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Margin="30,0,0,0" VerticalAlignment="Center" FontSize="20" />
@@ -34,7 +36,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Border x:Name="RevenueBD" Grid.Row="0" Grid.Column="0" Margin="10" CornerRadius="10" Background="#EFF0F2" MouseLeftButtonDown="RevenueBD_MouseLeftButtonDown">
+            <Border x:Name="RevenueBD" Grid.Row="0" Grid.Column="0" Margin="10" CornerRadius="10" Background="#559B2D" MouseLeftButtonDown="RevenueBD_MouseLeftButtonDown">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="5"/>
                 </Border.Effect>
@@ -43,17 +45,17 @@
                         <Border.Effect>
                             <DropShadowEffect ShadowDepth="1" BlurRadius="10"/>
                         </Border.Effect>
-                        <materialDesign:PackIcon Kind="Money" Height="Auto" Margin="0,0,-0.2,-0.2" Width="85"/>
+                        <Image Source="/DigitalPhotographyManagementSystem;component/ImageSrc/revenue.png" Margin="10"/>
                     </Border>
                     <DockPanel Margin="0,0,0,-0.2" Width="201">
                         <Viewbox Margin="10,0,0,0" DockPanel.Dock="Top" Height="60" HorizontalAlignment="Left">
-                            <TextBlock x:Name="RevenueTxt" Text="VNĐ 10.000.000" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" TextAlignment="Center"/>
+                            <TextBlock x:Name="RevenueTxt" Text="VNĐ 10.000.000" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" TextAlignment="Center" Foreground="White"/>
                         </Viewbox>
-                        <TextBlock Text="Revenue" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0"/>
+                        <TextBlock Text="Revenue" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0" Foreground="White"/>
                     </DockPanel>
                 </StackPanel>
             </Border>
-            <Border x:Name="AdsBD" Grid.Row="0" Grid.Column="1" Margin="10" CornerRadius="10" Background="#FFEFF0F2">
+            <Border x:Name="AdsBD" Grid.Row="0" Grid.Column="1" Margin="10" CornerRadius="10" Background="#0291C9">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="5"/>
                 </Border.Effect>
@@ -62,17 +64,17 @@
                         <Border.Effect>
                             <DropShadowEffect ShadowDepth="1" BlurRadius="10"/>
                         </Border.Effect>
-                        <materialDesign:PackIcon Kind="Advertisements" Height="Auto" Margin="0,0,-0.2,-0.2" Width="85"/>
+                        <Image Source="/DigitalPhotographyManagementSystem;component/ImageSrc/campaign.png" Margin="10"/>
                     </Border>
                     <DockPanel Margin="0,0,0,-0.2" Width="201">
                         <Viewbox Margin="10,0,0,0" DockPanel.Dock="Top" Height="60" HorizontalAlignment="Left">
-                            <TextBlock x:Name="AdsTxt" Text="100" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" TextAlignment="Center"/>
+                            <TextBlock x:Name="AdsTxt" Text="100" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" TextAlignment="Center" Foreground="White"/>
                         </Viewbox>
-                        <TextBlock Text="Campaign(s) " DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0"/>
+                        <TextBlock Text="Campaign(s) " DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0" Foreground="White"/>
                     </DockPanel>
                 </StackPanel>
             </Border>
-            <Border x:Name="PhotosBD" Grid.Row="0" Grid.Column="2" Margin="10" CornerRadius="10" Background="#FFEFF0F2">
+            <Border x:Name="PhotosBD" Grid.Row="0" Grid.Column="2" Margin="10" CornerRadius="10" Background="DarkCyan">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="5"/>
                 </Border.Effect>
@@ -81,17 +83,17 @@
                         <Border.Effect>
                             <DropShadowEffect ShadowDepth="1" BlurRadius="10"/>
                         </Border.Effect>
-                        <materialDesign:PackIcon Kind="Photography" Height="Auto" Margin="0,0,-0.2,-0.2" Width="85"/>
+                        <Image Source="/DigitalPhotographyManagementSystem;component/ImageSrc/photos.png" Margin="10"/>
                     </Border>
                     <DockPanel Margin="0,0,0,-0.2" Width="201">
                         <Viewbox Margin="10,0,0,0" DockPanel.Dock="Top" Height="60" HorizontalAlignment="Left">
-                            <TextBlock x:Name="PhotosTxt" Text="100" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" TextAlignment="Center"/>
+                            <TextBlock x:Name="PhotosTxt" Text="100" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" TextAlignment="Center" Foreground="White"/>
                         </Viewbox>
-                        <TextBlock Text="Photo(s) delivered" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0"/>
+                        <TextBlock Text="Photo(s) delivered" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0" Foreground="White"/>
                     </DockPanel>
                 </StackPanel>
             </Border>
-            <Border x:Name="ExpenBD" Grid.Row="1" Grid.Column="0" Margin="10" CornerRadius="10" Background="#FFEFF0F2">
+            <Border x:Name="ExpenBD" Grid.Row="1" Grid.Column="0" Margin="10" CornerRadius="10" Background="#FFF96D16">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="5"/>
                 </Border.Effect>
@@ -100,17 +102,17 @@
                         <Border.Effect>
                             <DropShadowEffect ShadowDepth="1" BlurRadius="10"/>
                         </Border.Effect>
-                        <materialDesign:PackIcon Kind="HandCoin" Height="Auto" Margin="0,0,-0.2,-0.2" Width="85"/>
+                        <Image Source="/DigitalPhotographyManagementSystem;component/ImageSrc/expenditure.png" Margin="10"/>
                     </Border>
                     <DockPanel Margin="0,0,0,-0.2" Width="201">
                         <Viewbox Margin="10,0,0,0" DockPanel.Dock="Top" Height="60" HorizontalAlignment="Left">
-                            <TextBlock x:Name="ExpenTxt" Text="VNĐ 1.000.000" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" TextAlignment="Center"/>
+                            <TextBlock x:Name="ExpenTxt" Text="VNĐ 1.000.000" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" TextAlignment="Center" Foreground="White"/>
                         </Viewbox>
-                        <TextBlock Text="Expenditure" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0"/>
+                        <TextBlock Text="Expenditure" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0" Foreground="White"/>
                     </DockPanel>
                 </StackPanel>
             </Border>
-            <Border x:Name="IssuesBD" Grid.Row="1" Grid.Column="1" Margin="10" CornerRadius="10" Background="#FFEFF0F2">
+            <Border x:Name="IssuesBD" Grid.Row="1" Grid.Column="1" Margin="10" CornerRadius="10" Background="OrangeRed">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="5"/>
                 </Border.Effect>
@@ -119,17 +121,17 @@
                         <Border.Effect>
                             <DropShadowEffect ShadowDepth="1" BlurRadius="10"/>
                         </Border.Effect>
-                        <materialDesign:PackIcon Kind="Error" Height="Auto" Margin="0,0,-0.2,-0.2" Width="85"/>
+                        <Image Margin="10" Source="/DigitalPhotographyManagementSystem;component/ImageSrc/issue.png"/>
                     </Border>
                     <DockPanel Margin="0,0,0,-0.2" Width="201">
                         <Viewbox Margin="10,0,0,0" DockPanel.Dock="Top" Height="60" HorizontalAlignment="Left">
-                            <TextBlock x:Name="IssuesTxt" Text="100" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" TextAlignment="Center"/>
+                            <TextBlock x:Name="IssuesTxt" Text="100" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" TextAlignment="Center" Foreground="White"/>
                         </Viewbox>
-                        <TextBlock Text="Issue(s) not resolved" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0"/>
+                        <TextBlock Text="Issue(s) not resolved" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0" Foreground="White"/>
                     </DockPanel>
                 </StackPanel>
             </Border>
-            <Border x:Name="InvoicesBD" Grid.Row="1" Grid.Column="2" Margin="10" CornerRadius="10" Background="#FFEFF0F2">
+            <Border x:Name="InvoicesBD" Grid.Row="1" Grid.Column="2" Margin="10" CornerRadius="10" Background="DarkGoldenrod">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="5"/>
                 </Border.Effect>
@@ -138,27 +140,79 @@
                         <Border.Effect>
                             <DropShadowEffect ShadowDepth="1" BlurRadius="10"/>
                         </Border.Effect>
-                        <materialDesign:PackIcon Kind="Invoice" Height="Auto" Margin="0,0,-0.2,-0.2" Width="85"/>
+                        <Image Source="/DigitalPhotographyManagementSystem;component/ImageSrc/invoice.png" Margin="10"/>
                     </Border>
                     <DockPanel Margin="0,0,0,-0.2" Width="201">
                         <Viewbox Margin="10,0,0,0" DockPanel.Dock="Top" Height="60" HorizontalAlignment="Left">
-                            <TextBlock x:Name="InvoicesTxt" Text="50" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" TextAlignment="Center"/>
+                            <TextBlock x:Name="InvoicesTxt" Text="50" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" TextAlignment="Center" Foreground="White"/>
                         </Viewbox>
-                        <TextBlock Text="Invoice(s) not completed" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0"/>
+                        <TextBlock Text="Invoice(s) not completed" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0" Foreground="White"/>
                     </DockPanel>
                 </StackPanel>
             </Border>
         </Grid>
-        <Border Grid.Row="2" Margin="30" CornerRadius="10" Background="White">
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
-            </Border.Effect>
-            <Border Margin="10,10,-10,-10" CornerRadius="10" Background="#8699DA">
+        <Grid Grid.Row="3" Margin="30,10,30,20">
+            <Grid.OpacityMask>
+                <VisualBrush Visual="{Binding ElementName=BorderG1 }"/>
+            </Grid.OpacityMask>
+            <Border x:Name="BorderG1" CornerRadius="10" Background="#8699DA">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
                 </Border.Effect>
-                <lvc:CartesianChart Name="RevExpChart" Series="{Binding Series}" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Foreground="White" LegendTextBrush="White"/>
             </Border>
-        </Border>
+            <TextBlock Text="Revenue and Expenditure Chart" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20" Foreground="White" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Margin="10,0,0,0"/>
+            <Border Margin="10,30,-10,-10" CornerRadius="10" Background="White">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
+                </Border.Effect>
+            <lvc:CartesianChart Name="RevExpChart" 
+                            Series="{Binding RevExpSeries}" 
+                            XAxes="{Binding XAxes}"
+                            YAxes="{Binding YAxes}" 
+                            AnimationsSpeed="00:00:00.500"
+                            EasingFunction="{Binding Source={x:Static lvcore:EasingFunctions.BounceOut}}"
+                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Foreground="White" LegendTextBrush="White" ZoomMode="X">
+            </lvc:CartesianChart>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.OpacityMask>
+                    <VisualBrush Visual="{Binding ElementName=BorderG2 }"/>
+                </Grid.OpacityMask>
+                <Border x:Name="BorderG2" Grid.Column="0" CornerRadius="10" Background="White" Margin="30,0" >
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
+                    </Border.Effect>
+                </Border>
+                <TextBlock Text="Issue Pie Chart" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="Black" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" FontSize="20"/>
+
+                <lvc:PieChart x:Name="IssueChart" 
+                              Series="{Binding IssueSeries}" 
+                                    AnimationsSpeed="00:00:00.500"
+                                    FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Foreground="White" LegendTextBrush="White" Margin="30,30,30,10"/>
+
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.OpacityMask>
+                    <VisualBrush Visual="{Binding ElementName=BorderG3}"/>
+                </Grid.OpacityMask>
+                <Border x:Name="BorderG3" Grid.Column="0" CornerRadius="10" Background="White" Margin="30,0" >
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
+                    </Border.Effect>
+                </Border>
+                <TextBlock Text="Invoice Pie Chart" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="Black" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" FontSize="20"/>
+
+                <lvc:PieChart x:Name="InvoiceChart" 
+                              Series="{Binding InvoiceSeries}" 
+                                    AnimationsSpeed="00:00:00.500"
+                                    FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Foreground="White" LegendTextBrush="White"  Margin="30,30,30,10"/>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>

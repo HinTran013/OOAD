@@ -71,9 +71,17 @@
                         <TextBlock/>
                     </StackPanel>
                 </Grid>
-                <TextBlock x:Name="TxtTitle" Text="HOME"
+                <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#FF8699DA" CornerRadius="10" HorizontalAlignment="Center" Margin="0,0,0,-5">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
+                    </Border.Effect>
+                    <Viewbox HorizontalAlignment="Center" Height="30" Margin="10,0">
+                        <TextBlock x:Name="TxtTitle" Text="HOME"
                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
-                            FontSize="18" Margin="0,0,0,5" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+                            FontSize="40" Margin="0,0,0,5"  HorizontalAlignment="Center" Foreground="White"/>
+                    </Viewbox>
+                </Border>
+
                 <Grid Grid.Column="1">
                     <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
                         <Button x:Name="ShutdownBtn" VerticalAlignment="Top" Style ="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="40" Height="40"  Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Margin="0,0,0,0" Click="ShutdownBtn_Click">

@@ -178,7 +178,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ServiceClass\RevExpChartViewModel.cs" />
+    <Compile Include="ServiceClass\ChartViewModel.cs" />
     <Compile Include="UserControls\Accounting\CalculateBills.xaml.cs">
       <DependentUpon>CalculateBills.xaml</DependentUpon>
     </Compile>
@@ -383,6 +383,12 @@
     <Content Include="Core\Compression\Snappy\lib\win\snappy32.dll" />
     <Content Include="Core\Compression\Snappy\lib\win\snappy64.dll" />
     <Content Include="Core\Compression\Zstandard\lib\win\libzstd.dll" />
+    <Resource Include="ImageSrc\campaign.png" />
+    <Resource Include="ImageSrc\expenditure.png" />
+    <Resource Include="ImageSrc\invoice.png" />
+    <Resource Include="ImageSrc\issue.png" />
+    <Resource Include="ImageSrc\photos.png" />
+    <Resource Include="ImageSrc\revenue.png" />
     <Content Include="mongocrypt.dll" />
     <Resource Include="ImageSrc\logo.png" />
     <Resource Include="ImageSrc\Error.png" />
