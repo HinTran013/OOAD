@@ -55,11 +55,43 @@
                     </DockPanel>
                 </StackPanel>
             </Border>
-            <Border x:Name="AdsBD" Grid.Row="0" Grid.Column="1" Margin="10" CornerRadius="10" Background="#0291C9">
+            <Border x:Name="AdsBD" 
+                    Grid.Row="0" 
+                    Grid.Column="1" 
+                    Margin="10"
+                    CornerRadius="10" 
+                    
+                    Cursor="Hand" MouseDown="PopupList">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="5"/>
                 </Border.Effect>
-                <StackPanel Margin="15,15,20,15" FlowDirection="LeftToRight" Orientation="Horizontal">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop x:Name="GradientStop1" Color="#A2D2FF" Offset="0.7" />
+                        <GradientStop x:Name="GradientStop2" Color="#A2D2FF" Offset="0.25" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.Triggers>
+                    <EventTrigger RoutedEvent="Border.MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="GradientStop1" Storyboard.TargetProperty="Offset" From="0.0" To="1.0" Duration="0:0:0.25"/>
+                                <ColorAnimation Storyboard.TargetName="GradientStop2" Storyboard.TargetProperty="Color" To="#98BAE7" Duration="0:0:0.25"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Border.MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="GradientStop1" Storyboard.TargetProperty="Offset" From="1.0" To="0.0" Duration="0:0:0.25"/>
+                                <ColorAnimation Storyboard.TargetName="GradientStop2" Storyboard.TargetProperty="Color" To="#A2D2FF" Duration="0:0:0.25"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Border.Triggers>
+                <StackPanel Margin="15,15,20,15" 
+                            FlowDirection="LeftToRight" 
+                            Orientation="Horizontal">
                     <Border VerticalAlignment="Stretch" Width="85" Height="Auto" Background="White" CornerRadius="10">
                         <Border.Effect>
                             <DropShadowEffect ShadowDepth="1" BlurRadius="10"/>

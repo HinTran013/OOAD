@@ -29,5 +29,11 @@ namespace DigitalPhotographyManagementSystem.UserControls
         {
             //RevenueTxt.Text += "000";
         }
+
+        private void PopupList(object sender, MouseButtonEventArgs e)
+        {
+            View.AdsList adsList = new View.AdsList();
+            adsList.Show();
+        }
     }
 }
