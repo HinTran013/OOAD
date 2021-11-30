@@ -186,10 +186,28 @@
                 </Grid.OpacityMask>
                 <Border x:Name="BorderG2" Grid.Column="0" CornerRadius="10" Background="White" Margin="30,0" >
                     <Border.Effect>
-                        <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
+                        <DropShadowEffect BlurRadius="5" 
+                                          ShadowDepth="1"
+                                         
+                                          Direction="270"/>
                     </Border.Effect>
                 </Border>
-                <TextBlock Text="Issue Pie Chart" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="Black" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" FontSize="20"/>
+                <Border Background="#FFDE3636" 
+                        CornerRadius="10"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
+                    </Border.Effect>
+                    <TextBlock Text="Issue Pie Chart" 
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Top" 
+                               Foreground="White" 
+                               FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
+                               FontSize="20"
+                               Margin="10,5"/>
+                </Border>
+                
 
                 <lvc:PieChart x:Name="IssueChart" 
                               Series="{Binding IssueSeries}" 
@@ -203,10 +221,27 @@
                 </Grid.OpacityMask>
                 <Border x:Name="BorderG3" Grid.Column="0" CornerRadius="10" Background="White" Margin="30,0" >
                     <Border.Effect>
-                        <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
+                        <DropShadowEffect BlurRadius="5" 
+                                          ShadowDepth="1"
+                                          Direction="270"/>
                     </Border.Effect>
                 </Border>
-                <TextBlock Text="Invoice Pie Chart" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="Black" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" FontSize="20"/>
+                <Border Background="DarkGoldenrod" 
+                        CornerRadius="10"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
+                    </Border.Effect>
+                    <TextBlock Text="Invoice Pie Chart" 
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Top" 
+                               Foreground="White" 
+                               FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
+                               FontSize="20"
+                               Margin="10,5"/>
+                </Border>
+              
 
                 <lvc:PieChart x:Name="InvoiceChart" 
                               Series="{Binding InvoiceSeries}" 

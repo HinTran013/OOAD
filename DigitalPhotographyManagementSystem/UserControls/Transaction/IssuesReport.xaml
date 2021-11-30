@@ -20,7 +20,7 @@
             <Border CornerRadius="10" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
-                        Margin="30,10,0,10"
+                        Margin="30,10,0,5"
                         Width="510"
                         HorizontalAlignment="Left">
                 <TextBox 
@@ -61,7 +61,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Grid Grid.Column="0">
-                        <Border Margin="30,0,10,0"
+                        <Border Margin="30,0,5,0"
                                 Background="#8699DA"
                                 CornerRadius="10">
                             <Border.Effect>
@@ -100,7 +100,7 @@
                         BorderThickness="2"
                         BorderBrush="#789ADE"
                         Margin="30,5,30,5"
-                        Height="375">
+                        Height="435">
                     <TextBox BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
