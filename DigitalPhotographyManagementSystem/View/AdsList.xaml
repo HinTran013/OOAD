@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
         mc:Ignorable="d"
         Title="AdsList" 
         Height="600" Width="1000"
@@ -17,7 +19,7 @@
                   VerticalAlignment="Top"
                   HorizontalAlignment="Center">
                 
-                <Label Content="LIST BOX OF PHOTO IN STORAGE" 
+                <Label Content="List of Ads campaigns running" 
                        FontSize="20"
                        FontWeight="Bold" 
                        Margin="0,0,0,0"/>
@@ -31,21 +33,53 @@
                                           Direction="270"/>
                 </Border.Effect>
                 <Border Margin="5" CornerRadius="10" Background="White">
-                    <ListBox Name="listAds">
+                    
+                    <!--<ListBox Name="listAds"
+                             ItemsSource="{Binding Path=testList}">
+
+                        This is currently testing!
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border Margin="5"
                                         BorderBrush="AliceBlue"
-                                        BorderThickness="1">
-                                    <StackPanel>
-                                        <TextBlock Text="test" />
+                                        BorderThickness="1"
+                                        Background="Red">
+                                    <StackPanel Background="AliceBlue">
+                                        <TextBlock Text="{Binding Path=ideaSubject}"/>
                                         <TextBlock Text="test"/>
                                         <TextBlock Text="test"/>
                                     </StackPanel>
                                 </Border>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
-                    </ListBox>
+
+                    </ListBox>-->
+
+                    <ListView>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="No." Width="85" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
+                                <GridViewColumn Header="Name of Campaign" Width="270" DisplayMemberBinding="{Binding campaignName}" ></GridViewColumn>
+                                <GridViewColumn Header="Type" Width="200" DisplayMemberBinding="{Binding type}" ></GridViewColumn>
+                                <GridViewColumn Header="Start Date" Width="190" DisplayMemberBinding="{Binding dateStart}" ></GridViewColumn>
+                                <GridViewColumn Header="Action" Width="120">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button x:Name="DetailBtn" 
+                                                    Content="Detail" 
+                                                    Background="#8699DA" 
+                                                    Click="DetailBtn_Click"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                        
+                        <!--this is for test-->
+                        <ListViewItem></ListViewItem>
+                        
+                    </ListView>
+
                 </Border>
             </Border>
             

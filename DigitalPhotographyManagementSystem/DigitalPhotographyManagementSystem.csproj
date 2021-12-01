@@ -235,6 +235,9 @@
     <Compile Include="View\AboutBox.xaml.cs">
       <DependentUpon>AboutBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AdsDetail_View.xaml.cs">
+      <DependentUpon>AdsDetail_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AdsList.xaml.cs">
       <DependentUpon>AdsList.xaml</DependentUpon>
     </Compile>
@@ -320,6 +323,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AboutBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdsDetail_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

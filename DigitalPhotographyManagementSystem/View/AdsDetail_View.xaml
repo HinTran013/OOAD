@@ -1,22 +1,46 @@
-﻿<UserControl x:Class="DigitalPhotographyManagementSystem.UserControls.Marketing.AdCampaign"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.UserControls.Marketing"
-             mc:Ignorable="d" 
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
-             
-             Height="653" Width="1084" Background="White">
+﻿<Window x:Class="DigitalPhotographyManagementSystem.View.AdsDetail_View"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
+        mc:Ignorable="d"
+        Height="700" Width="1084" 
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        AllowsTransparency="True"
+        Background="White">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.8*"/>
-            <RowDefinition Height="6*"/>
+            <RowDefinition Height="0.9*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6.5*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
+            <Border Background="#FF8699DA" 
+                    CornerRadius="10" 
+                    HorizontalAlignment="Left" 
+                    Margin="30,5,0,5"
+                    Width="300">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
+                </Border.Effect>
+                <Viewbox HorizontalAlignment="Center" Height="30" Margin="10,0">
+                    <TextBlock  x:Name="TxtTitle" 
+                                Text="Campaign Detail"
+                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
+                                FontSize="60" Margin="0,0,0,5"  
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Foreground="White"/>
+                </Viewbox>
+            </Border>
+        </Grid>
+        
+        <Grid Grid.Row="1">
             <Border CornerRadius="10" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
@@ -31,7 +55,8 @@
                              materialDesign:HintAssist.Hint="Campaign's name"
                              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
                              FontWeight="Normal"
-                             FontSize="16"/>
+                             FontSize="16"
+                             IsEnabled="False"/>
             </Border>
             <TextBlock HorizontalAlignment="Right"
                        VerticalAlignment="Center"
@@ -44,7 +69,7 @@
             </TextBlock>
         </Grid>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="2">
             <StackPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -68,12 +93,14 @@
                                         FontSize="15"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                        IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
+                                        
                                         materialDesign:HintAssist.Hint="Campaign type"
-                                        ItemsSource="{Binding ShortStringList}"/>
+                                        ItemsSource="{Binding ShortStringList}"
+                                        IsEnabled="False"
+                                        IsEditable="False"/>
                         </Border>
                     </Grid>
-                    
+
                     <Grid Grid.Column="1">
                         <Border VerticalAlignment="Top"
                                 HorizontalAlignment="Right"
@@ -94,7 +121,7 @@
                                         Style="{StaticResource MaterialDesignOutlinedDatePicker}"
                                         BorderBrush="White"
                                         BorderThickness="0"
-                               
+                                        IsEnabled="False"
                                         materialDesign:HintAssist.IsFloating="True"
                                         materialDesign:HintAssist.Hint="Start Date"/>
                         </Border>
@@ -120,7 +147,7 @@
                                         Style="{StaticResource MaterialDesignOutlinedDatePicker}"
                                         BorderBrush="White"
                                         BorderThickness="0"
-                               
+                                        IsEnabled="False"
                                         materialDesign:HintAssist.IsFloating="True"
                                         materialDesign:HintAssist.Hint="End date"/>
                         </Border>
@@ -131,43 +158,27 @@
                         BorderThickness="2"
                         BorderBrush="#789ADE"
                         Margin="30,10,30,0"
-                        Height="430" Background="White">
+                        Height="415" Background="White">
                     <TextBox BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                              materialDesign:HintAssist.Hint="Detail information about the ad campaign"
                              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
                              FontWeight="Normal"
-                             FontSize="16"/>
+                             FontSize="16"
+                             IsEnabled="False"/>
                 </Border>
             </StackPanel>
         </Grid>
 
 
-        <Grid Grid.Row="2">
-            <Border CornerRadius="15" 
-                    Background="#8699DA"
-                    Margin="900,10,30,10"
-                    Width="150">
-                <Border.Effect>
-                    <DropShadowEffect ShadowDepth="1" 
-                                          BlurRadius="4"
-                                          Opacity="0.5"
-                                          Direction="270"/>
-                </Border.Effect>
-                <Button FontSize="20"
-                        Foreground="White" Background="Transparent"
-                        BorderBrush="{x:Null}" 
-                        Height="50" FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
-                    Submit
-                </Button>
-            </Border>
-
+        <Grid Grid.Row="3">
+            
             <Border CornerRadius="15" 
                     Background="#EA9769"
-                    Margin="720,10,210,10"
-                    Width="150">
+                    Margin="0,5,0,10"
+                    Width="150"
+                    HorizontalAlignment="Center">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" 
                                           BlurRadius="4"
@@ -177,12 +188,12 @@
                 <Button FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
-                        Height="50" 
+                        Height="auto" 
                         FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
-                    Cancel
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="CloseBtn_Click">
+                    CLOSE
                 </Button>
             </Border>
         </Grid>
     </Grid>
-</UserControl>
+</Window>
