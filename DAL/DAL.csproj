@@ -113,6 +113,7 @@
     <Compile Include="accountDAL.cs" />
     <Compile Include="adCampaignDAL.cs" />
     <Compile Include="billDetailDAL.cs" />
+    <Compile Include="couponDAL.cs" />
     <Compile Include="customerDAL.cs" />
     <Compile Include="fundBillDAL.cs" />
     <Compile Include="ideaDAL.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="invoiceDetailDAL.cs" />
     <Compile Include="issueDAL.cs" />
     <Compile Include="issueReportDAL.cs" />
+    <Compile Include="paymentBillDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="staffDAL.cs" />
   </ItemGroup>
