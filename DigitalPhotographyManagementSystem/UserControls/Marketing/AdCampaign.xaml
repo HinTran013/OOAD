@@ -4,10 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.UserControls.Marketing"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
-             
              Height="653" Width="1084" Background="White">
     <Grid>
         <Grid.RowDefinitions>
@@ -24,7 +24,7 @@
                         HorizontalAlignment="Left"
                         Width="600"
                         Height="60" Background="White">
-                <TextBox 
+                <TextBox x:Name="AdsCampNameTxt" 
                              BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -33,7 +33,7 @@
                              FontWeight="Normal"
                              FontSize="16"/>
             </Border>
-            <TextBlock HorizontalAlignment="Right"
+            <TextBlock x:Name="DateTimeTxt" HorizontalAlignment="Right"
                        VerticalAlignment="Center"
    
                        FontSize="18"
@@ -63,14 +63,22 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                             </Border.Effect>
-                            <ComboBox   FontWeight="Bold"
+                            <ComboBox x:Name="AdsCampTypeCbb"   FontWeight="Bold"
                                         Foreground="Black"
                                         FontSize="15"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                         IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
-                                        materialDesign:HintAssist.Hint="Campaign type"
-                                        ItemsSource="{Binding ShortStringList}"/>
+                                        materialDesign:HintAssist.Hint="Campaign's type">
+                                <ComboBoxItem Content="Brand awareness campaign"></ComboBoxItem>
+                                <ComboBoxItem Content="Rebranding campaign"></ComboBoxItem>
+                                <ComboBoxItem Content="Search engine marketing campaign "></ComboBoxItem>
+                                <ComboBoxItem Content="Poster campagin"></ComboBoxItem>
+                                <ComboBoxItem Content="Coupon campaign"></ComboBoxItem>
+                                <ComboBoxItem Content="Social media marketing campaign"></ComboBoxItem>
+                                <ComboBoxItem Content="Email marketing campaign"></ComboBoxItem>
+                                <ComboBoxItem Content="Referral marketing campaign"></ComboBoxItem>
+                            </ComboBox>
                         </Border>
                     </Grid>
                     
@@ -87,14 +95,15 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                             </Border.Effect>
-                            <DatePicker FontSize="15"
+                            <DatePicker x:Name="StartDate" FontSize="15"
                                         Foreground="Black"
                                         FontWeight="Bold"
                                         Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                         Style="{StaticResource MaterialDesignOutlinedDatePicker}"
                                         BorderBrush="White"
                                         BorderThickness="0"
-                               
+                                        SelectedDate="{x:Static sys:DateTime.Now}"
+                                        
                                         materialDesign:HintAssist.IsFloating="True"
                                         materialDesign:HintAssist.Hint="Start Date"/>
                         </Border>
@@ -113,7 +122,7 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                             </Border.Effect>
-                            <DatePicker FontSize="15"
+                            <DatePicker x:Name="EndDate" FontSize="15"
                                         Foreground="Black"
                                         FontWeight="Bold"
                                         Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -122,7 +131,8 @@
                                         BorderThickness="0"
                                
                                         materialDesign:HintAssist.IsFloating="True"
-                                        materialDesign:HintAssist.Hint="End date"/>
+                                        materialDesign:HintAssist.Hint="End date"
+                                        SelectedDateChanged="EndDate_SelectedDateChanged"/>
                         </Border>
                     </Grid>
                 </Grid>
@@ -132,7 +142,7 @@
                         BorderBrush="#789ADE"
                         Margin="30,10,30,0"
                         Height="430" Background="White">
-                    <TextBox BorderThickness="0"
+                    <TextBox x:Name="DescTxt" BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                              materialDesign:HintAssist.Hint="Detail information about the ad campaign"
@@ -155,11 +165,12 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                 </Border.Effect>
-                <Button FontSize="20"
+                <Button x:Name="SubmitBtn" FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
                         Height="50" FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold"
+                        Click ="SubmitBtn_Click">
                     Submit
                 </Button>
             </Border>
@@ -174,12 +185,13 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                 </Border.Effect>
-                <Button FontSize="20"
+                <Button x:Name="CancelBtn" FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
                         Height="50" 
                         FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold"
+                        Click="CancelBtn_Click">
                     Cancel
                 </Button>
             </Border>
