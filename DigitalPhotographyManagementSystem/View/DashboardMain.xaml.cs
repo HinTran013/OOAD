@@ -20,6 +20,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static DigitalPhotographyManagementSystem.ServiceClass.ItemMenu;
+using DTO;
 
 namespace DigitalPhotographyManagementSystem.View
 {
@@ -29,40 +30,17 @@ namespace DigitalPhotographyManagementSystem.View
     public partial class DashboardMain : Window
     {
         static DashboardMain __instance = null;
+        private staffDTO Account;
 
-        public DashboardMain()
+        public staffDTO _Account { get => Account; set => Account = value; }
+
+        public DashboardMain(staffDTO acc)
         {
             InitializeComponent();
+            Account = acc;
+            TxtDeptName.Text = Account.type;
             var home = new ItemMenu("HOME", PackIconKind.Home, CommandType.UControl, new DashboardHome());
-
-            var menuMarketDept = new List<SubItem>();
-            menuMarketDept.Add(new SubItem("Propose New Ideas", new IdeaProposing()));
-            menuMarketDept.Add(new SubItem("Ad Campaign", new AdCampaign() ));
-            menuMarketDept.Add(new SubItem("Print Photos", new PrintPhoto()));
-            var marketSubMenu = new ItemMenu("MARKETING DEPT", menuMarketDept, PackIconKind.Megaphone);
-
-            var menuTransDept = new List<SubItem>();
-            menuTransDept.Add(new SubItem("Create Invoice", new InvoiceCreating()));
-            menuTransDept.Add(new SubItem("Photo delivery", new PhotoDelivery()));            
-            menuTransDept.Add(new SubItem("Technical issues resolve", new IssuesReport()));
-            var transSubMenu = new ItemMenu("TRANSACTION DEPT", menuTransDept, PackIconKind.Coins);
-
-            var menuAccDept = new List<SubItem>();
-            menuAccDept.Add(new SubItem("Create Payment Bill", new CalculateBills()));
-            menuAccDept.Add(new SubItem("Create Fund Bill", new FundBills()));
-            menuAccDept.Add(new SubItem("Report Price of Photos", new ReportPrices()));
-            var accSubMenu = new ItemMenu("ACCOUNTING DEPT", menuAccDept, PackIconKind.Calculator);
-
-            var menuTechDept = new List<SubItem>();
-            menuTechDept.Add(new SubItem("Detail Of Invoice", new ListOfInvoices()));
-            var techSubMenu = new ItemMenu("TECHINCAL DEPT", menuTechDept, PackIconKind.HammerScrewdriver);
-
-            var menuAdmin = new List<SubItem>();
-            menuAdmin.Add(new SubItem("Create Account", new CreateAccount()));
-            menuAdmin.Add(new SubItem("Manage Accounts", new ListAccounts()));
-            menuAdmin.Add(new SubItem("Manage Price-Change Requests", new ListOfPriceChanges()));
-            var AdminSubMenu = new ItemMenu("ADMINISTRATOR", menuAdmin, PackIconKind.Administrator);
-            
+                   
             //ABOUT popup
             var about = new ItemMenu("ABOUT", PackIconKind.About, CommandType.About);
 
@@ -73,15 +51,85 @@ namespace DigitalPhotographyManagementSystem.View
             var exit = new ItemMenu("EXIT", PackIconKind.Shutdown, CommandType.Exit);
 
             SideMenu.Children.Add(new UserControlSingleItem(home, this));
-            SideMenu.Children.Add(new UserControlMenuDrawer(marketSubMenu, this));
-            SideMenu.Children.Add(new UserControlMenuDrawer(transSubMenu, this));
-            SideMenu.Children.Add(new UserControlMenuDrawer(accSubMenu, this));
-            SideMenu.Children.Add(new UserControlMenuDrawer(techSubMenu, this));
-            SideMenu.Children.Add(new UserControlMenuDrawer(AdminSubMenu, this));
+
+            if (Account.type == "Admin")
+            {
+                var menuMarketDept = new List<SubItem>();
+                menuMarketDept.Add(new SubItem("Propose New Ideas", new IdeaProposing()));
+                menuMarketDept.Add(new SubItem("Ad Campaign", new AdCampaign()));
+                menuMarketDept.Add(new SubItem("Print Photos", new PrintPhoto()));
+                var marketSubMenu = new ItemMenu("MARKETING DEPT", menuMarketDept, PackIconKind.Megaphone);
+
+                var menuTransDept = new List<SubItem>();
+                menuTransDept.Add(new SubItem("Create Invoice", new InvoiceCreating()));
+                menuTransDept.Add(new SubItem("Photo Delivery", new PhotoDelivery()));
+                menuTransDept.Add(new SubItem("Technical Issues Resolve", new IssuesReport()));
+                var transSubMenu = new ItemMenu("TRANSACTION DEPT", menuTransDept, PackIconKind.Coins);
+
+                var menuAccDept = new List<SubItem>();
+                menuAccDept.Add(new SubItem("Create Payment Bill", new CalculateBills()));
+                menuAccDept.Add(new SubItem("Create Fund Bill", new FundBills()));
+                menuAccDept.Add(new SubItem("Report Price Of Photos", new ReportPrices()));
+                var accSubMenu = new ItemMenu("ACCOUNTING DEPT", menuAccDept, PackIconKind.Calculator);
+
+                var menuTechDept = new List<SubItem>();
+                menuTechDept.Add(new SubItem("Detail Of Invoice", new ListOfInvoices()));
+                var techSubMenu = new ItemMenu("TECHINCAL DEPT", menuTechDept, PackIconKind.HammerScrewdriver);
+
+                var menuAdmin = new List<SubItem>();
+                menuAdmin.Add(new SubItem("Create Account", new CreateAccount()));
+                menuAdmin.Add(new SubItem("Manage Accounts", new ListAccounts()));
+                menuAdmin.Add(new SubItem("Manage Price-Change Requests", new ListOfPriceChanges()));
+                var AdminSubMenu = new ItemMenu("ADMINISTRATOR", menuAdmin, PackIconKind.Administrator);
+
+                SideMenu.Children.Add(new UserControlMenuDrawer(marketSubMenu, this));
+                SideMenu.Children.Add(new UserControlMenuDrawer(transSubMenu, this));
+                SideMenu.Children.Add(new UserControlMenuDrawer(accSubMenu, this));
+                SideMenu.Children.Add(new UserControlMenuDrawer(techSubMenu, this));
+                SideMenu.Children.Add(new UserControlMenuDrawer(AdminSubMenu, this));
+            }
+            else
+            {
+                TxtDeptName.Text = Account.type;
+                if (Account.type == "Accounting")
+                {
+                    var paymentBill = new ItemMenu("Create Payment Bill", PackIconKind.Payment, CommandType.UControl, new CalculateBills());
+                    var fundBill = new ItemMenu("Create Fund Bill", PackIconKind.Electricity, CommandType.UControl, new FundBills());
+                    var report = new ItemMenu("Report Price Of Photos", PackIconKind.Report, CommandType.UControl, new ReportPrices());
+                    SideMenu.Children.Add(new UserControlSingleItem(paymentBill, this));
+                    SideMenu.Children.Add(new UserControlSingleItem(fundBill, this));
+                    SideMenu.Children.Add(new UserControlSingleItem(report, this));
+                }
+                else if (Account.type == "Marketing")
+                {
+                    var propose = new ItemMenu("Propose New Ideas", PackIconKind.Idea, CommandType.UControl, new IdeaProposing());
+                    var adCamp = new ItemMenu("Ad Campaign", PackIconKind.Ads, CommandType.UControl, new AdCampaign());
+                    var print = new ItemMenu("Print Photos", PackIconKind.Printer, CommandType.UControl, new PrintPhoto());
+                    SideMenu.Children.Add(new UserControlSingleItem(propose, this));
+                    SideMenu.Children.Add(new UserControlSingleItem(adCamp, this));
+                    SideMenu.Children.Add(new UserControlSingleItem(print, this));
+                }
+                else if (Account.type == "Technical")
+                {
+                    var invoice = new ItemMenu("Detail Of Invoice", PackIconKind.Invoice, CommandType.UControl, new ListOfInvoices());
+                    SideMenu.Children.Add(new UserControlSingleItem(invoice, this));
+                }
+                else if (Account.type == "Transaction")
+                {
+                    var invoice = new ItemMenu("Create Invoice", PackIconKind.Invoice, CommandType.UControl, new InvoiceCreating());
+                    var photoDel = new ItemMenu("Photo Delievery", PackIconKind.TruckDelivery, CommandType.UControl, new PhotoDelivery());
+                    var issue = new ItemMenu("Technical Issues Resolve", PackIconKind.GitIssue, CommandType.UControl, new IssuesReport());
+                    SideMenu.Children.Add(new UserControlSingleItem(invoice, this));
+                    SideMenu.Children.Add(new UserControlSingleItem(photoDel, this));
+                    SideMenu.Children.Add(new UserControlSingleItem(issue, this));
+                }
+            } 
+            
             SideMenu.Children.Add(new UserControlSingleItem(about, this));
             SideMenu.Children.Add(new UserControlSingleItem(logout, this));
             SideMenu.Children.Add(new UserControlSingleItem(exit, this));
 
+            TxtStaffName.Text = Account.name;
             SwitchScreen(home.Screen);
         }
         internal void SwitchScreen(object sender)
@@ -95,9 +143,9 @@ namespace DigitalPhotographyManagementSystem.View
                 MainContent.Children.Add(screen);
             }
         }
-        public static DashboardMain GetInstance()
+        public static DashboardMain GetInstance(staffDTO acc)
         {
-            if (__instance == null) __instance = new DashboardMain();
+            if (__instance == null) __instance = new DashboardMain(acc);
             return __instance;
         }
         internal void OpenOutterWindow(CommandType commandType, object sender)
@@ -128,7 +176,8 @@ namespace DigitalPhotographyManagementSystem.View
                     if (messageBoxResult2 == MessageBoxResult.Yes)
                     {
                         //DBConnection_BUS.CloseConnection();
-                        //this.Release();
+
+                        this.Release();
                         LoginWindow login = new LoginWindow();
                         login.Show();
                         dashboardMain.Close();
@@ -150,6 +199,11 @@ namespace DigitalPhotographyManagementSystem.View
         private void TopBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+        private void Release()
+        {
+            __instance = null;
+            GC.Collect();
         }
     }
 }

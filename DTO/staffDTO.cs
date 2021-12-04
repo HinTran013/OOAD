@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +14,10 @@ namespace DTO
         private Nullable<bool> _gender;
         private string _email;
         private string _phoneNumber;
-        private string _salary;
+        private int _salary;
         private string _type;
+        private string _username;
+        private string _password;
 
         public staffDTO()
         {
@@ -23,8 +26,10 @@ namespace DTO
             this._gender = null;
             this._email = null;
             this._phoneNumber = null;
-            this._salary = null;
+            this._salary = 0;
             this._type = null;
+            this._username = null;
+            this._password = null;
         }
 
         //constructor with params
@@ -34,8 +39,10 @@ namespace DTO
         Nullable<bool> gender,
         string email,
         string phoneNumber,
-        string salary,
-        string type)
+        int salary,
+        string type,
+        string username,
+        string password)
         {
             this._name = name;
             this._birthDate = birthDate;
@@ -44,6 +51,8 @@ namespace DTO
             this._phoneNumber = phoneNumber;
             this._salary = salary;
             this._type = type;
+            this._username = username;
+            this._password = password;
         }
 
         public string name { get => _name; set => _name = value; }
@@ -51,7 +60,9 @@ namespace DTO
         public bool gender { get => (bool)_gender; set => _gender = value; }
         public string email { get => _email; set => _email = value; }
         public string phoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
-        public string salary { get => _salary; set => _salary = value; }
+        public int salary { get => _salary; set => _salary = value; }
         public string type { get => _type; set => _type = value; }
+        public string username { get => _username; set => _username = value; }
+        public string password { get => _password; set => _password = value; }
     }
 }

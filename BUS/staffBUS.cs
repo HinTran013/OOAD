@@ -16,5 +16,13 @@ namespace BUS
         {
             return staff.InserNewStaffRecord(newStaff);
         }
+        public static bool Login(string username, string password)
+        {
+            return staff.Login(username, password);
+        }
+        public static staffDTO GetStaffByUsername(string username)
+        {
+            return staff.GetStaffByUsername(username);
+        }
     }
 }
