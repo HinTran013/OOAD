@@ -26,9 +26,11 @@ namespace DAL
                 var collection = db.GetCollection<BsonDocument>("fundBills");
                 var newDoc = new BsonDocument
             {
-                    { "description", newBill.description },
+                    { "fundID", newBill.fundID},
                     { "date", newBill.date },
+                    { "fundType", newBill.fundType },
                     { "totalMoney", newBill.totalMoney },
+                    { "description", newBill.description },
                     { "accountantID", newBill.accountantID }
             };
 

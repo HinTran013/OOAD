@@ -21,16 +21,19 @@
             <Border CornerRadius="10" 
                     BorderThickness="2"
                     BorderBrush="#789ADE"
-                    Margin="30,0,900,5" Background="White">
-                <TextBox x:Name="BillID"                       
+                    Margin="30,0,452,5" Background="White">
+                <TextBox x:Name="FundIDTxt"                       
                           BorderThickness="0"
+                          IsReadOnly="True"
+                          TextAlignment="Center"
                           Style="{StaticResource MaterialDesignOutlinedTextBox}"
                           materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                           materialDesign:HintAssist.Hint="Fund Bill ID"
                           FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
                           FontWeight="Normal" FontSize="14" VerticalAlignment="Center"/>
             </Border>
-            <TextBlock HorizontalAlignment="Right"
+            <TextBlock x:Name="DateTimeTxt"
+                       HorizontalAlignment="Right"
                        VerticalAlignment="Center"
    
                        FontSize="18"
@@ -58,14 +61,21 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                             </Border.Effect>
-                            <ComboBox   FontWeight="Bold"
+                            <ComboBox   x:Name="TypeCbb"
+                                        FontWeight="Bold"
                                         Foreground="Black"
                                         FontSize="15"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                         IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
                                         materialDesign:HintAssist.Hint="Bill type"
-                                        ItemsSource="{Binding ShortStringList}"/>
+                                        ItemsSource="{Binding ShortStringList}">
+                                <ComboBoxItem Content="Transportation fee"/>
+                                <ComboBoxItem Content="Tradings"/>
+                                <ComboBoxItem Content="Equipment and Supplies cost"/>
+                                <ComboBoxItem Content="Advertising and Promotion cost"/>
+                                <ComboBoxItem Content="Other"/>
+                            </ComboBox>
                         </Border>
                     </Grid>
                     <Grid Grid.Column="1">
@@ -73,7 +83,7 @@
                                 BorderThickness="2"
                                 BorderBrush="#789ADE"
                                 Margin="0,0,450,0" Background="White">
-                            <TextBox    
+                            <TextBox    x:Name="CostTxt"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -89,7 +99,8 @@
                         BorderThickness="2"
                         BorderBrush="#789ADE"
                         Margin="30,5,30,0" Height="444">
-                    <TextBox BorderThickness="0"
+                    <TextBox x:Name="DescriptionTxt"
+                             BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                              materialDesign:HintAssist.Hint="Description"
@@ -112,11 +123,12 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                 </Border.Effect>
-                <Button FontSize="20"
+                <Button x:Name="ReportBtn"
+                        FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
-                        Height="50" FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                        Height="auto" FontWeight="Normal"
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="ReportBtn_Click">
                     Report
                 </Button>
             </Border>
@@ -132,12 +144,13 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                 </Border.Effect>
-                <Button FontSize="20"
+                <Button x:Name="CancelBtn"
+                        FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
-                        Height="50" 
+                        Height="auto" 
                         FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="CancelBtn_Click">
                     Cancel
                 </Button>
             </Border>
