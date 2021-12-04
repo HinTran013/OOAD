@@ -52,7 +52,7 @@
                     <Border BorderBrush="{x:Null}" MinHeight="50" MaxHeight="100">
                         <TextBlock VerticalAlignment="Center" 
                         TextWrapping="Wrap" Name="txtMsg" FontSize="20" 
-                        TextAlignment="Center" FontWeight="Bold" Margin="0,14,9.2,8.6" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"/>
+                        TextAlignment="Center" FontWeight="Bold" Margin="10,14,10,8.6" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"/>
                     </Border>
                 </Grid>
 

@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="accountBUS.cs" />
     <Compile Include="adCampaignBUS.cs" />
     <Compile Include="billDetailBUS.cs" />
     <Compile Include="couponBUS.cs" />

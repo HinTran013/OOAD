@@ -90,7 +90,7 @@
                         <Button x:Name="MinimizeBtn" VerticalAlignment="Top" Style ="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="40" Height="40"  Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Margin="0,0,0,0" Click="MinimizeBtn_Click">
                             <materialDesign:PackIcon Kind="WindowMinimize" Width="30" Height="30"/>
                         </Button>
-                        <TextBlock Text="Le Tran Thanh Hon Tuyen" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black"
+                        <TextBlock x:Name="TxtStaffName" Text="Le Tran Thanh Hon Tuyen" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black"
                                FontSize="15" Margin="50,10,0,0">
                         </TextBlock>
                     </StackPanel>

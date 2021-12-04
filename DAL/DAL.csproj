@@ -110,7 +110,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="accountDAL.cs" />
     <Compile Include="adCampaignDAL.cs" />
     <Compile Include="billDetailDAL.cs" />
     <Compile Include="couponDAL.cs" />

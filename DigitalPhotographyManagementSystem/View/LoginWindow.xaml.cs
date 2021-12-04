@@ -21,6 +21,8 @@ namespace DigitalPhotographyManagementSystem.View
     /// </summary>
     public partial class LoginWindow : Window
     {
+        static LoginWindow __instance = null;
+
         public LoginWindow()
         {
             InitializeComponent();
@@ -43,23 +45,25 @@ namespace DigitalPhotographyManagementSystem.View
 
         private void SignInBtn_Click(object sender, RoutedEventArgs e)
         {
-            //For testing and references
-            //Account_DTO account = new Account_DTO(Uname_txt.Text, Pass_txt.Password);
-            
-            if (/*Account_BUS.Login(account)*/ Uname_txt.Text.ToLower().Equals("admin") && Pass_txt.Password.Equals("12345"))
+            staffDTO staff = new staffDTO();
+            if (staffBUS.Login(Uname_txt.Text.ToLower(), Pass_txt.Password.ToLower()))
             {
-                DashboardMain dashboardMain = new DashboardMain();
-                dashboardMain.Show();
+                staff = staffBUS.GetStaffByUsername(Uname_txt.Text.ToLower());
+                DashboardMain.GetInstance(staff).Show();
                 this.Close();
             }
             else
             {
                 var messageBoxResult = MsgBox.Show("Warning", "Wrong username or password. Try again!", MessageBoxTyp.Warning);
-
                 Uname_txt.Text = "";
                 Pass_txt.Password = "";
                 Uname_txt.Focus();
             }
+        }
+        public static LoginWindow GetInstance()
+        {
+            if (__instance == null) __instance = new LoginWindow();
+            return __instance;
         }
     }
 }

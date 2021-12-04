@@ -72,6 +72,10 @@ namespace DigitalPhotographyManagementSystem.UserControls
             //_context.TxtDeptName.Text = AccountDept
             _context.TxtTitle.Text = BtnTxt.Text.ToUpper();
             _context.TxtTitleSmall.Text = BtnTxt.Text;
+            if (BtnTxt.Text == "HOME")
+            {
+                _context.TxtDeptName.Text = _context._Account.type;
+            }
             _context.OpenOutterWindow(itemmenu.commandType, ((Button)sender).Tag);
 
             foreach (var item in SingleItems)
