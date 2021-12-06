@@ -12,7 +12,7 @@ namespace DTO
         private string _dateStart;
         private string _dateEnd;
         private string _type;
-        private string _staffID;
+        private string _staffUsername;
 
         public adCampaignDTO()
         {
@@ -20,7 +20,7 @@ namespace DTO
             this._dateStart = null;
             this._dateEnd = null;
             this._type = null;
-            this._staffID = null;
+            this._staffUsername = null;
         }
 
         public adCampaignDTO(
@@ -28,20 +28,20 @@ namespace DTO
             string dateStart,
             string dateEnd,
             string type,
-            string staffID
+            string staffUsername
         )
         {
             this._campaignName = campaignName;
             this._dateStart = dateStart;
             this._dateEnd = dateEnd;
             this._type = type;
-            this._staffID = staffID;
+            this._staffUsername = staffUsername;
         }
 
         public string campaignName { get => _campaignName; set => _campaignName = value; }
         public string dateStart { get => _dateStart; set => _dateStart = value; }
         public string dateEnd { get => _dateEnd; set => _dateEnd = value; }
         public string type { get => _type; set => _type = value; }
-        public string staffID { get => _staffID; set => _staffID = value; }
+        public string staffUsername { get => _staffUsername; set => _staffUsername = value; }
     }
 }

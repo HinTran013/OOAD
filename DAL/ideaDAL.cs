@@ -29,7 +29,7 @@ namespace DAL
                     { "ideaSubject", newIdea.ideaSubject },
                     { "ideaDescription", newIdea.ideaDescription },
                     { "ideaDate", newIdea.ideaDate },
-                    { "staffID", newIdea.staffID }
+                    { "staffID", newIdea.staffUsername }
             };
 
                 collection.InsertOneAsync(newDoc);

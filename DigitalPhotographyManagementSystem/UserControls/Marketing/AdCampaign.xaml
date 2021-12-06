@@ -68,6 +68,7 @@
                                         FontSize="15"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                        SelectedValuePath="Content"
                                         IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
                                         materialDesign:HintAssist.Hint="Campaign's type">
                                 <ComboBoxItem Content="Brand awareness campaign"></ComboBoxItem>
@@ -129,7 +130,6 @@
                                         Style="{StaticResource MaterialDesignOutlinedDatePicker}"
                                         BorderBrush="White"
                                         BorderThickness="0"
-                               
                                         materialDesign:HintAssist.IsFloating="True"
                                         materialDesign:HintAssist.Hint="End date"
                                         SelectedDateChanged="EndDate_SelectedDateChanged"/>
@@ -170,6 +170,7 @@
                         BorderBrush="{x:Null}" 
                         Height="50" FontWeight="Normal"
                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold"
+                        IsDefault="True"
                         Click ="SubmitBtn_Click">
                     Submit
                 </Button>
@@ -191,6 +192,7 @@
                         Height="50" 
                         FontWeight="Normal"
                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold"
+                        IsCancel="True"
                         Click="CancelBtn_Click">
                     Cancel
                 </Button>

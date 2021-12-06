@@ -23,10 +23,13 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
     /// </summary>
     public partial class AdCampaign : UserControl
     {
-        public AdCampaign()
+        static AdCampaign __instance = null;
+        private staffDTO Account;
+        public AdCampaign(staffDTO account)
         {
             InitializeComponent();
             DateTimeTxt.Text = "Date time: " + DateTime.Now.ToString("dd/MM/yyyy");
+            Account = account;
         }
         private bool CheckInput()
         {
@@ -60,8 +63,19 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
         {
             if (CheckInput() == true)
             {
-                adCampaignDTO adCampaign = new adCampaignDTO(AdsCampNameTxt.Text, StartDate.Text, EndDate.Text, AdsCampTypeCbb.SelectedItem.ToString(), "lol");
-                adCampaignBUS.AddNewAdCampaign(adCampaign);
+                adCampaignDTO adCampaign = new adCampaignDTO(AdsCampNameTxt.Text, ((DateTime)StartDate.SelectedDate).ToString("dd/MM/yyyy"), ((DateTime)EndDate.SelectedDate).ToString("dd/MM/yyyy"), AdsCampTypeCbb.SelectedValue.ToString(), Account.username);
+                if (adCampaignBUS.AddNewAdCampaign(adCampaign))
+                {
+                    MsgBox.Show("Campaign successfully submitted!", MessageBoxTyp.Information);
+                    AdsCampNameTxt.Text = "";
+                    DescTxt.Text = "";
+                    AdsCampTypeCbb.SelectedItem = null;
+                    StartDate.SelectedDate = null;
+                    EndDate.SelectedDate = null;
+                    AdsCampNameTxt.Focus();
+                }
+                else
+                    MsgBox.Show("Error while submitting, please try again!", MessageBoxTyp.Information);
             }
         }
 
@@ -91,6 +105,15 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
                     EndDate.Focus();
                 }
             }
+        }
+        public static AdCampaign GetInstance(staffDTO acc)
+        {
+            if (__instance == null) __instance = new AdCampaign(acc);
+            return __instance;
+        }
+        public static void Release()
+        {
+            __instance = null;
         }
     }
 }
