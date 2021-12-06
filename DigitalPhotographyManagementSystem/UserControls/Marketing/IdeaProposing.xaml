@@ -22,7 +22,7 @@
                         BorderThickness="2"
                         BorderBrush="#789ADE"
                         Margin="30,10,700,10" VerticalAlignment="Center">
-                <TextBox 
+                <TextBox x:Name="IdeaSubjTxt" 
                              BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -30,7 +30,7 @@
                              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
                              FontWeight="Normal" FontSize="14"/>
             </Border>
-            <TextBlock HorizontalAlignment="Right"
+            <TextBlock x:Name="DateTimeTxt" HorizontalAlignment="Right"
                        VerticalAlignment="Center"
    
                        FontSize="18"
@@ -47,7 +47,7 @@
                         BorderThickness="2"
                         BorderBrush="#789ADE"
                         Margin="30,10,30,0">
-                    <TextBox BorderThickness="0"
+                    <TextBox x:Name="DescTxt" BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                              materialDesign:HintAssist.Hint="Description of the idea"
@@ -69,11 +69,13 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                 </Border.Effect>
-                <Button FontSize="20"
+                <Button x:Name="SubmitBtn" FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
                         Height="50" FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                        IsDefault="True"
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold"
+                        Click="SubmitBtn_Click">
                     Submit
                 </Button>
             </Border>
@@ -89,11 +91,13 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                 </Border.Effect>
-                <Button FontSize="20"
+                <Button x:Name="CancelBtn" FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
                         Height="50" FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                        IsCancel="True"
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold"
+                        Click="CancelBtn_Click">
                     Cancel
                 </Button>
             </Border>

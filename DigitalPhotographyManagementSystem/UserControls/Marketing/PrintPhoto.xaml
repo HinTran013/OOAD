@@ -22,7 +22,7 @@
                 <ColumnDefinition Width="0.1*"/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <Label Content="LIST BOX OF CUSTOMER'S INVOICE" FontWeight="Bold" Margin="252,0,0,0" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold"/>
+            <Label Content="UNFINISHED CUSTOMER'S INVOICE" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Grid.ColumnSpan="3" HorizontalAlignment="Center"/>
             <Label Grid.Column="1" Grid.Row="0" Content="Date:" HorizontalContentAlignment="Right"/>
             <Label Grid.Column="2" Grid.Row="0" Content="21/12/2021"/>
         </Grid>

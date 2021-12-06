@@ -54,21 +54,38 @@ namespace DigitalPhotographyManagementSystem.UserControls
                 wont be switched to other single item tags, 
                 unless you switch to CONTROL FORM           */
             var SingleItems = this._context.SideMenu.Children.OfType<UserControlSingleItem>();
-            foreach (var item in SingleItems)
-            {
-                if (item != this._context.SideMenu.Children[0] && item.border.Margin.Right == 0)
+            if (_context._Account.type == "Admin")
+                foreach (var item in SingleItems)
                 {
-                    var storyBoard_rev = item.Resources["StoryboardChooseItem_Rev"] as Storyboard;
-                    storyBoard_rev.Begin(item);
+                    if (item != this._context.SideMenu.Children[0] && item.border.Margin.Right == 0)
+                    {
+                        var storyBoard_rev = item.Resources["StoryboardChooseItem_Rev"] as Storyboard;
+                        storyBoard_rev.Begin(item);
+                    }
+                    //
+                    if (item == this && item.border.Margin.Right == 230)
+                    {
+                        var storyBoard = item.Resources["StoryboardChooseItem"] as Storyboard;
+                        storyBoard.Begin(item);
+                    }
                 }
-                //
-                if (item == this && item.border.Margin.Right == 230)
+            else
+            {
+                foreach (var item in SingleItems)
                 {
-                    var storyBoard = item.Resources["StoryboardChooseItem"] as Storyboard;
-                    storyBoard.Begin(item);
+                    if (item == this && item.border.Margin.Right == 230)
+                    {
+                        var storyBoard = item.Resources["StoryboardChooseItem"] as Storyboard;
+                        storyBoard.Begin(item);
+
+                    }
+                    else if (item != this && item.border.Margin.Right == 0)
+                    {
+                        var storyBoard_rev = item.Resources["StoryboardChooseItem_Rev"] as Storyboard;
+                        storyBoard_rev.Begin(item);
+                    }
                 }
             }
-
             //_context.TxtDeptName.Text = AccountDept
             _context.TxtTitle.Text = BtnTxt.Text.ToUpper();
             _context.TxtTitleSmall.Text = BtnTxt.Text;
@@ -78,14 +95,24 @@ namespace DigitalPhotographyManagementSystem.UserControls
             }
             _context.OpenOutterWindow(itemmenu.commandType, ((Button)sender).Tag);
 
-            foreach (var item in SingleItems)
-            {
-                if (item != this._context.SideMenu.Children[0] && item.border.Margin.Right == 0)
+            if (_context._Account.type == "Admin")
+                foreach (var item in SingleItems)
                 {
-                    var storyBoard_rev = item.Resources["StoryboardChooseItem_Rev"] as Storyboard;
-                    storyBoard_rev.Begin(item);
+                    if (item != this._context.SideMenu.Children[0] && item.border.Margin.Right == 0)
+                    {
+                        var storyBoard_rev = item.Resources["StoryboardChooseItem_Rev"] as Storyboard;
+                        storyBoard_rev.Begin(item);
+                    }
                 }
-            }
+            else
+                foreach (var item in SingleItems)
+                {
+                    if (item == this && item.border.Margin.Right == 0)
+                    {
+                        var storyBoard_rev = item.Resources["StoryboardChooseItem_Rev"] as Storyboard;
+                        storyBoard_rev.Begin(item);
+                    }
+                }
         }
     }
 }

@@ -26,11 +26,11 @@ namespace DAL
                 var collection = db.GetCollection<BsonDocument>("adCampaigns");
                 var newDoc = new BsonDocument
             {
-                { "campaignName" , newAdCampaign.campaignName },
+                {"campaignName" , newAdCampaign.campaignName },
                 {"dateStart", newAdCampaign.dateStart },
                 {"dateEnd", newAdCampaign.dateEnd },
                 {"type", newAdCampaign.type },
-                {"staffID", newAdCampaign.staffID }
+                {"staffID", newAdCampaign.staffUsername }
             };
 
                 collection.InsertOneAsync(newDoc);

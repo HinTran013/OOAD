@@ -21,6 +21,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static DigitalPhotographyManagementSystem.ServiceClass.ItemMenu;
 using DTO;
+using System.Windows.Media.Animation;
 
 namespace DigitalPhotographyManagementSystem.View
 {
@@ -50,13 +51,16 @@ namespace DigitalPhotographyManagementSystem.View
             //EXIT option
             var exit = new ItemMenu("EXIT", PackIconKind.Shutdown, CommandType.Exit);
 
-            SideMenu.Children.Add(new UserControlSingleItem(home, this));
+            UserControlSingleItem UCHome = new UserControlSingleItem(home, this);
+            var storyBoard = UCHome.Resources["StoryboardChooseItem"] as Storyboard;
+            storyBoard.Begin(UCHome);
+            SideMenu.Children.Add(UCHome);
 
             if (Account.type == "Admin")
             {
                 var menuMarketDept = new List<SubItem>();
-                menuMarketDept.Add(new SubItem("Propose New Ideas", new IdeaProposing()));
-                menuMarketDept.Add(new SubItem("Ad Campaign", new AdCampaign()));
+                menuMarketDept.Add(new SubItem("Propose New Ideas", IdeaProposing.GetInstance(Account)));
+                menuMarketDept.Add(new SubItem("Ad Campaign", AdCampaign.GetInstance(Account)));
                 menuMarketDept.Add(new SubItem("Print Photos", new PrintPhoto()));
                 var marketSubMenu = new ItemMenu("MARKETING DEPT", menuMarketDept, PackIconKind.Megaphone);
 
@@ -102,8 +106,8 @@ namespace DigitalPhotographyManagementSystem.View
                 }
                 else if (Account.type == "Marketing")
                 {
-                    var propose = new ItemMenu("Propose New Ideas", PackIconKind.Idea, CommandType.UControl, new IdeaProposing());
-                    var adCamp = new ItemMenu("Ad Campaign", PackIconKind.Ads, CommandType.UControl, new AdCampaign());
+                    var propose = new ItemMenu("Propose New Ideas", PackIconKind.Idea, CommandType.UControl, IdeaProposing.GetInstance(Account));
+                    var adCamp = new ItemMenu("Ad Campaign", PackIconKind.Ads, CommandType.UControl, AdCampaign.GetInstance(Account));
                     var print = new ItemMenu("Print Photos", PackIconKind.Printer, CommandType.UControl, new PrintPhoto());
                     SideMenu.Children.Add(new UserControlSingleItem(propose, this));
                     SideMenu.Children.Add(new UserControlSingleItem(adCamp, this));
@@ -203,6 +207,8 @@ namespace DigitalPhotographyManagementSystem.View
         private void Release()
         {
             __instance = null;
+            AdCampaign.Release();
+            IdeaProposing.Release();
             GC.Collect();
         }
     }

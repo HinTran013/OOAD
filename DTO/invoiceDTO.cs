@@ -11,7 +11,7 @@ namespace DTO
         private string _customerName;
         private string _customerRequirement;
         private double _total;
-        private string _staffID;
+        private string _staffUsername;
         private string _customerID;
 
         public invoiceDTO()
@@ -19,7 +19,7 @@ namespace DTO
             this._customerName = null;
             this._customerRequirement = null;
             this._total = -1;
-            this._staffID = null;
+            this._staffUsername = null;
             this._customerID = null;
         }
 
@@ -27,21 +27,21 @@ namespace DTO
             string customerName,
             string customerRequirement,
             double total,
-            string staffID,
+            string staffUsername,
             string customerID
         )
         {
             this._customerName = customerName;
             this._customerRequirement = customerRequirement;
             this._total = total;
-            this._staffID = staffID;
+            this._staffUsername = staffUsername;
             this._customerID = customerID;
         }
 
         public string customerName { get => _customerName; set => _customerName = value; }
         public string customerRequirement { get => _customerRequirement; set => _customerRequirement = value; }
         public double total { get => _total; set => _total = value; }
-        public string staffID { get => _staffID; set => _staffID = value; }
+        public string staffUsername { get => _staffUsername; set => _staffUsername = value; }
         public string customerID { get => _customerID; set => _customerID = value; }
     }
 }
