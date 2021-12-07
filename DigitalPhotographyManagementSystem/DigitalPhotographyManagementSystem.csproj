@@ -401,8 +401,8 @@
     <Resource Include="ImageSrc\expenditure.png" />
     <Resource Include="ImageSrc\invoice.png" />
     <Resource Include="ImageSrc\issue.png" />
-    <Resource Include="ImageSrc\photos.png" />
     <Resource Include="ImageSrc\revenue.png" />
+    <Resource Include="ImageSrc\idea.png" />
     <Content Include="mongocrypt.dll" />
     <Resource Include="ImageSrc\logo.png" />
     <Resource Include="ImageSrc\Error.png" />

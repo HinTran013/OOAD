@@ -106,7 +106,7 @@
                     </DockPanel>
                 </StackPanel>
             </Border>
-            <Border x:Name="PhotosBD" Grid.Row="0" Grid.Column="2" Margin="10" CornerRadius="10" Background="DarkCyan">
+            <Border x:Name="IdeasBD" Grid.Row="0" Grid.Column="2" Margin="10" CornerRadius="10" Background="DarkCyan">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="5"/>
                 </Border.Effect>
@@ -115,13 +115,13 @@
                         <Border.Effect>
                             <DropShadowEffect ShadowDepth="1" BlurRadius="10"/>
                         </Border.Effect>
-                        <Image Source="/DigitalPhotographyManagementSystem;component/ImageSrc/photos.png" Margin="10"/>
+                        <Image Source="/DigitalPhotographyManagementSystem;component/ImageSrc/idea.png" Margin="10"/>
                     </Border>
                     <DockPanel Margin="0,0,0,-0.2" Width="201">
                         <Viewbox Margin="10,0,0,0" DockPanel.Dock="Top" Height="60" HorizontalAlignment="Left">
-                            <TextBlock x:Name="PhotosTxt" Text="100" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" TextAlignment="Center" Foreground="White"/>
+                            <TextBlock x:Name="IdeasTxt" Text="100" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" TextAlignment="Center" Foreground="White"/>
                         </Viewbox>
-                        <TextBlock Text="Photo(s) delivered" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0" Foreground="White"/>
+                        <TextBlock Text="Idea(s) submitted" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0" Foreground="White"/>
                     </DockPanel>
                 </StackPanel>
             </Border>
