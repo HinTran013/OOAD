@@ -16,5 +16,10 @@ namespace BUS
         {
             return issue.InserNewIssueReportRecord(newIssue);
         }
+        public static long CountAllIssueReport()
+        {
+            return issue.CountAllIssueReport();
+        }
+
     }
 }

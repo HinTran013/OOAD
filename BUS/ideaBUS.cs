@@ -16,5 +16,9 @@ namespace BUS
         {
             return idea.InserNewIdeaRecord(newIdea);
         }
+        public static long CountAllIdeas()
+        {
+            return idea.CountAllIdeas();
+        }
     }
 }

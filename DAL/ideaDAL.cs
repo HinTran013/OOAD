@@ -40,5 +40,17 @@ namespace DAL
                 return false;
             }
         }
+        public long CountAllIdeas()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("ideas");
+                return collection.CountDocumentsAsync(new BsonDocument()).Result;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
     }
 }

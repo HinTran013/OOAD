@@ -30,7 +30,8 @@ namespace DAL
                 {"issueDate", newIssue.issueDate },
                 {"issueType", newIssue.issueType },
                 {"issueDescription", newIssue.issueDescription },
-                {"staffID", newIssue.staffID }
+                {"staffID", newIssue.staffUsername },
+                {"isSolved", newIssue.isSolved }
             };
 
                 collection.InsertOneAsync(newDoc);

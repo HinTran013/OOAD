@@ -16,5 +16,10 @@ namespace BUS
         {
             return adCampaign.InsertNewAdCampaignRecord(newAdCampaign);
         }
+        public static long CountAllCampaigns()
+        {
+            return adCampaign.CountAllCampaigns();
+        }
+
     }
 }
