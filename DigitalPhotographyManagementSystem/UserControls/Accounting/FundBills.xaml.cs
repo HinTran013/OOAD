@@ -29,11 +29,11 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
         {
             InitializeComponent();
 
-            setID();
+            FundIDTxt.Text = setID();
             DateTimeTxt.Text = "Date time: " + DateTime.Now.ToString("dd/MM/yyyy");
         }
 
-        private void setID()
+        private string setID()
         {
             DateTime now = DateTime.Now;
 
@@ -43,7 +43,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
             int m = now.Month;
             string month = m.ToString();
 
-            int y = now.Year % 2020;
+            int y = now.Year % 2021;
             string year = y.ToString();
 
             int h = now.Hour;
@@ -56,7 +56,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
             string second = s.ToString();
 
             string ID = day + month + year + hour + minute + second;
-            FundIDTxt.Text = ID;
+            return ID;
         }
 
         private void ResetForm()

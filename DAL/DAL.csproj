@@ -122,6 +122,8 @@
     <Compile Include="issueReportDAL.cs" />
     <Compile Include="paymentBillDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reportPricesDAL.cs" />
+    <Compile Include="reportPricesDetailDAL.cs" />
     <Compile Include="staffDAL.cs" />
   </ItemGroup>
   <ItemGroup>
