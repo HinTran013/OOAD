@@ -16,5 +16,9 @@ namespace BUS
         {
             return invoice.InsertNewInvoiceRecord(newInvoice);
         }
+        public static long CountAllInvoices()
+        {
+            return invoice.CountAllInvoices();
+        }
     }
 }

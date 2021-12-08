@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,10 @@ namespace DigitalPhotographyManagementSystem.UserControls
         public DashboardHome()
         {
             InitializeComponent();
+            AdsTxt.Text = adCampaignBUS.CountAllCampaigns().ToString();
+            IdeasTxt.Text = ideaBUS.CountAllIdeas().ToString();
+            IssuesTxt.Text = issueReportBUS.CountAllIssueReport().ToString();
+            InvoicesTxt.Text = invoiceBUS.CountAllInvoices().ToString();
         }
 
         private void RevenueBD_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

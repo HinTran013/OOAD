@@ -41,5 +41,18 @@ namespace DAL
                 return false;
             }
         }
+        public long CountAllCampaigns()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("adCampaigns");
+                return collection.CountDocumentsAsync(new BsonDocument()).Result;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
     }
+   
 }

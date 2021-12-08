@@ -29,7 +29,7 @@ namespace DAL
                 { "customerName" , newInvoice.customerName },
                 {"customerRequirement", newInvoice.customerRequirement },
                 {"total", newInvoice.total },
-                {"staffID", newInvoice.staffID },
+                {"staffID", newInvoice.staffUsername },
                 {"customerID", newInvoice.customerID }
             };
 
@@ -39,6 +39,18 @@ namespace DAL
             catch
             {
                 return false;
+            }
+        }
+        public long CountAllInvoices()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("invoices");
+                return collection.CountDocumentsAsync(new BsonDocument()).Result;
+            }
+            catch
+            {
+                return -1;
             }
         }
     }
