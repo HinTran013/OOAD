@@ -89,7 +89,7 @@
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="Cost"
                                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Normal" FontSize="13"/>
+                                        FontWeight="Normal" FontSize="13" PreviewTextInput="TxtNum_PreviewTextInput"/>
                         </Border>
                     </Grid>
                 </Grid>

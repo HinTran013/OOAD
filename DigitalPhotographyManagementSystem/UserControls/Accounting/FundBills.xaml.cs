@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using DigitalPhotographyManagementSystem.View;
 using DTO;
 using BUS;
+using System.Text.RegularExpressions;
 
 namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 {
@@ -24,13 +25,16 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
     /// </summary>
     public partial class FundBills : UserControl
     {
-               
+        DateTime timeNow;       
+
         public FundBills()
         {
             InitializeComponent();
 
             FundIDTxt.Text = setID();
-            DateTimeTxt.Text = "Date time: " + DateTime.Now.ToString("dd/MM/yyyy");
+
+            timeNow = DateTime.Now;
+            DateTimeTxt.Text = "Date time: " + timeNow.ToString("dd/MM/yyyy");
         }
 
         private string setID()
@@ -105,7 +109,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 
                 fundBillDTO fundDTO = new fundBillDTO(
                     FundIDTxt.Text,
-                    DateTimeTxt.Text,
+                    timeNow.ToString("dd/MM/yyyy"),
                     TypeCbb.Text.ToString(),
                     double.Parse(CostTxt.Text.ToString()),
                     DescriptionTxt.Text,
@@ -122,6 +126,13 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
                 ResetForm();
                 setID();
             }
+        }
+
+        private void TxtNum_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            //To limit the characters which are the numbers in the textbox
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

@@ -112,7 +112,7 @@
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="Old price"
                                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Normal" FontSize="13"/>
+                                        FontWeight="Normal" FontSize="13" PreviewTextInput="TxtNum_PreviewTextInput"/>
                         </Border>
                     </Grid>
 
@@ -127,7 +127,7 @@
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="New price"
                                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Normal" FontSize="13"/>
+                                        FontWeight="Normal" FontSize="13" PreviewTextInput="TxtNum_PreviewTextInput"/>
                         </Border>
                     </Grid>
 
@@ -170,13 +170,13 @@
                                     <ListView.View>
                                         <GridView>
                                             <GridViewColumn Header="No." Width="85" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
-                                            <GridViewColumn Header="Photo type" Width="200" DisplayMemberBinding="{Binding Type}" ></GridViewColumn>
+                                            <GridViewColumn Header="Photo type" Width="210" DisplayMemberBinding="{Binding Type}" ></GridViewColumn>
                                             <GridViewColumn Header="Old price" Width="295" DisplayMemberBinding="{Binding OldPrice}" ></GridViewColumn>
                                             <GridViewColumn Header="New price" Width="295" DisplayMemberBinding="{Binding NewPrice}" ></GridViewColumn>
                                             <GridViewColumn Header="Action" Width="150">
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <Button Content="Delete" Background="#8699DA"/>
+                                                        <Button x:Name="DeleteBtn" Content="Delete" Background="#8699DA" Click="DeleteBtn_Click"/>
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
                                             </GridViewColumn>

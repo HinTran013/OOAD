@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using DTO;
 using BUS;
 using DigitalPhotographyManagementSystem.View;
+using System.Text.RegularExpressions;
+
 namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 {
     /// <summary>
@@ -39,13 +41,17 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 
         List<PhotoType> types;
         long NoType = 0;
+        DateTime timeNow;
 
         public ReportPrices()
         {
             InitializeComponent();
 
             ReportPricesIDTxt.Text = setID();
-            DateTimeTxt.Text = "Date time: " + DateTime.Now.ToString("dd/MM/yyyy");
+            timeNow = DateTime.Now;
+            DateTimeTxt.Text = "Date time: " + timeNow.ToString("dd/MM/yyyy");
+
+            ResetForm();
         }
 
         private string setID()
@@ -109,7 +115,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
             if (String.IsNullOrEmpty(SubjectTxt.Text))
             {
                 var messageBoxResult = MsgBox.Show("Warning",
-                                                    "Please fill in the Subject of Report",
+                                                    "Please fill in the Subject of Report Price",
                                                     MessageBoxButton.OK,
                                                     MessageBoxImg.Warning);
                 return false;
@@ -133,6 +139,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
             SubjectTxt.Text = String.Empty;
 
             NoType = 1;
+            listTypes.Items.Clear();
             types = new List<PhotoType>();
         }
 
@@ -156,7 +163,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 
                 reportForm = new reportPricesDTO(
                     ReportPricesIDTxt.Text,
-                    DateTimeTxt.Text,
+                    timeNow.ToString("dd/MM/yyyy"),
                     SubjectTxt.Text,
                     "");
 
@@ -203,6 +210,15 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 
         private void ReportBtn_Click(object sender, RoutedEventArgs e)
         {
+            if(types.Count == 0)
+            {
+                var messageBoxResult = MsgBox.Show("Warning",
+                                                   "There is no types required to change!",
+                                                   MessageBoxButton.OK,
+                                                   MessageBoxImg.Warning);
+                return;
+            }
+
             if(CheckForm())
             {
                 NewForm();
@@ -214,17 +230,46 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
                     "Save successful",
                     MessageBoxButton.OK,
                     MessageBoxImg.None);
-            }
 
-            ResetForm();
-            ResetInputs();
-            UnlockInputs();
+                ResetForm();
+                ResetInputs();
+                UnlockInputs();
+
+                ReportPricesIDTxt.Text = setID();
+            }
         }
 
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
             UnlockInputs();
-            ResetInputs();
+            ResetForm();
+        }
+
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //Console.WriteLine(sender.ToString());
+            //Console.WriteLine(sender.GetType().ToString()); 
+            //var btn = sender as Button;
+            //Console.WriteLine(btn.Name.ToString());
+            //btn.Name = "selectedBtn";
+
+            var selected = listTypes.SelectedIndex;
+
+            //listTypes.Items.IndexOf(selected)
+
+            if(selected > -1)
+            {
+                types.RemoveAt(selected);
+                listTypes.Items.RemoveAt(selected);
+            }
+            
+        }
+
+        private void TxtNum_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            //To limit the characters which are the numbers in the textbox
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
