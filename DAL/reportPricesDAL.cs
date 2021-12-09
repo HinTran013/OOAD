@@ -9,29 +9,27 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class fundBillDAL
+    public class reportPricesDAL
     {
         private IMongoDatabase db;
 
-        public fundBillDAL()
+        public reportPricesDAL()
         {
             var client = new MongoClient("mongodb+srv://HienTranOOAD:123123123@cluster0.guxtk.mongodb.net/PhotographyManagement?retryWrites=true&w=majority");
             this.db = client.GetDatabase("PhotographyManagement");
         }
 
-        public bool InserNewFundBillRecord(fundBillDTO newBill)
+        public bool InsertNewReportPricesRecord(reportPricesDTO form)
         {
             try
             {
-                var collection = db.GetCollection<BsonDocument>("fundBills");
+                var collection = db.GetCollection<BsonDocument>("reportPrices");
                 var newDoc = new BsonDocument
             {
-                    { "fundID", newBill.fundID},
-                    { "date", newBill.date },
-                    { "fundType", newBill.fundType },
-                    { "totalMoney", newBill.totalMoney },
-                    { "description", newBill.description },
-                    { "accountantID", newBill.accountantID }
+                    { "reportPricesID", form.reportPriceID},
+                    { "date", form.date },
+                    { "subject", form.subject },
+                    { "accountantID", form.accountantID }
             };
 
                 collection.InsertOneAsync(newDoc);

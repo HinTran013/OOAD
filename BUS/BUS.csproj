@@ -53,6 +53,8 @@
     <Compile Include="issueReportBUS.cs" />
     <Compile Include="paymentBillBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reportPricesBUS.cs" />
+    <Compile Include="reportPricesDetailBUS.cs" />
     <Compile Include="staffBUS.cs" />
   </ItemGroup>
   <ItemGroup>

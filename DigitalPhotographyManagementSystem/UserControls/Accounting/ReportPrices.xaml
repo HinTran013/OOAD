@@ -21,8 +21,26 @@
             <Border CornerRadius="10" 
                     BorderThickness="2"
                     BorderBrush="#789ADE"
-                    Margin="30,0,800,5" Background="White">
-                <TextBox x:Name="BillID"                       
+                    Margin="30,0,0,5" Background="White"
+                    HorizontalAlignment="Left"
+                    Width="235">
+                <TextBox x:Name="ReportPricesIDTxt"                       
+                          BorderThickness="0"
+                          IsReadOnly="True"
+                          TextAlignment="Center"
+                          Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                          materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                          materialDesign:HintAssist.Hint="Report ID"
+                          FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
+                          FontWeight="Normal" 
+                          FontSize="14"/>
+            </Border>
+            <Border CornerRadius="10" 
+                    BorderThickness="2"
+                    BorderBrush="#789ADE"
+                    Margin="277,0,0,5" Background="White"
+                    HorizontalAlignment="Left" Width="401">
+                <TextBox x:Name="SubjectTxt"                       
                           BorderThickness="0"
                           Style="{StaticResource MaterialDesignOutlinedTextBox}"
                           materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -30,7 +48,8 @@
                           FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
                           FontWeight="Normal" FontSize="14" VerticalAlignment="Center"/>
             </Border>
-            <TextBlock HorizontalAlignment="Right"
+            <TextBlock x:Name="DateTimeTxt"
+                        HorizontalAlignment="Right"
                        VerticalAlignment="Center"
                        FontSize="18"
                        FontWeight="Medium"
@@ -60,14 +79,26 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                             </Border.Effect>
-                            <ComboBox   FontWeight="Bold"
+                            <ComboBox   x:Name="TypeCbb"
+                                        FontWeight="Bold"
                                         Foreground="Black"
                                         FontSize="15"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                         IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
                                         materialDesign:HintAssist.Hint="Photo type"
-                                        ItemsSource="{Binding ShortStringList}"/>
+                                        ItemsSource="{Binding ShortStringList}">
+                                <ComboBoxItem Content="Product Photography"/>
+                                <ComboBoxItem Content="Documentary-style photography"/>
+                                <ComboBoxItem Content="Portrait Photography"/>
+                                <ComboBoxItem Content="Architectural Photography"/>
+                                <ComboBoxItem Content="Wedding Photography"/>
+                                <ComboBoxItem Content="Fashion Photography"/>
+                                <ComboBoxItem Content="Event Photography"/>
+                                <ComboBoxItem Content="Photo editing"/>
+                                <ComboBoxItem Content="Lighting"/>
+                                <ComboBoxItem Content="Retouching"/>
+                            </ComboBox>
                         </Border>
                     </Grid>
                     <Grid Grid.Column="1">
@@ -75,13 +106,13 @@
                                 BorderThickness="2"
                                 BorderBrush="#789ADE"
                                 Margin="5,0" Background="White">
-                            <TextBox    
+                            <TextBox    x:Name="OldTxt"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="Old price"
                                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Normal" FontSize="13"/>
+                                        FontWeight="Normal" FontSize="13" PreviewTextInput="TxtNum_PreviewTextInput"/>
                         </Border>
                     </Grid>
 
@@ -90,13 +121,13 @@
                                 BorderThickness="2"
                                 BorderBrush="#789ADE"
                                 Margin="5,0" Background="White">
-                            <TextBox    
+                            <TextBox    x:Name="NewTxt"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="New price"
                                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Normal" FontSize="13"/>
+                                        FontWeight="Normal" FontSize="13" PreviewTextInput="TxtNum_PreviewTextInput"/>
                         </Border>
                     </Grid>
 
@@ -110,11 +141,12 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                             </Border.Effect>
-                            <Button FontSize="20"
+                            <Button x:Name="AddBtn"
+                                    FontSize="20"
                                     Foreground="White" Background="Transparent"
                                     BorderBrush="{x:Null}" 
-                                    Height="50" FontWeight="Normal"
-                                    FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                                    Height="auto" FontWeight="Normal"
+                                    FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="AddBtn_Click">
                                 Add
                             </Button>
                         </Border>
@@ -134,17 +166,17 @@
                             <Border Margin="5" 
                                     CornerRadius="10" 
                                     Background="White">
-                                <ListView>
+                                <ListView x:Name="listTypes">
                                     <ListView.View>
                                         <GridView>
                                             <GridViewColumn Header="No." Width="85" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
-                                            <GridViewColumn Header="Photo type" Width="200" DisplayMemberBinding="{Binding photoType}" ></GridViewColumn>
-                                            <GridViewColumn Header="Old price" Width="295" DisplayMemberBinding="{Binding oldPrice}" ></GridViewColumn>
-                                            <GridViewColumn Header="New price" Width="295" DisplayMemberBinding="{Binding newPrice}" ></GridViewColumn>
+                                            <GridViewColumn Header="Photo type" Width="210" DisplayMemberBinding="{Binding Type}" ></GridViewColumn>
+                                            <GridViewColumn Header="Old price" Width="295" DisplayMemberBinding="{Binding OldPrice}" ></GridViewColumn>
+                                            <GridViewColumn Header="New price" Width="295" DisplayMemberBinding="{Binding NewPrice}" ></GridViewColumn>
                                             <GridViewColumn Header="Action" Width="150">
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <Button Content="Delete" Background="#8699DA"/>
+                                                        <Button x:Name="DeleteBtn" Content="Delete" Background="#8699DA" Click="DeleteBtn_Click"/>
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
                                             </GridViewColumn>
@@ -170,11 +202,12 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                 </Border.Effect>
-                <Button FontSize="20"
+                <Button x:Name="ReportBtn"
+                        FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
-                        Height="50" FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                        Height="auto" FontWeight="Normal"
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="ReportBtn_Click">
                     Report
                 </Button>
             </Border>
@@ -190,12 +223,13 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                 </Border.Effect>
-                <Button FontSize="20"
+                <Button x:Name="CancelBtn"
+                        FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
-                        Height="50" 
+                        Height="auto" 
                         FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="CancelBtn_Click">
                     Cancel
                 </Button>
             </Border>
