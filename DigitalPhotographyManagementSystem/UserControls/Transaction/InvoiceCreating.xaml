@@ -253,14 +253,14 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="2.5*"/>
-            <RowDefinition Height="6.5*"/>
             <RowDefinition Height="2*"/>
+            <RowDefinition Height="6 *"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Border
-                        HorizontalAlignment="Center"
-                        Margin="0,5,250,0"
+            <Border     VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Margin="0,0,265,0"
                         Width="180" 
                         Height="50"
                         Background="#8699DA"
@@ -284,30 +284,39 @@
                                 />
             </Border>
             <Label HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Margin="30,10,0,0" 
+                   VerticalAlignment="Top"
+                   Margin="30,5,0,0" 
                    FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
                    FontWeight="Bold"
                    FontSize="22"
                        >Customer's Information</Label>
-            <TextBlock HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-                       Margin="0,0,25,15"
+            <TextBlock HorizontalAlignment="Left"
+                       VerticalAlignment="Bottom"
+                       Margin="40,0,0,3"
                        
                        FontSize="18"
                        FontWeight="Medium"
                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">
                         Date time: 21/10/2021
             </TextBlock>
-            <TextBlock HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-                       Margin="0,35,25,0"
-                       
-                       FontSize="18"
-                       FontWeight="Medium"
-                       FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">
-                        ID: This is an ID
-            </TextBlock>
+            <Border CornerRadius="10" 
+                    BorderThickness="2"
+                    BorderBrush="#789ADE"
+                    Margin="30,0,20,0" Background="White"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" 
+                    Width="235">
+                <TextBox x:Name="ReportPricesIDTxt"                       
+                          BorderThickness="0"
+                          IsReadOnly="True"
+                          TextAlignment="Center"
+                          Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                          materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                          materialDesign:HintAssist.Hint="Report ID"
+                          FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
+                          FontWeight="Normal" 
+                          FontSize="14"/>
+            </Border>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -319,7 +328,7 @@
                     <Border CornerRadius="10" 
                             BorderThickness="2"
                             BorderBrush="#789ADE"
-                            Margin="30,10,10,0">
+                            Margin="30,5,10,0">
                         <TextBox 
                                 BorderThickness="0"
                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
@@ -345,7 +354,7 @@
                     <Border CornerRadius="10" 
                             BorderThickness="2"
                             BorderBrush="#789ADE"
-                            Margin="5,10,20,0">
+                            Margin="5,5,20,0">
                         <TextBox 
                                  BorderThickness="0"
                                  Style="{StaticResource MaterialDesignOutlinedTextBox}"
@@ -372,8 +381,8 @@
                 <Border CornerRadius="10" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
-                        Margin="30,5,20,0" 
-                        Height="70">
+                        Margin="30,0,20,0" 
+                        Height="110">
                     <TextBox BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -393,71 +402,132 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                     </Border.Effect>
-                    <Border Margin="5" 
-                                CornerRadius="10" 
-                                Background="White">
-                        <ListView>
-                            <ListView.View>
-                                <GridView>
-                                    <GridViewColumn Header="No." Width="110" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
-                                    <GridViewColumn Header="Invoice ID" Width="270" DisplayMemberBinding="{Binding invoiceID}" ></GridViewColumn>
-                                    <GridViewColumn Header="Service" Width="350" DisplayMemberBinding="{Binding serviceName}" ></GridViewColumn>
-                                    <GridViewColumn Header="Action" Width="150">
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <Button Content="Done" Background="#8699DA"/>
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                    </GridViewColumn>
-                                </GridView>
-                            </ListView.View>
-                        </ListView>
-                    </Border>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1.75*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0"
+                              Background="White"
+                              Margin="5">
+                            <StackPanel>
+                                <Border Margin="5,5,5,0"
+                                    Background="#8699DA"
+                                    CornerRadius="10">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="1" 
+                                                        BlurRadius="4"
+                                                        Opacity="0.5"
+                                                        Direction="270"/>
+                                    </Border.Effect>
+                                    <ComboBox   x:Name="TypeCbb"
+                                                FontWeight="Bold"
+                                                Foreground="Black"
+                                                FontSize="15"
+                                                BorderThickness="0"
+                                                Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
+                                                materialDesign:HintAssist.Hint="Choose a service"
+                                                ItemsSource="{Binding ShortStringList}">
+                                        <ComboBoxItem Content="Product Photography"/>
+                                        <ComboBoxItem Content="Documentary-style photography"/>
+                                        <ComboBoxItem Content="Portrait Photography"/>
+                                        <ComboBoxItem Content="Architectural Photography"/>
+                                        <ComboBoxItem Content="Wedding Photography"/>
+                                        <ComboBoxItem Content="Fashion Photography"/>
+                                        <ComboBoxItem Content="Event Photography"/>
+                                        <ComboBoxItem Content="Photo editing"/>
+                                        <ComboBoxItem Content="Lighting"/>
+                                        <ComboBoxItem Content="Retouching"/>
+                                    </ComboBox>
+                                </Border>
+
+                                <Border CornerRadius="15" 
+                                        Background="Green"
+                                        Margin="10,10,10,0"
+                                        Width="auto"
+                                        Height="50"
+                                        
+                                        VerticalAlignment="Center">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="1" 
+                                                            BlurRadius="4"
+                                                            Opacity="0.5"
+                                                            Direction="270"/>
+                                    </Border.Effect>
+                                    <Button FontSize="20"
+                                            Foreground="White" 
+                                            Background="Transparent"
+                                            BorderBrush="{x:Null}" 
+                                            Height="auto" FontWeight="Normal"
+                                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                                        Add
+                                    </Button>
+                                </Border>
+
+                                <Border CornerRadius="15" 
+                                        Background="#EA9769"
+                                        Margin="10,10,10,0"
+                                        Width="auto"
+                                        Height="50"
+                                        
+                                        VerticalAlignment="Center">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="1" 
+                                                            BlurRadius="4"
+                                                            Opacity="0.5"
+                                                            Direction="270"/>
+                                    </Border.Effect>
+                                    <Button FontSize="20"
+                                            Foreground="White" 
+                                            Background="Transparent"
+                                            BorderBrush="{x:Null}" 
+                                            Height="auto" FontWeight="Normal"
+                                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                                        Delete
+                                    </Button>
+                                </Border>
+
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Grid.Column="1"
+                              Background="White"
+                              Margin="5">
+                            <Border Margin="5"
+                                    CornerRadius="10" 
+                                    Background="#8699DA">
+                                <Border Margin="5" 
+                                        CornerRadius="10" 
+                                        Background="White">
+                                    <ListView x:Name="listTypes">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="No." Width="95" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
+                                                <GridViewColumn Header="Service" Width="270" DisplayMemberBinding="{Binding ServiceType}" ></GridViewColumn>
+                                                <GridViewColumn Header="Price" Width="295" DisplayMemberBinding="{Binding Price}" ></GridViewColumn>
+                                                
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </Border>
+                            </Border>
+                        </Grid>
+                    </Grid>
                 </Border>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="542*"/>
+                <ColumnDefinition Width="276*"/>
+                <ColumnDefinition Width="265*"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-                <Label FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
-                   FontWeight="Bold"
-                   FontSize="30" 
-                   Margin="30,10,280,0"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center" >
-                    Total:
-                </Label>
-                <Border CornerRadius="25" 
-                        Background="#8699DA"
-                        Margin="130,5,20,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Width="250"
-                        Height="55">
-                    <Border.Effect>
-                        <DropShadowEffect ShadowDepth="1" 
-                                          BlurRadius="4"
-                                          Opacity="0.5"
-                                          Direction="270"/>
-                    </Border.Effect>
-                    <TextBlock FontSize="20"
-                           Foreground="White" Background="Transparent"
-                           TextWrapping="Wrap"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           FontWeight="Normal"
-                           FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
-                    Amount
-                    </TextBlock>
-                </Border>
-            </Grid>
-            <Grid Grid.Column="1">
+
+            <Grid Grid.ColumnSpan="3" Margin="542,0,0,-0.2">
                 <Border CornerRadius="15" 
                         Background="#8699DA"
-                        Margin="0,0,20,8"
+                        Margin="0,0,20,0"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         Width="140"
@@ -471,14 +541,14 @@
                     <Button FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
-                        Height="50" FontWeight="Normal"
+                        Height="auto" FontWeight="Normal"
                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
                         Submit
                     </Button>
                 </Border>
                 <Border CornerRadius="15" 
                         Background="#8699DA"
-                        Margin="0,0,170,8"
+                        Margin="0,0,170,0"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         Width="140"
@@ -492,14 +562,14 @@
                     <Button FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
-                        Height="50" FontWeight="Normal"
+                        Height="auto" FontWeight="Normal"
                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
                         Print
                     </Button>
                 </Border>
                 <Border CornerRadius="15" 
                         Background="#EA9769"
-                        Margin="0,0,326,6"
+                        Margin="0,0,326,0"
                         Width="140"
                         Height="55"
                         HorizontalAlignment="Right"
@@ -513,7 +583,7 @@
                     <Button FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
-                        Height="50" FontWeight="Normal"
+                        Height="auto" FontWeight="Normal"
                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
                         Cancel
                     </Button>
