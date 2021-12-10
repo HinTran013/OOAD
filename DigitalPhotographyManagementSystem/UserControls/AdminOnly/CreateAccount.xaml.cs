@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DTO;
 
 namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
 {
@@ -20,9 +21,54 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
     /// </summary>
     public partial class CreateAccount : UserControl
     {
+        private bool gender = true;
+        private string type = "";
+        private int salary = 0;
+
         public CreateAccount()
         {
             InitializeComponent();
+        }
+
+        #region Event Listeners
+        [Obsolete]
+        private void ConfirmForm(object sender, RoutedEventArgs e)
+        {
+            setUpData();
+
+            CreateAccountProcess.CreateAccountTemplate(new staffDTO(
+                nameTextBox.Text,
+                "",
+                this.gender,
+                emailTextBox.Text,
+                phoneTextBox.Text,
+                salary,
+                addressTextBox.Text,
+                departmentComboBox.Text,
+                descriptionTextBox.Text,
+                userNameTextBox.Text,
+                passwordBox.Password
+                ));
+        }
+        #endregion
+
+        #region Logic Functions
+        private void setUpData()
+        {
+            //set up gender
+            if (genderComboBox.Text == "Female" || genderComboBox.Text == "Other")
+                gender = false;
+            //set up salary
+            if (!String.IsNullOrEmpty(salaryTextBox.Text))
+            {
+                salary = Int32.Parse(salaryTextBox.Text);
+            }
+        }
+        #endregion
+
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            nameTextBox.Text = departmentComboBox.Text;
         }
     }
 }

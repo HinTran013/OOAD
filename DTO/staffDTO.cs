@@ -16,6 +16,8 @@ namespace DTO
         private string _phoneNumber;
         private int _salary;
         private string _type;
+        private string _description;
+        private string _address;
         private string _username;
         private string _password;
 
@@ -27,6 +29,8 @@ namespace DTO
             this._email = null;
             this._phoneNumber = null;
             this._salary = 0;
+            this._description = null;
+            this._address = null;
             this._type = null;
             this._username = null;
             this._password = null;
@@ -40,7 +44,9 @@ namespace DTO
         string email,
         string phoneNumber,
         int salary,
+        string address,
         string type,
+        string description,
         string username,
         string password)
         {
@@ -53,6 +59,8 @@ namespace DTO
             this._type = type;
             this._username = username;
             this._password = password;
+            this._address = address;
+            this._description = description;
         }
 
         public string name { get => _name; set => _name = value; }
@@ -64,5 +72,7 @@ namespace DTO
         public string type { get => _type; set => _type = value; }
         public string username { get => _username; set => _username = value; }
         public string password { get => _password; set => _password = value; }
+        public string address { get => _address; set => _address = value; }
+        public string description { get => _description; set => _description = value; }
     }
 }

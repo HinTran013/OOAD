@@ -31,10 +31,12 @@ namespace DAL
                 {"gender", newStaff.gender },
                 {"email", newStaff.email },
                 {"phoneNumber", newStaff.phoneNumber },
+                { "address", newStaff.address},
                 {"salary", newStaff.salary },
-                {"type", newStaff.type },
-                {"username", newStaff.type },
-                {"password", newStaff.type }
+                { "type", newStaff.type },
+                { "username", newStaff.username },
+                {"password", newStaff.password },
+                {"description", newStaff.description }
             };
 
                 collection.InsertOneAsync(newDoc);
@@ -44,6 +46,22 @@ namespace DAL
             {
                 return false;
             }
+        }
+
+        [Obsolete]
+        public bool CheckIfAccountExists(string username)
+        {
+            var collection = db.GetCollection<BsonDocument>("staffs");
+            var docToFind = new BsonDocument
+            {
+                { "username", username }
+            };
+
+            var record = collection.Count(docToFind);
+            if (record != 0)
+                return true;
+
+            return false;
         }
 
         public bool Login (string uname, string pass)
@@ -84,7 +102,9 @@ namespace DAL
                             (string)staff["email"],
                             (string)staff["phoneNumber"],
                             (int)staff["salary"],
+                            (string)staff["address"],
                             (string)staff["type"],
+                            (string)staff["description"],
                             (string)staff["username"],
                             (string)staff["password"]);
                     return res;

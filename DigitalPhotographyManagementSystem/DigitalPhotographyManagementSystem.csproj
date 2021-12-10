@@ -191,6 +191,7 @@
     <Compile Include="UserControls\AdminOnly\CreateAccount.xaml.cs">
       <DependentUpon>CreateAccount.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AdminOnly\CreateAccountProcess.cs" />
     <Compile Include="UserControls\AdminOnly\ListAccounts.xaml.cs">
       <DependentUpon>ListAccounts.xaml</DependentUpon>
     </Compile>
