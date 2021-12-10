@@ -26,7 +26,6 @@ namespace DAL
                 var collection = db.GetCollection<BsonDocument>("invoiceDetails");
                 var newDoc = new BsonDocument
             {
-                { "invoiceID" , newInvoiceDetail.invoiceID },
                 {"service", newInvoiceDetail.service },
                 {"unitQuantity", newInvoiceDetail.unitQuantity },
                 {"unitPrice", newInvoiceDetail.unitPrice },

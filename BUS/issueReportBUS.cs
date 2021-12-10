@@ -20,6 +20,13 @@ namespace BUS
         {
             return issue.CountAllIssueReport();
         }
-
+        public static long CountAllUnsolvedIssues()
+        {
+            return issue.CountAllUnsolvedIssues();
+        }
+        public static long CountAllSolvedIssues()
+        {
+            return issue.CountAllSolvedIssues();
+        }
     }
 }

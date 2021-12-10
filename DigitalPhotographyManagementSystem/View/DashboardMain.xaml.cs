@@ -62,6 +62,7 @@ namespace DigitalPhotographyManagementSystem.View
                 menuMarketDept.Add(new SubItem("Propose New Ideas", IdeaProposing.GetInstance(Account)));
                 menuMarketDept.Add(new SubItem("Ad Campaign", AdCampaign.GetInstance(Account)));
                 menuMarketDept.Add(new SubItem("Print Photos", new PrintPhoto()));
+                menuMarketDept.Add(new SubItem("Create Coupon", CreateCoupon.GetInstance()));
                 var marketSubMenu = new ItemMenu("MARKETING DEPT", menuMarketDept, PackIconKind.Megaphone);
 
                 var menuTransDept = new List<SubItem>();

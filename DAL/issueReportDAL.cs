@@ -26,7 +26,7 @@ namespace DAL
                 var collection = db.GetCollection<BsonDocument>("issueReports");
                 var newDoc = new BsonDocument
             {
-                { "title" , newReport.title },
+                {"title" , newReport.title },
                 {"date", newReport.date },
                 {"staffID", newReport.staffID },
                 {"issueType", newReport.issueType },
@@ -47,7 +47,31 @@ namespace DAL
             try
             {
                 var collection = db.GetCollection<BsonDocument>("issueReports");
-                return collection.CountDocumentsAsync(new BsonDocument()).Result;
+                return collection.CountDocumentsAsync(new BsonDocument()).Result;               
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+        public long CountAllUnsolvedIssues()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("issueReports");
+                return collection.CountDocumentsAsync(x => ((bool)x["isSolved"]) == false).Result;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+        public long CountAllSolvedIssues()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("issueReports");
+                return collection.CountDocumentsAsync(x => ((bool)x["isSolved"]) == true).Result;
             }
             catch
             {

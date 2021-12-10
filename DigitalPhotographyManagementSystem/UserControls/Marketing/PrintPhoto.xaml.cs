@@ -59,5 +59,10 @@ namespace DigitalPhotographyManagementSystem.UserControls
                 Date = "2/11/2021"
             });
         }
+
+        private void DoneBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
