@@ -243,6 +243,7 @@
 
                 <lvc:PieChart x:Name="IssueChart" 
                               Series="{Binding IssueSeries}" 
+                              InitialRotation="270"
                                     AnimationsSpeed="00:00:00.500"
                                     FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Foreground="White" LegendTextBrush="White" Margin="30,30,30,10"/>
 
@@ -277,6 +278,7 @@
 
                 <lvc:PieChart x:Name="InvoiceChart" 
                               Series="{Binding InvoiceSeries}" 
+                              InitialRotation="270"
                                     AnimationsSpeed="00:00:00.500"
                                     FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Foreground="White" LegendTextBrush="White"  Margin="30,30,30,10"/>
             </Grid>

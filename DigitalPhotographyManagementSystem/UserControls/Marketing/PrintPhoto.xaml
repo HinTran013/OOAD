@@ -39,7 +39,7 @@
                     <GridViewColumn Header="Action" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                        <Button Content="Done" Background="#8699DA"/>
+                                        <Button x:Name="DoneBtn" Content="Done" Background="#8699DA" Click="DoneBtn_Click"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

@@ -203,6 +203,9 @@
     <Compile Include="UserControls\Marketing\AdCampaign.xaml.cs">
       <DependentUpon>AdCampaign.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Marketing\CreateCoupon.xaml.cs">
+      <DependentUpon>CreateCoupon.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Marketing\IdeaProposing.xaml.cs">
       <DependentUpon>IdeaProposing.xaml</DependentUpon>
     </Compile>
@@ -283,6 +286,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Marketing\AdCampaign.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Marketing\CreateCoupon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
