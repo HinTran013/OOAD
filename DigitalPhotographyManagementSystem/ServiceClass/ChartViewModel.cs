@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BUS;
 using DTO;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
@@ -60,11 +61,19 @@ namespace DigitalPhotographyManagementSystem.ServiceClass
             {
                 new PieSeries<double>
                 {
-                    Values = new double[] { 2 }
+                    Name = "Unsolve Issues",
+                    Values = new double[] { issueReportBUS.CountAllUnsolvedIssues() },
+                    Fill = new SolidColorPaint(SKColors.Red),
+                    Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 3 }
+
                 },
                 new PieSeries<double>
                 {
-                    Values = new double[] { 8 }
+                    Name = "Solved Issues",
+                    Values = new double[] { issueReportBUS.CountAllSolvedIssues() },
+                    Fill = new SolidColorPaint(SKColors.GreenYellow),
+                    Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 3 }
+
                 }
             };
         public ISeries[] InvoiceSeries { get; set; }
@@ -72,11 +81,18 @@ namespace DigitalPhotographyManagementSystem.ServiceClass
             {
                 new PieSeries<double>
                 {
-                    Values = new double[] { 3 }
+                    Name = "Unfinished Invoices",
+                    Values = new double[] { 3 },
+                    Fill = new SolidColorPaint(SKColor.Parse("FFB8860B")),
+                    Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 3 }
+
                 },
                 new PieSeries<double>
                 {
-                    Values = new double[] { 7 }
+                    Name = "Finished Invoices",
+                    Values = new double[] { 7 },
+                    Fill = new SolidColorPaint(SKColors.GreenYellow),
+                    Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 3 }
                 }
             };
         /*public void RevExpValues()

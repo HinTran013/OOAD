@@ -9,34 +9,43 @@ namespace DTO
     public class couponDTO
     {
         private string _couponCode;
+        private string _couponTitle;
+        private string _startDate;
         private string _endDate;
-        private float _saleAmount;
-        private string _invoiceID;
+        private float _couponPercent;
+        private string _couponDesc;
 
         public couponDTO()
         {
             this._couponCode = null;
             this._endDate = null;
-            this._saleAmount = 0;
-            this._invoiceID = null;
+            this._couponPercent = 0;
+            this._couponDesc = null;
+            this._startDate = null;
+            this._couponTitle = null;
         }
 
         public couponDTO(
             string couponCode,
+            string couponTitle,
+            string startDate,
             string endDate,
-            float saleAmount,
-            string invoiceID
+            float couponPercent,
+            string couponDesc
         )
         {
+            this._couponTitle = couponTitle;
             this._couponCode = couponCode;
+            this._startDate = startDate;
             this._endDate = endDate;
-            this._saleAmount = saleAmount;
-            this._invoiceID = invoiceID;
+            this._couponPercent = couponPercent;
+            this._couponDesc = couponDesc;
         }
-
+        public string couponTitle { get => _couponTitle; set => _couponTitle = value; }
         public string couponCode { get => _couponCode; set => _couponCode = value; }
+        public string startDate { get => _startDate; set => _startDate = value; }
         public string endDate { get => _endDate; set => _endDate = value; }
-        public float saleAmount { get => _saleAmount; set => _saleAmount = value; }
-        public string invoiceID { get => _invoiceID; set => invoiceID = value; }
+        public float couponPercent { get => _couponPercent; set => _couponPercent = value; }
+        public string couponDesc { get => _couponDesc; set => couponDesc = value; }
     }
 }

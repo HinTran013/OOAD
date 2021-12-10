@@ -26,10 +26,12 @@ namespace DAL
                 var collection = db.GetCollection<BsonDocument>("coupons");
                 var newDoc = new BsonDocument
             {
-                { "couponCode" , newCoupon.couponCode },
+                {"couponCode" , newCoupon.couponCode },
+                {"couponTitle", newCoupon.couponTitle },
+                {"couponPercent", newCoupon.couponPercent },
+                {"startDate", newCoupon.startDate },
                 {"endDate", newCoupon.endDate },
-                {"saleAmount", newCoupon.saleAmount },
-                {"invoiceID", newCoupon.invoiceID }
+                {"couponDesc", newCoupon.couponDesc }
             };
 
                 collection.InsertOneAsync(newDoc);

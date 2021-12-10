@@ -8,35 +8,30 @@ namespace DTO
 {
     public class invoiceDetailDTO
     {
-        private string _invoiceID;
         private string _service;
-        private string _unitQuantity;
-        private string _unitPrice;
+        private int _unitQuantity;
+        private int _unitPrice;
 
         public invoiceDetailDTO()
         {
-            this._invoiceID = null;
             this._service = null;
-            this._unitQuantity = null;
-            this._unitPrice = null;
+            this._unitQuantity = -1;
+            this._unitPrice = -1;
         }
 
         public invoiceDetailDTO(
-            string invoiceID,
             string service,
-            string unitQuantity,
-            string unitPrice
+            int unitQuantity,
+            int unitPrice
         )
         {
-            this._invoiceID = invoiceID;
             this._service = service;
             this._unitQuantity = unitQuantity;
             this._unitPrice = unitPrice;
         }
 
-        public string invoiceID { get => _invoiceID; set => _invoiceID = value; }
         public string service { get => _service; set => _service = value; }
-        public string unitQuantity { get => _unitQuantity; set => _unitQuantity = value; }
-        public string unitPrice { get => _unitPrice; set => unitPrice = value; }
+        public int unitQuantity { get => _unitQuantity; set => _unitQuantity = value; }
+        public int unitPrice { get => _unitPrice; set => unitPrice = value; }
     }
 }
