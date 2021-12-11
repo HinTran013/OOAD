@@ -24,5 +24,11 @@ namespace BUS
         {
             return staff.GetStaffByUsername(username);
         }
+
+        [Obsolete]
+        public static bool checkIfAccountExists(string username)
+        {
+            return staff.CheckIfAccountExists(username);
+        }
     }
 }

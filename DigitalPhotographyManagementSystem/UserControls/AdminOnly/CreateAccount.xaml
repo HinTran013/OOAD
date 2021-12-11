@@ -30,12 +30,13 @@
                                 BorderBrush="#789ADE"
                                 Margin="30,10,10,0">
                             <TextBox    
+                                        x:Name="nameTextBox"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="Name"
                                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Bold" FontSize="14"/>
+                                        FontWeight="Bold" FontSize="14" />
                         </Border>
                     </Grid>
                     <Grid Grid.Column="1">
@@ -44,6 +45,7 @@
                                 BorderBrush="#789ADE"
                                 Margin="10,10,30,0">
                             <TextBox    
+                                        x:Name="phoneTextBox"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -66,6 +68,7 @@
                                 BorderBrush="#789ADE"
                                 Margin="30,0,10,0">
                             <TextBox    
+                                        x:Name="emailTextBox"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -87,14 +90,21 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                             </Border.Effect>
-                            <ComboBox   FontWeight="Bold"
+                            <ComboBox   
+                                        x:Name="departmentComboBox"
+                                        FontWeight="Bold"
                                         Foreground="Black"
                                         FontSize="15"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                         IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
                                         materialDesign:HintAssist.Hint="Department"
-                                        ItemsSource="{Binding ShortStringList}"/>
+                                        ItemsSource="{Binding ShortStringList}">
+                                <ComboBoxItem Content="Accounting" />
+                                <ComboBoxItem Content="Marketing" />
+                                <ComboBoxItem Content="Technical"/>
+                                <ComboBoxItem Content="Transaction" />
+                            </ComboBox>
                         </Border>
                         <Border Margin="10,0,30,0"
                                 Background="#8699DA"
@@ -107,14 +117,20 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                             </Border.Effect>
-                            <ComboBox   FontWeight="Bold"
+                            <ComboBox       
+                                        x:Name="genderComboBox"
+                                        FontWeight="Bold"
                                         Foreground="Black"
                                         FontSize="15"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                         IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
                                         materialDesign:HintAssist.Hint="Gender"
-                                        ItemsSource="{Binding ShortStringList}"/>
+                                        ItemsSource="{Binding ShortStringList}">
+                                <ComboBoxItem Content="Male" />
+                                <ComboBoxItem Content="Female" />
+                                <ComboBoxItem Content="Other" />
+                            </ComboBox>
                         </Border>
                     </Grid>
                 </Grid>
@@ -125,6 +141,7 @@
                         Margin="30,15,30,0"
                         Height="80">
                     <TextBox    
+                              x:Name="addressTextBox"
                               BorderThickness="0"
                               Style="{StaticResource MaterialDesignOutlinedTextBox}"
                               materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -144,8 +161,9 @@
                                 BorderBrush="#789ADE"
                                 Margin="30,0,30,0"
                                 HorizontalAlignment="Left"
-                                Width="600">
+                                Width="504">
                             <TextBox    
+                                        x:Name="userNameTextBox"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -167,7 +185,9 @@
                                 BorderThickness="2"
                                 BorderBrush="#789ADE"
                                 Margin="30,0,10,0">
-                            <PasswordBox  BorderThickness="0"
+                            <PasswordBox
+                                        x:Name="passwordBox"
+                                        BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="Password"
@@ -180,7 +200,9 @@
                                 BorderThickness="2"
                                 BorderBrush="#789ADE"
                                 Margin="10,0,30,0">
-                            <PasswordBox  BorderThickness="0"
+                            <PasswordBox  
+                                        x:Name="comfirmPasswordBox"
+                                        BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="Confirm password"
@@ -195,8 +217,9 @@
                         BorderBrush="#789ADE"
                         Margin="30,15,10,0"
                         HorizontalAlignment="Left"
-                        Width="510">
-                    <TextBox    
+                        Width="504">
+                    <TextBox  
+                              x:Name="salaryTextBox"
                               BorderThickness="0"
                               Style="{StaticResource MaterialDesignOutlinedTextBox}"
                               materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -211,6 +234,7 @@
                         Margin="30,15,30,0"
                         Height="100">
                     <TextBox    
+                              x:Name="descriptionTextBox"
                               BorderThickness="0"
                               Style="{StaticResource MaterialDesignOutlinedTextBox}"
                               materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -232,12 +256,14 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                 </Border.Effect>
-                <Button FontSize="20"
+                <Button 
+                        x:Name="confirmButton"
+                        FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
                         Height="50" 
                         FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="ConfirmForm">
                     Confirm
                 </Button>
             </Border>
@@ -253,12 +279,14 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                 </Border.Effect>
-                <Button FontSize="20"
+                <Button 
+                        x:Name="cancelButton"
+                        FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
                         Height="50" 
                         FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" RenderTransformOrigin="0.5,0.504" Click="cancelButton_Click">
                     Cancel
                 </Button>
             </Border>
