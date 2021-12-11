@@ -1,4 +1,8 @@
-﻿using System;
+﻿using BUS;
+using DigitalPhotographyManagementSystem.View;
+using DTO;
+using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,46 +27,55 @@ namespace DigitalPhotographyManagementSystem.UserControls
     {
         public int No { get; set; }
         public string invoiceID { get; set; }
+        public ObjectId fullInvoiceID { get; set; }
         public string customerName { get; set; }
         public string Date { get; set; }
+        public string StaffID { get; set; }
+        public long Services { get; set; }
     }
-
     public partial class PrintPhoto : UserControl
     {
+        private List<InvoicePrint> invoicePrint;
         public PrintPhoto()
         {
             InitializeComponent();
-
-            List<InvoicePrint> invoices = new List<InvoicePrint>();
-
-            listInvoice.Items.Add(new InvoicePrint()
+            DateTimeTxt.Text = "Date time: " + DateTime.Now.ToString("dd/MM/yyyy");
+            List<invoiceDTO> invoices = new List<invoiceDTO>();
+            invoices = invoiceBUS.GetAllUnprintedInvoices();
+            int i = 1;
+            invoicePrint = new List<InvoicePrint>();
+            foreach (invoiceDTO item in invoices)
             {
-                No = 1,
-                invoiceID = "123",
-                customerName = "Thanh Hien",
-                Date = "2/11/2021"
-            });
-
-            listInvoice.Items.Add(new InvoicePrint()
-            {
-                No = 2,
-                invoiceID = "124",
-                customerName = "Bao Loc",
-                Date = "2/11/2021"
-            });
-
-            listInvoice.Items.Add(new InvoicePrint()
-            {
-                No = 3,
-                invoiceID = "125",
-                customerName = "Hon Tuyen",
-                Date = "2/11/2021"
-            });
+                var newInvoicePrint = new InvoicePrint()
+                {
+                    No = i++,
+                    invoiceID = item.objectId.ToString().Substring(item.objectId.ToString().Length - 5),
+                    fullInvoiceID = (ObjectId)item.objectId,
+                    customerName = item.customerName,
+                    Date = item.date,
+                    StaffID = item.staffUsername,
+                    Services = invoiceBUS.GetNumServicesFromID((ObjectId)item.objectId)
+                };
+                invoicePrint.Add(newInvoicePrint);
+                listInvoice.Items.Add(newInvoicePrint);
+            }
         }
 
         private void DoneBtn_Click(object sender, RoutedEventArgs e)
         {
+            var item = (sender as FrameworkElement).DataContext;
+            int index = listInvoice.Items.IndexOf(item);
+            
+        }
 
+        private void listInvoice_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var index = listInvoice.SelectedIndex;
+            if (index != -1)
+            {
+                Invoice_View invoice_View = new Invoice_View(invoicePrint[index].fullInvoiceID);
+                invoice_View.ShowDialog();
+            }
         }
     }
 }

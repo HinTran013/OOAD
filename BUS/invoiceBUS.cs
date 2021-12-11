@@ -1,5 +1,6 @@
 ﻿using DAL;
 using DTO;
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,18 @@ namespace BUS
         public static long CountAllInvoices()
         {
             return invoice.CountAllInvoices();
+        }
+        public static List<invoiceDTO> GetAllUnprintedInvoices()
+        {
+            return invoice.GetAllUnprintedInvoices();
+        }
+        public static long GetNumServicesFromID(ObjectId objectId)
+        {
+            return invoice.GetNumServicesFromID(objectId);
+        }
+        public static invoiceDTO GetInvoiceFromID(ObjectId objectId)
+        {
+            return invoice.GetInvoiceFromID(objectId);
         }
     }
 }
