@@ -24,12 +24,29 @@ namespace DAL
             try
             {
                 var collection = db.GetCollection<BsonDocument>("paymentBills");
+                BsonArray billDetails = new BsonArray();
+                foreach (billDetailDTO bill in newPaymentBill.billDetails)
+                {
+                    billDetails.Add(new BsonDocument
+                    {
+                        { "service", bill.service},
+                        { "unitQuantity", bill.unitQuantity },
+                        { "unitPrice", bill.unitPrice }
+                    });
+                }
                 var newDoc = new BsonDocument
-            {
-                { "date" , newPaymentBill.date },
-                {"totalMoney", newPaymentBill.totalMoney },
-                {"accountantID", newPaymentBill.accountantID },
-            };
+                {
+                    {"customerName" , newPaymentBill.customerName },
+                    {"customerAddress", newPaymentBill.customerAddress },
+                    {"customerPhoneNo", newPaymentBill.customerPhoneNo },
+                    {"customerEmail", newPaymentBill.customerEmail },
+                    {"customerRequestDetail", newPaymentBill.customerRequestDetail },
+                    {"staffUsername", newPaymentBill.staffUsername },
+                    {"state", newPaymentBill.state },
+                    {"date", newPaymentBill.date },
+                    {"invoiceDetail", billDetails},
+                    {"totalMoney", newPaymentBill.totalMoney }
+                };
 
                 collection.InsertOneAsync(newDoc);
                 return true;

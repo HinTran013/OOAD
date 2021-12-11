@@ -117,13 +117,5 @@ namespace DAL
                 return new staffDTO();
             }
         }
-        //public staffDTO getStaffByID(string ID)
-        //{
-        //    staffDTO staff;
-
-
-
-        //    return staff; 
-        //}
     }
 }

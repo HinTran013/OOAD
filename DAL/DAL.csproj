@@ -117,7 +117,6 @@
     <Compile Include="fundBillDAL.cs" />
     <Compile Include="ideaDAL.cs" />
     <Compile Include="invoiceDAL.cs" />
-    <Compile Include="invoiceDetailDAL.cs" />
     <Compile Include="issueDAL.cs" />
     <Compile Include="issueReportDAL.cs" />
     <Compile Include="paymentBillDAL.cs" />
