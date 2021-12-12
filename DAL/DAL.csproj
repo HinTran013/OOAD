@@ -111,7 +111,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="adCampaignDAL.cs" />
-    <Compile Include="billDetailDAL.cs" />
     <Compile Include="couponDAL.cs" />
     <Compile Include="customerDAL.cs" />
     <Compile Include="fundBillDAL.cs" />

@@ -14,10 +14,10 @@
         </Border.Effect>
         <Grid Margin="4">
             <StackPanel HorizontalAlignment="Right" Margin="10,8,35,10" VerticalAlignment="Top" Orientation="Horizontal">
-                <Button x:Name="PrintBtn"  Background="#FF8699DA" BorderBrush="{x:Null}" Foreground="White" Click="PrintBtn_Click">
+                <Button x:Name="PrintBtn"  Background="#FF8699DA" BorderBrush="{x:Null}" Foreground="White" Click="PrintBtn_Click" IsDefault="True">
                     <materialDesign:PackIcon Kind="Printer" Foreground="White"/>
                 </Button>
-                <Button x:Name="ExitBtn" Background="#EA9769" BorderBrush="{x:Null}" Foreground="White" Click="ExitBtn_Click" Margin="10,0,0,0">
+                <Button x:Name="ExitBtn" Background="#EA9769" BorderBrush="{x:Null}" Foreground="White" Click="ExitBtn_Click" Margin="10,0,0,0" IsCancel="True">
                     <materialDesign:PackIcon Kind="Power" Foreground="White"/>
                 </Button>
             </StackPanel>

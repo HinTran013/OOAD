@@ -48,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="adCampaignBUS.cs" />
-    <Compile Include="billDetailBUS.cs" />
     <Compile Include="couponBUS.cs" />
     <Compile Include="customerBUS.cs" />
     <Compile Include="fundBillBUS.cs" />
