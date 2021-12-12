@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,7 +23,6 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
     public partial class CreateAccount : UserControl
     {
         private bool gender = true;
-        private string type = "";
         private int salary = 0;
 
         public CreateAccount()
@@ -36,7 +36,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
         {
             setUpData();
 
-            CreateAccountProcess.CreateAccountTemplate(new staffDTO(
+            if(CreateAccountProcess.CreateAccountTemplate(new staffDTO(
                 nameTextBox.Text,
                 "",
                 this.gender,
@@ -48,7 +48,46 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
                 descriptionTextBox.Text,
                 userNameTextBox.Text,
                 passwordBox.Password
-                ));
+                ),confirmPasswordBox.Password))
+            {
+                //if create account successfully then clearing data
+                clearInputData();
+            }
+        }
+
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            clearInputData();
+        }
+
+        private void phoneTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            //To limit the characters which are the numbers in the textbox
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void salaryTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            //To limit the characters which are the numbers in the textbox
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        [Obsolete]
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            var window = Window.GetWindow(this);
+            window.KeyDown += HandleKeyPress;
+        }
+
+        [Obsolete]
+        private void HandleKeyPress(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                ConfirmForm(sender, e);
+            }
         }
         #endregion
 
@@ -64,11 +103,24 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
                 salary = Int32.Parse(salaryTextBox.Text);
             }
         }
+
+        private void clearInputData()
+        {
+            nameTextBox.Text = "";
+            phoneTextBox.Text = "";
+            emailTextBox.Text = "";
+            departmentComboBox.SelectedIndex = -1;
+            genderComboBox.SelectedIndex = -1;
+            addressTextBox.Text = "";
+            userNameTextBox.Text = "";
+            passwordBox.Password = "";
+            confirmPasswordBox.Password = "";
+            salaryTextBox.Text = "";
+            descriptionTextBox.Text = "";
+        }
+
         #endregion
 
-        private void cancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            nameTextBox.Text = departmentComboBox.Text;
-        }
+        
     }
 }

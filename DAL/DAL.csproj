@@ -111,13 +111,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="adCampaignDAL.cs" />
-    <Compile Include="billDetailDAL.cs" />
     <Compile Include="couponDAL.cs" />
     <Compile Include="customerDAL.cs" />
     <Compile Include="fundBillDAL.cs" />
     <Compile Include="ideaDAL.cs" />
     <Compile Include="invoiceDAL.cs" />
-    <Compile Include="invoiceDetailDAL.cs" />
     <Compile Include="issueDAL.cs" />
     <Compile Include="issueReportDAL.cs" />
     <Compile Include="paymentBillDAL.cs" />

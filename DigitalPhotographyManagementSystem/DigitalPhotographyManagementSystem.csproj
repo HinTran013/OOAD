@@ -248,6 +248,9 @@
     <Compile Include="View\DashboardMain.xaml.cs">
       <DependentUpon>DashboardMain.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Invoice_View.xaml.cs">
+      <DependentUpon>Invoice_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -257,6 +260,9 @@
     </Compile>
     <Compile Include="View\MsgBox.xaml.cs">
       <DependentUpon>MsgBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PaymentBill_View.xaml.cs">
+      <DependentUpon>PaymentBill_View.xaml</DependentUpon>
     </Compile>
     <Page Include="UserControls\Accounting\CalculateBills.xaml">
       <SubType>Designer</SubType>
@@ -291,8 +297,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Marketing\CreateCoupon.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\Marketing\IdeaProposing.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -346,11 +352,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Invoice_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MsgBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PaymentBill_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
