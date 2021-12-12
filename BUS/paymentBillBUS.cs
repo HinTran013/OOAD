@@ -1,5 +1,6 @@
 ﻿using DAL;
 using DTO;
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,10 @@ namespace BUS
         public static bool AddNewPaymentBill(paymentBillDTO newPaymentBill)
         {
             return paymentBill.InsertNewPaymentBillRecord(newPaymentBill);
+        }
+        public static paymentBillDTO GetPaymentBillFromID(ObjectId objectId)
+        {
+            return paymentBill.GetPaymentBillFromID(objectId);
         }
     }
 }

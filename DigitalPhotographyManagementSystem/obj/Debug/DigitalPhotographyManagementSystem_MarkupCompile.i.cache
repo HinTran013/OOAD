@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\new OOAD\OOAD\DigitalPhotographyManagementSystem\obj\Debug\
+D:\GitHubServer\OOAD\DigitalPhotographyManagementSystem\obj\Debug\
 DigitalPhotographyManagementSystem
 none
 false
 DEBUG;TRACE
-D:\new OOAD\OOAD\DigitalPhotographyManagementSystem\App.xaml
-241808128530
-301321390354
-33-1083266933
-148-766004812
-UserControls\Accounting\CalculateBills.xaml;UserControls\Accounting\FundBills.xaml;UserControls\Accounting\ReportPrices.xaml;UserControls\AdminOnly\CreateAccount.xaml;UserControls\AdminOnly\ListAccounts.xaml;UserControls\AdminOnly\ListOfPriceChanges.xaml;UserControls\DashboardHome.xaml;UserControls\Marketing\AdCampaign.xaml;UserControls\Marketing\CreateCoupon.xaml;UserControls\Marketing\IdeaProposing.xaml;UserControls\Marketing\PrintPhoto.xaml;UserControls\Technical\InvoiceDetail.xaml;UserControls\Technical\ListOfInvoices.xaml;UserControls\Transaction\InvoiceCreating.xaml;UserControls\Transaction\IssuesReport.xaml;UserControls\Transaction\PhotoDelivery.xaml;UserControls\UserControlMenuDrawer.xaml;UserControls\UserControlSingleItem.xaml;View\AboutBox.xaml;View\AdsDetail_View.xaml;View\AdsList.xaml;View\DashboardMain.xaml;View\LoginWindow.xaml;View\MsgBox.xaml;
+D:\GitHubServer\OOAD\DigitalPhotographyManagementSystem\App.xaml
+26-1812158707
+302108091888
+351370757204
+148-1980899058
+UserControls\Accounting\CalculateBills.xaml;UserControls\Accounting\FundBills.xaml;UserControls\Accounting\ReportPrices.xaml;UserControls\AdminOnly\CreateAccount.xaml;UserControls\AdminOnly\ListAccounts.xaml;UserControls\AdminOnly\ListOfPriceChanges.xaml;UserControls\DashboardHome.xaml;UserControls\Marketing\AdCampaign.xaml;UserControls\Marketing\CreateCoupon.xaml;UserControls\Marketing\IdeaProposing.xaml;UserControls\Marketing\PrintPhoto.xaml;UserControls\Technical\InvoiceDetail.xaml;UserControls\Technical\ListOfInvoices.xaml;UserControls\Transaction\InvoiceCreating.xaml;UserControls\Transaction\IssuesReport.xaml;UserControls\Transaction\PhotoDelivery.xaml;UserControls\UserControlMenuDrawer.xaml;UserControls\UserControlSingleItem.xaml;View\AboutBox.xaml;View\AdsDetail_View.xaml;View\AdsList.xaml;View\DashboardMain.xaml;View\Invoice_View.xaml;View\LoginWindow.xaml;View\MsgBox.xaml;View\PaymentBill_View.xaml;
 
 True
 

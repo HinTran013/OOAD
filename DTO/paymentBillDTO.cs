@@ -104,6 +104,6 @@ namespace DTO
         public string date { get => _date; set => _date = value; }
         public List<billDetailDTO> billDetails { get => _billDetails; set => _billDetails = value; }
         public int totalMoney { get => _totalMoney; set => _totalMoney = value; }
-        public ObjectId? bbjectId { get => _objectId; set => _objectId = value; }
+        public ObjectId? objectId { get => _objectId; set => _objectId = value; }
     }
 }
