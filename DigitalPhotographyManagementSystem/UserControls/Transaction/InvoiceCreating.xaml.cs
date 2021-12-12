@@ -22,14 +22,16 @@ namespace DigitalPhotographyManagementSystem.View
     /// </summary>
     public partial class InvoiceCreating : UserControl
     {
+        DateTime timeNow;
+
         public InvoiceCreating()
         {
             InitializeComponent();
+
+            timeNow = DateTime.Now;
+            DateTxt.Text = "Date: " + timeNow.ToString("dd/MM/yyyy");
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
+        
     }
 }

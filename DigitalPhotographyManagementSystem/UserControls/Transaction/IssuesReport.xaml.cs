@@ -22,9 +22,14 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
     /// </summary>
     public partial class IssuesReport : UserControl
     {
+        DateTime timeNow;
+
         public IssuesReport()
         {
             InitializeComponent();
+
+            timeNow = DateTime.Now;
+            DateTxt.Text = "Date: " + timeNow.ToString("dd/MM/yyyy");
         }
     }
 }

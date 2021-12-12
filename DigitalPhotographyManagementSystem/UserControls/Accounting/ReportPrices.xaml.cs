@@ -43,13 +43,17 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
         long NoType = 0;
         DateTime timeNow;
 
-        public ReportPrices()
+        private staffDTO accountStaff;
+
+        public ReportPrices(staffDTO staff = null)
         {
             InitializeComponent();
 
             ReportPricesIDTxt.Text = setID();
             timeNow = DateTime.Now;
             DateTimeTxt.Text = "Date time: " + timeNow.ToString("dd/MM/yyyy");
+
+            accountStaff = staff;
 
             ResetForm();
         }
@@ -165,7 +169,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
                     ReportPricesIDTxt.Text,
                     timeNow.ToString("dd/MM/yyyy"),
                     SubjectTxt.Text,
-                    "");
+                    accountStaff.username);
 
                 reportPricesBUS.AddReportPrices(reportForm);
             }

@@ -25,9 +25,10 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
     /// </summary>
     public partial class FundBills : UserControl
     {
-        DateTime timeNow;       
+        DateTime timeNow;
+        private staffDTO accountStaff;
 
-        public FundBills()
+        public FundBills(staffDTO staff = null)
         {
             InitializeComponent();
 
@@ -35,6 +36,8 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 
             timeNow = DateTime.Now;
             DateTimeTxt.Text = "Date time: " + timeNow.ToString("dd/MM/yyyy");
+
+            accountStaff = staff;
         }
 
         private string setID()
@@ -113,7 +116,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
                     TypeCbb.Text.ToString(),
                     double.Parse(CostTxt.Text.ToString()),
                     DescriptionTxt.Text,
-                    "helloooooooooo");
+                    accountStaff.username);
 
                 fundBillBUS.AddFundBill(fundDTO);
 

@@ -260,8 +260,8 @@
         <Grid Grid.Row="0">
             <Border     VerticalAlignment="Center"
                         HorizontalAlignment="Right"
-                        Margin="0,0,265,0"
-                        Width="180" 
+                        Margin="0,0,280,0"
+                        Width="220" 
                         Height="50"
                         Background="#8699DA"
                         CornerRadius="10">
@@ -285,19 +285,19 @@
             </Border>
             <Label HorizontalAlignment="Left"
                    VerticalAlignment="Top"
-                   Margin="30,5,0,0" 
-                   FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
-                   FontWeight="Bold"
-                   FontSize="22"
+                   Margin="30,0,0,0" 
+                   FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black"
+                   FontSize="24"
                        >Customer's Information</Label>
-            <TextBlock HorizontalAlignment="Left"
+            <TextBlock Name="DateTxt"
+                        HorizontalAlignment="Left"
                        VerticalAlignment="Bottom"
-                       Margin="40,0,0,3"
+                       Margin="45,0,0,3"
                        
                        FontSize="18"
-                       FontWeight="Medium"
+                       FontWeight="Bold"
                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">
-                        Date time: 21/10/2021
+                        Date: 21/10/2021
             </TextBlock>
             <Border CornerRadius="10" 
                     BorderThickness="2"
@@ -305,8 +305,8 @@
                     Margin="30,0,20,0" Background="White"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center" 
-                    Width="235">
-                <TextBox x:Name="ReportPricesIDTxt"                       
+                    Width="250">
+                <TextBox x:Name="InvoiceIDTxt"                       
                           BorderThickness="0"
                           IsReadOnly="True"
                           TextAlignment="Center"
@@ -320,8 +320,8 @@
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="1.75*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="1.4*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <StackPanel Margin="0,0,0,0">

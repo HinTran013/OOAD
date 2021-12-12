@@ -52,9 +52,9 @@
                         HorizontalAlignment="Right"
                        VerticalAlignment="Center"
                        FontSize="18"
-                       FontWeight="Medium"
+                       FontWeight="Bold"
                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
-                       Margin="0,0,25,0">
+                       Margin="0,0,45,0">
                         Date time: 21/10/2021
             </TextBlock>
         </Grid>

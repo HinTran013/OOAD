@@ -73,8 +73,8 @@ namespace DigitalPhotographyManagementSystem.View
 
                 var menuAccDept = new List<SubItem>();
                 menuAccDept.Add(new SubItem("Create Payment Bill", new CalculateBills()));
-                menuAccDept.Add(new SubItem("Create Fund Bill", new FundBills()));
-                menuAccDept.Add(new SubItem("Report Price Of Photos", new ReportPrices()));
+                menuAccDept.Add(new SubItem("Create Fund Bill", new FundBills(Account)));
+                menuAccDept.Add(new SubItem("Report Price Of Photos", new ReportPrices(Account)));
                 var accSubMenu = new ItemMenu("ACCOUNTING DEPT", menuAccDept, PackIconKind.Calculator);
 
                 var menuTechDept = new List<SubItem>();
