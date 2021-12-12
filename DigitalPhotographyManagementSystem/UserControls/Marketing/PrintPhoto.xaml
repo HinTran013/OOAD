@@ -15,8 +15,7 @@
              Height="653" Width="1084">
 
     <StackPanel Background="White">
-       
-        <Grid Margin="60 50 60 0">
+        <Grid Margin="60,7,60,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="0.1*"/>
@@ -25,15 +24,50 @@
             <Label Content="UNFINISHED CUSTOMER'S INVOICE" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Grid.ColumnSpan="3" HorizontalAlignment="Center"/>
             <TextBlock x:Name="DateTimeTxt" Grid.Column="2" Grid.Row="0" Text="Date time: 12/12/2021" VerticalAlignment="Center"/>
         </Grid>
+        <Border CornerRadius="10" Margin="60,0" Background="#8699DA">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" Opacity="0.5" RenderingBias="Quality" ShadowDepth="1"/>
+            </Border.Effect>
+            <Grid>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="750"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox    Background="White" FontSize="15" Grid.Column="0" Height="54"  
+                                Margin="5,5,0,5"
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                x:Name="SearchTxtBox" TextChanged="textBoxSearch_TextChanged"
+                                AcceptsReturn="False"
+                                materialDesign:HintAssist.Hint="Search"
+                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}"/>
+                    <Grid Grid.Column="1">
+                        <Border Background="White" CornerRadius="5" Margin="5">
+                            <ComboBox x:Name="cbbSearchBy"
+                                                IsEditable="True" IsReadOnly="True"
+                                                Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                materialDesign:HintAssist.Hint="Search By"
+                                                Background="{x:Null}" FontSize="17"
+                                                SelectedIndex="0">
+                                <ComboBoxItem Content="Invoice ID"/>
+                                <ComboBoxItem Content="Customer's Name"/>
+                                <ComboBoxItem Content="StaffID"/>
+                            </ComboBox>
+                        </Border>
+                        
+                    </Grid>
+                </Grid>
 
-        <Border Margin="60 10 60 0" Height="540" CornerRadius="10" Background="#8699DA">
+            </Grid>
+        </Border>
+        <Border Margin="60 10 60 0" Height="520" CornerRadius="10" Background="#8699DA">
             <Border Margin="5" CornerRadius="10" Background="White">
-                <ListView Name="listInvoice" FontSize="15" Cursor="Hand" MouseDoubleClick="listInvoice_MouseDoubleClick">
+                <ListView Name="listInvoice" FontSize="15" MouseDoubleClick="listInvoice_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="No." Width="90" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
                             <GridViewColumn Header="Invoice ID" Width="135" DisplayMemberBinding="{Binding invoiceID}" ></GridViewColumn>
-                            <GridViewColumn Header="Customer Name" Width="190" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
+                            <GridViewColumn Header="Customer's Name" Width="190" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
                             <GridViewColumn Header="Date" Width="100" DisplayMemberBinding="{Binding Date}" ></GridViewColumn>
                             <GridViewColumn Header="StaffID" Width="140" DisplayMemberBinding="{Binding StaffID}" ></GridViewColumn>
                             <GridViewColumn Header="Services" Width="155" DisplayMemberBinding="{Binding Services}" ></GridViewColumn>

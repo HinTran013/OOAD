@@ -16,7 +16,8 @@ namespace DTO
         private string _customerRequestDetail;
         private string _state;
         private string _staffUsername;
-        private string _date;
+        private string _createDate;
+        private string _dueDate;
         private List<billDetailDTO> _billDetails;
         private int _totalMoney;
         private ObjectId? _objectId;
@@ -30,10 +31,11 @@ namespace DTO
             this._state = null;
             this._customerPhoneNo = null;
             this._customerEmail = null;
-            this._date = null;
+            this._createDate = null;
             this._objectId = null;
             this._totalMoney = -1;
             this._billDetails = null;
+            this._dueDate = null;
         }
 
         //constructor with params
@@ -46,7 +48,8 @@ namespace DTO
             string customerRequestDetail,
             string staffUsername,
             string state,
-            string date,
+            string createDate,
+            string dueDate,
             List<billDetailDTO> billDetails
         ){
             this._customerName = customerName;
@@ -57,12 +60,14 @@ namespace DTO
             this._staffUsername = staffUsername;
             this._billDetails = billDetails;
             this._customerEmail = customerEmail;
-            this._date = date;
+            this._createDate = createDate;
+            this._dueDate = dueDate;
             this._objectId = null;
-            foreach(billDetailDTO billDetail in billDetails)
-            {
-                this._totalMoney += billDetail.unitPrice;
-            }
+            if (billDetails != null)
+                foreach(billDetailDTO billDetail in billDetails)
+                {
+                    this._totalMoney += billDetail.unitPrice;
+                }
         }
         public paymentBillDTO
         (
@@ -73,7 +78,8 @@ namespace DTO
             string customerRequestDetail,
             string staffUsername,
             string state,
-            string date,
+            string createDate,
+            string dueDate,
             List<billDetailDTO> billDetails,
             ObjectId? objectId
         )
@@ -86,12 +92,14 @@ namespace DTO
             this._staffUsername = staffUsername;
             this._billDetails = billDetails;
             this._customerEmail = customerEmail;
-            this._date = date;
+            this._createDate = createDate;
+            this._dueDate = dueDate;
             this._objectId = objectId;
-            foreach (billDetailDTO billDetail in billDetails)
-            {
-                this._totalMoney += billDetail.unitPrice;
-            }
+            if (billDetails != null)
+                foreach (billDetailDTO billDetail in billDetails)
+                {
+                    this._totalMoney += billDetail.unitPrice;
+                }
         }
 
         public string customerName { get => _customerName; set => _customerName = value; }
@@ -101,7 +109,8 @@ namespace DTO
         public string customerRequestDetail { get => _customerRequestDetail; set => _customerRequestDetail = value; }
         public string state { get => _state; set => _state = value; }
         public string staffUsername { get => _staffUsername; set => _staffUsername = value; }
-        public string date { get => _date; set => _date = value; }
+        public string dueDate { get => _dueDate; set => _dueDate = value; }
+        public string createDate { get => _createDate; set => _createDate = value; }
         public List<billDetailDTO> billDetails { get => _billDetails; set => _billDetails = value; }
         public int totalMoney { get => _totalMoney; set => _totalMoney = value; }
         public ObjectId? objectId { get => _objectId; set => _objectId = value; }

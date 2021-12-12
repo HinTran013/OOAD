@@ -425,6 +425,7 @@
     <Content Include="Core\Compression\Snappy\lib\win\snappy32.dll" />
     <Content Include="Core\Compression\Snappy\lib\win\snappy64.dll" />
     <Content Include="Core\Compression\Zstandard\lib\win\libzstd.dll" />
+    <Resource Include="ImageSrc\bill.png" />
     <Content Include="mongocrypt.dll" />
     <Resource Include="ImageSrc\logo.png" />
     <Resource Include="ImageSrc\Error.png" />

@@ -4,6 +4,7 @@ using DTO;
 using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +36,7 @@ namespace DigitalPhotographyManagementSystem.UserControls
     }
     public partial class PrintPhoto : UserControl
     {
-        private List<InvoicePrint> invoicePrint;
+        private ObservableCollection<InvoicePrint> invoicePrint;
         public PrintPhoto()
         {
             InitializeComponent();
@@ -43,7 +44,8 @@ namespace DigitalPhotographyManagementSystem.UserControls
             List<invoiceDTO> invoices = new List<invoiceDTO>();
             invoices = invoiceBUS.GetAllUnprintedInvoices();
             int i = 1;
-            invoicePrint = new List<InvoicePrint>();
+            invoicePrint = new ObservableCollection<InvoicePrint>();
+            
             foreach (invoiceDTO item in invoices)
             {
                 var newInvoicePrint = new InvoicePrint()
@@ -57,25 +59,62 @@ namespace DigitalPhotographyManagementSystem.UserControls
                     Services = invoiceBUS.GetNumServicesFromID((ObjectId)item.objectId)
                 };
                 invoicePrint.Add(newInvoicePrint);
-                listInvoice.Items.Add(newInvoicePrint);
             }
+            listInvoice.ItemsSource = invoicePrint;
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listInvoice.ItemsSource);
+            view.Filter = InvoiceFilter;
         }
 
+        private bool InvoiceFilter(object item)
+        {
+            if (String.IsNullOrEmpty(SearchTxtBox.Text))
+            {
+                return true;
+            }
+            else
+            {
+                if (cbbSearchBy.SelectedIndex == 0)
+                    return (item as InvoicePrint).invoiceID.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                if (cbbSearchBy.SelectedIndex == 1)
+                    return (item as InvoicePrint).customerName.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                if (cbbSearchBy.SelectedIndex == 2)
+                    return (item as InvoicePrint).StaffID.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                else
+                    return true;
+            }
+        }
         private void DoneBtn_Click(object sender, RoutedEventArgs e)
         {
             var item = (sender as FrameworkElement).DataContext;
+            var invoice = (sender as FrameworkElement).DataContext as InvoicePrint;
             int index = listInvoice.Items.IndexOf(item);
-            
+            if (invoice != null)
+            {
+                invoiceBUS.UpdateStateInvoiceFromID(invoice.fullInvoiceID, "PRINT");
+                invoicePrint.Remove(invoice);
+                MsgBox.Show("Updated the new state of invoice!", MessageBoxTyp.Information);
+            }
         }
 
         private void listInvoice_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var index = listInvoice.SelectedIndex;
-            if (index != -1)
+            var invoice = listInvoice.SelectedItems[0] as InvoicePrint;
+            if (invoice != null)
             {
-                Invoice_View invoice_View = new Invoice_View(invoicePrint[index].fullInvoiceID);
+                Invoice_View invoice_View = new Invoice_View(invoice.fullInvoiceID);
                 invoice_View.ShowDialog();
             }
+        }
+
+        private void textBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(listInvoice.ItemsSource).Refresh();
+        }
+
+        private void DateChooser_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

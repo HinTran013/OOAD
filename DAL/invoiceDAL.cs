@@ -145,5 +145,21 @@ namespace DAL
                 return null;
             }
         }
+        public bool UpdateStateInvoiceFromID(ObjectId objectId, string newState)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("invoices");
+
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", objectId);
+                var update = Builders<BsonDocument>.Update.Set("state", newState).CurrentDate("lastModified");
+                var result = collection.UpdateOne(filter, update);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

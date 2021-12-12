@@ -30,9 +30,9 @@ namespace DigitalPhotographyManagementSystem.View
     {
         public Invoice_View(ObjectId objectId)
         {
-            InitializeComponent();
-            DateTimeTxt.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            InitializeComponent();            
             invoiceDTO invoice = invoiceBUS.GetInvoiceFromID(objectId);
+            DateTimeTxt.Text = invoice.date;
             CustomerNameTxt.Text = "Customer: " + invoice.customerName;
             InvoiceIDTxt.Text = invoice.objectId.ToString().Substring(invoice.objectId.ToString().Length - 5);
             AddressTxt.Text = "Address: " + invoice.customerAddress;
