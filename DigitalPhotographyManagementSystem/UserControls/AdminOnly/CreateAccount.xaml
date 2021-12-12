@@ -9,7 +9,9 @@
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
               
              Height="653" Width="1084"
-             Background="White">
+             Background="White"
+             Loaded="UserControl_Loaded"
+             >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="6*"/>
@@ -51,7 +53,7 @@
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="Phone Number"
                                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Bold" FontSize="14"/>
+                                        FontWeight="Bold" FontSize="14" PreviewTextInput="phoneTextBox_PreviewTextInput"/>
                         </Border>
                     </Grid>
                 </Grid>
@@ -201,7 +203,7 @@
                                 BorderBrush="#789ADE"
                                 Margin="10,0,30,0">
                             <PasswordBox  
-                                        x:Name="comfirmPasswordBox"
+                                        x:Name="confirmPasswordBox"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -224,6 +226,7 @@
                               Style="{StaticResource MaterialDesignOutlinedTextBox}"
                               materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                               materialDesign:HintAssist.Hint="Salary"
+                              PreviewTextInput="salaryTextBox_PreviewTextInput"
                               FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
                               FontWeight="Bold" FontSize="14"/>
                 </Border>

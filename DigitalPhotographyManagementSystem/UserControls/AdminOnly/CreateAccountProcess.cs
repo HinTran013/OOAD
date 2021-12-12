@@ -19,29 +19,19 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
 
         private static bool CheckIfRequiredIsFilled(staffDTO newStaff)
         {
-            if (String.IsNullOrEmpty(newStaff.username))
+            if (String.IsNullOrEmpty(newStaff.username) || 
+                String.IsNullOrEmpty(newStaff.password) || 
+                newStaff.salary == 0 ||
+                String.IsNullOrEmpty(newStaff.name)
+                )
             {
-                var messageBoxResult = MsgBox.Show("Warning", "Please fill out username!", MessageBoxTyp.Warning);
+                var messageBoxResult = MsgBox.Show("Warning", "Please fill out employee's name, username, password and salary!", MessageBoxTyp.Warning);
                 return false;
             }
-            else if (String.IsNullOrEmpty(newStaff.password))
+
+            if (String.IsNullOrEmpty(newStaff.type))
             {
-                var messageBoxResult = MsgBox.Show("Warning", "Please fill out password!", MessageBoxTyp.Warning);
-                return false;
-            }
-            else if (String.IsNullOrEmpty(newStaff.type))
-            {
-                var messageBoxResult = MsgBox.Show("Warning", "Please choose type of department!", MessageBoxTyp.Warning);
-                return false;
-            }
-            else if (newStaff.salary == 0)
-            {
-                var messageBoxResult = MsgBox.Show("Warning", "Please fill out salary!", MessageBoxTyp.Warning);
-                return false;
-            }
-            else if (String.IsNullOrEmpty(newStaff.name))
-            {
-                var messageBoxResult = MsgBox.Show("Warning", "Please fill out name!", MessageBoxTyp.Warning);
+                var messageBoxResult = MsgBox.Show("Warning", "Please choose employee's department!", MessageBoxTyp.Warning);
                 return false;
             }
 
@@ -73,25 +63,59 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
             staffBUS.AddNewStaff(newStaff);
         }
 
-        public static void test()
+        private static bool IsValidEmail(string email)
         {
-            var messageBoxResult = MsgBox.Show("Warning", "Username has already existed!", MessageBoxTyp.Warning);
+            if (email.Trim().EndsWith("."))
+            {
+                return false; // suggested by @TK-421
+            }
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private static bool checkConfirmPassword(string password, string confirmPassword)
+        {
+            if(password == confirmPassword)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         [Obsolete]
-        public static void CreateAccountTemplate(staffDTO newStaff)
+        public static bool CreateAccountTemplate(staffDTO newStaff, string confirmPassword)
         {
-
-            if (CheckAccountExists(newStaff.username))
+            if (!CheckIfRequiredIsFilled(newStaff)) {
+                return false;
+            }
+            else if (CheckAccountExists(newStaff.username))
             {
                 var messageBoxResult = MsgBox.Show("Warning", "Username has already existed!", MessageBoxTyp.Warning);
+                return false;
+            }
+            else if (!IsValidEmail(newStaff.email))
+            {
+                var messageBoxResult = MsgBox.Show("Warning", "Email format is invalid!", MessageBoxTyp.Warning);
+                return false;
+            }
+            else if (!checkConfirmPassword(newStaff.password, confirmPassword))
+            {
+                var messageBoxResult = MsgBox.Show("Warning", "Password and confirm password are not equal!", MessageBoxTyp.Warning);
+                return false;
             }
             else
             {
-                if (CheckIfRequiredIsFilled(newStaff))
-                {
-                    CreateAccount(newStaff);
-                }
+                CreateAccount(newStaff);
+                var messageBoxResult = MsgBox.Show("Successfully!", "Create account successfully!", MessageBoxTyp.Information);
+                return true;
             }
         }
     }
