@@ -2,16 +2,21 @@
 using DigitalPhotographyManagementSystem.View;
 using DTO;
 using MongoDB.Bson;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -33,13 +38,17 @@ namespace DigitalPhotographyManagementSystem.UserControls
         public string Date { get; set; }
         public string StaffID { get; set; }
         public long Services { get; set; }
+        public int TotalMoney { get; set; }
     }
-    public partial class PrintPhoto : UserControl
+    public partial class PrintPhoto : System.Windows.Controls.UserControl
     {
         private ObservableCollection<InvoicePrint> invoicePrint;
-        public PrintPhoto()
+        private staffDTO Account;
+        public PrintPhoto(staffDTO acc)
         {
             InitializeComponent();
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            Account = acc;
             DateTimeTxt.Text = "Date time: " + DateTime.Now.ToString("dd/MM/yyyy");
             List<invoiceDTO> invoices = new List<invoiceDTO>();
             invoices = invoiceBUS.GetAllUnprintedInvoices();
@@ -86,14 +95,51 @@ namespace DigitalPhotographyManagementSystem.UserControls
         }
         private void DoneBtn_Click(object sender, RoutedEventArgs e)
         {
-            var item = (sender as FrameworkElement).DataContext;
             var invoice = (sender as FrameworkElement).DataContext as InvoicePrint;
-            int index = listInvoice.Items.IndexOf(item);
             if (invoice != null)
             {
+                string valueStr;
+                if (MsgBox.Show("ENTER FUND", "Type in the fund of printing this photo") == MessageBoxResult.OK)
+                {
+                    valueStr = MsgBox.Value;
+                }
+                else
+                {
+                    return;
+                }
+                int value;
+                if (!String.IsNullOrEmpty(valueStr))
+                {
+                    if (Regex.IsMatch(valueStr, @"^\d+$"))
+                    {
+                        value = int.Parse(valueStr);
+                        if (value <= 0)
+                        {
+                            MsgBox.Show("Please input value larger than 0", MessageBoxTyp.Warning);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        MsgBox.Show("Please input only numbers", MessageBoxTyp.Warning);
+                        return;
+                    }
+                }
+                else
+                {
+                    MsgBox.Show("Please input value", MessageBoxTyp.Warning);
+                    return;
+                }
                 invoiceBUS.UpdateStateInvoiceFromID(invoice.fullInvoiceID, "PRINT");
+                fundBillBUS.AddFundBill(new fundBillDTO
+                (
+                    DateTime.Now.ToString("dd/MM/yyyy"),
+                    value,
+                    Account.username,
+                    invoice.fullInvoiceID
+                ));
                 invoicePrint.Remove(invoice);
-                MsgBox.Show("Updated the new state of invoice!", MessageBoxTyp.Information);
+                MsgBox.Show("Updated the new state of invoice!", MessageBoxTyp.Information);             
             }
         }
 
@@ -112,9 +158,147 @@ namespace DigitalPhotographyManagementSystem.UserControls
             CollectionViewSource.GetDefaultView(listInvoice.ItemsSource).Refresh();
         }
 
-        private void DateChooser_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        private void ImportBtn_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            //openFileDialog.Filter = "Excel | *.xlsx | Excel 2003 | *.xls";
+            //openFileDialog.FilterIndex = 1;
+            string filePath = null;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (String.IsNullOrEmpty(openFileDialog.FileName))
+                {
+                    MsgBox.Show("Invalid filepath!", MessageBoxTyp.Error);
+                    return;
+                }
+                if (!File.Exists(openFileDialog.FileName))
+                {
+                    MsgBox.Show("File does not exist!", MessageBoxTyp.Error);
+                    return;
+                }
+                filePath = openFileDialog.FileName;
+            }
+            else return;
+            ObservableCollection<InvoicePrint> invoicePrintedList = new ObservableCollection<InvoicePrint>();
+            try
+            {
+                var package = new ExcelPackage(new FileInfo(filePath));
 
+                ExcelWorksheet workSheet = package.Workbook.Worksheets[0];
+
+                for (int i = workSheet.Dimension.Start.Row + 1; i <= workSheet.Dimension.End.Row; i++)
+                {
+                    try
+                    {
+                        ObjectId objectId = ObjectId.Parse(workSheet.Cells[i, 1].Value.ToString());
+                        int fund = 0;
+                        if (workSheet.Cells[i,5].Value != null)
+                        {
+                            var fundTemp = int.Parse(workSheet.Cells[i, 5].Value.ToString());
+                            fund = fundTemp;
+                        }
+                        else fund = 0;
+
+
+                        InvoicePrint printedInvoice = invoicePrint.Where(x => x.fullInvoiceID == objectId).FirstOrDefault();
+                        printedInvoice.TotalMoney = fund;
+                        fundBillBUS.AddFundBill(new fundBillDTO
+                        (
+                            DateTime.Now.ToString("dd/MM/yyyy"),
+                            printedInvoice.TotalMoney,
+                            Account.username,
+                            objectId
+                        ));
+                        invoiceBUS.UpdateStateInvoiceFromID(objectId, "PRINT");
+                        invoicePrint.Remove(invoicePrint.SingleOrDefault(x => x.fullInvoiceID == objectId));
+                    }
+                    catch (Exception exe)
+                    {
+                        Console.WriteLine(exe);
+                    }
+                }
+                MsgBox.Show("Successfully update state of invoice!", MessageBoxTyp.Information);
+            }
+            catch (Exception ee)
+            {
+                Console.WriteLine(ee);
+                MsgBox.Show("Error while file's loading!", MessageBoxTyp.Error);
+            }
+        }
+
+        private void ExportBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string filePath = "";
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel | *.xlsx | Excel 2003 | *.xls";
+            saveFileDialog.FileName = "UnprintedPhotoList_" + DateTime.Now.ToString("dd-MM-yyyy") + ".xlsx";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                filePath = saveFileDialog.FileName;
+                if (string.IsNullOrEmpty(filePath))
+                {
+                    MsgBox.Show("Invalid filepath!", MessageBoxTyp.Error);
+                    return;
+                }
+            }
+            else return;
+
+            try
+            {
+                using (ExcelPackage p = new ExcelPackage())
+                {
+                    p.Workbook.Properties.Author = Account.name;
+                    p.Workbook.Properties.Title = "Unprinted Photos List - " + DateTime.Now.ToString("dd/MM/yyyy");
+                    p.Workbook.Worksheets.Add("KTS print sheet");
+                    ExcelWorksheet ws = p.Workbook.Worksheets[0];
+                    ws.Name = "KTS print sheet";
+                    ws.Cells.Style.Font.Size = 11;
+                    ws.Cells.Style.Font.Name = "Calibri";
+                    string[] arrColumnHeader = 
+                    {
+                        "ID",
+                        "Customer's name",
+                        "Date created",
+                        "StaffID",
+                        "Fund"
+                    };
+                    int colIndex = 1;
+                    int rowIndex = 1;
+                    foreach (var item in arrColumnHeader)
+                    {
+                        var cell = ws.Cells[rowIndex, colIndex];
+                        var fill = cell.Style.Fill;
+                        fill.PatternType = ExcelFillStyle.Solid;
+                        fill.BackgroundColor.SetColor(System.Drawing.Color.LightBlue);
+                        var border = cell.Style.Border;
+                        border.Bottom.Style =
+                            border.Top.Style =
+                            border.Left.Style =
+                            border.Right.Style = ExcelBorderStyle.Thin;
+                        cell.Value = item;
+                        colIndex++;
+                    }
+                    ObservableCollection<InvoicePrint> invoiceUnprintedList = new ObservableCollection<InvoicePrint>(listInvoice.ItemsSource.Cast<InvoicePrint>());
+                    foreach (var item in invoiceUnprintedList)
+                    {
+                        colIndex = 1;
+                        rowIndex++;                  
+                        ws.Cells[rowIndex, colIndex++].Value = item.fullInvoiceID.ToString();
+                        ws.Cells[rowIndex, colIndex++].Value = item.customerName.ToString();
+                        ws.Cells[rowIndex, colIndex++].Value = item.Date.ToString();
+                        ws.Cells[rowIndex, colIndex++].Value = item.StaffID.ToString();
+                    }
+                    ws.Cells.AutoFitColumns();
+                    Byte[] bin = p.GetAsByteArray();
+                    File.WriteAllBytes(filePath, bin);
+                }
+                MsgBox.Show("Export completed!", MessageBoxTyp.Information);
+            }
+            catch (Exception EE)
+            {
+                Console.WriteLine(EE);
+                MsgBox.Show("Error while file's loading", MessageBoxTyp.Error);
+            }
         }
     }
 }

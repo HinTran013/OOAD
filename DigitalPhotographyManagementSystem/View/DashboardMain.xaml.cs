@@ -61,7 +61,7 @@ namespace DigitalPhotographyManagementSystem.View
                 var menuMarketDept = new List<SubItem>();
                 menuMarketDept.Add(new SubItem("Propose New Ideas", IdeaProposing.GetInstance(Account)));
                 menuMarketDept.Add(new SubItem("Ad Campaign", AdCampaign.GetInstance(Account)));
-                menuMarketDept.Add(new SubItem("Print Photos", new PrintPhoto()));
+                menuMarketDept.Add(new SubItem("Print Photos", new PrintPhoto(Account)));
                 menuMarketDept.Add(new SubItem("Create Coupon", CreateCoupon.GetInstance()));
                 var marketSubMenu = new ItemMenu("MARKETING DEPT", menuMarketDept, PackIconKind.Megaphone);
 
@@ -109,7 +109,7 @@ namespace DigitalPhotographyManagementSystem.View
                 {
                     var propose = new ItemMenu("Propose New Ideas", PackIconKind.Idea, CommandType.UControl, IdeaProposing.GetInstance(Account));
                     var adCamp = new ItemMenu("Ad Campaign", PackIconKind.Ads, CommandType.UControl, AdCampaign.GetInstance(Account));
-                    var print = new ItemMenu("Print Photos", PackIconKind.Printer, CommandType.UControl, new PrintPhoto());
+                    var print = new ItemMenu("Print Photos", PackIconKind.Printer, CommandType.UControl, new PrintPhoto(Account));
                     SideMenu.Children.Add(new UserControlSingleItem(propose, this));
                     SideMenu.Children.Add(new UserControlSingleItem(adCamp, this));
                     SideMenu.Children.Add(new UserControlSingleItem(print, this));

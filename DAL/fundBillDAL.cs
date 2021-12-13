@@ -25,14 +25,12 @@ namespace DAL
             {
                 var collection = db.GetCollection<BsonDocument>("fundBills");
                 var newDoc = new BsonDocument
-            {
-                    { "fundID", newBill.fundID},
+                {
+                    { "_idFromInvoice", newBill.objectIdFromInvoice},
                     { "date", newBill.date },
-                    { "fundType", newBill.fundType },
                     { "totalMoney", newBill.totalMoney },
-                    { "description", newBill.description },
-                    { "accountantID", newBill.accountantID }
-            };
+                    { "staffUsername", newBill.staffUsername }
+                };
 
                 collection.InsertOneAsync(newDoc);
                 return true;
