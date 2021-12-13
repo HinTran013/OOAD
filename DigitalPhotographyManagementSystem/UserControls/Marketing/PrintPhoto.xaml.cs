@@ -161,8 +161,8 @@ namespace DigitalPhotographyManagementSystem.UserControls
         private void ImportBtn_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            //openFileDialog.Filter = "Excel | *.xlsx | Excel 2003 | *.xls";
-            //openFileDialog.FilterIndex = 1;
+            openFileDialog.Filter = "Excel|*.xlsx|Excel 2003|*.xls";
+            openFileDialog.FilterIndex = 1;
             string filePath = null;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
