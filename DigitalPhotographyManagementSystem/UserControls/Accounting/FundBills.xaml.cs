@@ -107,15 +107,15 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
                     DescriptionTxt.Text = "There is no description.";
                 }
 
-                fundBillDTO fundDTO = new fundBillDTO(
+               /* fundBillDTO fundDTO = new fundBillDTO(
                     FundIDTxt.Text,
                     timeNow.ToString("dd/MM/yyyy"),
                     TypeCbb.Text.ToString(),
                     double.Parse(CostTxt.Text.ToString()),
                     DescriptionTxt.Text,
-                    "helloooooooooo");
+                    "helloooooooooo");*/
 
-                fundBillBUS.AddFundBill(fundDTO);
+                //fundBillBUS.AddFundBill(fundDTO);
 
                 var messageBoxResult = MsgBox.Show(
                     "Notification", 

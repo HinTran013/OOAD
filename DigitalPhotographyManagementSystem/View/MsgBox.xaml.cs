@@ -42,6 +42,10 @@ namespace DigitalPhotographyManagementSystem.View
         }
 
         static MsgBox _messageBox;
+        public static string Value
+        {
+            set; get;
+        }
         static MessageBoxResult _result = MessageBoxResult.No;
         public static MessageBoxResult Show(string caption, string msg, MessageBoxTyp type)
         {
@@ -66,6 +70,18 @@ namespace DigitalPhotographyManagementSystem.View
                     return MessageBoxResult.No;
             }
         }
+
+        public static MessageBoxResult Show(string caption, string hint)
+        {
+            _messageBox = new MsgBox { MessageTitle = { Text = caption } };
+            MaterialDesignThemes.Wpf.HintAssist.SetHint(_messageBox.ValueTxt, hint);
+            SetVisibilityOfButtons(MessageBoxButton.OKCancel);
+            SetImageOfMessageBox(MessageBoxImg.Information);
+            _messageBox.ValueTxt.Focus();
+            _messageBox.ShowDialog();
+            return _result;
+        }
+
         public static MessageBoxResult Show(string msg, MessageBoxTyp type)
         {
             return Show(string.Empty, msg, type);
@@ -75,12 +91,11 @@ namespace DigitalPhotographyManagementSystem.View
             return Show(string.Empty, msg,
             MessageBoxButton.OK, MessageBoxImg.None);
         }
-        public static MessageBoxResult Show
-        (string caption, string text)
+        /*public static MessageBoxResult Show (string caption, string text)
         {
             return Show(caption, text,
             MessageBoxButton.OK, MessageBoxImg.None);
-        }
+        }*/
         public static MessageBoxResult Show(string caption, string text, MessageBoxButton button)
         {
             return Show(caption, text, button,
@@ -90,6 +105,7 @@ namespace DigitalPhotographyManagementSystem.View
         {
             _messageBox = new MsgBox
             { txtMsg = { Text = text }, MessageTitle = { Text = caption } };
+            _messageBox.ValueBd.Visibility = Visibility.Hidden;
             SetVisibilityOfButtons(button);
             SetImageOfMessageBox(image);
             _messageBox.ShowDialog();
@@ -147,15 +163,27 @@ namespace DigitalPhotographyManagementSystem.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (sender == btnOk)
+            {
                 _result = MessageBoxResult.OK;
+            }
             else if (sender == btnYes)
+            {
                 _result = MessageBoxResult.Yes;
+            }
             else if (sender == btnNo)
+            {
                 _result = MessageBoxResult.No;
+            }
             else if (sender == btnCancel)
+            {
                 _result = MessageBoxResult.Cancel;
+            }
             else
+            {
                 _result = MessageBoxResult.None;
+            }
+
+            Value = _messageBox.ValueTxt.Text;
             _messageBox.Close();
             _messageBox = null;
         }
