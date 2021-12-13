@@ -33,5 +33,13 @@ namespace BUS
         {
             return invoice.GetInvoiceFromID(objectId);
         }
+        public static bool UpdateStateInvoiceFromID(ObjectId objectId, string newState)
+        {
+            return invoice.UpdateStateInvoiceFromID(objectId, newState);
+        }
+        public static List<invoiceDTO> GetAllCreatedStateInvoices()
+        {
+            return invoice.GetAllCreatedInvoices();
+        }
     }
 }

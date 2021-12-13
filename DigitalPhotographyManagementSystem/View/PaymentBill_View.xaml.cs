@@ -32,8 +32,8 @@ namespace DigitalPhotographyManagementSystem.View
         public PaymentBill_View(ObjectId objectId)
         {
             InitializeComponent();
-            DateTimeTxt.Text = DateTime.Now.ToString("dd/MM/yyyy");
             paymentBillDTO paymentBill = paymentBillBUS.GetPaymentBillFromID(objectId);
+            DateTimeTxt.Text = paymentBill.createDate;
             CustomerNameTxt.Text = "Customer: " + paymentBill.customerName;
             paymentBillIDTxt.Text = paymentBill.objectId.ToString().Substring(paymentBill.objectId.ToString().Length - 5);
             AddressTxt.Text = "Address: " + paymentBill.customerAddress;
@@ -52,7 +52,11 @@ namespace DigitalPhotographyManagementSystem.View
                 });
             }
             staffDTO staff = staffBUS.GetStaffByUsername(paymentBill.staffUsername.ToLower());
-            StaffNameTxt.Text = "Staff: " + staff.name;
+            StaffNameTxt.Text = staff.name;
+            TotalMoneyTxt.Text = "VNĐ " + String.Format("{0:#,0}", paymentBill.totalMoney);
+            DueDateTxt.Text = DateTime.ParseExact(paymentBill.dueDate, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("dd/MM/yyyy");
+
+
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MsgBox"  MinHeight="160" 
         MinWidth="420" MaxHeight="750" MaxWidth="750" 
@@ -55,7 +56,18 @@
                         TextAlignment="Center" FontWeight="Bold" Margin="10,14,10,8.6" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"/>
                     </Border>
                 </Grid>
-
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Border x:Name="ValueBd" CornerRadius="10" 
+                            BorderThickness="2"
+                            BorderBrush="#789ADE" VerticalAlignment="Center" Margin="10,0">
+                        <TextBox x:Name="ValueTxt" 
+                                BorderThickness="0"
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                materialDesign:HintAssist.Hint="Type in the value"
+                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" FontWeight="Normal" FontSize="14"/>
+                    </Border>
+                </Grid>
                 <Grid Grid.Row="2" Grid.ColumnSpan="2"  
                 Grid.Column="0" >
                     <StackPanel Orientation="Horizontal"  

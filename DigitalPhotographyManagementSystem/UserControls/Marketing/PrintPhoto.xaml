@@ -15,25 +15,61 @@
              Height="653" Width="1084">
 
     <StackPanel Background="White">
-       
-        <Grid Margin="60 50 60 0">
+        <Grid Margin="60,7,60,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="0.1*"/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <Label Content="UNFINISHED CUSTOMER'S INVOICE" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Grid.ColumnSpan="3" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="DateTimeTxt" Grid.Column="2" Grid.Row="0" Text="Date time: 12/12/2021" VerticalAlignment="Center"/>
+            <Label Content="UNFINISHED CUSTOMER'S INVOICE" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="0,0,0,9"/>
+            <TextBlock x:Name="DateTimeTxt" Grid.Column="2" Grid.Row="0" Text="Date time: 12/12/2021" VerticalAlignment="Center" FontSize="18"/>
         </Grid>
+        <Border CornerRadius="10" Margin="60,0" Background="#8699DA">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" Opacity="0.5" ShadowDepth="1"/>
+            </Border.Effect>
+            <Grid>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="54"/>
+                        <ColumnDefinition Width="696"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Grid.Column="0" Kind="Magnify" Height="54" Width="54" Foreground="#DDFFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <TextBox    Background="White" FontSize="15" Grid.Column="1" Height="54"  
+                                Margin="5,5,0,5"
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                x:Name="SearchTxtBox" TextChanged="textBoxSearch_TextChanged"
+                                AcceptsReturn="False"
+                                materialDesign:HintAssist.Hint="Search"
+                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}"/>
+                    <Grid Grid.Column="2">
+                        <Border Background="White" CornerRadius="5" Margin="5">
+                            <ComboBox x:Name="cbbSearchBy"
+                                                IsEditable="True" IsReadOnly="True"
+                                                Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                materialDesign:HintAssist.Hint="Search By"
+                                                Background="{x:Null}" FontSize="17"
+                                                SelectedIndex="0">
+                                <ComboBoxItem Content="Invoice ID"/>
+                                <ComboBoxItem Content="Customer's Name"/>
+                                <ComboBoxItem Content="StaffID"/>
+                            </ComboBox>
+                        </Border>
+                        
+                    </Grid>
+                </Grid>
 
-        <Border Margin="60 10 60 0" Height="540" CornerRadius="10" Background="#8699DA">
+            </Grid>
+        </Border>
+        <Border Margin="60 10 60 0" Height="460" CornerRadius="10" Background="#8699DA">
             <Border Margin="5" CornerRadius="10" Background="White">
-                <ListView Name="listInvoice" FontSize="15" Cursor="Hand" MouseDoubleClick="listInvoice_MouseDoubleClick">
+                <ListView Name="listInvoice" FontSize="15" MouseDoubleClick="listInvoice_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="No." Width="90" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
                             <GridViewColumn Header="Invoice ID" Width="135" DisplayMemberBinding="{Binding invoiceID}" ></GridViewColumn>
-                            <GridViewColumn Header="Customer Name" Width="190" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
+                            <GridViewColumn Header="Customer's Name" Width="190" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
                             <GridViewColumn Header="Date" Width="100" DisplayMemberBinding="{Binding Date}" ></GridViewColumn>
                             <GridViewColumn Header="StaffID" Width="140" DisplayMemberBinding="{Binding StaffID}" ></GridViewColumn>
                             <GridViewColumn Header="Services" Width="155" DisplayMemberBinding="{Binding Services}" ></GridViewColumn>
@@ -49,5 +85,52 @@
                 </ListView>
             </Border>
         </Border>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,17,0,0">
+            <Border CornerRadius="7" 
+                    Background="#8699DA"
+                    Margin="0,0,10,0" Height="35">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                </Border.Effect>
+                <Button x:Name="ExportBtn" FontSize="16"
+                        Foreground="White" Background="Transparent"
+                        BorderBrush="{x:Null}" 
+                        FontWeight="Normal"
+                        IsDefault="True"
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold"
+                        Click="ExportBtn_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Export" VerticalAlignment="Center" Width="20" Height="20"/>
+                        <TextBlock Text="EXPORT UNPRINTED PHOTOS LIST" VerticalAlignment="Center" Margin="5,0,0,0" />
+                    </StackPanel>
+                </Button>
+            </Border>
+            <Border CornerRadius="7" 
+                    Background="#8699DA"
+                    Margin="0,0,10,0" Height="35">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                </Border.Effect>
+                <Button x:Name="ImportBtn" FontSize="16"
+                        Foreground="White" Background="Transparent"
+                        BorderBrush="{x:Null}" 
+                        FontWeight="Normal"
+                        IsDefault="True"
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold"
+                        Click="ImportBtn_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Import" VerticalAlignment="Center" Width="20" Height="20.1"/>
+                        <TextBlock Text="IMPORT PRINTED PHOTOS LIST" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+           
+        </StackPanel>
     </StackPanel>
 </UserControl>

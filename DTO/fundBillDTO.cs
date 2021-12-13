@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,47 +9,42 @@ namespace DTO
 {
     public class fundBillDTO
     {
-        private string _fundID;
         private string _date;
-        private string _fundType;
         private double _totalMoney;
-        private string _description;
+        private string _staffUsername;
+        private ObjectId? _objectId;
+        private ObjectId? _objectIdFromInvoice;
         //
-        private string _accountantID;
 
         public fundBillDTO()
         {
-            this._fundID = null;
+            this._objectId = null;
             this._date = null;
-            this._fundType = null;
             this._totalMoney = -1;
-            this._description = null;
-            this._accountantID = null;
+            this._staffUsername = null;
+            this._objectIdFromInvoice = null;
         }
 
         //constructor with params
         public fundBillDTO(
-        string id,
         string date,
-        string type,
         double totalMoney,
-        string description,
-        string accountantid = null
+        string staffUsername,
+        ObjectId? objectIdFromInvoice = null,
+        ObjectId? objectId = null
         )
         {
-            this._fundID = id;
+            this._objectId = objectId;
             this._date = date;
-            this._fundType = type;
+            this._objectIdFromInvoice = objectIdFromInvoice;
             this._totalMoney = totalMoney;
-            this._description = description;
-            this._accountantID = accountantid;
+            this._staffUsername = staffUsername;
         }
 
-        public string fundID { get => _fundID; set => _fundID = value; }
+        public ObjectId? objectId { get => _objectId; set => _objectId = value; }
         public string date { get => _date; set => _date = value; }
-        public string fundType { get => _fundType; set => _fundType = value; }
+        public ObjectId? objectIdFromInvoice { get => _objectIdFromInvoice; set => _objectIdFromInvoice = value; }
         public double totalMoney { get => _totalMoney; set => _totalMoney = value; }
-        public string description { get => _description; set => _description = value; }
-        public string accountantID { get => _accountantID; set => _accountantID = value; }
+        public string staffUsername { get => _staffUsername; set => _staffUsername = value; }
     }
 }

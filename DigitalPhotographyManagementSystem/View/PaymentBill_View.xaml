@@ -30,7 +30,7 @@
                 <Grid Grid.Row="0"  MouseDown="Grid_MouseDown"/>
                 <DockPanel Margin="30,40,30,20" Grid.Row="0" LastChildFill="True">
                     <Image Source="/DigitalPhotographyManagementSystem;component/ImageSrc/logo.png" />
-                    <Image Source="/DigitalPhotographyManagementSystem;component/ImageSrc/invoice.png" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="5"/>
+                    <Image Source="/DigitalPhotographyManagementSystem;component/ImageSrc/bill.png" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="5"/>
                     <TextBlock Text="PAYMENT BILL" VerticalAlignment="Center" FontSize="42" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" TextAlignment="Center" HorizontalAlignment="Center"/>
                 </DockPanel>
                 <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" Margin="20">
@@ -63,7 +63,7 @@
                                 <GridViewColumn Header="No." Width="90" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
                                 <GridViewColumn Header="Service" Width="135" DisplayMemberBinding="{Binding ServiceName}" ></GridViewColumn>
                                 <GridViewColumn Header="Quantity" Width="115" DisplayMemberBinding="{Binding UnitQuantity}" ></GridViewColumn>
-                                <GridViewColumn Header="Price" Width="115" DisplayMemberBinding="{Binding UnitQuantity}" ></GridViewColumn>
+                                <GridViewColumn Header="Price" Width="115" DisplayMemberBinding="{Binding UnitPrice}" ></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>
@@ -93,11 +93,11 @@
                             </StackPanel>
                         </StackPanel>
                         <StackPanel Grid.Column="1">
-                            <TextBlock x:Name="ExpDateTxt" Text="18 Dec 21" FontSize="25" Margin="5"/>
+                            <TextBlock x:Name="DueDateTxt" Text="18 Dec 21" FontSize="25" Margin="5"/>
                         </StackPanel>
                         <StackPanel Grid.Column="2" VerticalAlignment="Center">
                             <Viewbox>
-                                <TextBlock Text="VNĐ 2.000.000" FontSize="25" Margin="5" HorizontalAlignment="Right" Foreground="#FF62013C" FontWeight="Bold"/>
+                                <TextBlock x:Name="TotalMoneyTxt" Text="VNĐ 2.000.000" FontSize="25" Margin="5" HorizontalAlignment="Right" Foreground="#FF62013C" FontWeight="Bold"/>
                             </Viewbox>
                         </StackPanel>
                     </Grid>
