@@ -19,15 +19,15 @@ namespace DAL
             this.db = client.GetDatabase("PhotographyManagement");
         }
 
-        public bool InsertNewIssueRecord(photoDTO newPhoto)
+        public bool InsertNewPhoto(photoDTO newPhoto)
         {
             try
             {
                 var collection = db.GetCollection<BsonDocument>("photos");
                 var newDoc = new BsonDocument
             {
-                    { "invoiceID", newPhoto.invoiceID },
-                    { "photoContent", newPhoto.photoContent }
+                { "invoiceID", newPhoto.invoiceID },
+                { "photoContent", newPhoto.photoContent }
             };
 
                 collection.InsertOneAsync(newDoc);
@@ -38,5 +38,45 @@ namespace DAL
                 return false;
             }
         }
+
+        //lấy tất cả records photo từ database
+        public List<photoDTO> getListOfPhotoDTOsByInvoiceID(string invoiceID)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("photos");
+                var inv = collection.Find(x => ((string)x["invoiceID"]) == invoiceID).SingleAsync().Result;
+                var photos = new List<photoDTO>();
+
+                foreach (BsonDocument photo in inv.AsBsonArray)
+                {
+                    photos.Add(new photoDTO
+                    (
+                        (string)photo["invoiceID"],
+                        (byte[])photo["photoContent"]
+                    ));
+                }
+                return photos;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        //chuyển list photoDTO từ database này 1 list các byte hình
+        public List<byte[]> convertListPhotoDTOsToListPhotoBytes (List<photoDTO> photos)
+        {
+            List<byte[]> listByte = new List<byte[]>();
+
+            for(int i = 0; i < photos.Count; i++)
+            {
+                listByte.Add(photos[i].photoContent);
+            }
+
+            return listByte;
+        }
+
+
     }
 }

@@ -119,6 +119,7 @@
     <Compile Include="issueDAL.cs" />
     <Compile Include="issueReportDAL.cs" />
     <Compile Include="paymentBillDAL.cs" />
+    <Compile Include="photoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reportPricesDAL.cs" />
     <Compile Include="reportPricesDetailDAL.cs" />

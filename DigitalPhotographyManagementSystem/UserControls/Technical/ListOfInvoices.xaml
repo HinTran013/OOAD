@@ -24,7 +24,9 @@
                             BorderThickness="2"
                             BorderBrush="#789ADE"
                             Margin="30,10,10,0">
-                        <TextBox FontSize="15"
+                        <TextBox 
+                                 x:Name="SearchTxtBox"
+                                 FontSize="15"
                                  BorderThickness="0"
                                  Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                  materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -46,15 +48,16 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                         </Border.Effect>
-                        <ComboBox  FontWeight="Bold"
-                                   Foreground="White"
-                                   FontSize="15"
-                                   BorderThickness="0"
-                                   Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                   IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
-                                   materialDesign:HintAssist.Hint="Search type"
-                                   ItemsSource="{Binding ShortStringList}"
-                                   VerticalAlignment="Center"/>
+                        <ComboBox x:Name="cbbSearchBy"
+                                                IsEditable="True" IsReadOnly="True"
+                                                Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                                materialDesign:HintAssist.Hint="Search By"
+                                                Background="{x:Null}" FontSize="17"
+                                                SelectedIndex="0">
+                            <ComboBoxItem Content="Invoice ID"/>
+                            <ComboBoxItem Content="Customer's Name"/>
+                            <ComboBoxItem Content="StaffID"/>
+                        </ComboBox>
                     </Border>
                 </Grid>
             </Grid>
@@ -77,17 +80,19 @@
                 <Border Margin="5" 
                         CornerRadius="10" 
                         Background="White">
-                    <ListView Name="listInvoice">
+                    <ListView Name="listInvoice" FontSize="15" MouseDoubleClick="listInvoice_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="No." Width="110" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
-                                <GridViewColumn Header="Invoice ID" Width="270" DisplayMemberBinding="{Binding invoiceID}" ></GridViewColumn>
-                                <GridViewColumn Header="Customer Name" Width="270" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
-                                <GridViewColumn Header="Date" Width="180" DisplayMemberBinding="{Binding Date}" ></GridViewColumn>
-                                <GridViewColumn Header="Action" Width="170">
+                                <GridViewColumn Header="No." Width="90" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
+                                <GridViewColumn Header="Invoice ID" Width="135" DisplayMemberBinding="{Binding invoiceID}" ></GridViewColumn>
+                                <GridViewColumn Header="Customer's Name" Width="190" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
+                                <GridViewColumn Header="Date" Width="100" DisplayMemberBinding="{Binding Date}" ></GridViewColumn>
+                                <GridViewColumn Header="StaffID" Width="140" DisplayMemberBinding="{Binding StaffID}" ></GridViewColumn>
+                                <GridViewColumn Header="Services" Width="155" DisplayMemberBinding="{Binding Services}" ></GridViewColumn>
+                                <GridViewColumn Header="Action" Width="150">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Content="Done" Background="#8699DA"/>
+                                            <Button x:Name="DoneBtn" Content="Done" Background="#8699DA" Click="DoneBtn_Click"/>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
