@@ -257,14 +257,14 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
             //Console.WriteLine(btn.Name.ToString());
             //btn.Name = "selectedBtn";
 
-            var selected = listTypes.SelectedIndex;
+            var selected = listTypes.SelectedItem;
 
             //listTypes.Items.IndexOf(selected)
 
-            if(selected > -1)
+            if(selected != null)
             {
-                types.RemoveAt(selected);
-                listTypes.Items.RemoveAt(selected);
+                types.RemoveAt(listTypes.SelectedIndex);
+                listTypes.Items.Remove(selected);
             }
             
         }

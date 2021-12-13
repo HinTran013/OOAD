@@ -66,7 +66,7 @@ namespace DigitalPhotographyManagementSystem.View
                 var marketSubMenu = new ItemMenu("MARKETING DEPT", menuMarketDept, PackIconKind.Megaphone);
 
                 var menuTransDept = new List<SubItem>();
-                menuTransDept.Add(new SubItem("Create Invoice", new InvoiceCreating()));
+                menuTransDept.Add(new SubItem("Create Invoice", new InvoiceCreating(Account)));
                 menuTransDept.Add(new SubItem("Photo Delivery", new PhotoDelivery()));
                 menuTransDept.Add(new SubItem("Technical Issues Resolve", new IssuesReport()));
                 var transSubMenu = new ItemMenu("TRANSACTION DEPT", menuTransDept, PackIconKind.Coins);
@@ -99,8 +99,8 @@ namespace DigitalPhotographyManagementSystem.View
                 if (Account.type == "Accounting")
                 {
                     var paymentBill = new ItemMenu("Create Payment Bill", PackIconKind.Payment, CommandType.UControl, new CalculateBills());
-                    var fundBill = new ItemMenu("Create Fund Bill", PackIconKind.Electricity, CommandType.UControl, new FundBills());
-                    var report = new ItemMenu("Report Price Of Photos", PackIconKind.Report, CommandType.UControl, new ReportPrices());
+                    var fundBill = new ItemMenu("Create Fund Bill", PackIconKind.Electricity, CommandType.UControl, new FundBills(Account));
+                    var report = new ItemMenu("Report Price Of Photos", PackIconKind.Report, CommandType.UControl, new ReportPrices(Account));
                     SideMenu.Children.Add(new UserControlSingleItem(paymentBill, this));
                     SideMenu.Children.Add(new UserControlSingleItem(fundBill, this));
                     SideMenu.Children.Add(new UserControlSingleItem(report, this));
@@ -121,7 +121,7 @@ namespace DigitalPhotographyManagementSystem.View
                 }
                 else if (Account.type == "Transaction")
                 {
-                    var invoice = new ItemMenu("Create Invoice", PackIconKind.Invoice, CommandType.UControl, new InvoiceCreating());
+                    var invoice = new ItemMenu("Create Invoice", PackIconKind.Invoice, CommandType.UControl, new InvoiceCreating(Account));
                     var photoDel = new ItemMenu("Photo Delievery", PackIconKind.TruckDelivery, CommandType.UControl, new PhotoDelivery());
                     var issue = new ItemMenu("Technical Issues Resolve", PackIconKind.GitIssue, CommandType.UControl, new IssuesReport());
                     SideMenu.Children.Add(new UserControlSingleItem(invoice, this));
