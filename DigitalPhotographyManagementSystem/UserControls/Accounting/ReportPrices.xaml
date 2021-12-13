@@ -87,17 +87,8 @@
                                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                         IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
                                         materialDesign:HintAssist.Hint="Photo type"
-                                        ItemsSource="{Binding ShortStringList}">
-                                <ComboBoxItem Content="Product Photography"/>
-                                <ComboBoxItem Content="Documentary-style photography"/>
-                                <ComboBoxItem Content="Portrait Photography"/>
-                                <ComboBoxItem Content="Architectural Photography"/>
-                                <ComboBoxItem Content="Wedding Photography"/>
-                                <ComboBoxItem Content="Fashion Photography"/>
-                                <ComboBoxItem Content="Event Photography"/>
-                                <ComboBoxItem Content="Photo editing"/>
-                                <ComboBoxItem Content="Lighting"/>
-                                <ComboBoxItem Content="Retouching"/>
+                                        ItemsSource="{Binding ShortStringList}" SelectionChanged="TypeCbb_SelectionChanged">
+                                
                             </ComboBox>
                         </Border>
                     </Grid>
@@ -107,6 +98,7 @@
                                 BorderBrush="#789ADE"
                                 Margin="5,0" Background="White">
                             <TextBox    x:Name="OldTxt"
+                                        IsReadOnly="True"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
