@@ -52,7 +52,7 @@ namespace DAL
                 {
                     photos.Add(new photoDTO
                     (
-                        (string)photo["invoiceID"],
+                        (ObjectId)photo["invoiceID"],
                         (byte[])photo["photoContent"]
                     ));
                 }
@@ -64,7 +64,7 @@ namespace DAL
             }
         }
 
-        //chuyển list photoDTO từ database này 1 list các byte hình
+        //chuyển list photoDTO từ database thành 1 list các byte hình
         public List<byte[]> convertListPhotoDTOsToListPhotoBytes (List<photoDTO> photos)
         {
             List<byte[]> listByte = new List<byte[]>();

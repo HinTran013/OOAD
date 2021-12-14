@@ -118,7 +118,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Technical
                 {
                     byte[] binaryContent = File.ReadAllBytes(image);
                     photoBUS.AddNewPhoto(new photoDTO(
-                        invoice.fullInvoiceID.ToString(),
+                        invoice.fullInvoiceID,
                         binaryContent
                         ));
                 }
