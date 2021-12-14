@@ -21,7 +21,7 @@
                 <ColumnDefinition Width="0.1*"/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <Label Content="UNFINISHED CUSTOMER'S INVOICE" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="0,0,0,9"/>
+            <Label Content="UNPRINTED CUSTOMER'S INVOICES" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="0,0,0,9"/>
             <TextBlock x:Name="DateTimeTxt" Grid.Column="2" Grid.Row="0" Text="Date time: 12/12/2021" VerticalAlignment="Center" FontSize="18"/>
         </Grid>
         <Border CornerRadius="10" Margin="60,0" Background="#8699DA">

@@ -26,7 +26,14 @@ namespace DigitalPhotographyManagementSystem.View
         public LoginWindow()
         {
             InitializeComponent();
-            Uname_txt.Focus();
+            if (Properties.Settings.Default.Username != string.Empty)
+            {
+                Uname_txt.Text = Properties.Settings.Default.Username;
+                Pass_txt.Password = Properties.Settings.Default.Password;
+                RememberPass.IsChecked = true;
+            }
+            else
+                Uname_txt.Focus();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -64,6 +71,18 @@ namespace DigitalPhotographyManagementSystem.View
         {
             if (__instance == null) __instance = new LoginWindow();
             return __instance;
+        }
+
+        private void RememberPass_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Username = Uname_txt.Text;
+            Properties.Settings.Default.Password = Pass_txt.Password;
+            Properties.Settings.Default.Save();
+        }
+
+        private void RememberPass_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Reset();
         }
     }
 }
