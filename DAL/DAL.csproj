@@ -123,6 +123,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reportPricesDAL.cs" />
     <Compile Include="reportPricesDetailDAL.cs" />
+    <Compile Include="servicesDAL.cs" />
     <Compile Include="staffDAL.cs" />
   </ItemGroup>
   <ItemGroup>

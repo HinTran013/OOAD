@@ -9,6 +9,7 @@
              Height="653" Width="1084"
              Background="White"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">
+    
     <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -260,8 +261,8 @@
         <Grid Grid.Row="0">
             <Border     VerticalAlignment="Center"
                         HorizontalAlignment="Right"
-                        Margin="0,0,265,0"
-                        Width="180" 
+                        Margin="0,0,210,0"
+                        Width="220" 
                         Height="50"
                         Background="#8699DA"
                         CornerRadius="10">
@@ -271,7 +272,8 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                 </Border.Effect>
-                <DatePicker FontSize="14"
+                <DatePicker x:Name="DueDateTxt"
+                            FontSize="14"
                                 Foreground="Black"
                                 FontWeight="Bold"
                                 Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -284,44 +286,27 @@
                                 />
             </Border>
             <Label HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Margin="30,5,0,0" 
-                   FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
-                   FontWeight="Bold"
-                   FontSize="22"
+                   VerticalAlignment="Center"
+                   Margin="40,15,0,0" 
+                   FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black"
+                   FontSize="25"
                        >Customer's Information</Label>
-            <TextBlock HorizontalAlignment="Left"
-                       VerticalAlignment="Bottom"
-                       Margin="40,0,0,3"
+            <TextBlock Name="DateTxt"
+                        HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,15,35,0"
                        
                        FontSize="18"
-                       FontWeight="Medium"
+                       FontWeight="Bold"
                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">
-                        Date time: 21/10/2021
+                        Date: 21/10/2021
             </TextBlock>
-            <Border CornerRadius="10" 
-                    BorderThickness="2"
-                    BorderBrush="#789ADE"
-                    Margin="30,0,20,0" Background="White"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center" 
-                    Width="235">
-                <TextBox x:Name="ReportPricesIDTxt"                       
-                          BorderThickness="0"
-                          IsReadOnly="True"
-                          TextAlignment="Center"
-                          Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                          materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                          materialDesign:HintAssist.Hint="Report ID"
-                          FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
-                          FontWeight="Normal" 
-                          FontSize="14"/>
-            </Border>
+            
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="1.75*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="1.4*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <StackPanel Margin="0,0,0,0">
@@ -329,7 +314,7 @@
                             BorderThickness="2"
                             BorderBrush="#789ADE"
                             Margin="30,5,10,0">
-                        <TextBox 
+                        <TextBox x:Name="NameTxt"
                                 BorderThickness="0"
                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -340,12 +325,12 @@
                             BorderThickness="2"
                             BorderBrush="#789ADE"
                             Margin="30,10,10,0">
-                        <TextBox 
+                        <TextBox x:Name="PhoneTxt"
                                 BorderThickness="0"
                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                 materialDesign:HintAssist.Hint="Phone number"
-                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" FontWeight="Normal" FontSize="14"/>
+                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" FontWeight="Normal" FontSize="14" PreviewTextInput="Num_PreviewTextInput"/>
                     </Border>
                 </StackPanel>
             </Grid>
@@ -355,7 +340,7 @@
                             BorderThickness="2"
                             BorderBrush="#789ADE"
                             Margin="5,5,20,0">
-                        <TextBox 
+                        <TextBox x:Name="AddressTxt"
                                  BorderThickness="0"
                                  Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                  materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -366,7 +351,7 @@
                             BorderThickness="2"
                             BorderBrush="#789ADE"
                             Margin="5,10,20,0">
-                        <TextBox 
+                        <TextBox x:Name="EmailTxt"
                                 BorderThickness="0"
                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -383,7 +368,8 @@
                         BorderBrush="#789ADE"
                         Margin="30,0,20,0" 
                         Height="110">
-                    <TextBox BorderThickness="0"
+                    <TextBox x:Name="RequestTxt" 
+                            BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                              materialDesign:HintAssist.Hint="Request's detail"
@@ -394,7 +380,7 @@
                 </Border>
                 <Border Margin="30,5,20,0"
                             CornerRadius="10" 
-                            Background="#8699DA"
+                            Background="#EFEFEF"
                             Height="270">
                     <Border.Effect>
                         <DropShadowEffect ShadowDepth="1" 
@@ -408,19 +394,27 @@
                             <ColumnDefinition Width="1.75*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0"
-                              Background="White"
-                              Margin="5">
-                            <StackPanel>
-                                <Border Margin="5,5,5,0"
-                                    Background="#8699DA"
-                                    CornerRadius="10">
+                              Margin="10,10,10,10">
+                            <Border CornerRadius="10"
+                                    BorderThickness="2"
+                                    Background="#f7f7f7">
+                                <Border.Effect>
+                                    <DropShadowEffect ShadowDepth="1" 
+                                                        BlurRadius="4"
+                                                        Opacity="0.2"
+                                                        Direction="200"/>
+                                </Border.Effect>
+                                <StackPanel>
+                                <Border Margin="10,10,10,0"
+                                        Background="#8699DA"
+                                        CornerRadius="10">
                                     <Border.Effect>
                                         <DropShadowEffect ShadowDepth="1" 
                                                         BlurRadius="4"
                                                         Opacity="0.5"
                                                         Direction="270"/>
                                     </Border.Effect>
-                                    <ComboBox   x:Name="TypeCbb"
+                                    <ComboBox   x:Name="ServiceCbb"
                                                 FontWeight="Bold"
                                                 Foreground="Black"
                                                 FontSize="15"
@@ -429,25 +423,15 @@
                                                 IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
                                                 materialDesign:HintAssist.Hint="Choose a service"
                                                 ItemsSource="{Binding ShortStringList}">
-                                        <ComboBoxItem Content="Product Photography"/>
-                                        <ComboBoxItem Content="Documentary-style photography"/>
-                                        <ComboBoxItem Content="Portrait Photography"/>
-                                        <ComboBoxItem Content="Architectural Photography"/>
-                                        <ComboBoxItem Content="Wedding Photography"/>
-                                        <ComboBoxItem Content="Fashion Photography"/>
-                                        <ComboBoxItem Content="Event Photography"/>
-                                        <ComboBoxItem Content="Photo editing"/>
-                                        <ComboBoxItem Content="Lighting"/>
-                                        <ComboBoxItem Content="Retouching"/>
+
                                     </ComboBox>
                                 </Border>
 
                                 <Border CornerRadius="15" 
-                                        Background="Green"
-                                        Margin="10,10,10,0"
+                                        Background="#8699DA"
+                                        Margin="10,65,10,0"
                                         Width="auto"
                                         Height="50"
-                                        
                                         VerticalAlignment="Center">
                                     <Border.Effect>
                                         <DropShadowEffect ShadowDepth="1" 
@@ -455,12 +439,13 @@
                                                             Opacity="0.5"
                                                             Direction="270"/>
                                     </Border.Effect>
-                                    <Button FontSize="20"
+                                    <Button x:Name="AddBtn"
+                                            FontSize="20"
                                             Foreground="White" 
                                             Background="Transparent"
                                             BorderBrush="{x:Null}" 
                                             Height="auto" FontWeight="Normal"
-                                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="AddBtn_Click">
                                         Add
                                     </Button>
                                 </Border>
@@ -478,21 +463,22 @@
                                                             Opacity="0.5"
                                                             Direction="270"/>
                                     </Border.Effect>
-                                    <Button FontSize="20"
+                                    <Button x:Name="DeleteBtn"
+                                            FontSize="20"
                                             Foreground="White" 
                                             Background="Transparent"
                                             BorderBrush="{x:Null}" 
                                             Height="auto" FontWeight="Normal"
-                                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="DeleteBtn_Click">
                                         Delete
                                     </Button>
                                 </Border>
 
                             </StackPanel>
+                            </Border>
                         </Grid>
-
                         <Grid Grid.Column="1"
-                              Background="White"
+                              
                               Margin="5">
                             <Border Margin="5"
                                     CornerRadius="10" 
@@ -500,12 +486,45 @@
                                 <Border Margin="5" 
                                         CornerRadius="10" 
                                         Background="White">
-                                    <ListView x:Name="listTypes">
+                                    <ListView x:Name="serviceList">
+                                        <ListView.ItemContainerStyle>
+                                            <Style TargetType="ListViewItem" 
+                                                   BasedOn="{StaticResource MaterialDesignGridViewItem}">
+                                                <Setter Property="HorizontalContentAlignment" 
+                                                        Value="Stretch" />
+                                            </Style>
+                                        </ListView.ItemContainerStyle>
+                                        
                                         <ListView.View>
                                             <GridView>
-                                                <GridViewColumn Header="No." Width="95" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
-                                                <GridViewColumn Header="Service" Width="270" DisplayMemberBinding="{Binding ServiceType}" ></GridViewColumn>
-                                                <GridViewColumn Header="Price" Width="295" DisplayMemberBinding="{Binding Price}" ></GridViewColumn>
+                                                <GridViewColumn Header="No." Width="85" DisplayMemberBinding="{Binding No}">
+                                                    <GridViewColumn.HeaderTemplate>
+                                                        <DataTemplate>
+                                                            <TextBlock Text="{Binding}" Margin="-18,0,0,0"/>
+                                                        </DataTemplate>
+                                                    </GridViewColumn.HeaderTemplate>
+                                                </GridViewColumn>
+                                                <GridViewColumn Header="Service" Width="220" DisplayMemberBinding="{Binding ServiceType}" >
+                                                    <GridViewColumn.HeaderTemplate>
+                                                        <DataTemplate>
+                                                            <TextBlock Text="{Binding}" Margin="-20,0,0,0"/>
+                                                        </DataTemplate>
+                                                    </GridViewColumn.HeaderTemplate>
+                                                </GridViewColumn>
+                                                <GridViewColumn Header="Quantity" Width="120" DisplayMemberBinding="{Binding Quantity}" >
+                                                    <GridViewColumn.HeaderTemplate>
+                                                        <DataTemplate>
+                                                            <TextBlock Text="{Binding}" Margin="-33,0,0,0"/>
+                                                        </DataTemplate>
+                                                    </GridViewColumn.HeaderTemplate>
+                                                </GridViewColumn>
+                                                <GridViewColumn Header="Price per Service" Width="220" DisplayMemberBinding="{Binding Price}" >
+                                                    <GridViewColumn.HeaderTemplate>
+                                                        <DataTemplate>
+                                                            <TextBlock Text="{Binding}" Margin="-30,0,0,0"/>
+                                                        </DataTemplate>
+                                                    </GridViewColumn.HeaderTemplate>
+                                                </GridViewColumn>
                                                 
                                             </GridView>
                                         </ListView.View>
@@ -538,11 +557,12 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                     </Border.Effect>
-                    <Button FontSize="20"
-                        Foreground="White" Background="Transparent"
-                        BorderBrush="{x:Null}" 
-                        Height="auto" FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                    <Button x:Name="SubmitBtn"
+                            FontSize="20"
+                            Foreground="White" Background="Transparent"
+                            BorderBrush="{x:Null}" 
+                            Height="auto" FontWeight="Normal"
+                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="SubmitBtn_Click">
                         Submit
                     </Button>
                 </Border>
@@ -580,11 +600,12 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                     </Border.Effect>
-                    <Button FontSize="20"
-                        Foreground="White" Background="Transparent"
-                        BorderBrush="{x:Null}" 
-                        Height="auto" FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                    <Button x:Name="CancelBtn"
+                            FontSize="20"
+                            Foreground="White" Background="Transparent"
+                            BorderBrush="{x:Null}" 
+                            Height="auto" FontWeight="Normal"
+                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="CancelBtn_Click">
                         Cancel
                     </Button>
                 </Border>

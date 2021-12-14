@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*          THIS IS FOR TESTING PURPOSE!
+            DO NOT USE THIS FOR BUILDING!       */
+
 namespace DTO
 {
     public class reportPricesDetailDTO
