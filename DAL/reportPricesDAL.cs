@@ -24,13 +24,24 @@ namespace DAL
             try
             {
                 var collection = db.GetCollection<BsonDocument>("reportPrices");
+                BsonArray serviceList = new BsonArray();
+                for(int i = 0; i < form.newServices.Count; i++)
+                {
+                    serviceList.Add(new BsonDocument
+                    {
+                        { "serviceType", form.newServices[i].name },
+                        { "oldPrice", form.newServices[i].price },
+                        { "newPrice", form.newPrices[i] }
+                    });
+                }
+
                 var newDoc = new BsonDocument
-            {
-                    { "reportPricesID", form.reportPriceID},
+                {   
                     { "date", form.date },
                     { "subject", form.subject },
+                    { "serviceList", serviceList },
                     { "accountantID", form.accountantID }
-            };
+                };
 
                 collection.InsertOneAsync(newDoc);
                 return true;

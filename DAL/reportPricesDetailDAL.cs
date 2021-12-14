@@ -8,6 +8,9 @@ using DTO;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
+/*          THIS IS FOR TESTING PURPOSE!
+            DO NOT USE THIS FOR BUILDING!       */
+
 namespace DAL
 {
     public class reportPricesDetailDAL

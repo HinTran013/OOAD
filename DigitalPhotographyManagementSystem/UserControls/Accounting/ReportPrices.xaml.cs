@@ -24,7 +24,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
     /// </summary>
     /// 
 
-    public class PhotoType
+    public class NewServicePrice
     {
         public long No { get; set; }
 
@@ -39,46 +39,38 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 
         reportPricesDTO reportForm;
 
-        List<PhotoType> types;
+        List<NewServicePrice> types;
         long NoType = 0;
         DateTime timeNow;
 
-        public ReportPrices()
+        List<servicesDTO> services;
+
+        private staffDTO accountStaff;
+
+        public ReportPrices(staffDTO staff = null)
         {
             InitializeComponent();
 
-            ReportPricesIDTxt.Text = setID();
+            
             timeNow = DateTime.Now;
             DateTimeTxt.Text = "Date time: " + timeNow.ToString("dd/MM/yyyy");
+
+            SetTypes();
+            accountStaff = staff;
 
             ResetForm();
         }
 
-        private string setID()
+        private void SetTypes()
         {
-            DateTime now = DateTime.Now;
+            services = servicesBUS.GetAllServices();
 
-            int d = (int)System.DateTime.Now.DayOfWeek;
-            string day = d.ToString();
-
-            int m = now.Month;
-            string month = m.ToString();
-
-            int y = now.Year % 2021;
-            string year = y.ToString();
-
-            int h = now.Hour;
-            string hour = h.ToString();
-
-            int min = now.Minute;
-            string minute = min.ToString();
-
-            int s = now.Second;
-            string second = s.ToString();
-
-            string ID = day + month + year + hour + minute + second;
-            return ID;
+            foreach (servicesDTO item in services)
+            {
+                TypeCbb.Items.Add(item.name);
+            }
         }
+
 
         private bool CheckInputs()
         {
@@ -140,7 +132,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 
             NoType = 1;
             listTypes.Items.Clear();
-            types = new List<PhotoType>();
+            types = new List<NewServicePrice>();
         }
 
         private bool LockInputs()
@@ -155,46 +147,60 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
             return isNewForm;
         }
 
-        private void NewForm()
+        private void AddForm()
         {
             if (isNewForm == true)
             {
                 LockInputs();
 
+                List<servicesDTO> listNew = new List<servicesDTO>();
+                List<double> priceList = new List<double>();
+                foreach(NewServicePrice item in types)
+                {
+                    listNew.Add(new servicesDTO()
+                    {
+                        serviceID = null,
+                        name = item.Type,
+                        price = item.OldPrice
+                    });
+                    priceList.Add(item.NewPrice);
+                }
+
                 reportForm = new reportPricesDTO(
-                    ReportPricesIDTxt.Text,
                     timeNow.ToString("dd/MM/yyyy"),
                     SubjectTxt.Text,
-                    "");
+                    listNew,
+                    priceList,
+                    accountStaff.username);
 
                 reportPricesBUS.AddReportPrices(reportForm);
             }
         }
 
-        private void AddNewPrices()
-        {
-            List<reportPricesDetailDTO> listNew = new List<reportPricesDetailDTO>();
+        //private void AddNewPrices()
+        //{
+        //    List<reportPricesDetailDTO> listNew = new List<reportPricesDetailDTO>();
 
-            foreach (PhotoType item in types)
-            {
-                listNew.Add(new reportPricesDetailDTO(
-                    reportForm.reportPriceID,
-                    item.Type,
-                    item.OldPrice,
-                    item.NewPrice));
-            }
+        //    foreach (NewServicePrice item in types)
+        //    {
+        //        listNew.Add(new reportPricesDetailDTO(
+        //            reportForm.reportPriceID,
+        //            item.Type,
+        //            item.OldPrice,
+        //            item.NewPrice));
+        //    }
 
-            foreach (reportPricesDetailDTO item in listNew)
-            {
-                reportPricesDetailBUS.AddNewReportPrice(item);
-            }
-        }
+        //    foreach (reportPricesDetailDTO item in listNew)
+        //    {
+        //        reportPricesDetailBUS.AddNewReportPrice(item);
+        //    }
+        //}
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
             if(CheckInputs())
             {
-                types.Add(new PhotoType()
+                types.Add(new NewServicePrice()
                 {
                     No = NoType++,
                     Type = TypeCbb.Text,
@@ -221,9 +227,9 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 
             if(CheckForm())
             {
-                NewForm();
+                AddForm();
 
-                AddNewPrices();
+                //AddNewPrices();
 
                 var messageBoxResult = MsgBox.Show(
                     "Notification",
@@ -235,7 +241,6 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
                 ResetInputs();
                 UnlockInputs();
 
-                ReportPricesIDTxt.Text = setID();
             }
         }
 
@@ -253,16 +258,15 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
             //Console.WriteLine(btn.Name.ToString());
             //btn.Name = "selectedBtn";
 
-            var selected = listTypes.SelectedIndex;
+            var selected = listTypes.SelectedItem;
 
             //listTypes.Items.IndexOf(selected)
 
-            if(selected > -1)
+            if(selected != null)
             {
-                types.RemoveAt(selected);
-                listTypes.Items.RemoveAt(selected);
+                types.RemoveAt(listTypes.SelectedIndex);
+                listTypes.Items.Remove(selected);
             }
-            
         }
 
         private void TxtNum_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -270,6 +274,15 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
             //To limit the characters which are the numbers in the textbox
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void TypeCbb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (TypeCbb.SelectedItem == null) return;
+
+            var selected = TypeCbb.SelectedIndex;
+
+            OldTxt.Text = services[selected].price.ToString();
         }
     }
 }

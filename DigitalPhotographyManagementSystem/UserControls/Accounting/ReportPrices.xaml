@@ -18,28 +18,13 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
+            
             <Border CornerRadius="10" 
                     BorderThickness="2"
                     BorderBrush="#789ADE"
-                    Margin="30,0,0,5" Background="White"
-                    HorizontalAlignment="Left"
-                    Width="235">
-                <TextBox x:Name="ReportPricesIDTxt"                       
-                          BorderThickness="0"
-                          IsReadOnly="True"
-                          TextAlignment="Center"
-                          Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                          materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                          materialDesign:HintAssist.Hint="Report ID"
-                          FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
-                          FontWeight="Normal" 
-                          FontSize="14"/>
-            </Border>
-            <Border CornerRadius="10" 
-                    BorderThickness="2"
-                    BorderBrush="#789ADE"
-                    Margin="277,0,0,5" Background="White"
-                    HorizontalAlignment="Left" Width="401">
+                    Margin="30,0,0,5" 
+                    Background="White"
+                    HorizontalAlignment="Left" Width="410">
                 <TextBox x:Name="SubjectTxt"                       
                           BorderThickness="0"
                           Style="{StaticResource MaterialDesignOutlinedTextBox}"
@@ -52,9 +37,9 @@
                         HorizontalAlignment="Right"
                        VerticalAlignment="Center"
                        FontSize="18"
-                       FontWeight="Medium"
+                       FontWeight="Bold"
                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
-                       Margin="0,0,25,0">
+                       Margin="0,0,45,0">
                         Date time: 21/10/2021
             </TextBlock>
         </Grid>
@@ -87,17 +72,8 @@
                                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                         IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
                                         materialDesign:HintAssist.Hint="Photo type"
-                                        ItemsSource="{Binding ShortStringList}">
-                                <ComboBoxItem Content="Product Photography"/>
-                                <ComboBoxItem Content="Documentary-style photography"/>
-                                <ComboBoxItem Content="Portrait Photography"/>
-                                <ComboBoxItem Content="Architectural Photography"/>
-                                <ComboBoxItem Content="Wedding Photography"/>
-                                <ComboBoxItem Content="Fashion Photography"/>
-                                <ComboBoxItem Content="Event Photography"/>
-                                <ComboBoxItem Content="Photo editing"/>
-                                <ComboBoxItem Content="Lighting"/>
-                                <ComboBoxItem Content="Retouching"/>
+                                        ItemsSource="{Binding ShortStringList}" SelectionChanged="TypeCbb_SelectionChanged">
+                                
                             </ComboBox>
                         </Border>
                     </Grid>
@@ -107,6 +83,7 @@
                                 BorderBrush="#789ADE"
                                 Margin="5,0" Background="White">
                             <TextBox    x:Name="OldTxt"
+                                        IsReadOnly="True"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"

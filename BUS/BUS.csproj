@@ -60,6 +60,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reportPricesBUS.cs" />
     <Compile Include="reportPricesDetailBUS.cs" />
+    <Compile Include="servicesBUS.cs" />
     <Compile Include="staffBUS.cs" />
   </ItemGroup>
   <ItemGroup>

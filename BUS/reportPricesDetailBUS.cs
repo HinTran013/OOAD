@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using DAL;
 using DTO;
 
+/*          THIS IS FOR TESTING PURPOSE!
+            DO NOT USE THIS FOR BUILDING!       */
+
 namespace BUS
 {
     public class reportPricesDetailBUS
