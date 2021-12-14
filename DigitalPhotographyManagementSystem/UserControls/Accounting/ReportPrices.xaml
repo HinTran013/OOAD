@@ -18,28 +18,13 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
+            
             <Border CornerRadius="10" 
                     BorderThickness="2"
                     BorderBrush="#789ADE"
-                    Margin="30,0,0,5" Background="White"
-                    HorizontalAlignment="Left"
-                    Width="235">
-                <TextBox x:Name="ReportPricesIDTxt"                       
-                          BorderThickness="0"
-                          IsReadOnly="True"
-                          TextAlignment="Center"
-                          Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                          materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                          materialDesign:HintAssist.Hint="Report ID"
-                          FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
-                          FontWeight="Normal" 
-                          FontSize="14"/>
-            </Border>
-            <Border CornerRadius="10" 
-                    BorderThickness="2"
-                    BorderBrush="#789ADE"
-                    Margin="277,0,0,5" Background="White"
-                    HorizontalAlignment="Left" Width="401">
+                    Margin="30,0,0,5" 
+                    Background="White"
+                    HorizontalAlignment="Left" Width="410">
                 <TextBox x:Name="SubjectTxt"                       
                           BorderThickness="0"
                           Style="{StaticResource MaterialDesignOutlinedTextBox}"

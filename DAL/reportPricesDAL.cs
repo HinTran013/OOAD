@@ -37,7 +37,6 @@ namespace DAL
 
                 var newDoc = new BsonDocument
                 {   
-                    { "reportPricesID", form.reportPriceID},
                     { "date", form.date },
                     { "subject", form.subject },
                     { "serviceList", serviceList },

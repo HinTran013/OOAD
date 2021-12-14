@@ -51,7 +51,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
         {
             InitializeComponent();
 
-            ReportPricesIDTxt.Text = setID();
+            
             timeNow = DateTime.Now;
             DateTimeTxt.Text = "Date time: " + timeNow.ToString("dd/MM/yyyy");
 
@@ -71,31 +71,6 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
             }
         }
 
-        private string setID()
-        {
-            DateTime now = DateTime.Now;
-
-            int d = (int)System.DateTime.Now.DayOfWeek;
-            string day = d.ToString();
-
-            int m = now.Month;
-            string month = m.ToString();
-
-            int y = now.Year % 2021;
-            string year = y.ToString();
-
-            int h = now.Hour;
-            string hour = h.ToString();
-
-            int min = now.Minute;
-            string minute = min.ToString();
-
-            int s = now.Second;
-            string second = s.ToString();
-
-            string ID = day + month + year + hour + minute + second;
-            return ID;
-        }
 
         private bool CheckInputs()
         {
@@ -192,7 +167,6 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
                 }
 
                 reportForm = new reportPricesDTO(
-                    ReportPricesIDTxt.Text,
                     timeNow.ToString("dd/MM/yyyy"),
                     SubjectTxt.Text,
                     listNew,
@@ -267,7 +241,6 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
                 ResetInputs();
                 UnlockInputs();
 
-                ReportPricesIDTxt.Text = setID();
             }
         }
 
