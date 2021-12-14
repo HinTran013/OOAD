@@ -10,19 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 {
     /// <summary>
-    /// Interaction logic for CalculateBills.xaml
+    /// Interaction logic for CalculateBill.xaml
     /// </summary>
-    public partial class CalculateBills : UserControl
+    public partial class CalculateBill : Window
     {
-        public CalculateBills()
+        public CalculateBill()
         {
             InitializeComponent();
+        }
+
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

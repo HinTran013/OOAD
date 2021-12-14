@@ -194,11 +194,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ServiceClass\ChartViewModel.cs" />
-    <Compile Include="UserControls\Accounting\CalculateBills.xaml.cs">
-      <DependentUpon>CalculateBills.xaml</DependentUpon>
+    <Compile Include="UserControls\Accounting\CalculateBill.xaml.cs">
+      <DependentUpon>CalculateBill.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Accounting\FundBills.xaml.cs">
       <DependentUpon>FundBills.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Accounting\ListPaymentBill.xaml.cs">
+      <DependentUpon>ListPaymentBill.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Accounting\ReportPrices.xaml.cs">
       <DependentUpon>ReportPrices.xaml</DependentUpon>
@@ -279,11 +282,15 @@
     <Compile Include="View\PaymentBill_View.xaml.cs">
       <DependentUpon>PaymentBill_View.xaml</DependentUpon>
     </Compile>
-    <Page Include="UserControls\Accounting\CalculateBills.xaml">
+    <Page Include="UserControls\Accounting\CalculateBill.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Accounting\FundBills.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Accounting\ListPaymentBill.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

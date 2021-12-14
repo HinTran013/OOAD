@@ -72,7 +72,7 @@ namespace DigitalPhotographyManagementSystem.View
                 var transSubMenu = new ItemMenu("TRANSACTION DEPT", menuTransDept, PackIconKind.Coins);
 
                 var menuAccDept = new List<SubItem>();
-                menuAccDept.Add(new SubItem("Create Payment Bill", new CalculateBills()));
+                menuAccDept.Add(new SubItem("Create Payment Bill", new ListPaymentBill(Account)));
                 menuAccDept.Add(new SubItem("Create Fund Bill", new FundBills(Account)));
                 menuAccDept.Add(new SubItem("Report Price Of Photos", new ReportPrices(Account)));
                 var accSubMenu = new ItemMenu("ACCOUNTING DEPT", menuAccDept, PackIconKind.Calculator);
@@ -98,7 +98,7 @@ namespace DigitalPhotographyManagementSystem.View
                 TxtDeptName.Text = Account.type;
                 if (Account.type == "Accounting")
                 {
-                    var paymentBill = new ItemMenu("Create Payment Bill", PackIconKind.Payment, CommandType.UControl, new CalculateBills());
+                    var paymentBill = new ItemMenu("Create Payment Bill", PackIconKind.Payment, CommandType.UControl, new ListPaymentBill(Account));
                     var fundBill = new ItemMenu("Create Fund Bill", PackIconKind.Electricity, CommandType.UControl, new FundBills(Account));
                     var report = new ItemMenu("Report Price Of Photos", PackIconKind.Report, CommandType.UControl, new ReportPrices(Account));
                     SideMenu.Children.Add(new UserControlSingleItem(paymentBill, this));

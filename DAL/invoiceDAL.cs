@@ -97,6 +97,37 @@ namespace DAL
             }
         }
 
+        public List<invoiceDTO> GetAllPrintedInvoices()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("invoices");
+                var invoicesDoc = collection.Find(x => ((string)x["state"]) == "PRINT").ToListAsync().Result;
+                List<invoiceDTO> invoices = new List<invoiceDTO>();
+                foreach (BsonDocument item in invoicesDoc)
+                {
+                    invoices.Add(new invoiceDTO
+                    (
+                        (string)item["customerName"],
+                        null,
+                        null,
+                        null,
+                        null,
+                        (string)item["staffUsername"],
+                        null,
+                        (string)item["date"],
+                        null,
+                        (ObjectId)item["_id"]
+                    ));
+                }
+                return invoices;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public List<invoiceDTO> GetAllCreatedInvoices()
         {
             try
