@@ -70,7 +70,6 @@ namespace DigitalPhotographyManagementSystem.UserControls
                 invoicePrint.Add(newInvoicePrint);
             }
             listInvoice.ItemsSource = invoicePrint;
-
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listInvoice.ItemsSource);
             view.Filter = InvoiceFilter;
         }

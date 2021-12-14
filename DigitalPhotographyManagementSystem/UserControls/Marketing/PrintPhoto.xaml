@@ -10,7 +10,7 @@
             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
             TextElement.FontWeight="Medium"
             TextElement.FontSize="25"
-            FontFamily="{DynamicResource MaterialDesignFont}"
+            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
              
              Height="653" Width="1084">
 
@@ -46,11 +46,11 @@
                     <Grid Grid.Column="2">
                         <Border Background="White" CornerRadius="5" Margin="5">
                             <ComboBox x:Name="cbbSearchBy"
-                                                IsEditable="True" IsReadOnly="True"
-                                                Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                                materialDesign:HintAssist.Hint="Search By"
-                                                Background="{x:Null}" FontSize="17"
-                                                SelectedIndex="0">
+                                        IsEditable="True" IsReadOnly="True"
+                                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                        materialDesign:HintAssist.Hint="Search By"
+                                        Background="{x:Null}" FontSize="17"
+                                        SelectedIndex="0">
                                 <ComboBoxItem Content="Invoice ID"/>
                                 <ComboBoxItem Content="Customer's Name"/>
                                 <ComboBoxItem Content="StaffID"/>

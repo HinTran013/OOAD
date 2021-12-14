@@ -197,9 +197,6 @@
     <Compile Include="UserControls\Accounting\CalculateBills.xaml.cs">
       <DependentUpon>CalculateBills.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Accounting\FundBills.xaml.cs">
-      <DependentUpon>FundBills.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Accounting\ReportPrices.xaml.cs">
       <DependentUpon>ReportPrices.xaml</DependentUpon>
     </Compile>
@@ -280,10 +277,6 @@
       <DependentUpon>PaymentBill_View.xaml</DependentUpon>
     </Compile>
     <Page Include="UserControls\Accounting\CalculateBills.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\Accounting\FundBills.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
