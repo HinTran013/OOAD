@@ -28,8 +28,7 @@ namespace DigitalPhotographyManagementSystem.View
         public int No { get; set; }
         public string ServiceType { get; set; }
         public int Quantity { get; set; }
-
-        
+        public double Price { set; get; }
     }
 
     public partial class InvoiceCreating : UserControl
@@ -37,6 +36,7 @@ namespace DigitalPhotographyManagementSystem.View
         DateTime timeNow;
         int serviceNo;
         List<ServiceItem> serList;
+        List<servicesDTO> services;
 
         private staffDTO accountStaff;
 
@@ -76,7 +76,7 @@ namespace DigitalPhotographyManagementSystem.View
 
         private void SetServices()
         {
-            List<servicesDTO> services = servicesBUS.GetAllServices();
+            services = servicesBUS.GetAllServices();
 
             foreach (servicesDTO item in services)
             {
@@ -127,7 +127,8 @@ namespace DigitalPhotographyManagementSystem.View
                 {
                     No = serviceNo++,
                     ServiceType = ServiceCbb.SelectedItem.ToString(),
-                    Quantity = 1
+                    Quantity = 1,
+                    Price = services[ServiceCbb.SelectedIndex].price
                 });
 
                 serviceList.Items.Add(serList[serList.Count - 1]);
@@ -265,8 +266,8 @@ namespace DigitalPhotographyManagementSystem.View
 
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
-            ResetInputs();
             NewForm();
+            ResetInputs();
         }
     }
 }

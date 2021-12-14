@@ -9,6 +9,7 @@
              Height="653" Width="1084"
              Background="White"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">
+    
     <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -260,7 +261,7 @@
         <Grid Grid.Row="0">
             <Border     VerticalAlignment="Center"
                         HorizontalAlignment="Right"
-                        Margin="0,0,280,0"
+                        Margin="0,0,210,0"
                         Width="220" 
                         Height="50"
                         Background="#8699DA"
@@ -285,39 +286,22 @@
                                 />
             </Border>
             <Label HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Margin="30,0,0,0" 
+                   VerticalAlignment="Center"
+                   Margin="40,15,0,0" 
                    FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black"
-                   FontSize="24"
+                   FontSize="25"
                        >Customer's Information</Label>
             <TextBlock Name="DateTxt"
-                        HorizontalAlignment="Left"
-                       VerticalAlignment="Bottom"
-                       Margin="45,0,0,3"
+                        HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,15,35,0"
                        
                        FontSize="18"
                        FontWeight="Bold"
                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">
                         Date: 21/10/2021
             </TextBlock>
-            <Border CornerRadius="10" 
-                    BorderThickness="2"
-                    BorderBrush="#789ADE"
-                    Margin="30,0,20,0" Background="White"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center" 
-                    Width="250">
-                <TextBox x:Name="InvoiceIDTxt"                       
-                          BorderThickness="0"
-                          IsReadOnly="True"
-                          TextAlignment="Center"
-                          Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                          materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                          materialDesign:HintAssist.Hint="Invoice ID"
-                          FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
-                          FontWeight="Normal" 
-                          FontSize="14"/>
-            </Border>
+            
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -396,7 +380,7 @@
                 </Border>
                 <Border Margin="30,5,20,0"
                             CornerRadius="10" 
-                            Background="#8699DA"
+                            Background="#EFEFEF"
                             Height="270">
                     <Border.Effect>
                         <DropShadowEffect ShadowDepth="1" 
@@ -410,12 +394,20 @@
                             <ColumnDefinition Width="1.75*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0"
-                              Background="White"
-                              Margin="5">
-                            <StackPanel>
-                                <Border Margin="5,5,5,0"
-                                    Background="#8699DA"
-                                    CornerRadius="10">
+                              Margin="10,10,10,10">
+                            <Border CornerRadius="10"
+                                    BorderThickness="2"
+                                    Background="#f7f7f7">
+                                <Border.Effect>
+                                    <DropShadowEffect ShadowDepth="1" 
+                                                        BlurRadius="4"
+                                                        Opacity="0.2"
+                                                        Direction="200"/>
+                                </Border.Effect>
+                                <StackPanel>
+                                <Border Margin="10,10,10,0"
+                                        Background="#8699DA"
+                                        CornerRadius="10">
                                     <Border.Effect>
                                         <DropShadowEffect ShadowDepth="1" 
                                                         BlurRadius="4"
@@ -431,16 +423,15 @@
                                                 IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
                                                 materialDesign:HintAssist.Hint="Choose a service"
                                                 ItemsSource="{Binding ShortStringList}">
-                                        
+
                                     </ComboBox>
                                 </Border>
 
                                 <Border CornerRadius="15" 
-                                        Background="Green"
-                                        Margin="10,10,10,0"
+                                        Background="#8699DA"
+                                        Margin="10,65,10,0"
                                         Width="auto"
                                         Height="50"
-                                        
                                         VerticalAlignment="Center">
                                     <Border.Effect>
                                         <DropShadowEffect ShadowDepth="1" 
@@ -484,10 +475,10 @@
                                 </Border>
 
                             </StackPanel>
+                            </Border>
                         </Grid>
-
                         <Grid Grid.Column="1"
-                              Background="White"
+                              
                               Margin="5">
                             <Border Margin="5"
                                     CornerRadius="10" 
@@ -496,11 +487,44 @@
                                         CornerRadius="10" 
                                         Background="White">
                                     <ListView x:Name="serviceList">
+                                        <ListView.ItemContainerStyle>
+                                            <Style TargetType="ListViewItem" 
+                                                   BasedOn="{StaticResource MaterialDesignGridViewItem}">
+                                                <Setter Property="HorizontalContentAlignment" 
+                                                        Value="Stretch" />
+                                            </Style>
+                                        </ListView.ItemContainerStyle>
+                                        
                                         <ListView.View>
                                             <GridView>
-                                                <GridViewColumn Header="No." Width="80" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
-                                                <GridViewColumn Header="Service" Width="300" DisplayMemberBinding="{Binding ServiceType}" ></GridViewColumn>
-                                                <GridViewColumn Header="Quantity" Width="250" DisplayMemberBinding="{Binding Quantity}" ></GridViewColumn>
+                                                <GridViewColumn Header="No." Width="85" DisplayMemberBinding="{Binding No}">
+                                                    <GridViewColumn.HeaderTemplate>
+                                                        <DataTemplate>
+                                                            <TextBlock Text="{Binding}" Margin="-18,0,0,0"/>
+                                                        </DataTemplate>
+                                                    </GridViewColumn.HeaderTemplate>
+                                                </GridViewColumn>
+                                                <GridViewColumn Header="Service" Width="220" DisplayMemberBinding="{Binding ServiceType}" >
+                                                    <GridViewColumn.HeaderTemplate>
+                                                        <DataTemplate>
+                                                            <TextBlock Text="{Binding}" Margin="-20,0,0,0"/>
+                                                        </DataTemplate>
+                                                    </GridViewColumn.HeaderTemplate>
+                                                </GridViewColumn>
+                                                <GridViewColumn Header="Quantity" Width="120" DisplayMemberBinding="{Binding Quantity}" >
+                                                    <GridViewColumn.HeaderTemplate>
+                                                        <DataTemplate>
+                                                            <TextBlock Text="{Binding}" Margin="-33,0,0,0"/>
+                                                        </DataTemplate>
+                                                    </GridViewColumn.HeaderTemplate>
+                                                </GridViewColumn>
+                                                <GridViewColumn Header="Price per Service" Width="220" DisplayMemberBinding="{Binding Price}" >
+                                                    <GridViewColumn.HeaderTemplate>
+                                                        <DataTemplate>
+                                                            <TextBlock Text="{Binding}" Margin="-30,0,0,0"/>
+                                                        </DataTemplate>
+                                                    </GridViewColumn.HeaderTemplate>
+                                                </GridViewColumn>
                                                 
                                             </GridView>
                                         </ListView.View>

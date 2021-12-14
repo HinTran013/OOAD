@@ -103,32 +103,32 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 
         private void ReportBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckForm())
-            {
-                if(String.IsNullOrEmpty(DescriptionTxt.Text))
-                {
-                    DescriptionTxt.Text = "There is no description.";
-                }
+            //if (CheckForm())
+            //{
+            //    if(String.IsNullOrEmpty(DescriptionTxt.Text))
+            //    {
+            //        DescriptionTxt.Text = "There is no description.";
+            //    }
 
-                fundBillDTO fundDTO = new fundBillDTO(
-                    FundIDTxt.Text,
-                    timeNow.ToString("dd/MM/yyyy"),
-                    TypeCbb.Text.ToString(),
-                    double.Parse(CostTxt.Text.ToString()),
-                    DescriptionTxt.Text,
-                    accountStaff.username);
+            //    fundBillDTO fundDTO = new fundBillDTO(
+            //        FundIDTxt.Text,
+            //        timeNow.ToString("dd/MM/yyyy"),
+            //        TypeCbb.Text.ToString(),
+            //        double.Parse(CostTxt.Text.ToString()),
+            //        DescriptionTxt.Text,
+            //        accountStaff.username);
 
-                fundBillBUS.AddFundBill(fundDTO);
+            //    fundBillBUS.AddFundBill(fundDTO);
 
-                var messageBoxResult = MsgBox.Show(
-                    "Notification", 
-                    "Save successful",
-                    MessageBoxButton.OK, 
-                    MessageBoxImg.None);
+            //    var messageBoxResult = MsgBox.Show(
+            //        "Notification", 
+            //        "Save successful",
+            //        MessageBoxButton.OK, 
+            //        MessageBoxImg.None);
 
-                ResetForm();
-                setID();
-            }
+            //    ResetForm();
+            //    setID();
+            //}
         }
 
         private void TxtNum_PreviewTextInput(object sender, TextCompositionEventArgs e)
