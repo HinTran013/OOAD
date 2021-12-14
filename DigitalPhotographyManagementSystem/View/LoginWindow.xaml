@@ -53,12 +53,16 @@
                     <Border CornerRadius="25" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
-                        Margin="50,0,50,20">
+                        Margin="50,0,50,10">
                         <PasswordBox x:Name="Pass_txt" BorderThickness="0"
                                  Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
                                  materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                  FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light"></PasswordBox>
                     </Border>
+
+                    <CheckBox x:Name="RememberPass" Content="Remember me" 
+                              Margin="50,0,45,10" Checked="RememberPass_Checked" Unchecked="RememberPass_Unchecked"
+                              Style="{StaticResource MaterialDesignLightCheckBox}" FontFamily="Nunito" FontWeight="Bold" BorderBrush="{x:Null}" Background="#FF8699DA"/>
 
                     <Border CornerRadius="25" 
                         Background="#8699DA"
@@ -100,7 +104,12 @@
             </Grid>
 
             <Grid Grid.Column="1" MouseDown="Grid_MouseDown">
-                <Image Source="/ImageSrc/login_illustrate.jpg"></Image>
+                <StackPanel VerticalAlignment="Center">
+                    <Label Content="DIGITAL PHOTOGRAPHY MANAGEMENT SYSTEM" HorizontalAlignment="Center" FontSize="18" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black"/>
+                    <Image Source="/ImageSrc/login_illustrate.jpg"></Image>
+                    <Label Content="KTS PHOTOGRAPHY" HorizontalAlignment="Center" FontSize="32" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Margin="0,-25,0,0"/>
+                    <Label Content="Only One Purpose, Your Satisfaction" HorizontalAlignment="Center" FontSize="20" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light"/>
+                </StackPanel>
             </Grid>
 
         </Grid>

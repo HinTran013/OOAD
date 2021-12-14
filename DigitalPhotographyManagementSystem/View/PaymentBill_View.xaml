@@ -109,7 +109,7 @@
                             <TextBlock Text="Thank you!" VerticalAlignment="Center" FontSize="20" Margin="5" FontWeight="Light"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                            <TextBlock Text="KTS Photography - Only One Purpose, Satisfaction" VerticalAlignment="Center" FontSize="8" Margin="5" FontWeight="Light"/>
+                            <TextBlock Text="KTS Photography - Only One Purpose, Your Satisfaction" VerticalAlignment="Center" FontSize="8" Margin="5" FontWeight="Light"/>
                             <TextBlock Text="(+84) 69 696 6969" VerticalAlignment="Center" FontSize="8" Margin="5" FontWeight="Light"/>
                             <TextBlock Text="KTS.com" VerticalAlignment="Center" FontSize="8" Margin="5" FontWeight="Light"/>
                         </StackPanel>

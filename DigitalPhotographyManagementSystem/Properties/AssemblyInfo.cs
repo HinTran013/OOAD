@@ -10,7 +10,7 @@ using System.Windows;
 [assembly: AssemblyTitle("DigitalPhotographyManagementSystem")]
 [assembly: AssemblyDescription("This project is implemented by Le Tran Bao Loc, Pham Hon Tuyen, Tran Thanh Hien.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("UIT")]
+[assembly: AssemblyCompany("KTS Photography Co., Ltd")]
 [assembly: AssemblyProduct("Digital Photography Management System")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
