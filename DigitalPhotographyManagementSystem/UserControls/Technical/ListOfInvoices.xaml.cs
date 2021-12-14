@@ -5,6 +5,7 @@ using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -35,9 +37,10 @@ namespace DigitalPhotographyManagementSystem.UserControls.Technical
         public long Services { get; set; }
     }
 
-    public partial class ListOfInvoices : UserControl
+    public partial class ListOfInvoices : System.Windows.Controls.UserControl
     {
         private ObservableCollection<InvoiceCreated> invoiceCreated;
+        private List<string> realInvoiceID = new List<string>();
         public ListOfInvoices()
         {
             InitializeComponent();
@@ -58,6 +61,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Technical
                     StaffID = item.staffUsername,
                     Services = invoiceBUS.GetNumServicesFromID((ObjectId)item.objectId)
                 };
+                realInvoiceID.Add(item.objectId.ToString());
                 invoiceCreated.Add(newInvoiceCreated);
             }
 
@@ -86,19 +90,6 @@ namespace DigitalPhotographyManagementSystem.UserControls.Technical
             }
         }
 
-        private void DoneBtn_Click(object sender, RoutedEventArgs e)
-        {
-            var item = (sender as FrameworkElement).DataContext;
-            var invoice = (sender as FrameworkElement).DataContext as InvoiceCreated;
-            int index = listInvoice.Items.IndexOf(item);
-            if (invoice != null)
-            {
-                invoiceBUS.UpdateStateInvoiceFromID(invoice.fullInvoiceID, "SHOT");
-                invoiceCreated.Remove(invoice);
-                MsgBox.Show("Updated the new state of invoice!", MessageBoxTyp.Information);
-            }
-        }
-
         private void listInvoice_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var invoice = listInvoice.SelectedItems[0] as InvoiceCreated;
@@ -112,6 +103,41 @@ namespace DigitalPhotographyManagementSystem.UserControls.Technical
         private void textBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(listInvoice.ItemsSource).Refresh();
+        }
+
+        private void UploadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var invoice = (sender as FrameworkElement).DataContext as InvoiceCreated;
+            OpenFileDialog open = new OpenFileDialog();
+            open.Multiselect = true;
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.png;)|*.jpg; *.jpeg; *.png;";
+
+            if(open.ShowDialog() == DialogResult.OK)
+            {
+                foreach(var image in open.FileNames)
+                {
+                    byte[] binaryContent = File.ReadAllBytes(image);
+                    photoBUS.AddNewPhoto(new photoDTO(
+                        invoice.fullInvoiceID.ToString(),
+                        binaryContent
+                        ));
+                }
+                DoneFunction(sender, e);
+            }
+        }
+
+        private void DoneFunction(object sender, RoutedEventArgs e)
+        {
+            var item = (sender as FrameworkElement).DataContext;
+            var invoice = (sender as FrameworkElement).DataContext as InvoiceCreated;
+            int index = listInvoice.Items.IndexOf(item);
+            if (invoice != null)
+            {
+                invoiceBUS.UpdateStateInvoiceFromID(invoice.fullInvoiceID, "SHOT");
+                invoiceCreated.Remove(invoice);
+
+                MsgBox.Show("Updated the new state of invoice!", MessageBoxTyp.Information);
+            }
         }
     }
 }

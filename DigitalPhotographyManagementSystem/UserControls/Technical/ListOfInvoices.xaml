@@ -88,11 +88,12 @@
                                 <GridViewColumn Header="Customer's Name" Width="190" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
                                 <GridViewColumn Header="Date" Width="100" DisplayMemberBinding="{Binding Date}" ></GridViewColumn>
                                 <GridViewColumn Header="StaffID" Width="140" DisplayMemberBinding="{Binding StaffID}" ></GridViewColumn>
-                                <GridViewColumn Header="Services" Width="155" DisplayMemberBinding="{Binding Services}" ></GridViewColumn>
-                                <GridViewColumn Header="Action" Width="150">
+                                <GridViewColumn Header="Services" Width="140" DisplayMemberBinding="{Binding Services}" ></GridViewColumn>
+                                
+                                <GridViewColumn Header="" Width="100">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button x:Name="DoneBtn" Content="Done" Background="#8699DA" Click="DoneBtn_Click"/>
+                                            <Button x:Name="UploadBtn" Content="Upload" Background="#8699DA" Click="UploadBtn_Click"/>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
