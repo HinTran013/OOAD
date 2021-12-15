@@ -22,6 +22,7 @@ using System.Windows.Shapes;
 using static DigitalPhotographyManagementSystem.ServiceClass.ItemMenu;
 using DTO;
 using System.Windows.Media.Animation;
+using DigitalPhotographyManagementSystem.UserControls.Account_Information;
 
 namespace DigitalPhotographyManagementSystem.View
 {
@@ -44,6 +45,9 @@ namespace DigitalPhotographyManagementSystem.View
                    
             //ABOUT popup
             var about = new ItemMenu("ABOUT", PackIconKind.About, CommandType.About);
+
+            //Update account 
+            var updateAccount = new ItemMenu("ACCOUNT INFO", PackIconKind.User, CommandType.UControl, new AccountInformation());
 
             //LOGOUT option
             var logout = new ItemMenu("LOG OUT", PackIconKind.Logout, CommandType.LogOut);
@@ -125,8 +129,9 @@ namespace DigitalPhotographyManagementSystem.View
                     SideMenu.Children.Add(new UserControlSingleItem(photoDel, this));
                     SideMenu.Children.Add(new UserControlSingleItem(issue, this));
                 }
-            } 
-            
+            }
+
+            SideMenu.Children.Add(new UserControlSingleItem(updateAccount, this));
             SideMenu.Children.Add(new UserControlSingleItem(about, this));
             SideMenu.Children.Add(new UserControlSingleItem(logout, this));
             SideMenu.Children.Add(new UserControlSingleItem(exit, this));

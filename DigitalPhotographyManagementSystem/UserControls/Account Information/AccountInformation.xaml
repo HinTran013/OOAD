@@ -1,5 +1,5 @@
-﻿<UserControl x:Class="DigitalPhotographyManagementSystem.UserControls.AdminOnly.CreateAccount"
-             xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.UserControls.AdminOnly"
+﻿<UserControl x:Class="DigitalPhotographyManagementSystem.UserControls.Account_Information.AccountInformation"
+             xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.UserControls.Account_Information"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -10,7 +10,7 @@
               
              Height="653" Width="1084"
              Background="White"
-             Loaded="UserControl_Loaded"
+             
              >
     <Grid>
         <Grid.RowDefinitions>
@@ -53,7 +53,7 @@
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:HintAssist.Hint="Phone Number"
                                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                        FontWeight="Bold" FontSize="14" PreviewTextInput="phoneTextBox_PreviewTextInput"/>
+                                        FontWeight="Bold" FontSize="14"/>
                         </Border>
                     </Grid>
                 </Grid>
@@ -226,7 +226,6 @@
                               Style="{StaticResource MaterialDesignOutlinedTextBox}"
                               materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                               materialDesign:HintAssist.Hint="Salary"
-                              PreviewTextInput="salaryTextBox_PreviewTextInput"
                               FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
                               FontWeight="Bold" FontSize="14"/>
                 </Border>
@@ -266,7 +265,7 @@
                         BorderBrush="{x:Null}" 
                         Height="50" 
                         FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="ConfirmForm">
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
                     Confirm
                 </Button>
             </Border>
@@ -289,7 +288,7 @@
                         BorderBrush="{x:Null}" 
                         Height="50" 
                         FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" RenderTransformOrigin="0.5,0.504" Click="cancelButton_Click">
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" RenderTransformOrigin="0.5,0.504">
                     Cancel
                 </Button>
             </Border>
