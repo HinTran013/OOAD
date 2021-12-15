@@ -47,6 +47,7 @@
                                 BorderBrush="#789ADE"
                                 Margin="10,10,30,0">
                             <TextBox    
+                                        PreviewTextInput="phoneTextBox_PreviewTextInput"
                                         x:Name="phoneTextBox"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
@@ -102,10 +103,10 @@
                                         IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
                                         materialDesign:HintAssist.Hint="Department"
                                         ItemsSource="{Binding ShortStringList}">
-                                <ComboBoxItem Content="Accounting" />
-                                <ComboBoxItem Content="Marketing" />
-                                <ComboBoxItem Content="Technical"/>
-                                <ComboBoxItem Content="Transaction" />
+                                <ComboBoxItem Content="Accounting" x:Name="Accounting"/>
+                                <ComboBoxItem Content="Marketing" x:Name="Marketing"/>
+                                <ComboBoxItem Content="Technical" x:Name="Technical"/>
+                                <ComboBoxItem Content="Transaction" x:Name="Transaction"/>
                             </ComboBox>
                         </Border>
                         <Border Margin="10,0,30,0"
@@ -165,6 +166,7 @@
                                 HorizontalAlignment="Left"
                                 Width="504">
                             <TextBox    
+                                        IsEnabled="False"
                                         x:Name="userNameTextBox"
                                         BorderThickness="0"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
@@ -221,6 +223,7 @@
                         HorizontalAlignment="Left"
                         Width="504">
                     <TextBox  
+                              PreviewTextInput="salaryTextBox_PreviewTextInput"
                               x:Name="salaryTextBox"
                               BorderThickness="0"
                               Style="{StaticResource MaterialDesignOutlinedTextBox}"
@@ -265,8 +268,8 @@
                         BorderBrush="{x:Null}" 
                         Height="50" 
                         FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
-                    Confirm
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="confirmButton_Click">
+                    Update
                 </Button>
             </Border>
 
@@ -282,14 +285,14 @@
                                           Direction="270"/>
                 </Border.Effect>
                 <Button 
-                        x:Name="cancelButton"
+                        x:Name="refreshButton"
                         FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
                         Height="50" 
                         FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" RenderTransformOrigin="0.5,0.504">
-                    Cancel
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" RenderTransformOrigin="0.5,0.504" Click="refreshButton_Click">
+                    Refresh
                 </Button>
             </Border>
         </Grid>

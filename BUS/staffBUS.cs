@@ -30,5 +30,10 @@ namespace BUS
         {
             return staff.CheckIfAccountExists(username);
         }
+
+        public static bool UpdateStaffAccountByUsername(staffDTO newStaff)
+        {
+            return staff.UpdateStaffAccountByUsername(newStaff);
+        }
     }
 }

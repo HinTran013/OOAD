@@ -47,7 +47,7 @@ namespace DigitalPhotographyManagementSystem.View
             var about = new ItemMenu("ABOUT", PackIconKind.About, CommandType.About);
 
             //Update account 
-            var updateAccount = new ItemMenu("ACCOUNT INFO", PackIconKind.User, CommandType.UControl, new AccountInformation());
+            var updateAccount = new ItemMenu("ACCOUNT INFO", PackIconKind.User, CommandType.UControl, new AccountInformation(acc));
 
             //LOGOUT option
             var logout = new ItemMenu("LOG OUT", PackIconKind.Logout, CommandType.LogOut);

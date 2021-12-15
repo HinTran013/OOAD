@@ -117,5 +117,36 @@ namespace DAL
                 return new staffDTO();
             }
         }
+
+        public bool UpdateStaffAccountByUsername(staffDTO newStaff)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("staffs");
+                var filter = new BsonDocument
+            {
+                { "username", newStaff.username }
+            };
+                var update = new BsonDocument {
+                { "username", newStaff.username},
+                { "name", newStaff.name},
+                { "birthDate", newStaff.birthDate},
+                { "gender", newStaff.gender},
+                { "email", newStaff.email},
+                { "address", newStaff.address},
+                { "phoneNumber", newStaff.phoneNumber},
+                { "salary", newStaff.salary},
+                { "type", newStaff.type},
+                { "description", newStaff.description},
+                { "password", newStaff.password}
+            };
+                collection.ReplaceOne(filter, update);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
