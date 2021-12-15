@@ -40,15 +40,15 @@ namespace DAL
         }
 
         //lấy tất cả records photo từ database
-        public List<photoDTO> getListOfPhotoDTOsByInvoiceID(string invoiceID)
+        public List<photoDTO> getListOfPhotoDTOsByInvoiceID(ObjectId invoiceID)
         {
             try
             {
                 var collection = db.GetCollection<BsonDocument>("photos");
-                var inv = collection.Find(x => ((string)x["invoiceID"]) == invoiceID).SingleAsync().Result;
+                var inv = collection.Find(x => ((ObjectId)x["invoiceID"]) == invoiceID).ToListAsync().Result;
                 var photos = new List<photoDTO>();
 
-                foreach (BsonDocument photo in inv.AsBsonArray)
+                foreach (BsonDocument photo in inv)
                 {
                     photos.Add(new photoDTO
                     (
@@ -77,6 +77,6 @@ namespace DAL
             return listByte;
         }
 
-
+        
     }
 }

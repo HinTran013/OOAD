@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using DTO;
+using MongoDB.Bson;
 
 namespace BUS
 {
@@ -17,7 +18,7 @@ namespace BUS
             return photo.InsertNewPhoto(newPhoto);
         }
 
-        public static List<photoDTO> getListOfPhotoDTOsByInvoiceID(string invoiceID)
+        public static List<photoDTO> getListOfPhotoDTOsByInvoiceID(ObjectId invoiceID)
         {
             return photo.getListOfPhotoDTOsByInvoiceID(invoiceID);
         }

@@ -7,6 +7,8 @@ using OfficeOpenXml.Style;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -54,7 +56,6 @@ namespace DigitalPhotographyManagementSystem.UserControls
             invoices = invoiceBUS.GetAllUnprintedInvoices();
             int i = 1;
             invoicePrint = new ObservableCollection<InvoicePrint>();
-            
             foreach (invoiceDTO item in invoices)
             {
                 var newInvoicePrint = new InvoicePrint()
@@ -69,6 +70,7 @@ namespace DigitalPhotographyManagementSystem.UserControls
                 };
                 invoicePrint.Add(newInvoicePrint);
             }
+
             listInvoice.ItemsSource = invoicePrint;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listInvoice.ItemsSource);
             view.Filter = InvoiceFilter;
@@ -98,7 +100,7 @@ namespace DigitalPhotographyManagementSystem.UserControls
             if (invoice != null)
             {
                 string valueStr;
-                if (MsgBox.Show("ENTER FUND", "Type in the fund of printing this photo") == MessageBoxResult.OK)
+                if (MsgBox.Show("ENTER FUND", "Type in the fund of printing this photo (in VNĐ)") == MessageBoxResult.OK)
                 {
                     valueStr = MsgBox.Value;
                 }
@@ -114,7 +116,7 @@ namespace DigitalPhotographyManagementSystem.UserControls
                         value = int.Parse(valueStr);
                         if (value <= 0)
                         {
-                            MsgBox.Show("Please input value larger than 0", MessageBoxTyp.Warning);
+                            MsgBox.Show("Please input fund larger than 0", MessageBoxTyp.Warning);
                             return;
                         }
                     }
@@ -129,6 +131,10 @@ namespace DigitalPhotographyManagementSystem.UserControls
                     MsgBox.Show("Please input value", MessageBoxTyp.Warning);
                     return;
                 }
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Excel|*.xlsx|Excel 2003|*.xls";
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.ShowDialog();
                 invoiceBUS.UpdateStateInvoiceFromID(invoice.fullInvoiceID, "PRINT");
                 fundBillBUS.AddFundBill(new fundBillDTO
                 (
@@ -144,7 +150,9 @@ namespace DigitalPhotographyManagementSystem.UserControls
 
         private void listInvoice_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var invoice = listInvoice.SelectedItems[0] as InvoicePrint;
+            if (listInvoice.SelectedItem == null)
+                return;
+            InvoicePrint invoice = listInvoice.SelectedItems[0] as InvoicePrint;
             if (invoice != null)
             {
                 Invoice_View invoice_View = new Invoice_View(invoice.fullInvoiceID);
@@ -229,7 +237,7 @@ namespace DigitalPhotographyManagementSystem.UserControls
         {
             string filePath = "";
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Excel | *.xlsx | Excel 2003 | *.xls";
+            saveFileDialog.Filter = "Excel|*.xlsx|Excel 2003|*.xls";
             saveFileDialog.FileName = "UnprintedPhotoList_" + DateTime.Now.ToString("dd-MM-yyyy") + ".xlsx";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -244,6 +252,7 @@ namespace DigitalPhotographyManagementSystem.UserControls
 
             try
             {
+                ObservableCollection<InvoicePrint> invoiceUnprintedList = new ObservableCollection<InvoicePrint>(listInvoice.ItemsSource.Cast<InvoicePrint>());
                 using (ExcelPackage p = new ExcelPackage())
                 {
                     p.Workbook.Properties.Author = Account.name;
@@ -277,7 +286,6 @@ namespace DigitalPhotographyManagementSystem.UserControls
                         cell.Value = item;
                         colIndex++;
                     }
-                    ObservableCollection<InvoicePrint> invoiceUnprintedList = new ObservableCollection<InvoicePrint>(listInvoice.ItemsSource.Cast<InvoicePrint>());
                     foreach (var item in invoiceUnprintedList)
                     {
                         colIndex = 1;
@@ -291,6 +299,40 @@ namespace DigitalPhotographyManagementSystem.UserControls
                     Byte[] bin = p.GetAsByteArray();
                     File.WriteAllBytes(filePath, bin);
                 }
+                FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+                int i = 1;
+            Return:
+                if (folderBrowser.ShowDialog() == DialogResult.OK)
+                {
+                    foreach (InvoicePrint invoicePrint in invoiceUnprintedList)
+                    {
+                        List<photoDTO> photos = photoBUS.getListOfPhotoDTOsByInvoiceID(invoicePrint.fullInvoiceID);
+                        if (photos == null)
+                        {
+                            continue;
+                        }
+                        foreach (photoDTO photo in photos)
+                        {
+                            using (System.Drawing.Image image = System.Drawing.Image.FromStream(new MemoryStream(photo.photoContent)))
+                            {
+                                image.Save(folderBrowser.SelectedPath + "/" + invoicePrint.invoiceID + "_photo" + i + ".jpg", ImageFormat.Jpeg);
+                            }
+                            i++;
+                        }
+                    }
+                }
+                else
+                {
+                    if (MsgBox.Show("Cancel downloading photos for this excel?", MessageBoxTyp.ConfirmationWithYesNo) == MessageBoxResult.No)
+                    {
+                        goto Return;
+                    }
+                    else
+                    {
+                        MsgBox.Show("Export completed! (Without photos)", MessageBoxTyp.Information);
+                        return;
+                    }
+                }
                 MsgBox.Show("Export completed!", MessageBoxTyp.Information);
             }
             catch (Exception EE)
@@ -298,6 +340,54 @@ namespace DigitalPhotographyManagementSystem.UserControls
                 Console.WriteLine(EE);
                 MsgBox.Show("Error while file's loading", MessageBoxTyp.Error);
             }
+            
+        }
+
+        private void Border_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (cbbSearchBy.IsDropDownOpen)
+            {
+                cbbSearchBy.IsDropDownOpen = false;
+            }
+
+        }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!cbbSearchBy.IsDropDownOpen)
+            {
+                cbbSearchBy.IsDropDownOpen = true;
+            }
+        }
+
+        private void DownloadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            List<photoDTO> photos = photoBUS.getListOfPhotoDTOsByInvoiceID(((sender as FrameworkElement).DataContext as InvoicePrint).fullInvoiceID);
+            FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+            int i = 1;
+            if (photos == null)
+            {
+                MsgBox.Show("Selected invoice id has no photos", MessageBoxTyp.Error);
+                return;
+            }
+            if (folderBrowser.ShowDialog() == DialogResult.OK)
+            {
+                foreach (photoDTO photo in photos)
+                {
+                    using (System.Drawing.Image image = System.Drawing.Image.FromStream(new MemoryStream(photo.photoContent)))
+                    {
+                        image.Save(folderBrowser.SelectedPath + "/photo" + i + ".jpg", ImageFormat.Jpeg);
+                    }
+                    i++;
+                }
+                (sender as System.Windows.Controls.Button).Background = null;
+                (sender as System.Windows.Controls.Button).Foreground = System.Windows.Media.Brushes.DarkGreen;
+                (sender as System.Windows.Controls.Button).BorderBrush = System.Windows.Media.Brushes.DarkGreen;
+                (sender as System.Windows.Controls.Button).Content = "Downloaded!";
+                MsgBox.Show("Successfully downloaded images for printing!", MessageBoxTyp.Information);
+            }
+            else
+                return;
         }
     }
 }
