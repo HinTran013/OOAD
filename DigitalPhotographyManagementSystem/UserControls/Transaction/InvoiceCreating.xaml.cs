@@ -29,6 +29,7 @@ namespace DigitalPhotographyManagementSystem.View
         public string ServiceType { get; set; }
         public int Quantity { get; set; }
         public double Price { set; get; }
+        public double Total { get; set; }
     }
 
     public partial class InvoiceCreating : UserControl

@@ -17,5 +17,10 @@ namespace BUS
         {
             return services.GetAllServices();
         }
+
+        public static double GetPriceOfServiceType(string type)
+        {
+            return services.GetPriceOfServiceType(type);
+        }
     }
 }

@@ -54,7 +54,7 @@
                                     x:Name="SearchTxt" 
                                     AcceptsReturn="False"
                                     materialDesign:HintAssist.Hint="Search"
-                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}"/>
+                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}" TextChanged="SearchTxt_TextChanged"/>
                         
                         <Grid Grid.Column="2">
                             <Border Background="White" 
@@ -87,20 +87,69 @@
                     <ListView Name="listInvoice" 
                               FontSize="15"  
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem" 
+                                                   BasedOn="{StaticResource MaterialDesignGridViewItem}">
+                                <Setter Property="HorizontalContentAlignment" 
+                                                        Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="No." Width="90" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
-                                <GridViewColumn Header="Invoice ID" Width="135" DisplayMemberBinding="{Binding invoiceID}" ></GridViewColumn>
-                                <GridViewColumn Header="Customer's Name" Width="190" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
-                                <GridViewColumn Header="Date" Width="100" DisplayMemberBinding="{Binding Date}" ></GridViewColumn>
-                                <GridViewColumn Header="StaffID" Width="140" DisplayMemberBinding="{Binding StaffID}" ></GridViewColumn>
-                                <GridViewColumn Header="Services" Width="155" DisplayMemberBinding="{Binding Services}" ></GridViewColumn>
-                                <GridViewColumn Header="Action" Width="150">
+                                <GridViewColumn Header="No." Width="90" DisplayMemberBinding="{Binding No}" >
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" Margin="-20,0,0,0"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Invoice ID" Width="135" DisplayMemberBinding="{Binding invoiceID}" >
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" Margin="-30,0,0,0"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Customer's Name" Width="160" DisplayMemberBinding="{Binding customerName}" >
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" Margin="-30,0,0,0"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Date" Width="135" DisplayMemberBinding="{Binding dateTime}" >
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" Margin="-5,0,0,0"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="StaffID" Width="170" DisplayMemberBinding="{Binding staffUsername}" >
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" Margin="-10,0,0,0"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Services" Width="120" DisplayMemberBinding="{Binding numService}" >
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" Margin="-35,0,0,0"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Action" Width="100">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" Margin="-10,0,0,0"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button x:Name="DoneBtn" 
-                                                    Content="Done" 
-                                                    Background="#8699DA"/>
+                                            <Button x:Name="ViewBtn" 
+                                                    Content="View" 
+                                                    Background="#8699DA" 
+                                                    Click="ViewBtn_Click"/>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>

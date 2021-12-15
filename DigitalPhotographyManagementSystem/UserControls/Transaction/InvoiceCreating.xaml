@@ -400,7 +400,7 @@
                                     Background="#f7f7f7">
                                 <Border.Effect>
                                     <DropShadowEffect ShadowDepth="1" 
-                                                        BlurRadius="4"
+                                                        BlurRadius="6"
                                                         Opacity="0.2"
                                                         Direction="200"/>
                                 </Border.Effect>
@@ -483,6 +483,12 @@
                             <Border Margin="5"
                                     CornerRadius="10" 
                                     Background="#8699DA">
+                                <Border.Effect>
+                                    <DropShadowEffect ShadowDepth="1" 
+                                                        BlurRadius="7"
+                                                        Opacity="0.5"
+                                                        Direction="200"/>
+                                </Border.Effect>
                                 <Border Margin="5" 
                                         CornerRadius="10" 
                                         Background="White">

@@ -43,5 +43,20 @@ namespace DAL
                 return null;
             }
         }
+
+        public double GetPriceOfServiceType(string type)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("services");
+                var servicesDoc = collection.Find(x => (string)x["serviceName"] == type).SingleAsync().Result;
+                
+                return servicesDoc["servicePrice"].ToDouble();
+            }
+            catch
+            {
+                return 0;
+            }
+        }
     }
 }

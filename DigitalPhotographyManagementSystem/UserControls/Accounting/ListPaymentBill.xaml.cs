@@ -62,7 +62,15 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 
             printed = new ObservableCollection<PrintedBill>();
 
-            foreach(invoiceDTO item in invoices)
+            GetInvoices();
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listInvoice.ItemsSource);
+            view.Filter = InvoiceFilter;
+        }
+
+        private void GetInvoices()
+        {
+            foreach (invoiceDTO item in invoices)
             {
                 printed.Add(new PrintedBill
                 {
@@ -76,18 +84,47 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
                 });
             }
 
-            listInvoice.Items.Add(printed);
+            listInvoice.ItemsSource = printed;
         }
 
-
-
+        private bool InvoiceFilter (object item)
+        {
+            if(string.IsNullOrEmpty(SearchTxt.Text))
+            {
+                return true;
+            }
+            else
+            {
+                if (SearchCbb.SelectedIndex == 0)
+                    return (item as PrintedBill).invoiceID.IndexOf(SearchTxt.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                else if (SearchCbb.SelectedIndex == 1)
+                    return (item as PrintedBill).customerName.IndexOf(SearchTxt.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                else if (SearchCbb.SelectedIndex == 2)
+                    return (item as PrintedBill).staffUsername.IndexOf(SearchTxt.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                else
+                    return true;
+            }
+        }
 
         private void ExportBtn_Click(object sender, RoutedEventArgs e)
         {
             //Test
 
-            CalculateBill test = new CalculateBill();
+            CalculateBill test = new CalculateBill(null, accountStaff);
             test.ShowDialog();
+        }
+
+        private void SearchTxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(listInvoice.ItemsSource).Refresh();
+        }
+
+        private void ViewBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var calculatebillView = (sender as FrameworkElement).DataContext as PrintedBill;
+
+            CalculateBill bill = new CalculateBill(calculatebillView.invoiceIDFull, accountStaff);
+            bill.ShowDialog();
         }
     }
 }
