@@ -1,5 +1,6 @@
 ﻿using BUS;
 using DigitalPhotographyManagementSystem.UserControls.Marketing;
+using DigitalPhotographyManagementSystem.UserControls.Transaction;
 using DigitalPhotographyManagementSystem.View;
 using System;
 using System.Collections.Generic;
@@ -58,7 +59,9 @@ namespace DigitalPhotographyManagementSystem.UserControls
 
         private void IssuesBD_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            ListIssues listIssues = new ListIssues();
+            ListContainers listContainers = new ListContainers(listIssues);
+            listContainers.ShowDialog();
         }
     }
 }

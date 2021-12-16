@@ -101,7 +101,6 @@
                     </ListView.ItemContainerStyle>
                     <ListView.View>
                         <GridView>
-                            <!--NO COLUMN-->
                             <GridViewColumn Header="No." Width="50">
                                 <GridViewColumn.HeaderContainerStyle>
                                     <Style TargetType="{x:Type GridViewColumnHeader}">
@@ -133,7 +132,6 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <!--INVOICE ID COLUMN-->
                             <GridViewColumn Width="120">
                                 <GridViewColumn.HeaderContainerStyle>
                                     <Style TargetType="{x:Type GridViewColumnHeader}">
@@ -165,7 +163,6 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <!--CAMPAIGN NAME COLUMN-->
                             <GridViewColumn Width="220">
                                 <GridViewColumn.HeaderContainerStyle>
                                     <Style TargetType="{x:Type GridViewColumnHeader}">
@@ -197,7 +194,6 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <!--DATE START COLUMN-->
                             <GridViewColumn Width="120">
                                 <GridViewColumn.HeaderContainerStyle>
                                     <Style TargetType="{x:Type GridViewColumnHeader}">
@@ -229,7 +225,6 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <!--DATE END COLUMN-->
                             <GridViewColumn Width="120">
                                 <GridViewColumn.HeaderContainerStyle>
                                     <Style TargetType="{x:Type GridViewColumnHeader}">
@@ -261,39 +256,6 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <!--TYPE COLUMN-->
-                            <GridViewColumn Width="180">
-                                <GridViewColumn.HeaderContainerStyle>
-                                    <Style TargetType="{x:Type GridViewColumnHeader}">
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="GridViewColumnHeader">
-                                                    <Border Background="{TemplateBinding Background}">
-                                                        <TextBlock Text="Solve Status" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
-                                                        </TextBlock>
-                                                    </Border>
-                                                    <ControlTemplate.Triggers>
-                                                        <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter Property="Foreground" Value="Black"/>
-                                                        </Trigger>
-                                                        <Trigger Property="IsMouseOver" Value="False">
-                                                            <Setter Property="Foreground" Value="DimGray"/>
-                                                        </Trigger>
-                                                    </ControlTemplate.Triggers>
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Style>
-                                </GridViewColumn.HeaderContainerStyle>
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Grid Width="180" >
-                                            <TextBlock Text="{Binding IsSolved}" TextAlignment="Center" TextWrapping="Wrap"/>
-                                        </Grid>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <!--STAFFID COLUMN-->
                             <GridViewColumn Width="145">
                                 <GridViewColumn.HeaderContainerStyle>
                                     <Style TargetType="{x:Type GridViewColumnHeader}">
@@ -325,6 +287,39 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
+                            <!--SOLVE STATUS-->
+                            <GridViewColumn Width="180">
+                                <GridViewColumn.HeaderContainerStyle>
+                                    <Style TargetType="{x:Type GridViewColumnHeader}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="GridViewColumnHeader">
+                                                    <Border Background="{TemplateBinding Background}">
+                                                        <TextBlock Text="Solve Status" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        </TextBlock>
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Foreground" Value="Black"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsMouseOver" Value="False">
+                                                            <Setter Property="Foreground" Value="DimGray"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </GridViewColumn.HeaderContainerStyle>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <DockPanel HorizontalAlignment="Center" Width="180">
+                                            <Button x:Name="SolvedBtn" Content="Solved" Background="#8699DA" Click="SolvedBtn_Click" Margin="10,0,0,0" Foreground="White" HorizontalAlignment="Center"/>
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            
                         </GridView>
                     </ListView.View>
                 </ListView>

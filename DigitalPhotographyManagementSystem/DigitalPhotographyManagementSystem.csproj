@@ -278,6 +278,9 @@
     <Compile Include="View\Invoice_View.xaml.cs">
       <DependentUpon>Invoice_View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\IssueDetail_View.xaml.cs">
+      <DependentUpon>IssueDetail_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ListContainers.xaml.cs">
       <DependentUpon>ListContainers.xaml</DependentUpon>
     </Compile>
@@ -399,6 +402,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Invoice_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\IssueDetail_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

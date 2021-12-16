@@ -1,4 +1,5 @@
 ﻿using BUS;
+using DigitalPhotographyManagementSystem.View;
 using DTO;
 using MongoDB.Bson;
 using System;
@@ -81,10 +82,10 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
                     return (item as IssuePrint).Date.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
                 if (cbbSearchBy.SelectedIndex == 3)
                     return (item as IssuePrint).Type.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
-
-
-
-
+                if (cbbSearchBy.SelectedIndex == 4)
+                    return (item as IssuePrint).IsSolved.ToString().IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                if (cbbSearchBy.SelectedIndex == 5)
+                    return (item as IssuePrint).StaffID.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
                 else
                     return true;
             }
@@ -95,6 +96,18 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
         }
 
         private void listIssue_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (listIssue.SelectedItem == null)
+                return;
+            IssuePrint issue = listIssue.SelectedItems[0] as IssuePrint;
+            if (issue != null)
+            {
+                IssueDetail_View issueDetail_View = new IssueDetail_View(issue);
+                issueDetail_View.ShowDialog();
+            }
+        }
+
+        private void SolvedBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }

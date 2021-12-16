@@ -75,6 +75,7 @@ namespace DigitalPhotographyManagementSystem.View
                 menuTransDept.Add(new SubItem("Create Invoice", new InvoiceCreating(Account)));
                 menuTransDept.Add(new SubItem("Photo Delivery", new PhotoDelivery()));
                 menuTransDept.Add(new SubItem("Technical Issues Resolve", new IssuesReport()));
+                menuTransDept.Add(new SubItem("Manage Issue Reports", new ListIssues()));
                 var transSubMenu = new ItemMenu("TRANSACTION DEPT", menuTransDept, PackIconKind.Coins);
 
                 var menuAccDept = new List<SubItem>();
@@ -131,9 +132,11 @@ namespace DigitalPhotographyManagementSystem.View
                     var invoice = new ItemMenu("Create Invoice", PackIconKind.Invoice, CommandType.UControl, new InvoiceCreating(Account));
                     var photoDel = new ItemMenu("Photo Delievery", PackIconKind.TruckDelivery, CommandType.UControl, new PhotoDelivery());
                     var issue = new ItemMenu("Technical Issues Resolve", PackIconKind.GitIssue, CommandType.UControl, new IssuesReport());
+                    var listIssue = new ItemMenu("Manage Issue Reports", PackIconKind.ReportProblem, CommandType.UControl, new ListIssues());
                     SideMenu.Children.Add(new UserControlSingleItem(invoice, this));
                     SideMenu.Children.Add(new UserControlSingleItem(photoDel, this));
                     SideMenu.Children.Add(new UserControlSingleItem(issue, this));
+                    SideMenu.Children.Add(new UserControlSingleItem(listIssue, this));
                 }
             }
 
