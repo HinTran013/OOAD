@@ -67,12 +67,15 @@ namespace DigitalPhotographyManagementSystem.View
                 menuMarketDept.Add(new SubItem("Ad Campaign", AdCampaign.GetInstance(Account)));
                 menuMarketDept.Add(new SubItem("Print Photos", new PrintPhoto(Account)));
                 menuMarketDept.Add(new SubItem("Create Coupon", CreateCoupon.GetInstance()));
-                var marketSubMenu = new ItemMenu("MARKETING DEPT", menuMarketDept, PackIconKind.Megaphone);
+                menuMarketDept.Add(new SubItem("Manage Ad Campaigns", new ListAdsCampaign()));
+                menuMarketDept.Add(new SubItem("Manage Ideas", new ListIdea()));
 
+                var marketSubMenu = new ItemMenu("MARKETING DEPT", menuMarketDept, PackIconKind.Megaphone);
                 var menuTransDept = new List<SubItem>();
                 menuTransDept.Add(new SubItem("Create Invoice", new InvoiceCreating(Account)));
                 menuTransDept.Add(new SubItem("Photo Delivery", new PhotoDelivery()));
                 menuTransDept.Add(new SubItem("Technical Issues Resolve", new IssuesReport()));
+                menuTransDept.Add(new SubItem("Manage Issue Reports", new ListIssues()));
                 var transSubMenu = new ItemMenu("TRANSACTION DEPT", menuTransDept, PackIconKind.Coins);
 
                 var menuAccDept = new List<SubItem>();
@@ -90,10 +93,10 @@ namespace DigitalPhotographyManagementSystem.View
                 menuAdmin.Add(new SubItem("Manage Price-Change Requests", new ListOfPriceChanges()));
                 var AdminSubMenu = new ItemMenu("ADMINISTRATOR", menuAdmin, PackIconKind.Administrator);
 
-                SideMenu.Children.Add(new UserControlMenuDrawer(marketSubMenu, this));
                 SideMenu.Children.Add(new UserControlMenuDrawer(transSubMenu, this));
-                SideMenu.Children.Add(new UserControlMenuDrawer(accSubMenu, this));
                 SideMenu.Children.Add(new UserControlMenuDrawer(techSubMenu, this));
+                SideMenu.Children.Add(new UserControlMenuDrawer(marketSubMenu, this));
+                SideMenu.Children.Add(new UserControlMenuDrawer(accSubMenu, this));
                 SideMenu.Children.Add(new UserControlMenuDrawer(AdminSubMenu, this));
             }
             else
@@ -110,9 +113,13 @@ namespace DigitalPhotographyManagementSystem.View
                     var propose = new ItemMenu("Propose New Ideas", PackIconKind.Idea, CommandType.UControl, IdeaProposing.GetInstance(Account));
                     var adCamp = new ItemMenu("Ad Campaign", PackIconKind.Ads, CommandType.UControl, AdCampaign.GetInstance(Account));
                     var print = new ItemMenu("Print Photos", PackIconKind.Printer, CommandType.UControl, new PrintPhoto(Account));
+                    var adList = new ItemMenu("Manage Ad Campaigns", PackIconKind.GoogleAds, CommandType.UControl, new ListAdsCampaign());
+                    var ideaList = new ItemMenu("Manage Ideas", PackIconKind.HeadIdea, CommandType.UControl, new ListIdea());
                     SideMenu.Children.Add(new UserControlSingleItem(propose, this));
                     SideMenu.Children.Add(new UserControlSingleItem(adCamp, this));
                     SideMenu.Children.Add(new UserControlSingleItem(print, this));
+                    SideMenu.Children.Add(new UserControlSingleItem(adList, this));
+                    SideMenu.Children.Add(new UserControlSingleItem(ideaList, this));
                 }
                 else if (Account.type == "Technical")
                 {
@@ -124,9 +131,11 @@ namespace DigitalPhotographyManagementSystem.View
                     var invoice = new ItemMenu("Create Invoice", PackIconKind.Invoice, CommandType.UControl, new InvoiceCreating(Account));
                     var photoDel = new ItemMenu("Photo Delievery", PackIconKind.TruckDelivery, CommandType.UControl, new PhotoDelivery());
                     var issue = new ItemMenu("Technical Issues Resolve", PackIconKind.GitIssue, CommandType.UControl, new IssuesReport());
+                    var listIssue = new ItemMenu("Manage Issue Reports", PackIconKind.ReportProblem, CommandType.UControl, new ListIssues());
                     SideMenu.Children.Add(new UserControlSingleItem(invoice, this));
                     SideMenu.Children.Add(new UserControlSingleItem(photoDel, this));
                     SideMenu.Children.Add(new UserControlSingleItem(issue, this));
+                    SideMenu.Children.Add(new UserControlSingleItem(listIssue, this));
                 }
             }
 

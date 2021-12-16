@@ -20,5 +20,9 @@ namespace BUS
         {
             return idea.CountAllIdeas();
         }
+        public static List<ideaDTO> GetAllIdeas()
+        {
+            return idea.GetAllIdeas();
+        }
     }
 }

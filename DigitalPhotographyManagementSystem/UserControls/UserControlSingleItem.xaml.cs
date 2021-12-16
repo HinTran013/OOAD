@@ -54,21 +54,34 @@ namespace DigitalPhotographyManagementSystem.UserControls
                 wont be switched to other single item tags, 
                 unless you switch to CONTROL FORM           */
             var SingleItems = this._context.SideMenu.Children.OfType<UserControlSingleItem>();
+            var MenuDrawers = this._context.SideMenu.Children.OfType<UserControlMenuDrawer>();
             if (_context._Account.type == "Admin")
+            {
                 foreach (var item in SingleItems)
                 {
-                    if (item != this._context.SideMenu.Children[0] && item.border.Margin.Right == 0)
+                    if ((item != this._context.SideMenu.Children[0] || item != this._context.SideMenu.Children[6]) && item.border.Margin.Right == 0)
                     {
                         var storyBoard_rev = item.Resources["StoryboardChooseItem_Rev"] as Storyboard;
                         storyBoard_rev.Begin(item);
+
                     }
-                    //
-                    if (item == this && item.border.Margin.Right == 230)
+                    else if (item == this && item.border.Margin.Right == 230)
                     {
                         var storyBoard = item.Resources["StoryboardChooseItem"] as Storyboard;
                         storyBoard.Begin(item);
                     }
                 }
+                foreach (var item in MenuDrawers)
+                {
+                    if (item.border.Margin.Right == 0)
+                    {
+                        var storyBoard = item.Resources["StoryboardDrawingMenu_Rev"] as Storyboard;
+                        item.ExpanderMenu.IsExpanded = false;
+                        storyBoard.Begin(item);
+                    }
+                }
+            }
+
             else
             {
                 foreach (var item in SingleItems)
@@ -90,6 +103,10 @@ namespace DigitalPhotographyManagementSystem.UserControls
             _context.TxtTitle.Text = BtnTxt.Text.ToUpper();
             _context.TxtTitleSmall.Text = BtnTxt.Text;
             if (BtnTxt.Text == "HOME")
+            {
+                _context.TxtDeptName.Text = _context._Account.type;
+            }
+            else if (BtnTxt.Text == "ACCOUNT INFO")
             {
                 _context.TxtDeptName.Text = _context._Account.type;
             }

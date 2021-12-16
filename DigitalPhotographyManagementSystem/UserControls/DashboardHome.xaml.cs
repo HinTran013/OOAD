@@ -1,4 +1,7 @@
 ﻿using BUS;
+using DigitalPhotographyManagementSystem.UserControls.Marketing;
+using DigitalPhotographyManagementSystem.UserControls.Transaction;
+using DigitalPhotographyManagementSystem.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,10 +38,30 @@ namespace DigitalPhotographyManagementSystem.UserControls
             //RevenueTxt.Text += "000";
         }
 
-        private void PopupList(object sender, MouseButtonEventArgs e)
+        private void AdsBD_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            View.AdsList adsList = new View.AdsList();
-            adsList.Show();
+            ListAdsCampaign listAdsCampaign = new ListAdsCampaign();
+            ListContainers listContainers = new ListContainers(listAdsCampaign);
+            listContainers.ShowDialog();
+        }
+
+        private void IdeasBD_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ListIdea listIdea = new ListIdea();
+            ListContainers listContainers = new ListContainers(listIdea);
+            listContainers.ShowDialog();
+        }
+
+        private void InvoicesBD_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void IssuesBD_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ListIssues listIssues = new ListIssues();
+            ListContainers listContainers = new ListContainers(listIssues);
+            listContainers.ShowDialog();
         }
     }
 }

@@ -213,6 +213,9 @@
     <Compile Include="UserControls\AdminOnly\ListAccounts.xaml.cs">
       <DependentUpon>ListAccounts.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AdminOnly\ListInvoices.xaml.cs">
+      <DependentUpon>ListInvoices.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AdminOnly\ListOfPriceChanges.xaml.cs">
       <DependentUpon>ListOfPriceChanges.xaml</DependentUpon>
     </Compile>
@@ -227,6 +230,12 @@
     </Compile>
     <Compile Include="UserControls\Marketing\IdeaProposing.xaml.cs">
       <DependentUpon>IdeaProposing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Marketing\ListAdsCampaign.xaml.cs">
+      <DependentUpon>ListAdsCampaign.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Marketing\ListIdea.xaml.cs">
+      <DependentUpon>ListIdea.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Marketing\PrintPhoto.xaml.cs">
       <DependentUpon>PrintPhoto.xaml</DependentUpon>
@@ -245,6 +254,9 @@
     <Compile Include="UserControls\Transaction\IssuesReport.xaml.cs">
       <DependentUpon>IssuesReport.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Transaction\ListIssues.xaml.cs">
+      <DependentUpon>ListIssues.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Transaction\PhotoDelivery.xaml.cs">
       <DependentUpon>PhotoDelivery.xaml</DependentUpon>
     </Compile>
@@ -260,14 +272,20 @@
     <Compile Include="View\AdsDetail_View.xaml.cs">
       <DependentUpon>AdsDetail_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AdsList.xaml.cs">
-      <DependentUpon>AdsList.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\DashboardMain.xaml.cs">
       <DependentUpon>DashboardMain.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\IdeaDetail_View.xaml.cs">
+      <DependentUpon>IdeaDetail_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Invoice_View.xaml.cs">
       <DependentUpon>Invoice_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\IssueDetail_View.xaml.cs">
+      <DependentUpon>IssueDetail_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ListContainers.xaml.cs">
+      <DependentUpon>ListContainers.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -306,6 +324,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\AdminOnly\ListInvoices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\AdminOnly\ListOfPriceChanges.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -326,6 +348,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UserControls\Marketing\ListAdsCampaign.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Marketing\ListIdea.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Marketing\PrintPhoto.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -343,6 +373,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\Transaction\IssuesReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Transaction\ListIssues.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -366,15 +400,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AdsList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\DashboardMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\IdeaDetail_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Invoice_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\IssueDetail_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ListContainers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -343,23 +343,6 @@ namespace DigitalPhotographyManagementSystem.UserControls
             
         }
 
-        private void Border_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if (cbbSearchBy.IsDropDownOpen)
-            {
-                cbbSearchBy.IsDropDownOpen = false;
-            }
-
-        }
-
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (!cbbSearchBy.IsDropDownOpen)
-            {
-                cbbSearchBy.IsDropDownOpen = true;
-            }
-        }
-
         private void DownloadBtn_Click(object sender, RoutedEventArgs e)
         {
             List<photoDTO> photos = photoBUS.getListOfPhotoDTOsByInvoiceID(((sender as FrameworkElement).DataContext as InvoicePrint).fullInvoiceID);

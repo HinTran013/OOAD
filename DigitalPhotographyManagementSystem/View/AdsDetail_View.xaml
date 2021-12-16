@@ -9,46 +9,49 @@
         mc:Ignorable="d"
         Height="700" Width="1084" 
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"
-        AllowsTransparency="True"
-        Background="White">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.9*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="6.5*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <Grid Grid.Row="0">
-            <Border Background="#FF8699DA" 
+        AllowsTransparency="True" Background="{x:Null}">
+    <Border Background="White" CornerRadius="10" Margin="5">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="5" ShadowDepth="1" RenderingBias="Quality"/>
+        </Border.Effect>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.9*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="6.5*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" MouseDown="Border_MouseDown"/>
+            <Grid Grid.Row="0">
+                <Border Background="#FF8699DA" 
                     CornerRadius="10" 
-                    HorizontalAlignment="Left" 
+                    HorizontalAlignment="Center" 
                     Margin="30,5,0,5"
                     Width="300">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
-                </Border.Effect>
-                <Viewbox HorizontalAlignment="Center" Height="30" Margin="10,0">
-                    <TextBlock  x:Name="TxtTitle" 
-                                Text="Campaign Detail"
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
+                    </Border.Effect>
+                    <Viewbox HorizontalAlignment="Center" Height="30" Margin="10,0">
+                        <TextBlock  x:Name="TxtTitle" 
+                                Text="Ad Campaign's Detail"
                                 FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
                                 FontSize="60" Margin="0,0,0,5"  
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Foreground="White"/>
-                </Viewbox>
-            </Border>
-        </Grid>
-        
-        <Grid Grid.Row="1">
-            <Border CornerRadius="10" 
+                    </Viewbox>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Border CornerRadius="10" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
                         Margin="30,0,0,5"
                         HorizontalAlignment="Left"
                         Width="600"
                         Height="60" Background="White">
-                <TextBox 
+                    <TextBox x:Name="CampaignNameTxt" 
                              BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -56,144 +59,133 @@
                              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
                              FontWeight="Normal"
                              FontSize="16"
-                             IsEnabled="False"/>
-            </Border>
-            <TextBlock HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-   
-                       FontSize="18"
-                       FontWeight="Medium"
-                       FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
-                       Margin="0,0,25,0">
-                        Date time: 21/10/2021
-            </TextBlock>
-        </Grid>
+                             IsReadOnly="True"/>
+                </Border>
+            </Grid>
 
-        <Grid Grid.Row="2">
-            <StackPanel>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="9*"/>
-                        <ColumnDefinition Width="6*"/>
-                        <ColumnDefinition Width="6*"/>
-                    </Grid.ColumnDefinitions>
+            <Grid Grid.Row="2">
+                <StackPanel>
+                    <Grid Margin="0,10,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="9*"/>
+                            <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition Width="6*"/>
+                        </Grid.ColumnDefinitions>
 
-                    <Grid Grid.Column="0">
-                        <Border Margin="30,0,-30,0"
+                        <Grid Grid.Column="0">
+                            <Border Margin="30,0,-30,0"
                                 Background="#8699DA"
                                 CornerRadius="10">
-                            <Border.Effect>
-                                <DropShadowEffect ShadowDepth="1" 
+                                <Border.Effect>
+                                    <DropShadowEffect ShadowDepth="1" 
                                           BlurRadius="4"
                                           Opacity="0.5"
                                           Direction="270"/>
-                            </Border.Effect>
-                            <ComboBox   FontWeight="Bold"
+                                </Border.Effect>
+                                <TextBox x:Name="CampaignTypeTxt"   FontWeight="Bold"
                                         Foreground="Black"
                                         FontSize="15"
                                         BorderThickness="0"
-                                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                        
+                                        Style="{StaticResource MaterialDesignOutlinedTextBox}"                                        
                                         materialDesign:HintAssist.Hint="Campaign type"
-                                        ItemsSource="{Binding ShortStringList}"
-                                        IsEnabled="False"
-                                        IsEditable="False"/>
-                        </Border>
-                    </Grid>
+                                         IsReadOnly="True"/>
+                            </Border>
+                        </Grid>
 
-                    <Grid Grid.Column="1">
-                        <Border VerticalAlignment="Top"
+                        <Grid Grid.Column="1">
+                            <Border VerticalAlignment="Top"
                                 HorizontalAlignment="Right"
                                 Margin="0,0,0,0"
                                 Background="#8699DA"
                                 CornerRadius="10"
                                 Width="270">
-                            <Border.Effect>
-                                <DropShadowEffect ShadowDepth="1" 
+                                <Border.Effect>
+                                    <DropShadowEffect ShadowDepth="1" 
                                           BlurRadius="4"
                                           Opacity="0.5"
                                           Direction="270"/>
-                            </Border.Effect>
-                            <DatePicker FontSize="15"
+                                </Border.Effect>
+                                <TextBox x:Name="DateStartTxt" FontSize="15"
                                         Foreground="Black"
                                         FontWeight="Bold"
                                         Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                        Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         BorderBrush="White"
                                         BorderThickness="0"
-                                        IsEnabled="False"
+                                        IsReadOnly="True"
                                         materialDesign:HintAssist.IsFloating="True"
                                         materialDesign:HintAssist.Hint="Start Date"/>
-                        </Border>
-                    </Grid>
+                            </Border>
+                        </Grid>
 
-                    <Grid Grid.Column="2">
-                        <Border VerticalAlignment="Top"
+                        <Grid Grid.Column="2">
+                            <Border VerticalAlignment="Top"
                                 HorizontalAlignment="Right"
                                 Margin="0,0,30,0"
                                 Background="#8699DA"
                                 CornerRadius="10"
                                 Width="270">
-                            <Border.Effect>
-                                <DropShadowEffect ShadowDepth="1" 
+                                <Border.Effect>
+                                    <DropShadowEffect ShadowDepth="1" 
                                           BlurRadius="4"
                                           Opacity="0.5"
                                           Direction="270"/>
-                            </Border.Effect>
-                            <DatePicker FontSize="15"
+                                </Border.Effect>
+                                <TextBox x:Name="DateEndTxt" FontSize="15"
                                         Foreground="Black"
                                         FontWeight="Bold"
                                         Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                        Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         BorderBrush="White"
                                         BorderThickness="0"
-                                        IsEnabled="False"
+                                        IsReadOnly="True"
                                         materialDesign:HintAssist.IsFloating="True"
                                         materialDesign:HintAssist.Hint="End date"/>
-                        </Border>
+                            </Border>
+                        </Grid>
                     </Grid>
-                </Grid>
 
-                <Border CornerRadius="10" 
+                    <Border CornerRadius="10" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
                         Margin="30,10,30,0"
-                        Height="415" Background="White">
-                    <TextBox BorderThickness="0"
+                        Height="390" Background="White">
+                        <TextBox x:Name="DescTxt" BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                              materialDesign:HintAssist.Hint="Detail information about the ad campaign"
                              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
                              FontWeight="Normal"
                              FontSize="16"
-                             IsEnabled="False"/>
-                </Border>
-            </StackPanel>
-        </Grid>
+                             IsReadOnly="True"/>
+                    </Border>
+                </StackPanel>
+            </Grid>
 
 
-        <Grid Grid.Row="3">
-            
-            <Border CornerRadius="15" 
+            <Grid Grid.Row="3">
+
+                <Border CornerRadius="15" 
                     Background="#EA9769"
                     Margin="0,5,0,10"
                     Width="150"
                     HorizontalAlignment="Center">
-                <Border.Effect>
-                    <DropShadowEffect ShadowDepth="1" 
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" 
                                           BlurRadius="4"
                                           Opacity="0.5"
                                           Direction="270"/>
-                </Border.Effect>
-                <Button FontSize="20"
+                    </Border.Effect>
+                    <Button FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
                         Height="auto" 
                         FontWeight="Normal"
                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="CloseBtn_Click">
-                    CLOSE
-                </Button>
-            </Border>
+                        CLOSE
+                    </Button>
+                </Border>
+            </Grid>
         </Grid>
-    </Grid>
+    </Border>
 </Window>

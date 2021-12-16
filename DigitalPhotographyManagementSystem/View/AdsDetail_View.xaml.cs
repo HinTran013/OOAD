@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DigitalPhotographyManagementSystem.UserControls.Marketing;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +21,26 @@ namespace DigitalPhotographyManagementSystem.View
     /// </summary>
     public partial class AdsDetail_View : Window
     {
-        public AdsDetail_View()
+        private AdCampaignPrint adCampaign;
+        public AdsDetail_View(AdCampaignPrint adcampaign)
         {
             InitializeComponent();
+            adCampaign = adcampaign;
+            CampaignNameTxt.Text = adCampaign.campaignName;
+            CampaignTypeTxt.Text = adCampaign.type;
+            DateEndTxt.Text = adCampaign.DateEnd;
+            DateStartTxt.Text = adCampaign.DateStart;
+            DescTxt.Text = adCampaign.desc;
         }
 
         private void CloseBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }

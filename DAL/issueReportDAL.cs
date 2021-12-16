@@ -28,10 +28,10 @@ namespace DAL
             {
                 {"title" , newReport.title },
                 {"date", newReport.date },
-                {"staffID", newReport.staffID },
                 {"issueType", newReport.issueType },
-                {"issueID", newReport.issueID },
                 {"description", newReport.description },
+                {"staffUsername", newReport.staffUsername },
+                {"isSolved", newReport.isSolved }
             };
 
                 collection.InsertOneAsync(newDoc);
@@ -59,7 +59,7 @@ namespace DAL
             try
             {
                 var collection = db.GetCollection<BsonDocument>("issueReports");
-                return collection.CountDocumentsAsync(x => ((bool)x["isSolved"]) == false).Result;
+                return collection.CountDocumentsAsync(x => (bool)x["isSolved"] == false).Result;
             }
             catch
             {
@@ -71,11 +71,38 @@ namespace DAL
             try
             {
                 var collection = db.GetCollection<BsonDocument>("issueReports");
-                return collection.CountDocumentsAsync(x => ((bool)x["isSolved"]) == true).Result;
+                return collection.CountDocumentsAsync(x => (bool)x["isSolved"] == true).Result;
             }
             catch
             {
                 return -1;
+            }
+        }
+        public List<issueReportDTO> GetAllIssueReports()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("issueReports");
+                var issueReports = new List<issueReportDTO>();
+                var list = collection.Find(new BsonDocument()).ToListAsync().Result;
+                foreach (BsonDocument item in list)
+                {
+                    issueReports.Add(new issueReportDTO
+                    (
+                        (string)item["title"],
+                        (string)item["date"],
+                        (string)item["issueType"],
+                        (string)item["description"],
+                        (string)item["staffUsername"],
+                         (bool)item["isSolved"],
+                        (ObjectId)item["_id"]
+                    ));
+                }
+                return issueReports;
+            }
+            catch
+            {
+                return null;
             }
         }
     }
