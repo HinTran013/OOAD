@@ -16,5 +16,9 @@ namespace BUS
         {
             return coupon.InsertNewCouponRecord(newCoupon);
         }
+        public static double CheckCouponWithCode(string str)
+        {
+            return coupon.CheckCouponWithCode(str);
+        }
     }
 }

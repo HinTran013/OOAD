@@ -37,7 +37,7 @@
                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black"
                             FontSize="23">
                     Customer's Information</Label>
-                
+
                 <Border CornerRadius="10" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
@@ -57,11 +57,10 @@
                              FontSize="14" 
                              VerticalAlignment="Center"/>
                 </Border>
-
-                <TextBlock x:Name="DateTimeTxt" 
+                <TextBlock x:Name="DateDueTxt" 
                             HorizontalAlignment="Right"
                             VerticalAlignment="Center"
-                            Margin="0,0,130,0"                       
+                            Margin="0,5,130,0"                       
                             FontSize="18"
                             FontWeight="Bold"
                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">
@@ -216,7 +215,7 @@
                                             BorderBrush="{x:Null}" 
                                             Height="auto" 
                                             FontWeight="DemiBold"
-                                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">
+                                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Click="CheckBtn_Click">
                                         Check
                                     </Button>
                                 </Border>
@@ -232,7 +231,8 @@
                                                     Opacity="0.5"
                                                     Direction="270"/>
                                 </Border.Effect>
-                                <TextBlock FontSize="18"
+                                <TextBlock x:Name="SumTxt"
+                                           FontSize="18"
                                            Foreground="White" 
                                            Background="Transparent"
                                            TextWrapping="Wrap"
@@ -262,15 +262,47 @@
                                 CornerRadius="10" 
                                 Background="White">
                             <ListView x:Name="listService" 
-                                    FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
-                                    FontSize="14" 
-                                    FontWeight="SemiBold">
+                                      FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" 
+                                      FontSize="15" 
+                                      FontWeight="SemiBold"
+                                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem" 
+                                            BasedOn="{StaticResource MaterialDesignGridViewItem}">
+                                        <Setter Property="HorizontalContentAlignment" 
+                                                Value="Center" />
+                                    </Style>
+                                </ListView.ItemContainerStyle>
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="No." Width="120" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
-                                        <GridViewColumn Header="Service" Width="200" DisplayMemberBinding="{Binding ServiceType}" ></GridViewColumn>
-                                        <GridViewColumn Header="Quantity" Width="120" DisplayMemberBinding="{Binding Quantity}" ></GridViewColumn>
-                                        <GridViewColumn Header="Total" Width="200" DisplayMemberBinding="{Binding Total}" ></GridViewColumn>
+                                        <GridViewColumn Header="No." Width="98" DisplayMemberBinding="{Binding No}" >
+                                            <GridViewColumn.HeaderTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding}" Margin="10,0,0,0"/>
+                                                </DataTemplate>
+                                            </GridViewColumn.HeaderTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Service" Width="200" DisplayMemberBinding="{Binding ServiceType}" >
+                                            <GridViewColumn.HeaderTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding}" Margin="45,0,0,0"/>
+                                                </DataTemplate>
+                                            </GridViewColumn.HeaderTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Quantity" Width="130" DisplayMemberBinding="{Binding Quantity}" >
+                                            <GridViewColumn.HeaderTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding}" Margin="5,0,0,0"/>
+                                                </DataTemplate>
+                                            </GridViewColumn.HeaderTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Total" Width="200" DisplayMemberBinding="{Binding totalStr}" >
+                                            <GridViewColumn.HeaderTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding}" Margin="55,0,0,0"/>
+                                                </DataTemplate>
+                                            </GridViewColumn.HeaderTemplate>
+                                        </GridViewColumn>
 
                                     </GridView>
                                 </ListView.View>
@@ -338,40 +370,18 @@
                                 BorderBrush="{x:Null}" 
                                 Height="auto" 
                                 FontWeight="Normal"
-                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="PayBtn_Click">
                             Pay
                         </Button>
                     </Border>
 
                     <Border CornerRadius="15" 
-                        Background="#8699DA"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Top"
-                        Width="140"
-                        Height="55" 
-                        Margin="35,0,0,0">
-                        <Border.Effect>
-                            <DropShadowEffect ShadowDepth="1" 
-                                          BlurRadius="4"
-                                          Opacity="0.5"
-                                          Direction="270"/>
-                        </Border.Effect>
-                        <Button FontSize="18"
-                            Foreground="White" Background="Transparent"
-                            BorderBrush="{x:Null}" 
-                            Height="auto" FontWeight="Normal"
-                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
-                            Print
-                        </Button>
-                    </Border>
-
-                    <Border CornerRadius="15" 
                             Background="#EA9769"
-                            HorizontalAlignment="Left"
+                            HorizontalAlignment="Right"
                             VerticalAlignment="Top"
                             Width="140"
                             Height="55"
-                            Margin="65,0,0,0">
+                            Margin="0,0,185,0">
                         <Border.Effect>
                             <DropShadowEffect ShadowDepth="1" 
                                           BlurRadius="4"

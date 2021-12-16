@@ -89,9 +89,9 @@
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem" 
-                                                   BasedOn="{StaticResource MaterialDesignGridViewItem}">
+                                   BasedOn="{StaticResource MaterialDesignGridViewItem}">
                                 <Setter Property="HorizontalContentAlignment" 
-                                                        Value="Stretch" />
+                                        Value="Stretch" />
                             </Style>
                         </ListView.ItemContainerStyle>
                         <ListView.View>
