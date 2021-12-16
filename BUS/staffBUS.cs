@@ -35,5 +35,10 @@ namespace BUS
         {
             return staff.UpdateStaffAccountByUsername(newStaff);
         }
+
+        public List<staffDTO> GetAllStaffs()
+        {
+            return staff.GetAllStaffs();
+        }
     }
 }

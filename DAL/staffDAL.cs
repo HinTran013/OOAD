@@ -148,5 +148,35 @@ namespace DAL
                 throw ex;
             }
         }
+
+        public List<staffDTO> GetAllStaffs()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("staffs");
+                var staffsDoc = collection.Find(_ => true).ToListAsync().Result;
+                List<staffDTO> staffs = new List<staffDTO>();
+                foreach (BsonDocument item in staffsDoc)
+                {
+                    staffs.Add(new staffDTO(
+                        (string)item["name"],
+                        null,
+                        (bool)item["gender"],
+                        (string)item["email"],
+                        (string)item["phoneNumber"],
+                        (int)item["salary"],
+                        (string)item["address"],
+                        (string)item["type"],
+                        (string)item["description"],
+                        (string)item["username"],
+                        (string)item["password"]));
+                }
+                return staffs;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }
