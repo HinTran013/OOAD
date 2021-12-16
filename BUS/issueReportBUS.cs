@@ -28,5 +28,9 @@ namespace BUS
         {
             return issue.CountAllSolvedIssues();
         }
+        public static List<issueReportDTO> GetAllIssueReports()
+        {
+            return issue.GetAllIssueReports();
+        }
     }
 }

@@ -60,9 +60,9 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
 
             listIdeas.ItemsSource = ideaPrints;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listIdeas.ItemsSource);
-            view.Filter = AdCampaginFilter;
+            view.Filter = IdeaFilter;
         }
-        private bool AdCampaginFilter(object item)
+        private bool IdeaFilter(object item)
         {
             if (String.IsNullOrEmpty(SearchTxtBox.Text))
             {

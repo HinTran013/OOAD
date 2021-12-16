@@ -55,7 +55,6 @@
     <Compile Include="ideaDTO.cs" />
     <Compile Include="invoiceDetailDTO.cs" />
     <Compile Include="invoiceDTO.cs" />
-    <Compile Include="issueDTO.cs" />
     <Compile Include="issueReportDTO.cs" />
     <Compile Include="paymentBillDTO.cs" />
     <Compile Include="photoDTO.cs" />

@@ -106,5 +106,10 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
                 invoice_View.ShowDialog();
             }
         }
+
+        private void SearchTxtBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
