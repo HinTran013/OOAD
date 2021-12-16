@@ -1,0 +1,43 @@
+﻿<Window x:Class="DigitalPhotographyManagementSystem.View.ListContainers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
+        mc:Ignorable="d"
+        Height="700" Width="1084" 
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        AllowsTransparency="True" Background="{x:Null}">
+    <Border Background="White" CornerRadius="10" Margin="5">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="5" ShadowDepth="1" RenderingBias="Quality"/>
+        </Border.Effect>
+        <StackPanel Margin="4">
+            <DockPanel x:Name="MainContent" Height="600" Margin="5,5,5,0">
+                
+            </DockPanel>
+            <Border CornerRadius="15" 
+                    Background="#EA9769"
+                    Margin="0,10,0,0"
+                    Height="60"
+                    Width="170">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                </Border.Effect>
+                <Button FontSize="20"
+                        Foreground="White" Background="Transparent"
+                        BorderBrush="{x:Null}" 
+                        Height="60" 
+                        FontWeight="Normal"
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="Button_Click">
+                    EXIT
+                </Button>
+            </Border>
+        </StackPanel>
+    </Border>
+</Window>

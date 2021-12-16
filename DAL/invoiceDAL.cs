@@ -65,7 +65,7 @@ namespace DAL
                 return -1;
             }
         }
-        //only serve the purpose of loading item in printphoto.xaml, so the dtos are not fully loaded
+        //only serves the purpose of loading item in printphoto.xaml, so the dtos are not fully loaded
         public List<invoiceDTO> GetAllUnprintedInvoices()
         {
             try

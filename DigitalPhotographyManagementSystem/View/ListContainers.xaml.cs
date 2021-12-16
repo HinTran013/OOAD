@@ -12,33 +12,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-using DTO;
-using DAL;
-
 namespace DigitalPhotographyManagementSystem.View
 {
     /// <summary>
-    /// Interaction logic for AdsList.xaml
+    /// Interaction logic for ListContainers.xaml
     /// </summary>
-    public partial class AdsList : Window
+    public partial class ListContainers : Window
     {
-        
-        public AdsList()
+
+        public ListContainers(UserControl UC)
         {
             InitializeComponent();
-
-            
+            MainContent.Children.Add(UC);          
+            DockPanel.SetDock(UC, Dock.Bottom);
         }
 
-        private void ExitBtn_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Close();
-        }
-
-        private void DetailBtn_Click(object sender, RoutedEventArgs e)
-        {
-            AdsDetail_View detail = new AdsDetail_View();
-            detail.ShowDialog();
+            this.Close();
         }
     }
 }

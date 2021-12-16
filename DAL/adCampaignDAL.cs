@@ -30,6 +30,7 @@ namespace DAL
                 {"dateStart", newAdCampaign.dateStart },
                 {"dateEnd", newAdCampaign.dateEnd },
                 {"type", newAdCampaign.type },
+                {"description", newAdCampaign.description },
                 {"staffID", newAdCampaign.staffUsername }
             };
 
@@ -51,6 +52,33 @@ namespace DAL
             catch
             {
                 return -1;
+            }
+        }
+        public List<adCampaignDTO> GetAllAdCampaigns()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("adCampaigns");
+                var adCampaigns = new List<adCampaignDTO>();
+                var list = collection.Find(new BsonDocument()).ToListAsync().Result;
+                foreach (BsonDocument item in list)
+                {
+                    adCampaigns.Add(new adCampaignDTO
+                    (
+                        (string)item["campaignName"],
+                        (string)item["dateStart"],
+                        (string)item["dateEnd"],
+                        (string)item["type"],
+                        (string)item["staffID"],
+                        (string)item["description"],
+                        (ObjectId)item["_id"]
+                    ));
+                }
+                return adCampaigns;
+            }
+            catch
+            {
+                return null;
             }
         }
     }

@@ -63,7 +63,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
         {
             if (CheckInput() == true)
             {
-                adCampaignDTO adCampaign = new adCampaignDTO(AdsCampNameTxt.Text, ((DateTime)StartDate.SelectedDate).ToString("dd/MM/yyyy"), ((DateTime)EndDate.SelectedDate).ToString("dd/MM/yyyy"), AdsCampTypeCbb.SelectedValue.ToString(), Account.username);
+                adCampaignDTO adCampaign = new adCampaignDTO(AdsCampNameTxt.Text, ((DateTime)StartDate.SelectedDate).ToString("dd/MM/yyyy"), ((DateTime)EndDate.SelectedDate).ToString("dd/MM/yyyy"), AdsCampTypeCbb.SelectedValue.ToString(), Account.username, DescTxt.Text);
                 if (adCampaignBUS.AddNewAdCampaign(adCampaign))
                 {
                     MsgBox.Show("Campaign successfully submitted!", MessageBoxTyp.Information);

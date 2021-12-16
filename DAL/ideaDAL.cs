@@ -52,5 +52,30 @@ namespace DAL
                 return -1;
             }
         }
+        public List<ideaDTO> GetAllIdeas()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("ideas");
+                var ideas = new List<ideaDTO>();
+                var list = collection.Find(new BsonDocument()).ToListAsync().Result;
+                foreach (BsonDocument item in list)
+                {
+                    ideas.Add(new ideaDTO
+                    (
+                        (string)item["ideaSubject"],
+                        (string)item["ideaDescription"],
+                        (string)item["ideaDate"],
+                        (string)item["staffID"],
+                        (ObjectId)item["_id"]
+                    ));
+                }
+                return ideas;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

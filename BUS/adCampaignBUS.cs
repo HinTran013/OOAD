@@ -20,6 +20,9 @@ namespace BUS
         {
             return adCampaign.CountAllCampaigns();
         }
-
+        public static List<adCampaignDTO> GetAllAdCampaigns()
+        {
+            return adCampaign.GetAllAdCampaigns();
+        }
     }
 }

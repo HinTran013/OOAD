@@ -15,7 +15,6 @@
             <RowDefinition Height="6*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
         <Grid Grid.Row="0">
             <Border CornerRadius="10" 
                         BorderThickness="2"

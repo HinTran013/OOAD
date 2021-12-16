@@ -41,12 +41,23 @@ namespace DigitalPhotographyManagementSystem.UserControls
             var SingleItems = this._context.SideMenu.Children.OfType<UserControlSingleItem>();
             foreach (var item in SingleItems)
             {
-                if (item == this._context.SideMenu.Children[0] && item.border.Margin.Right == 0)
+                if (item.border.Margin.Right == 0)
                 {
                     var storyBoard_rev = item.Resources["StoryboardChooseItem_Rev"] as Storyboard;
                     storyBoard_rev.Begin(item);
                 }
             }
+            var MenuDrawers = this._context.SideMenu.Children.OfType<UserControlMenuDrawer>();
+            foreach (var item in MenuDrawers)
+            {
+                if (item != this && item.border.Margin.Right == 0)
+                {
+                    var storyBoard = item.Resources["StoryboardDrawingMenu_Rev"] as Storyboard;
+                    item.ExpanderMenu.IsExpanded = false;
+                    storyBoard.Begin(item);
+                }
+            }
+
 
             _context.SwitchScreen(((TextBlock)sender).Tag);
             switch(ExpanderMenu.Header.ToString().Replace(" ", ""))
@@ -74,6 +85,9 @@ namespace DigitalPhotographyManagementSystem.UserControls
         private void ListViewItemMenu_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             _context.SwitchScreen(((ItemMenu)((ListBoxItem)sender).DataContext).Screen);
+
+
+
             switch (ExpanderMenu.Header.ToString().Replace(" ", ""))
             {
                 case "ACCOUNTINGDEPT":

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\new OOAD\OOAD\DigitalPhotographyManagementSystem\obj\Debug\
+D:\GitHubServer\OOAD\DigitalPhotographyManagementSystem\obj\Debug\
 DigitalPhotographyManagementSystem
 none
 false
 DEBUG;TRACE
-D:\new OOAD\OOAD\DigitalPhotographyManagementSystem\App.xaml
-26-357152465
-301321390354
-359648171
-153-601338175
-UserControls\Account Information\AccountInformation.xaml;UserControls\Accounting\CalculateBills.xaml;UserControls\Accounting\ReportPrices.xaml;UserControls\AdminOnly\CreateAccount.xaml;UserControls\AdminOnly\ListAccounts.xaml;UserControls\AdminOnly\ListOfPriceChanges.xaml;UserControls\DashboardHome.xaml;UserControls\Marketing\AdCampaign.xaml;UserControls\Marketing\CreateCoupon.xaml;UserControls\Marketing\IdeaProposing.xaml;UserControls\Marketing\PrintPhoto.xaml;UserControls\Technical\InvoiceDetail.xaml;UserControls\Technical\ListOfInvoices.xaml;UserControls\Transaction\InvoiceCreating.xaml;UserControls\Transaction\IssuesReport.xaml;UserControls\Transaction\PhotoDelivery.xaml;UserControls\UserControlMenuDrawer.xaml;UserControls\UserControlSingleItem.xaml;View\AboutBox.xaml;View\AdsDetail_View.xaml;View\AdsList.xaml;View\DashboardMain.xaml;View\Invoice_View.xaml;View\LoginWindow.xaml;View\MsgBox.xaml;View\PaymentBill_View.xaml;
+D:\GitHubServer\OOAD\DigitalPhotographyManagementSystem\App.xaml
+31-1267535331
+302108091888
+401656971480
+153-833419857
+UserControls\Account Information\AccountInformation.xaml;UserControls\Accounting\CalculateBills.xaml;UserControls\Accounting\ReportPrices.xaml;UserControls\AdminOnly\CreateAccount.xaml;UserControls\AdminOnly\ListAccounts.xaml;UserControls\AdminOnly\ListInvoices.xaml;UserControls\AdminOnly\ListOfPriceChanges.xaml;UserControls\DashboardHome.xaml;UserControls\Marketing\AdCampaign.xaml;UserControls\Marketing\CreateCoupon.xaml;UserControls\Marketing\IdeaProposing.xaml;UserControls\Marketing\ListAdsCampaign.xaml;UserControls\Marketing\ListIdea.xaml;UserControls\Marketing\PrintPhoto.xaml;UserControls\Technical\InvoiceDetail.xaml;UserControls\Technical\ListOfInvoices.xaml;UserControls\Transaction\InvoiceCreating.xaml;UserControls\Transaction\IssuesReport.xaml;UserControls\Transaction\ListIssues.xaml;UserControls\Transaction\PhotoDelivery.xaml;UserControls\UserControlMenuDrawer.xaml;UserControls\UserControlSingleItem.xaml;View\AboutBox.xaml;View\AdsDetail_View.xaml;View\DashboardMain.xaml;View\IdeaDetail_View.xaml;View\Invoice_View.xaml;View\ListContainers.xaml;View\LoginWindow.xaml;View\MsgBox.xaml;View\PaymentBill_View.xaml;
 
 True
 
