@@ -33,7 +33,6 @@ namespace DigitalPhotographyManagementSystem.View
         {
             InitializeComponent();
             paymentBillDTO paymentBill = paymentBillBUS.GetPaymentBillFromID(objectId);
-            DateTimeTxt.Text = paymentBill.createDate;
             CustomerNameTxt.Text = "Customer: " + paymentBill.customerName;
             paymentBillIDTxt.Text = paymentBill.objectId.ToString().Substring(paymentBill.objectId.ToString().Length - 5);
             AddressTxt.Text = "Address: " + paymentBill.customerAddress;

@@ -43,9 +43,9 @@ namespace DAL
                     {"customerRequestDetail", newPaymentBill.customerRequestDetail },
                     {"staffUsername", newPaymentBill.staffUsername },
                     {"state", newPaymentBill.state },
-                    {"date", newPaymentBill.createDate },
-                    {"date", newPaymentBill.dueDate },
+                    {"dueDate", newPaymentBill.dueDate },
                     {"billDetail", billDetails},
+                    {"couponDiscount", newPaymentBill.couponDiscount },
                     {"totalMoney", newPaymentBill.totalMoney }
                 };
 
@@ -82,9 +82,9 @@ namespace DAL
                     (string)inv["customerRequestDetail"],
                     (string)inv["staffUsername"],
                     (string)inv["state"],
-                    (string)inv["createDate"],
                     (string)inv["dueDate"],
                     billdetails,
+                    (double)inv["couponDiscount"],
                     (ObjectId)inv["_id"]
                 );
 

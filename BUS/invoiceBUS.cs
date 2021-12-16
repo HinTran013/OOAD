@@ -25,6 +25,10 @@ namespace BUS
         {
             return invoice.GetAllUnprintedInvoices();
         }
+        public static List<invoiceDTO> GetAllPrintedInvoices()
+        {
+            return invoice.GetAllPrintedInvoices();
+        }
         public static long GetNumServicesFromID(ObjectId objectId)
         {
             return invoice.GetNumServicesFromID(objectId);

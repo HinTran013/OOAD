@@ -42,5 +42,20 @@ namespace DAL
                 return false;
             }
         }
+
+        public double CheckCouponWithCode(string str)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("coupons");
+                var coupon = collection.Find(x => (string)x["couponCode"] == str).SingleAsync().Result;
+
+                return coupon["couponPercent"].ToDouble();
+            }
+            catch
+            {
+                return -1.0;
+            }
+        }
     }
 }
