@@ -1,7 +1,10 @@
 ﻿using BUS;
+using DigitalPhotographyManagementSystem.UserControls.Accounting;
+using DigitalPhotographyManagementSystem.UserControls.AdminOnly;
 using DigitalPhotographyManagementSystem.UserControls.Marketing;
 using DigitalPhotographyManagementSystem.UserControls.Transaction;
 using DigitalPhotographyManagementSystem.View;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,13 +32,8 @@ namespace DigitalPhotographyManagementSystem.UserControls
             InitializeComponent();
             AdsTxt.Text = adCampaignBUS.CountAllCampaigns().ToString();
             IdeasTxt.Text = ideaBUS.CountAllIdeas().ToString();
-            IssuesTxt.Text = issueReportBUS.CountAllIssueReport().ToString();
-            InvoicesTxt.Text = invoiceBUS.CountAllInvoices().ToString();
-        }
-
-        private void RevenueBD_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            //RevenueTxt.Text += "000";
+            IssuesTxt.Text = issueReportBUS.CountAllUnsolvedIssues().ToString();
+            InvoicesTxt.Text = invoiceBUS.CountAllIncompleteInvoices().ToString();
         }
 
         private void AdsBD_MouseDown(object sender, MouseButtonEventArgs e)
@@ -54,13 +52,29 @@ namespace DigitalPhotographyManagementSystem.UserControls
 
         private void InvoicesBD_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            ListInvoices listInvoices = new ListInvoices();
+            ListContainers listContainers = new ListContainers(listInvoices);
+            listContainers.ShowDialog();
         }
 
         private void IssuesBD_MouseDown(object sender, MouseButtonEventArgs e)
         {
             ListIssues listIssues = new ListIssues();
             ListContainers listContainers = new ListContainers(listIssues);
+            listContainers.ShowDialog();
+        }
+
+        private void RevenueBD_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ManagePaymentBill listPaymentBill = new ManagePaymentBill();
+            ListContainers listContainers = new ListContainers(listPaymentBill);
+            listContainers.ShowDialog();
+        }
+
+        private void ExpenBD_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ListFund listFund = new ListFund();
+            ListContainers listContainers = new ListContainers(listFund);
             listContainers.ShowDialog();
         }
     }

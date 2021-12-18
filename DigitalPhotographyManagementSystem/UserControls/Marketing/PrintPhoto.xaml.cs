@@ -41,6 +41,7 @@ namespace DigitalPhotographyManagementSystem.UserControls
         public string StaffID { get; set; }
         public long Services { get; set; }
         public int TotalMoney { get; set; }
+        public string State { get; set; }
     }
     public partial class PrintPhoto : System.Windows.Controls.UserControl
     {
@@ -89,6 +90,8 @@ namespace DigitalPhotographyManagementSystem.UserControls
                 if (cbbSearchBy.SelectedIndex == 1)
                     return (item as InvoicePrint).customerName.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
                 if (cbbSearchBy.SelectedIndex == 2)
+                    return (item as InvoicePrint).Date.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                if (cbbSearchBy.SelectedIndex == 3)
                     return (item as InvoicePrint).StaffID.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
                 else
                     return true;

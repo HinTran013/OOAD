@@ -16,10 +16,6 @@ namespace BUS
         {
             return issue.InserNewIssueReportRecord(newIssue);
         }
-        public static long CountAllIssueReport()
-        {
-            return issue.CountAllIssueReport();
-        }
         public static long CountAllUnsolvedIssues()
         {
             return issue.CountAllUnsolvedIssues();

@@ -40,5 +40,30 @@ namespace DAL
                 return false;
             }
         }
+        public List<fundBillDTO> GetAllFundBills()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("fundBills");
+                var fundBills = new List<fundBillDTO>();
+                var list = collection.Find(new BsonDocument()).ToListAsync().Result;
+                foreach (BsonDocument item in list)
+                {
+                    fundBills.Add(new fundBillDTO
+                    (
+                        (string)item["date"],
+                        (double)item["totalMoney"],
+                        (string)item["staffUsername"],
+                        (ObjectId)item["_idFromInvoice"],
+                        (ObjectId)item["_id"]
+                    ));
+                }
+                return fundBills;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

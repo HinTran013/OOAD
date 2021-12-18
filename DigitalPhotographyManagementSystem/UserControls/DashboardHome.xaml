@@ -12,6 +12,166 @@
              Height="1013" Width="1084"
              Background="White"
              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">
+    <UserControl.Resources>
+        <Storyboard x:Key="StoryboardRevenue">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="RevenueBD">
+                <EasingColorKeyFrame KeyTime="0:0:0" Value="ForestGreen"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.25" Value="LimeGreen"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="RevenueBD">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0.25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="StoryboardAds">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="AdsBD">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF0477BF"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.25" Value="CornflowerBlue"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="AdsBD">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="StoryboardIdea">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="IdeasBD">
+                <EasingColorKeyFrame KeyTime="0" Value="DarkCyan"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.25" Value="#FF22CECE"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="IdeasBD">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="StoryboardExp">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="ExpenBD">
+                <EasingColorKeyFrame KeyTime="0" Value="#FFF96D16"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.25" Value="Orange"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="ExpenBD">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="StoryboardIssue">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="IssuesBD">
+                <EasingColorKeyFrame KeyTime="0" Value="#FFF23005"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.25" Value="#FFF27405"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="IssuesBD">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="StoryboardInvoice">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="InvoicesBD">
+                <EasingColorKeyFrame KeyTime="0" Value="#FFF2B705"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.25" Value="#FFEBDC55"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="InvoicesBD">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="StoryboardAds_Rev">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="AdsBD">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF0477BF"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.25" Value="CornflowerBlue"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="AdsBD">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="StoryboardIdea_Rev">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="IdeasBD">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF22CECE"/>
+                <SplineColorKeyFrame KeyTime="0:0:0.25" Value="DarkCyan"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="IdeasBD">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.25" Value="0.25"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="StoryboardIssue_Rev">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="IssuesBD">
+                <SplineColorKeyFrame KeyTime="0" Value="#FFF27405"/>
+                <SplineColorKeyFrame KeyTime="0:0:0.25" Value="#FFF23005"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="IssuesBD">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.25" Value="0.25"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="StoryboardInvoice_Rev">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="InvoicesBD">
+                <SplineColorKeyFrame KeyTime="0" Value="#FFEBDC55"/>
+                <SplineColorKeyFrame KeyTime="0:0:0.25" Value="#FFF2B705"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="InvoicesBD">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.25" Value="0.25"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="StoryboardRevenue_Rev">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="RevenueBD">
+                <SplineColorKeyFrame KeyTime="0" Value="LimeGreen"/>
+                <SplineColorKeyFrame KeyTime="0:0:0.25" Value="ForestGreen"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="RevenueBD">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.25" Value="0.25"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="StoryboardExp_Rev">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="ExpenBD">
+                <SplineColorKeyFrame KeyTime="0" Value="Orange"/>
+                <SplineColorKeyFrame KeyTime="0:0:0.25" Value="#FFF96D16"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="ExpenBD">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.25" Value="0.25"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="AdsBD">
+            <BeginStoryboard x:Name="StoryboardAds_BeginStoryboard" Storyboard="{StaticResource StoryboardAds}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="AdsBD">
+            <BeginStoryboard x:Name="StoryboardAds_Rev_BeginStoryboard" Storyboard="{StaticResource StoryboardAds_Rev}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="IdeasBD">
+            <BeginStoryboard x:Name="StoryboardIdea_BeginStoryboard" Storyboard="{StaticResource StoryboardIdea}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="IdeasBD">
+            <BeginStoryboard x:Name="StoryboardIdea_Rev_BeginStoryboard" Storyboard="{StaticResource StoryboardIdea_Rev}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="IssuesBD">
+            <BeginStoryboard x:Name="StoryboardIssue_BeginStoryboard" Storyboard="{StaticResource StoryboardIssue}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="IssuesBD">
+            <BeginStoryboard x:Name="StoryboardIssue_Rev_BeginStoryboard" Storyboard="{StaticResource StoryboardIssue_Rev}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="InvoicesBD">
+            <BeginStoryboard x:Name="StoryboardInvoice_BeginStoryboard" Storyboard="{StaticResource StoryboardInvoice}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="InvoicesBD">
+            <BeginStoryboard x:Name="StoryboardInvoice_Rev_BeginStoryboard" Storyboard="{StaticResource StoryboardInvoice_Rev}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="ExpenBD">
+            <BeginStoryboard x:Name="StoryboardExp_BeginStoryboard" Storyboard="{StaticResource StoryboardExp}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="ExpenBD">
+            <BeginStoryboard x:Name="StoryboardExp_Rev_BeginStoryboard" Storyboard="{StaticResource StoryboardExp_Rev}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="RevenueBD">
+            <BeginStoryboard x:Name="StoryboardRevenue_BeginStoryboard" Storyboard="{StaticResource StoryboardRevenue}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="RevenueBD">
+            <BeginStoryboard x:Name="StoryboardRevenue_Rev_BeginStoryboard" Storyboard="{StaticResource StoryboardRevenue_Rev}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
     <UserControl.DataContext>
         <view:ChartViewModel/>
         <!-- mark -->
@@ -36,7 +196,13 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Border x:Name="RevenueBD" Grid.Row="0" Grid.Column="0" Margin="10" CornerRadius="10" Background="#559B2D" MouseLeftButtonDown="RevenueBD_MouseLeftButtonDown">
+            <Border x:Name="RevenueBD" Grid.Row="0" Grid.Column="0" Cursor="Hand" Margin="10" CornerRadius="10" MouseDown="RevenueBD_MouseDown">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="ForestGreen" Offset="0.25"/>
+                        <GradientStop Color="ForestGreen" Offset="0.75"/>
+                    </LinearGradientBrush>
+                </Border.Background>
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="5"/>
                 </Border.Effect>
@@ -65,29 +231,11 @@
                     <DropShadowEffect ShadowDepth="1" BlurRadius="5"/>
                 </Border.Effect>
                 <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop x:Name="GradientStop1" Color="#A2D2FF" Offset="0.7" />
-                        <GradientStop x:Name="GradientStop2" Color="#A2D2FF" Offset="0.25" />
+                    <LinearGradientBrush>
+                        <GradientStop x:Name="GradientStop1" Color="#0477BF" Offset="0.25" />
+                        <GradientStop x:Name="GradientStop2" Color="#0477BF" Offset="0.75" />
                     </LinearGradientBrush>
                 </Border.Background>
-                <Border.Triggers>
-                    <EventTrigger RoutedEvent="Border.MouseEnter">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation Storyboard.TargetName="GradientStop1" Storyboard.TargetProperty="Offset" From="0.0" To="1.0" Duration="0:0:0.25"/>
-                                <ColorAnimation Storyboard.TargetName="GradientStop2" Storyboard.TargetProperty="Color" To="#98BAE7" Duration="0:0:0.25"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                    <EventTrigger RoutedEvent="Border.MouseLeave">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation Storyboard.TargetName="GradientStop1" Storyboard.TargetProperty="Offset" From="1.0" To="0.0" Duration="0:0:0.25"/>
-                                <ColorAnimation Storyboard.TargetName="GradientStop2" Storyboard.TargetProperty="Color" To="#A2D2FF" Duration="0:0:0.25"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                </Border.Triggers>
                 <StackPanel Margin="15,15,20,15" 
                             FlowDirection="LeftToRight" 
                             Orientation="Horizontal">
@@ -101,11 +249,17 @@
                         <Viewbox Margin="10,0,0,0" DockPanel.Dock="Top" Height="60" HorizontalAlignment="Left">
                             <TextBlock x:Name="AdsTxt" Text="100" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" TextAlignment="Center" Foreground="White"/>
                         </Viewbox>
-                        <TextBlock Text="Campaign(s) " DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0" Foreground="White"/>
+                        <TextBlock Text="Ad Campaign(s) launched" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0" Foreground="White"/>
                     </DockPanel>
                 </StackPanel>
             </Border>
-            <Border x:Name="IdeasBD" Grid.Row="0" Grid.Column="2" Margin="10" CornerRadius="10" Background="DarkCyan" MouseDown="IdeasBD_MouseDown" Cursor="Hand">
+            <Border x:Name="IdeasBD" Grid.Row="0" Grid.Column="2" Margin="10" CornerRadius="10" MouseDown="IdeasBD_MouseDown" Cursor="Hand">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="DarkCyan" Offset="0.25"/>
+                        <GradientStop Color="DarkCyan" Offset="0.75"/>
+                    </LinearGradientBrush>
+                </Border.Background>
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="5"/>
                 </Border.Effect>
@@ -124,7 +278,13 @@
                     </DockPanel>
                 </StackPanel>
             </Border>
-            <Border x:Name="ExpenBD" Grid.Row="1" Grid.Column="0" Margin="10" CornerRadius="10" Background="#FFF96D16">
+            <Border x:Name="ExpenBD" Grid.Row="1" Grid.Column="0" Cursor="Hand" Margin="10" CornerRadius="10" MouseDown="ExpenBD_MouseDown">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#FFF96D16" Offset="0.25"/>
+                        <GradientStop Color="#FFF96D16" Offset="0.75"/>
+                    </LinearGradientBrush>
+                </Border.Background>
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="5"/>
                 </Border.Effect>
@@ -143,7 +303,13 @@
                     </DockPanel>
                 </StackPanel>
             </Border>
-            <Border x:Name="IssuesBD" Grid.Row="1" Grid.Column="1" Margin="10" CornerRadius="10" Background="OrangeRed" Cursor="Hand" MouseDown="IssuesBD_MouseDown">
+            <Border x:Name="IssuesBD" Grid.Row="1" Grid.Column="1" Margin="10" CornerRadius="10" Cursor="Hand" MouseDown="IssuesBD_MouseDown">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#F23005" Offset="0.25"/>
+                        <GradientStop Color="#F23005" Offset="0.75"/>
+                    </LinearGradientBrush>
+                </Border.Background>
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="5"/>
                 </Border.Effect>
@@ -162,7 +328,13 @@
                     </DockPanel>
                 </StackPanel>
             </Border>
-            <Border x:Name="InvoicesBD" Grid.Row="1" Grid.Column="2" Margin="10" CornerRadius="10" Background="DarkGoldenrod" Cursor="Hand" MouseDown="InvoicesBD_MouseDown">
+            <Border x:Name="InvoicesBD" Grid.Row="1" Grid.Column="2" Margin="10" CornerRadius="10" Cursor="Hand" MouseDown="InvoicesBD_MouseDown">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#F2B705" Offset="0.25"/>
+                        <GradientStop Color="#F2B705" Offset="0.75"/>
+                    </LinearGradientBrush>
+                </Border.Background>
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" BlurRadius="5"/>
                 </Border.Effect>
@@ -196,14 +368,14 @@
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
                 </Border.Effect>
-            <lvc:CartesianChart Name="RevExpChart" 
+                <lvc:CartesianChart Name="RevExpChart" 
                             Series="{Binding RevExpSeries}" 
                             XAxes="{Binding XAxes}"
                             YAxes="{Binding YAxes}" 
                             AnimationsSpeed="00:00:00.500"
                             EasingFunction="{Binding Source={x:Static lvcore:EasingFunctions.BounceOut}}"
                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Foreground="White" LegendTextBrush="White" ZoomMode="X">
-            </lvc:CartesianChart>
+                </lvc:CartesianChart>
             </Border>
         </Grid>
         <Grid Grid.Row="2">
@@ -238,7 +410,7 @@
                                FontSize="20"
                                Margin="10,5"/>
                 </Border>
-                
+
 
                 <lvc:PieChart x:Name="IssueChart" 
                               Series="{Binding IssueSeries}" 
@@ -248,20 +420,24 @@
 
             </Grid>
             <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="419*"/>
+                    <ColumnDefinition Width="123*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.OpacityMask>
                     <VisualBrush Visual="{Binding ElementName=BorderG3}"/>
                 </Grid.OpacityMask>
-                <Border x:Name="BorderG3" Grid.Column="0" CornerRadius="10" Background="White" Margin="30,0" >
+                <Border x:Name="BorderG3" Grid.Column="0" CornerRadius="10" Background="White" Margin="30,0" Grid.ColumnSpan="2" >
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="5" 
                                           ShadowDepth="1"
                                           Direction="270"/>
                     </Border.Effect>
                 </Border>
-                <Border Background="DarkGoldenrod" 
+                <Border Background="#F2B705" 
                         CornerRadius="10"
                         HorizontalAlignment="Center"
-                        VerticalAlignment="Top">
+                        VerticalAlignment="Top" Margin="179.11,0,56.01,0">
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
                     </Border.Effect>
@@ -273,13 +449,13 @@
                                FontSize="20"
                                Margin="10,5"/>
                 </Border>
-              
+
 
                 <lvc:PieChart x:Name="InvoiceChart" 
                               Series="{Binding InvoiceSeries}" 
                               InitialRotation="270"
                                     AnimationsSpeed="00:00:00.500"
-                                    FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Foreground="White" LegendTextBrush="White"  Margin="30,30,30,10"/>
+                                    FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Foreground="White" LegendTextBrush="White"  Margin="30,30,30,10" Grid.ColumnSpan="2"/>
             </Grid>
         </Grid>
     </Grid>

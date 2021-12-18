@@ -95,5 +95,49 @@ namespace DAL
                 return null;
             }
         }
+        public List<paymentBillDTO> GetAllPaymentBills()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("paymentBills");
+                var paymentBills = new List<paymentBillDTO>();
+                var list = collection.Find(new BsonDocument()).ToListAsync().Result;
+                foreach (BsonDocument item in list)
+                {
+                    paymentBills.Add(new paymentBillDTO
+                    (
+                        (string)item["customerName"],
+                        (string)item["customerAddress"],
+                        (string)item["customerPhoneNo"],
+                        (string)item["customerEmail"],
+                        (string)item["customerRequestDetail"],
+                        (string)item["staffUsername"],
+                        (string)item["state"],
+                        (string)item["date"],
+                        null,
+                        (double)item["couponDiscount"],
+                        (ObjectId)item["_id"]
+                    ));
+                }
+                return paymentBills;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public long GetNumServicesFromID(ObjectId objectId)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("paymentBills");
+                var inv = collection.Find(x => ((ObjectId)x["_id"]) == objectId).SingleAsync().Result;
+                return inv["billDetail"].AsBsonArray.Count();
+            }
+            catch
+            {
+                return -1;
+            }
+        }
     }
 }

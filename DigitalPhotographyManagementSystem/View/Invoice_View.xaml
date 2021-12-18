@@ -13,6 +13,7 @@
             <DropShadowEffect BlurRadius="5" ShadowDepth="1" RenderingBias="Quality"/>
         </Border.Effect>
         <Grid Margin="4">
+            <Border Height="120" MouseDown="Grid_MouseDown" Background="White" VerticalAlignment="Top"/>
             <StackPanel HorizontalAlignment="Right" Margin="10,8,35,10" VerticalAlignment="Top" Orientation="Horizontal">
                 <Button x:Name="PrintBtn"  Background="#FF8699DA" BorderBrush="{x:Null}" Foreground="White" Click="PrintBtn_Click" IsDefault="True">
                     <materialDesign:PackIcon Kind="Printer" Foreground="White"/>
@@ -28,7 +29,6 @@
                     <RowDefinition Height="400"/>
                     <RowDefinition Height="130"/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0"  MouseDown="Grid_MouseDown"/>
                 <DockPanel Margin="30,40,30,20" Grid.Row="0" LastChildFill="True">
                     <Image Source="/DigitalPhotographyManagementSystem;component/ImageSrc/logo.png" />
                     <Image Source="/DigitalPhotographyManagementSystem;component/ImageSrc/invoice.png" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="5"/>

@@ -109,15 +109,12 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}" CornerRadius="10">
-                                                        <TextBlock Text="No." HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock x:Name="TextBlock" Text="No." HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter Property="Foreground" Value="Black"/>
-                                                        </Trigger>
-                                                        <Trigger Property="IsMouseOver" Value="False">
-                                                            <Setter Property="Foreground" Value="DimGray"/>
+                                                            <Setter Property="Foreground" Value="Black" TargetName="TextBlock"/>
                                                         </Trigger>
                                                     </ControlTemplate.Triggers>
                                                 </ControlTemplate>
@@ -141,15 +138,12 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}">
-                                                        <TextBlock Text="Ads ID" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock x:Name="TextBlock" Text="Ads ID" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter Property="Foreground" Value="Black"/>
-                                                        </Trigger>
-                                                        <Trigger Property="IsMouseOver" Value="False">
-                                                            <Setter Property="Foreground" Value="DimGray"/>
+                                                            <Setter Property="Foreground" Value="Black" TargetName="TextBlock"/>
                                                         </Trigger>
                                                     </ControlTemplate.Triggers>
                                                 </ControlTemplate>
@@ -173,15 +167,12 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}">
-                                                        <TextBlock Text="Campaign's Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock x:Name="TextBlock" Text="Campaign's Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter Property="Foreground" Value="Black"/>
-                                                        </Trigger>
-                                                        <Trigger Property="IsMouseOver" Value="False">
-                                                            <Setter Property="Foreground" Value="DimGray"/>
+                                                            <Setter Property="Foreground" Value="Black" TargetName="TextBlock"/>
                                                         </Trigger>
                                                     </ControlTemplate.Triggers>
                                                 </ControlTemplate>
@@ -205,15 +196,12 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}">
-                                                        <TextBlock Text="Start Date" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock x:Name="TextBlock" Text="Start Date" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter Property="Foreground" Value="Black"/>
-                                                        </Trigger>
-                                                        <Trigger Property="IsMouseOver" Value="False">
-                                                            <Setter Property="Foreground" Value="DimGray"/>
+                                                            <Setter Property="Foreground" Value="Black" TargetName="TextBlock"/>
                                                         </Trigger>
                                                     </ControlTemplate.Triggers>
                                                 </ControlTemplate>
@@ -237,15 +225,12 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}">
-                                                        <TextBlock Text="End Date" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock x:Name="TextBlock" Text="End Date" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter Property="Foreground" Value="Black"/>
-                                                        </Trigger>
-                                                        <Trigger Property="IsMouseOver" Value="False">
-                                                            <Setter Property="Foreground" Value="DimGray"/>
+                                                            <Setter Property="Foreground" Value="Black" TargetName="TextBlock"/>
                                                         </Trigger>
                                                     </ControlTemplate.Triggers>
                                                 </ControlTemplate>
@@ -269,15 +254,12 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}">
-                                                        <TextBlock Text="Type" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock x:Name="TextBlock" Text="Type" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter Property="Foreground" Value="Black"/>
-                                                        </Trigger>
-                                                        <Trigger Property="IsMouseOver" Value="False">
-                                                            <Setter Property="Foreground" Value="DimGray"/>
+                                                            <Setter Property="Foreground" Value="Black" TargetName="TextBlock"/>
                                                         </Trigger>
                                                     </ControlTemplate.Triggers>
                                                 </ControlTemplate>
@@ -301,15 +283,12 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}" Height="40" CornerRadius="10">
-                                                        <TextBlock Text="Staff ID" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock x:Name="TextBlock" Text="Staff ID" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter Property="Foreground" Value="Black"/>
-                                                        </Trigger>
-                                                        <Trigger Property="IsMouseOver" Value="False">
-                                                            <Setter Property="Foreground" Value="DimGray"/>
+                                                            <Setter Property="Foreground" Value="Black" TargetName="TextBlock"/>
                                                         </Trigger>
                                                     </ControlTemplate.Triggers>
                                                 </ControlTemplate>
