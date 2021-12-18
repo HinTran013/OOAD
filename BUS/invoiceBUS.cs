@@ -17,9 +17,9 @@ namespace BUS
         {
             return invoice.InsertNewInvoiceRecord(newInvoice);
         }
-        public static long CountAllInvoices()
+        public static long CountAllIncompleteInvoices()
         {
-            return invoice.CountAllInvoices();
+            return invoice.CountAllIncompleteInvoices();
         }
         public static List<invoiceDTO> GetAllUnprintedInvoices()
         {
@@ -44,6 +44,10 @@ namespace BUS
         public static List<invoiceDTO> GetAllCreatedStateInvoices()
         {
             return invoice.GetAllCreatedInvoices();
+        }
+        public static List<invoiceDTO> GetAllInvoices()
+        {
+            return invoice.GetAllInvoices();
         }
     }
 }

@@ -42,18 +42,6 @@ namespace DAL
                 return false;
             }
         }
-        public long CountAllIssueReport()
-        {
-            try
-            {
-                var collection = db.GetCollection<BsonDocument>("issueReports");
-                return collection.CountDocumentsAsync(new BsonDocument()).Result;               
-            }
-            catch
-            {
-                return -1;
-            }
-        }
         public long CountAllUnsolvedIssues()
         {
             try

@@ -21,5 +21,13 @@ namespace BUS
         {
             return paymentBill.GetPaymentBillFromID(objectId);
         }
+        public static List<paymentBillDTO> GetAllPaymentBills()
+        {
+            return paymentBill.GetAllPaymentBills();
+        }
+        public static long GetNumServicesFromID(ObjectId objectId)
+        {
+            return paymentBill.GetNumServicesFromID(objectId);
+        }
     }
 }

@@ -194,15 +194,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ServiceClass\ChartViewModel.cs" />
-	  <Compile Include="UserControls\Account Information\AccountInformation.xaml.cs">
-		  <DependentUpon>AccountInformation.xaml</DependentUpon>
-	  </Compile>
+    <Compile Include="UserControls\Account Information\AccountInformation.xaml.cs">
+      <DependentUpon>AccountInformation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Accounting\CalculateBill.xaml.cs">
       <DependentUpon>CalculateBill.xaml</DependentUpon>
     </Compile>
-	  <Compile Include="UserControls\Accounting\ListPaymentBill.xaml.cs">
-		  <DependentUpon>ListPaymentBill.xaml</DependentUpon>
-	  </Compile>
+    <Compile Include="UserControls\Accounting\ListPaymentBill.xaml.cs">
+      <DependentUpon>ListPaymentBill.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Accounting\ReportPrices.xaml.cs">
       <DependentUpon>ReportPrices.xaml</DependentUpon>
     </Compile>
@@ -213,11 +213,17 @@
     <Compile Include="UserControls\AdminOnly\ListAccounts.xaml.cs">
       <DependentUpon>ListAccounts.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AdminOnly\ListFund.xaml.cs">
+      <DependentUpon>ListFund.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AdminOnly\ListInvoices.xaml.cs">
       <DependentUpon>ListInvoices.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminOnly\ListOfPriceChanges.xaml.cs">
       <DependentUpon>ListOfPriceChanges.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AdminOnly\ManagePaymentBill.xaml.cs">
+      <DependentUpon>ManagePaymentBill.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\DashboardHome.xaml.cs">
       <DependentUpon>DashboardHome.xaml</DependentUpon>
@@ -275,6 +281,9 @@
     <Compile Include="View\DashboardMain.xaml.cs">
       <DependentUpon>DashboardMain.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\FundBill_View.xaml.cs">
+      <DependentUpon>FundBill_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\IdeaDetail_View.xaml.cs">
       <DependentUpon>IdeaDetail_View.xaml</DependentUpon>
     </Compile>
@@ -300,10 +309,10 @@
     <Compile Include="View\PaymentBill_View.xaml.cs">
       <DependentUpon>PaymentBill_View.xaml</DependentUpon>
     </Compile>
-	  <Page Include="UserControls\Account Information\AccountInformation.xaml">
-		  <SubType>Designer</SubType>
-		  <Generator>MSBuild:Compile</Generator>
-	  </Page>
+    <Page Include="UserControls\Account Information\AccountInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Accounting\CalculateBill.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -324,11 +333,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\AdminOnly\ListFund.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\AdminOnly\ListInvoices.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\AdminOnly\ListOfPriceChanges.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AdminOnly\ManagePaymentBill.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -401,6 +418,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DashboardMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FundBill_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -490,6 +511,8 @@
     <Content Include="Core\Compression\Snappy\lib\win\snappy64.dll" />
     <Content Include="Core\Compression\Zstandard\lib\win\libzstd.dll" />
     <Resource Include="ImageSrc\bill.png" />
+    <Resource Include="ImageSrc\printingPartner.png" />
+    <Resource Include="ImageSrc\fundBill.png" />
     <Content Include="mongocrypt.dll" />
     <Resource Include="ImageSrc\logo.png" />
     <Resource Include="ImageSrc\Error.png" />

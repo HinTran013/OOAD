@@ -13,6 +13,7 @@
             <DropShadowEffect BlurRadius="5" ShadowDepth="1" RenderingBias="Quality"/>
         </Border.Effect>
         <Grid Margin="4">
+            <Border Height="120" MouseDown="Grid_MouseDown" Background="White" VerticalAlignment="Top"/>
             <StackPanel HorizontalAlignment="Right" Margin="10,8,35,10" VerticalAlignment="Top" Orientation="Horizontal">
                 <Button x:Name="PrintBtn"  Background="#FF8699DA" BorderBrush="{x:Null}" Foreground="White" Click="PrintBtn_Click">
                     <materialDesign:PackIcon Kind="Printer" Foreground="White"/>
@@ -27,7 +28,6 @@
                     <RowDefinition Height="400"/>
                     <RowDefinition Height="200"/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0"  MouseDown="Grid_MouseDown"/>
                 <DockPanel Margin="30,40,30,20" Grid.Row="0" LastChildFill="True">
                     <Image Source="/DigitalPhotographyManagementSystem;component/ImageSrc/logo.png" />
                     <Image Source="/DigitalPhotographyManagementSystem;component/ImageSrc/bill.png" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="5"/>
@@ -46,7 +46,7 @@
                                 <TextBlock x:Name="DateTimeTxt" Text="04/12/2021" FontSize="12" Margin="5" FontWeight="DemiBold"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Invoice ID:" FontSize="12" Margin="5"/>
+                                <TextBlock Text="Bill ID:" FontSize="12" Margin="5"/>
                                 <TextBlock x:Name="paymentBillIDTxt" Text="0001" FontSize="12" Margin="5" FontWeight="DemiBold"/>
                             </StackPanel>
                         </StackPanel>
