@@ -61,7 +61,8 @@
                                     CornerRadius="5" 
                                     Margin="5">
                                 <ComboBox x:Name="SearchCbb"
-                                          IsEditable="True" 
+                                          IsEditable="False"
+                                          IsTextSearchEnabled="False"
                                           IsReadOnly="True"
                                           Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                           materialDesign:HintAssist.Hint="Search By"

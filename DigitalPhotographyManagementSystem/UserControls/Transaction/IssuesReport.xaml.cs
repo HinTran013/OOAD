@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BUS;
 using DTO;
+using DigitalPhotographyManagementSystem.View;
 
 namespace DigitalPhotographyManagementSystem.UserControls.Transaction
 {
@@ -23,13 +24,69 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
     public partial class IssuesReport : UserControl
     {
         DateTime timeNow;
+        staffDTO accountStaff;
 
-        public IssuesReport()
+        public IssuesReport(staffDTO staff)
         {
             InitializeComponent();
 
             timeNow = DateTime.Now;
-            DateTxt.Text = "Date: " + timeNow.ToString("dd/MM/yyyy");
+            DateTimeTxt.Text = "Date: " + timeNow.ToString("dd/MM/yyyy");
+            accountStaff = staff;
+
+        }
+        
+        private void ResetInputs()
+        {
+            NameTxt.Text = string.Empty;
+            TypeTxt.SelectedItem = null;
+            DescriptionTxt.Text = string.Empty;
+        }
+
+        private bool CheckInputs()
+        {
+            if (string.IsNullOrEmpty(NameTxt.Text))
+            {
+                MsgBox.Show("Please specify the name/title of the issue!", MessageBoxTyp.Error);
+                return false;
+            }
+            if(TypeTxt.SelectedItem == null)
+            {
+                MsgBox.Show("Please the type of the issue!", MessageBoxTyp.Error);
+                return false;
+            }
+            if(string.IsNullOrEmpty(DescriptionTxt.Text))
+            {
+                MsgBox.Show("Please specify description of the issue to be clear!", MessageBoxTyp.Error);
+                return false;
+            }
+
+            return true;
+        }
+
+        private void ReportBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(CheckInputs())
+            {
+                issueReportDTO report = new issueReportDTO(
+                    NameTxt.Text,
+                    timeNow.ToString("dd/MM/yyyy"),
+                    TypeTxt.Text.ToString(),
+                    DescriptionTxt.Text,
+                    accountStaff.username,
+                    false
+                    );
+
+                issueReportBUS.AddNewIssueReport(report);
+
+                MsgBox.Show("Issue has been reported successfully!",MessageBoxTyp.Information);
+                ResetInputs();
+            }
+        }
+
+        private void CancelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ResetInputs();
         }
     }
 }
