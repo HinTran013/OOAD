@@ -194,15 +194,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ServiceClass\ChartViewModel.cs" />
-	  <Compile Include="UserControls\Account Information\AccountInformation.xaml.cs">
-		  <DependentUpon>AccountInformation.xaml</DependentUpon>
-	  </Compile>
+    <Compile Include="UserControls\Account Information\AccountInformation.xaml.cs">
+      <DependentUpon>AccountInformation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Accounting\CalculateBill.xaml.cs">
       <DependentUpon>CalculateBill.xaml</DependentUpon>
     </Compile>
-	  <Compile Include="UserControls\Accounting\ListPaymentBill.xaml.cs">
-		  <DependentUpon>ListPaymentBill.xaml</DependentUpon>
-	  </Compile>
+    <Compile Include="UserControls\Accounting\ListPaymentBill.xaml.cs">
+      <DependentUpon>ListPaymentBill.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Accounting\ReportPrices.xaml.cs">
       <DependentUpon>ReportPrices.xaml</DependentUpon>
     </Compile>
@@ -218,6 +218,9 @@
     </Compile>
     <Compile Include="UserControls\AdminOnly\ListOfPriceChanges.xaml.cs">
       <DependentUpon>ListOfPriceChanges.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AdminOnly\UpdateAccountContainerWindow.xaml.cs">
+      <DependentUpon>UpdateAccountContainerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\DashboardHome.xaml.cs">
       <DependentUpon>DashboardHome.xaml</DependentUpon>
@@ -300,10 +303,10 @@
     <Compile Include="View\PaymentBill_View.xaml.cs">
       <DependentUpon>PaymentBill_View.xaml</DependentUpon>
     </Compile>
-	  <Page Include="UserControls\Account Information\AccountInformation.xaml">
-		  <SubType>Designer</SubType>
-		  <Generator>MSBuild:Compile</Generator>
-	  </Page>
+    <Page Include="UserControls\Account Information\AccountInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Accounting\CalculateBill.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -329,6 +332,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\AdminOnly\ListOfPriceChanges.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AdminOnly\UpdateAccountContainerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

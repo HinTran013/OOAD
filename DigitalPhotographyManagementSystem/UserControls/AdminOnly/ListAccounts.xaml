@@ -20,7 +20,7 @@
                 <Border Margin="5" 
                         CornerRadius="10" 
                         Background="White">
-                    <ListView Name="listInvoice" FontSize="15" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView Name="listAccount" FontSize="15" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Style.Triggers>
@@ -56,7 +56,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid Width="215" >
-                                                <TextBlock Text="{Binding invoiceID}" TextAlignment="Center"/>
+                                                <TextBlock Text="{Binding name}" TextAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -71,7 +71,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid Width="220" >
-                                                <TextBlock Text="{Binding customerName}" TextAlignment="Center"/>
+                                                <TextBlock Text="{Binding username}" TextAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -86,7 +86,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid Width="200" >
-                                                <TextBlock Text="{Binding Date}" TextAlignment="Center"/>
+                                                <TextBlock Text="{Binding department}" TextAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -101,7 +101,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid Width="150" >
-                                                <TextBlock Text="{Binding Date}" TextAlignment="Center"/>
+                                                <TextBlock Text="{Binding gender}" TextAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -116,7 +116,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <DockPanel HorizontalAlignment="Stretch" LastChildFill="True" Width="180">
-                                                <Button x:Name="updateAccountBtn" Width="107" Content="Change Information" Background="#8699DA" Margin="10,0,0,0" Foreground="White"/>
+                                                <Button x:Name="updateAccountBtn" Width="107" Content="Change Information" Background="#8699DA" Margin="10,0,0,0" Foreground="White" Click="updateAccountBtn_Click"/>
                                             </DockPanel>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>

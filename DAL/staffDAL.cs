@@ -173,9 +173,9 @@ namespace DAL
                 }
                 return staffs;
             }
-            catch
+            catch (Exception ex)
             {
-                return null;
+                throw ex;
             }
         }
     }

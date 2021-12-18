@@ -1,0 +1,20 @@
+﻿<Window x:Class="DigitalPhotographyManagementSystem.UserControls.AdminOnly.UpdateAccountContainerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.UserControls.AdminOnly" xmlns:DigitalPhotographyManagementSystem="clr-namespace:DigitalPhotographyManagementSystem.UserControls.Account_Information" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStyle="None"   
+        Title="UpdateAccountContainerWindow" Height="700" Width="1084"
+        AllowsTransparency="True"
+        Background="Transparent"
+        >
+    <Border CornerRadius="10,10,10,10" BorderThickness="1,1,1,1" BorderBrush="#c4c4c4" Background="White">
+        <StackPanel Name="myStack" Background="Transparent">
+            <Button x:Name="ShutdownBtn" HorizontalAlignment="Right" VerticalAlignment="Top" Style ="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="40" Height="40"  Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Margin="0,0,5,0" Click="ShutdownBtn_Click">
+                <materialDesign:PackIcon Kind="Shutdown" Width="30" Height="30"/>
+            </Button>
+        </StackPanel>
+    </Border>
+</Window>
