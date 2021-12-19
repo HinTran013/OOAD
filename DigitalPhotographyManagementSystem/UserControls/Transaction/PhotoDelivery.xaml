@@ -17,7 +17,7 @@
 
     <StackPanel>
 
-        <Grid Margin="60 50 60 0">
+        <Grid Margin="60 30 60 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="1*"/>
@@ -35,7 +35,10 @@
                        Text="21/12/2021">
             </TextBlock>
         </Grid>
-        <Border Margin="60 10 60 0" Height="450" CornerRadius="10" Background="#8699DA">
+        <Border Margin="60 10 60 0" 
+                Height="520" 
+                CornerRadius="10" 
+                Background="#8699DA">
             <Border.Effect>
                 <DropShadowEffect ShadowDepth="1" 
                                           BlurRadius="4"

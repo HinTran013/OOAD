@@ -40,6 +40,7 @@ namespace DigitalPhotographyManagementSystem.UserControls
         {
             InitializeComponent();
 
+            timeNow = DateTime.Now;
             DateTimeTxt.Text = timeNow.ToString("dd/MM/yyyy");
             accountStaff = staff;
         }
