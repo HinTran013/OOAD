@@ -31,5 +31,10 @@ namespace DigitalPhotographyManagementSystem.View
         {
             this.Close();
         }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

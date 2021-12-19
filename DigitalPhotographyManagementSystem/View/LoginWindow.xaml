@@ -107,8 +107,8 @@
                 <StackPanel VerticalAlignment="Center">
                     <Label Content="DIGITAL PHOTOGRAPHY MANAGEMENT SYSTEM" HorizontalAlignment="Center" FontSize="18" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black"/>
                     <Image Source="/ImageSrc/login_illustrate.jpg"></Image>
-                    <Label Content="KTS PHOTOGRAPHY" HorizontalAlignment="Center" FontSize="32" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Margin="0,-25,0,0"/>
-                    <Label Content="Only One Purpose, Your Satisfaction" HorizontalAlignment="Center" FontSize="20" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light"/>
+                    <Label Content="KTS PHOTOGRAPHY" HorizontalAlignment="Center" FontSize="35" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Margin="0,-25,0,0"/>
+                    <Label Content="Only One Purpose, Your Satisfaction" HorizontalAlignment="Center" FontSize="21" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" Margin="0,-15,0,0"/>
                 </StackPanel>
             </Grid>
 

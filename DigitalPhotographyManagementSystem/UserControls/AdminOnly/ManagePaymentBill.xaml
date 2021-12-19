@@ -107,7 +107,7 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}" CornerRadius="10">
-                                                        <TextBlock Name ="TextBlock"  Text="No." HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock Name ="TextBlock"  Text="No." HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="18" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
@@ -135,7 +135,7 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}">
-                                                        <TextBlock Name = "TextBlock" Text="Bill ID" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock Name = "TextBlock" Text="Bill ID" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="18" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
@@ -164,7 +164,7 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}">
-                                                        <TextBlock Name = "TextBlock" Text="Customer's Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock Name = "TextBlock" Text="Customer's Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="18" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
@@ -193,7 +193,7 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}">
-                                                        <TextBlock Name = "TextBlock" Text="Due Date" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock Name = "TextBlock" Text="Due Date" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="18" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
@@ -222,7 +222,7 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}">
-                                                        <TextBlock Name = "TextBlock" Text="Staff ID" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock Name = "TextBlock" Text="Staff ID" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="18" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
@@ -251,7 +251,7 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}">
-                                                        <TextBlock Name = "TextBlock" Text="Services" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock Name = "TextBlock" Text="Services" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="18" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
@@ -280,7 +280,7 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}" Height="40">
-                                                        <TextBlock Name = "TextBlock" Text="State" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock Name = "TextBlock" Text="State" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="18" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
@@ -308,7 +308,7 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}" Height="40" CornerRadius="10">
-                                                        <TextBlock Name = "TextBlock" Text="Coupon (%)" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock Name = "TextBlock" Text="Coupon (%)" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="18" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
@@ -336,7 +336,7 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}" Height="40" CornerRadius="10">
-                                                        <TextBlock Name = "TextBlock" Text="Total Money" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock Name = "TextBlock" Text="Total Money" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="18" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>

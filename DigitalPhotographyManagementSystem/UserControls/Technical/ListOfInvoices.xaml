@@ -6,67 +6,49 @@
              xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.UserControls.Technical"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"
-              
+             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"           
              Height="653" Width="1084"
              Background="White">
     <Grid>
         <StackPanel>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="7*"/>
-                    <ColumnDefinition Width="5*"/>
-                </Grid.ColumnDefinitions>
+            <Label Content="LIST OF UNSHOT INVOICES" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="0,0,0,9" FontSize="25"/>
+            <Border CornerRadius="10" Margin="30,0,30,15" Background="#8699DA">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" Opacity="0.5" ShadowDepth="1"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="54"/>
+                            <ColumnDefinition Width="696"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Grid.Column="0" Kind="Magnify" Height="60" Width="60" Foreground="#DDFFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,0,0,0"/>
+                        <TextBox    Background="White" FontSize="15" Grid.Column="1" Height="60"  
+                                Margin="5,5,0,5"
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                x:Name="SearchTxtBox" TextChanged="textBoxSearch_TextChanged"
+                                AcceptsReturn="False"
+                                materialDesign:HintAssist.Hint="Search"
+                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}"/>
+                        <Grid Grid.Column="2">
+                            <Border x:Name="bdSearch"  Background="White" CornerRadius="5" Margin="5" Cursor="Hand">
+                                <ComboBox x:Name="cbbSearchBy" IsReadOnly="True" Margin="2"
+                                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                        materialDesign:HintAssist.Hint="Search By"
+                                        FontSize="17"
+                                        SelectedIndex="0" Cursor="Hand" IsTextSearchEnabled="False" Background="White">
+                                    <ComboBoxItem Content="Invoice ID"/>
+                                    <ComboBoxItem Content="Customer's Name"/>
+                                    <ComboBoxItem Content="StaffID"/>
+                                </ComboBox>
+                            </Border>
 
-                <Grid Grid.Column="0">
-                    <Border 
-                            CornerRadius="10" 
-                            BorderThickness="2"
-                            BorderBrush="#789ADE"
-                            Margin="30,10,10,0">
-                        <TextBox 
-                                 x:Name="SearchTxtBox"
-                                 FontSize="15"
-                                 BorderThickness="0"
-                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                 materialDesign:HintAssist.Hint="Search"
-                                 FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                                 FontWeight="Normal"/>
-                    </Border>
+                        </Grid>
+                    </Grid>
+
                 </Grid>
-
-                <Grid Grid.Column="1">
-                    <Border Margin="5,10,0,0"
-                            Background="#8699DA"
-                            CornerRadius="10"
-                            Width="250"
-                            HorizontalAlignment="Left">
-                        <Border.Effect>
-                            <DropShadowEffect ShadowDepth="1" 
-                                          BlurRadius="4"
-                                          Opacity="0.5"
-                                          Direction="270"/>
-                        </Border.Effect>
-                        <ComboBox x:Name="cbbSearchBy"
-                                                IsEditable="True" IsReadOnly="True"
-                                                Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                                materialDesign:HintAssist.Hint="Search By"
-                                                Background="{x:Null}" FontSize="17"
-                                                SelectedIndex="0">
-                            <ComboBoxItem Content="Invoice ID"/>
-                            <ComboBoxItem Content="Customer's Name"/>
-                            <ComboBoxItem Content="StaffID"/>
-                        </ComboBox>
-                    </Border>
-                </Grid>
-            </Grid>
-
-            <Label Content="LIST OF UNSHOT INVOICE" 
-                   FontWeight="Bold" 
-                   HorizontalAlignment="Center" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold"
-                   FontSize="18" Margin="0,10,0,0"/>
-
+            </Border>
             <Border Margin="30,0,30,0" 
                     Height="460" 
                     CornerRadius="10" 
@@ -83,11 +65,37 @@
                     <ListView Name="listInvoice" FontSize="15" MouseDoubleClick="listInvoice_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
-                                <Style.Triggers>
-                                    <Trigger Property="Control.IsMouseOver" Value="True">
-                                        <Setter Property="Control.Background" Value="LightGray" />
-                                    </Trigger>
-                                </Style.Triggers>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListViewItem">
+                                            <Border CornerRadius="2" SnapsToDevicePixels="True" Height="42" 
+                                        BorderThickness="{TemplateBinding BorderThickness}" 
+                                        BorderBrush="{TemplateBinding BorderBrush}" 
+                                        Background="{TemplateBinding Background}">
+                                                <Border Name="InnerBorder" CornerRadius="1"   BorderThickness="1">
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition MaxHeight="15" />
+                                                            <RowDefinition />
+                                                        </Grid.RowDefinitions>
+                                                        <Rectangle Name="UpperHighlight" Visibility="Collapsed" Fill="#75FFFFFF" />
+                                                        <GridViewRowPresenter Grid.RowSpan="2"
+                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                    </Grid>
+                                                </Border>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="LightGray"/>
+                                                </Trigger>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter Property="Background" Value="DarkGray"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
                             </Style>
                         </ListView.ItemContainerStyle>
                         <ListView.View>
@@ -95,7 +103,21 @@
                                 <GridViewColumn Header="No." Width="50">
                                     <GridViewColumn.HeaderContainerStyle>
                                         <Style TargetType="{x:Type GridViewColumnHeader}">
-                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="GridViewColumnHeader">
+                                                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                                            <TextBlock Name ="TextBlock"  Text="No." HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="18" Foreground="DimGray">
+                                                            </TextBlock>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="TextBlock" Property="Foreground" Value="Black"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
                                         </Style>
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
@@ -109,7 +131,21 @@
                                 <GridViewColumn Header="Invoice ID" Width="120">
                                     <GridViewColumn.HeaderContainerStyle>
                                         <Style TargetType="{x:Type GridViewColumnHeader}">
-                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="GridViewColumnHeader">
+                                                        <Border Background="{TemplateBinding Background}">
+                                                            <TextBlock Name ="TextBlock"  Text="Invoice ID" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="18" Foreground="DimGray">
+                                                            </TextBlock>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="TextBlock" Property="Foreground" Value="Black"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
                                         </Style>
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
@@ -123,7 +159,21 @@
                                 <GridViewColumn Header="Customer's Name" Width="220">
                                     <GridViewColumn.HeaderContainerStyle>
                                         <Style TargetType="{x:Type GridViewColumnHeader}">
-                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="GridViewColumnHeader">
+                                                        <Border Background="{TemplateBinding Background}" Height="40">
+                                                            <TextBlock Name ="TextBlock"  Text="Customer's Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                            </TextBlock>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="TextBlock" Property="Foreground" Value="Black"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
                                         </Style>
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
@@ -137,7 +187,21 @@
                                 <GridViewColumn Header="Date" Width="120">
                                     <GridViewColumn.HeaderContainerStyle>
                                         <Style TargetType="{x:Type GridViewColumnHeader}">
-                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="GridViewColumnHeader">
+                                                        <Border Background="{TemplateBinding Background}">
+                                                            <TextBlock Name ="TextBlock"  Text="Date" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="18" Foreground="DimGray">
+                                                            </TextBlock>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="TextBlock" Property="Foreground" Value="Black"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
                                         </Style>
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
@@ -151,7 +215,21 @@
                                 <GridViewColumn Header="StaffID" Width="120">
                                     <GridViewColumn.HeaderContainerStyle>
                                         <Style TargetType="{x:Type GridViewColumnHeader}">
-                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="GridViewColumnHeader">
+                                                        <Border Background="{TemplateBinding Background}">
+                                                            <TextBlock Name ="TextBlock"  Text="Staff ID" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="18" Foreground="DimGray">
+                                                            </TextBlock>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="TextBlock" Property="Foreground" Value="Black"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
                                         </Style>
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
@@ -165,21 +243,49 @@
                                 <GridViewColumn Header="Services" Width="170">
                                     <GridViewColumn.HeaderContainerStyle>
                                         <Style TargetType="{x:Type GridViewColumnHeader}">
-                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="GridViewColumnHeader">
+                                                        <Border Background="{TemplateBinding Background}">
+                                                            <TextBlock Name ="TextBlock"  Text="Services" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="18" Foreground="DimGray">
+                                                            </TextBlock>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="TextBlock" Property="Foreground" Value="Black"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
                                         </Style>
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid Width="170" >
-                                                <TextBlock Text="{Binding Date}" TextAlignment="Center"/>
+                                                <TextBlock Text="{Binding Services}" TextAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn Header="Action" Width="225">
+                                <GridViewColumn Header="Action" Width="215">
                                     <GridViewColumn.HeaderContainerStyle>
                                         <Style TargetType="{x:Type GridViewColumnHeader}">
-                                            <Setter Property="Height" Value="50"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="GridViewColumnHeader">
+                                                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                                            <TextBlock Name ="TextBlock"  Text="Action" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="18" Foreground="DimGray">
+                                                            </TextBlock>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="TextBlock" Property="Foreground" Value="Black"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
                                         </Style>
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
