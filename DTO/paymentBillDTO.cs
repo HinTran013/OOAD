@@ -83,7 +83,6 @@ namespace DTO
             string customerRequestDetail,
             string staffUsername,
             string state,
-
             string dueDate,
             List<billDetailDTO> billDetails,
             double discount,

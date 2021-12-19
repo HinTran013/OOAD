@@ -91,6 +91,9 @@ namespace DigitalPhotographyManagementSystem.View
                 menuAdmin.Add(new SubItem("Create Account", new CreateAccount()));
                 menuAdmin.Add(new SubItem("Manage Accounts", new ListAccounts()));
                 menuAdmin.Add(new SubItem("Manage Price-Change Requests", new ListOfPriceChanges()));
+                menuAdmin.Add(new SubItem("Manage Invoices", new ListInvoices()));
+                menuAdmin.Add(new SubItem("Manage Fund Bills", new ListFund()));
+                menuAdmin.Add(new SubItem("Manage Payment Bills", new ManagePaymentBill()));
                 var AdminSubMenu = new ItemMenu("ADMINISTRATOR", menuAdmin, PackIconKind.Administrator);
 
                 SideMenu.Children.Add(new UserControlMenuDrawer(transSubMenu, this));

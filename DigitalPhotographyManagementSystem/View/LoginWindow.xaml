@@ -15,7 +15,7 @@
         ResizeMode="NoResize" 
         AllowsTransparency="True"
         WindowStyle="None"       
-        Title="Login" Height="650" Width="1000">
+        Title="Digital Photography Management System - Login" Height="650" Width="1000">
     <Border Margin="5" CornerRadius="10" Background="White">
         <Border.Effect>
             <DropShadowEffect BlurRadius="5" ShadowDepth="1" RenderingBias="Quality"/>

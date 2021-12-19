@@ -16,5 +16,9 @@ namespace BUS
         {
             return fundBill.InserNewFundBillRecord(newBill);
         }
+        public static List<fundBillDTO> GetAllFundBills()
+        {
+            return fundBill.GetAllFundBills();
+        }
     }
 }

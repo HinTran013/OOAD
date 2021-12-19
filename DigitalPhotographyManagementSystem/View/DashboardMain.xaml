@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DigitalPhotographyManagementSystem.View" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="DashboardMain" Height="750" Width="1400"
+        Title="Digital Photography Management System" Height="750" Width="1400"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent">

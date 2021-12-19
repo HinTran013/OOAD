@@ -22,17 +22,89 @@
                 <Border Margin="5" 
                         CornerRadius="10" 
                         Background="White">
-                    <ListView>
+                    <ListView Name="listService" FontSize="15" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Style.Triggers>
+                                    <Trigger Property="Control.IsMouseOver" Value="True">
+                                        <Setter Property="Control.Background" Value="LightGray" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListView.ItemContainerStyle>
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="No." Width="85" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
-                                <GridViewColumn Header="Photo type" Width="200" DisplayMemberBinding="{Binding photoType}" ></GridViewColumn>
-                                <GridViewColumn Header="Old price" Width="295" DisplayMemberBinding="{Binding oldPrice}" ></GridViewColumn>
-                                <GridViewColumn Header="New price" Width="295" DisplayMemberBinding="{Binding newPrice}" ></GridViewColumn>
-                                <GridViewColumn Header="Action" Width="150">
+                                <GridViewColumn Header="No." Width="50">
+                                    <GridViewColumn.HeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                        </Style>
+                                    </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Content="Delete" Background="#8699DA"/>
+                                            <Grid Width="50" >
+                                                <TextBlock Text="{Binding No}" TextAlignment="Center"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Name" Width="244">
+                                    <GridViewColumn.HeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                        </Style>
+                                    </GridViewColumn.HeaderContainerStyle>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="244" >
+                                                <TextBox Text="{Binding name}" TextAlignment="Center"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Price" Width="220">
+                                    <GridViewColumn.HeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                        </Style>
+                                    </GridViewColumn.HeaderContainerStyle>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="220" >
+                                                <TextBox Text="{Binding price}" TextAlignment="Center"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Description" Width="285">
+                                    <GridViewColumn.HeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                        </Style>
+                                    </GridViewColumn.HeaderContainerStyle>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="285" >
+                                                <TextBox Text="{Binding description}" TextAlignment="Center"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Action" Width="200">
+                                    <GridViewColumn.HeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                                            <Setter Property="Height" Value="50"/>
+                                        </Style>
+                                    </GridViewColumn.HeaderContainerStyle>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <DockPanel HorizontalAlignment="Stretch" LastChildFill="True" Width="200">
+                                                <Button x:Name="confirmChangeBtn" Width="140" Content="Confirm Change" Background="#8699DA" Margin="10,0,0,0" Foreground="White" Click="confirmChangeBtn_Click"/>
+                                            </DockPanel>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
@@ -54,12 +126,14 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                 </Border.Effect>
-                <Button FontSize="20"
+                <Button 
+                        x:Name="addBtn"
+                        FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
                         Height="50" FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
-                    Confirm
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="addBtn_Click">
+                    Add New
                 </Button>
             </Border>
 
@@ -74,13 +148,15 @@
                                           Opacity="0.5"
                                           Direction="270"/>
                 </Border.Effect>
-                <Button FontSize="20"
+                <Button 
+                        x:Name="deleteBtn"
+                        FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
                         Height="50" 
                         FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
-                    Cancel
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="deleteBtn_Click">
+                    Delete
                 </Button>
             </Border>
         </Grid>

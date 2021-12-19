@@ -19,6 +19,27 @@ namespace DAL
             this.db = client.GetDatabase("PhotographyManagement");
         }
 
+        public bool InserNewService(string newName, double newPrice, string newDescription)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("services");
+                var newDoc = new BsonDocument
+            {
+                    { "serviceName", newName },
+                    { "servicePrice", newPrice },
+                    { "serviceDescription", newDescription }
+            };
+
+                collection.InsertOneAsync(newDoc);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public List<servicesDTO> GetAllServices()
         {
             try
@@ -31,7 +52,7 @@ namespace DAL
                     services.Add( new servicesDTO(
                         (ObjectId)item["_id"],
                         (string)item["serviceName"],
-                        (Int32)item["servicePrice"],
+                        (double)item["servicePrice"],
                         (string)item["serviceDescription"]));
                     
                 }
@@ -56,6 +77,29 @@ namespace DAL
             catch
             {
                 return 0;
+            }
+        }
+
+        public bool ReplaceOneService(servicesDTO newService)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("services");
+                var filter = new BsonDocument
+            {
+                { "_id", newService.serviceID }
+            };
+                var update = new BsonDocument {
+                { "serviceName", newService.name},
+                { "servicePrice", newService.price},
+                { "serviceDescription", newService.description}
+            };
+                collection.ReplaceOne(filter, update);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

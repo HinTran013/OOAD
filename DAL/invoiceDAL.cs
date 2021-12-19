@@ -53,12 +53,12 @@ namespace DAL
                 return false;
             }
         }
-        public long CountAllInvoices()
+        public long CountAllIncompleteInvoices()
         {
             try
             {
                 var collection = db.GetCollection<BsonDocument>("invoices");
-                return collection.CountDocumentsAsync(new BsonDocument()).Result;
+                return collection.CountDocumentsAsync(x => (string)x["state"] != "CALC").Result;
             }
             catch
             {
@@ -222,6 +222,36 @@ namespace DAL
             catch
             {
                 return false;
+            }
+        }
+        public List<invoiceDTO> GetAllInvoices()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("invoices");
+                var invoices = new List<invoiceDTO>();
+                var list = collection.Find(new BsonDocument()).ToListAsync().Result;
+                foreach (BsonDocument item in list)
+                {
+                    invoices.Add(new invoiceDTO
+                    (
+                        (string)item["customerName"],
+                        (string)item["customerAddress"],
+                        (string)item["customerPhoneNo"],
+                        (string)item["customerEmail"],
+                        (string)item["customerRequestDetail"],
+                        (string)item["staffUsername"],
+                        (string)item["state"],
+                        (string)item["date"],
+                        null,
+                        (ObjectId)item["_id"]
+                    ));
+                }
+                return invoices;
+            }
+            catch
+            {
+                return null;
             }
         }
     }
