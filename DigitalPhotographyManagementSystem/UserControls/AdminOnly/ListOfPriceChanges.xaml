@@ -132,7 +132,7 @@
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
                         Height="50" FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="addBtn_Click">
                     Add New
                 </Button>
             </Border>
@@ -155,7 +155,7 @@
                         BorderBrush="{x:Null}" 
                         Height="50" 
                         FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="deleteBtn_Click">
                     Delete
                 </Button>
             </Border>

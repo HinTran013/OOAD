@@ -19,6 +19,27 @@ namespace DAL
             this.db = client.GetDatabase("PhotographyManagement");
         }
 
+        public bool InserNewService(string newName, double newPrice, string newDescription)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("services");
+                var newDoc = new BsonDocument
+            {
+                    { "serviceName", newName },
+                    { "servicePrice", newPrice },
+                    { "serviceDescription", newDescription }
+            };
+
+                collection.InsertOneAsync(newDoc);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public List<servicesDTO> GetAllServices()
         {
             try
