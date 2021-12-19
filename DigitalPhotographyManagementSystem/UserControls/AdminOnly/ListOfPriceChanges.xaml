@@ -49,7 +49,7 @@
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
-                                <GridViewColumn Header="Name" Width="215">
+                                <GridViewColumn Header="Name" Width="244">
                                     <GridViewColumn.HeaderContainerStyle>
                                         <Style TargetType="{x:Type GridViewColumnHeader}">
                                             <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -57,8 +57,8 @@
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid Width="215" >
-                                                <TextBlock Text="{Binding name}" TextAlignment="Center"/>
+                                            <Grid Width="244" >
+                                                <TextBox Text="{Binding name}" TextAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -73,13 +73,13 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid Width="220" >
-                                                <TextBlock Text="{Binding price}" TextAlignment="Center"/>
+                                                <TextBox Text="{Binding price}" TextAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
-                                <GridViewColumn Header="Description" Width="200">
+                                <GridViewColumn Header="Description" Width="285">
                                     <GridViewColumn.HeaderContainerStyle>
                                         <Style TargetType="{x:Type GridViewColumnHeader}">
                                             <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -87,14 +87,14 @@
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid Width="200" >
-                                                <TextBlock Text="{Binding description}" TextAlignment="Center"/>
+                                            <Grid Width="285" >
+                                                <TextBox Text="{Binding description}" TextAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
-                                <GridViewColumn Header="Action" Width="180">
+                                <GridViewColumn Header="Action" Width="200">
                                     <GridViewColumn.HeaderContainerStyle>
                                         <Style TargetType="{x:Type GridViewColumnHeader}">
                                             <Setter Property="Height" Value="50"/>
@@ -102,8 +102,8 @@
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <DockPanel HorizontalAlignment="Stretch" LastChildFill="True" Width="180">
-                                                <Button x:Name="updateAccountBtn" Width="107" Content="Change Information" Background="#8699DA" Margin="10,0,0,0" Foreground="White"/>
+                                            <DockPanel HorizontalAlignment="Stretch" LastChildFill="True" Width="200">
+                                                <Button x:Name="confirmChangeBtn" Width="140" Content="Confirm Change" Background="#8699DA" Margin="10,0,0,0" Foreground="White" Click="confirmChangeBtn_Click"/>
                                             </DockPanel>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -133,7 +133,7 @@
                         BorderBrush="{x:Null}" 
                         Height="50" FontWeight="Normal"
                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
-                    Add
+                    Add New
                 </Button>
             </Border>
 

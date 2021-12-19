@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
 using BUS;
+using DigitalPhotographyManagementSystem.View;
 
 namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
 {
@@ -61,6 +62,18 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
 
             listService.ItemsSource = showServices;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listService.ItemsSource);
+        }
+
+        private void confirmChangeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var rowItem = (sender as Button).DataContext as services;
+            servicesDTO newService = new servicesDTO(
+                rowItem.fullID,
+                rowItem.name,
+                rowItem.price,
+                rowItem.description);
+            servicesBUS.ReplaceOneService(newService);
+            var messageBoxResult = MsgBox.Show("Success", "Change service information successfully!", MessageBoxTyp.Information);
         }
     }
 }

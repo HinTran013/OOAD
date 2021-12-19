@@ -31,7 +31,7 @@ namespace DAL
                     services.Add( new servicesDTO(
                         (ObjectId)item["_id"],
                         (string)item["serviceName"],
-                        (Int32)item["servicePrice"],
+                        (double)item["servicePrice"],
                         (string)item["serviceDescription"]));
                     
                 }
@@ -56,6 +56,29 @@ namespace DAL
             catch
             {
                 return 0;
+            }
+        }
+
+        public bool ReplaceOneService(servicesDTO newService)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("services");
+                var filter = new BsonDocument
+            {
+                { "_id", newService.serviceID }
+            };
+                var update = new BsonDocument {
+                { "serviceName", newService.name},
+                { "servicePrice", newService.price},
+                { "serviceDescription", newService.description}
+            };
+                collection.ReplaceOne(filter, update);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

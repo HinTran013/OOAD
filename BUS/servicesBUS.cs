@@ -22,5 +22,10 @@ namespace BUS
         {
             return services.GetPriceOfServiceType(type);
         }
+
+        public static bool ReplaceOneService(servicesDTO newService)
+        {
+            return services.ReplaceOneService(newService);
+        }
     }
 }
