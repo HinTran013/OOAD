@@ -33,10 +33,8 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
         public UpdateAccountContainerWindow(string username)
         {
             InitializeComponent();
-            staffDTO currentStaff = new staffDTO();
-            currentStaff = staffBUS.GetStaffByUsername(username);
-            var messageBoxResult = MsgBox.Show("Warning", currentStaff.username, MessageBoxTyp.Warning);
-            AccountInformation updateForm = new AccountInformation(currentStaff);
+            username = username.ToLower();
+            AccountInformation updateForm = new AccountInformation(staffBUS.GetStaffByUsername(username), true);
             myStack.Children.Add(updateForm);
         }
 

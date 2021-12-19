@@ -25,16 +25,18 @@ namespace DigitalPhotographyManagementSystem.UserControls.Account_Information
     public partial class AccountInformation : UserControl
     {
         private staffDTO curStaff;
+        private bool isAdmin;
 
         public AccountInformation()
         {
             InitializeComponent();
         }
 
-        public AccountInformation(staffDTO staff)
+        public AccountInformation(staffDTO staff, bool isAdmin = false)
         {
             InitializeComponent();
             this.curStaff = staff;
+            this.isAdmin = isAdmin;
             GetCreatedData(staff);
         }
 
@@ -55,7 +57,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Account_Information
 
         private void refreshButton_Click(object sender, RoutedEventArgs e)
         {
-            staffDTO currentStaff = staffBUS.GetStaffByUsername(curStaff.username);
+            staffDTO currentStaff = staffBUS.GetStaffByUsername(curStaff.username.ToLower());
             GetCreatedData(currentStaff);
             var messageBoxResult = MsgBox.Show("Refresh", "Refresh Successfully!", MessageBoxTyp.Information);
         }
@@ -141,6 +143,11 @@ namespace DigitalPhotographyManagementSystem.UserControls.Account_Information
             passwordBox.Password = staff.password;
             salaryTextBox.Text = staff.salary.ToString();
             descriptionTextBox.Text = staff.description;
+
+            if(isAdmin == true)
+            {
+                confirmPasswordBox.Password = passwordBox.Password;
+            }
         }
         private static bool IsValidEmail(string email)
         {
