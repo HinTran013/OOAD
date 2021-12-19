@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using DTO;
+using BUS;
+
 namespace DigitalPhotographyManagementSystem.UserControls
 {
     /// <summary>
@@ -23,38 +26,22 @@ namespace DigitalPhotographyManagementSystem.UserControls
         public int No { get; set; }
         public string invoiceID { get; set; }
         public string customerName { get; set; }
+        //public bool isDue { get; set; }
+        public string state { get; set; }
         public string dueDate { get; set; }
     }
 
     public partial class PhotoDelivery : UserControl
     {
-        public PhotoDelivery()
+        DateTime timeNow;
+        staffDTO accountStaff;
+
+        public PhotoDelivery(staffDTO staff)
         {
             InitializeComponent();
 
-            listInvoice.Items.Add(new InvoiceDelivery()
-            {
-                No = 1,
-                invoiceID = "123",
-                customerName = "Thanh Hien",
-                dueDate = "2/11/2021"
-            });
-
-            listInvoice.Items.Add(new InvoiceDelivery()
-            {
-                No = 2,
-                invoiceID = "124",
-                customerName = "Bao Loc",
-                dueDate = "2/11/2021"
-            });
-
-            listInvoice.Items.Add(new InvoiceDelivery()
-            {
-                No = 3,
-                invoiceID = "125",
-                customerName = "Hon Tuyen",
-                dueDate = "2/11/2021"
-            });
+            DateTimeTxt.Text = timeNow.ToString("dd/MM/yyyy");
+            accountStaff = staff;
         }
     }
 }

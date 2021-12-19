@@ -25,8 +25,15 @@
             </Grid.ColumnDefinitions>
 
             <Label Content="LIST BOX OF PHOTO IN STORAGE" FontWeight="Bold" Margin="255,0,0,0"/>
-            <Label Grid.Column="1" Grid.Row="0" Content="Date:" HorizontalContentAlignment="Right"/>
-            <Label Grid.Column="2" Grid.Row="0" Content="21/12/2021"/>
+            <Label Grid.Column="1" Grid.Row="0" 
+                   Content="Today:" 
+                   HorizontalContentAlignment="Right"
+                   Margin="0,0,5,0"/>
+            <TextBlock Grid.Column="2" Grid.Row="0"
+                       VerticalAlignment="Center"
+                       x:Name="DateTimeTxt"
+                       Text="21/12/2021">
+            </TextBlock>
         </Grid>
         <Border Margin="60 10 60 0" Height="450" CornerRadius="10" Background="#8699DA">
             <Border.Effect>
@@ -40,9 +47,10 @@
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="No." Width="90" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
-                            <GridViewColumn Header="Invoice ID" Width="250" DisplayMemberBinding="{Binding invoiceID}" ></GridViewColumn>
-                            <GridViewColumn Header="Customer Name" Width="250" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
-                            <GridViewColumn Header="Due Date" Width="150" DisplayMemberBinding="{Binding dueDate}" ></GridViewColumn>
+                            <GridViewColumn Header="Invoice ID" Width="150" DisplayMemberBinding="{Binding invoiceID}" ></GridViewColumn>
+                            <GridViewColumn Header="Customer Name" Width="240" DisplayMemberBinding="{Binding customerName}" ></GridViewColumn>
+                            <GridViewColumn Header="Due Date" Width="170" DisplayMemberBinding="{Binding dueDate}" ></GridViewColumn>
+                            <GridViewColumn Header="Status" Width="150" DisplayMemberBinding="{Binding state}" ></GridViewColumn>
                             <GridViewColumn Header="Action" Width="150">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>

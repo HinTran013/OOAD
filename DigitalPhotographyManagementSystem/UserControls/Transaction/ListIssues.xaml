@@ -52,7 +52,7 @@
                                 <ComboBoxItem Content="Date"/>
                                 <ComboBoxItem Content="Type"/>
                                 <ComboBoxItem Content="Solve Status"/>
-                                <ComboBoxItem Content="StaffID"/>
+                                <ComboBoxItem Content="State"/>
                             </ComboBox>
                         </Border>
 
@@ -248,7 +248,7 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}" Height="40" CornerRadius="10">
-                                                        <TextBlock x:Name="TextBlock" Text="Staff ID" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock x:Name="TextBlock" Text="State" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
@@ -264,7 +264,7 @@
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Grid Width="145" >
-                                            <TextBlock Text="{Binding StaffID}" TextAlignment="Center"/>
+                                            <TextBlock Text="{Binding State}" TextAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
