@@ -109,7 +109,57 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
 
         private void SolvedBtn_Click(object sender, RoutedEventArgs e)
         {
+            var issue = (sender as FrameworkElement).DataContext as IssuePrint;
+            //Button btn = sender as Button;
+            if (issue != null)
+            {
+                string str;
+                bool newState = false;
+                if (issue.IsSolved == true)
+                {
+                    if (MsgBox.Show("Confirmation", "Please type 'ERROR' to unsolve") == MessageBoxResult.OK)
+                    {
+                        str = MsgBox.Value;
 
+                        if (str == "ERROR")
+                        {
+                            MsgBox.Show("Successfully unsolve the issue", MessageBoxTyp.Information);
+                            newState = false;
+                            issue.IsSolved = newState;
+                        }
+                        else
+                        {
+                            MsgBox.Show("Error! Failed to unsolve the issue!", MessageBoxTyp.Error);
+                            return;
+                        }
+                    }
+                    else return;
+                }
+                else
+                {
+                    if (MsgBox.Show("Confirmation", "Please type 'SOLVED' to unsolve") == MessageBoxResult.OK)
+                    {
+                        str = MsgBox.Value;
+                        if (str == "SOLVED")
+                        {
+                            MsgBox.Show("Successfully solve the issue", MessageBoxTyp.Information);
+                            newState = true;
+                            issue.IsSolved = newState;
+                        }
+                        else
+                        {
+                            MsgBox.Show("Error! Failed to solve the issue!", MessageBoxTyp.Error);
+                            return;
+                        }
+                    }
+                    else return;
+                }
+
+                issueReportBUS.UpdateStateByID(issue.fullIssueID, newState);
+
+                //issuePrints.Remove(issue);
+                CollectionViewSource.GetDefaultView(listIssue.ItemsSource).Refresh();
+            }
         }
     }
 }

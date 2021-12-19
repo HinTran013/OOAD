@@ -125,6 +125,8 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 
             CalculateBill bill = new CalculateBill(calculatebillView.invoiceIDFull, accountStaff);
             bill.ShowDialog();
+
+            CollectionViewSource.GetDefaultView(listInvoice.ItemsSource).Refresh();
         }
     }
 }

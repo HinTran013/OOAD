@@ -93,5 +93,22 @@ namespace DAL
                 return null;
             }
         }
+        public bool UpdateStateByID(ObjectId id, bool newState)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("issueReports");
+
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+                var update = Builders<BsonDocument>.Update.Set("isSolved", newState);
+                var result = collection.UpdateOne(filter, update);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

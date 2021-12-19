@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using DTO;
+using MongoDB.Bson;
 
 namespace BUS
 {
@@ -27,6 +28,10 @@ namespace BUS
         public static List<issueReportDTO> GetAllIssueReports()
         {
             return issue.GetAllIssueReports();
+        }
+        public static bool UpdateStateByID(ObjectId id, bool newState)
+        {
+            return issue.UpdateStateByID(id, newState);
         }
     }
 }
