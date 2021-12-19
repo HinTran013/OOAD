@@ -33,6 +33,16 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="StoryboardAds_Rev">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="AdsBD">
+                <EasingColorKeyFrame KeyTime="0" Value="CornflowerBlue"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.25" Value="#FF0477BF"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="AdsBD">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0.5"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
         <Storyboard x:Key="StoryboardIdea">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="IdeasBD">
                 <EasingColorKeyFrame KeyTime="0" Value="DarkCyan"/>
@@ -73,16 +83,7 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Key="StoryboardAds_Rev">
-            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="AdsBD">
-                <EasingColorKeyFrame KeyTime="0" Value="#FF0477BF"/>
-                <EasingColorKeyFrame KeyTime="0:0:0.25" Value="CornflowerBlue"/>
-            </ColorAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="AdsBD">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0.25"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+
         <Storyboard x:Key="StoryboardIdea_Rev">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="IdeasBD">
                 <SplineColorKeyFrame KeyTime="0" Value="#FF22CECE"/>

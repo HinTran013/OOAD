@@ -145,21 +145,159 @@
                 <Border Margin="5" 
                             CornerRadius="10" 
                             Background="White">
-                    <ListView>
+                    <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListViewItem">
+                                            <Border CornerRadius="2" SnapsToDevicePixels="True" Height="42" 
+                                        BorderThickness="{TemplateBinding BorderThickness}" 
+                                        BorderBrush="{TemplateBinding BorderBrush}" 
+                                        Background="{TemplateBinding Background}">
+                                                <Border Name="InnerBorder" CornerRadius="1"   BorderThickness="1">
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition MaxHeight="15" />
+                                                            <RowDefinition />
+                                                        </Grid.RowDefinitions>
+                                                        <Rectangle Name="UpperHighlight" Visibility="Collapsed" Fill="#75FFFFFF" />
+                                                        <GridViewRowPresenter Grid.RowSpan="2"
+                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                    </Grid>
+                                                </Border>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="LightGray"/>
+                                                </Trigger>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter Property="Background" Value="DarkGray"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="No." Width="120" DisplayMemberBinding="{Binding No}" ></GridViewColumn>
-                                <GridViewColumn Header="Invoice ID" Width="290" DisplayMemberBinding="{Binding invoiceID}" ></GridViewColumn>
-                                <GridViewColumn Header="Service" Width="370" DisplayMemberBinding="{Binding serviceName}" ></GridViewColumn>
-                                <GridViewColumn Header="Action" Width="170">
+                                <GridViewColumn Header="No." Width="120">
+                                    <GridViewColumn.HeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="GridViewColumnHeader">
+                                                        <Border Background="{TemplateBinding Background}" Height="40" CornerRadius="10">
+                                                            <TextBlock Name ="TextBlock"  Text="No." HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                            </TextBlock>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="TextBlock" Property="Foreground" Value="Black"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Content="Done" Background="#8699DA"/>
+                                            <Grid Width="120" >
+                                                <TextBlock Text="{Binding No}" TextAlignment="Center"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Invoice ID" Width="290" DisplayMemberBinding="{Binding invoiceID}" >
+                                    <GridViewColumn.HeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="GridViewColumnHeader">
+                                                        <Border Background="{TemplateBinding Background}">
+                                                            <TextBlock Name ="TextBlock"  Text="Invoice ID" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                            </TextBlock>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="TextBlock" Property="Foreground" Value="Black"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </GridViewColumn.HeaderContainerStyle>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="290" >
+                                                <TextBlock Text="{Binding invoiceID}" TextAlignment="Center"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Service" Width="370">
+                                    <GridViewColumn.HeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="GridViewColumnHeader">
+                                                        <Border Background="{TemplateBinding Background}">
+                                                            <TextBlock Name ="TextBlock"  Text="Service" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                            </TextBlock>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="TextBlock" Property="Foreground" Value="Black"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </GridViewColumn.HeaderContainerStyle>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="370" >
+                                                <TextBlock Text="{Binding serviceName}" TextAlignment="Center"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Action" Width="235">
+                                    <GridViewColumn.HeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="GridViewColumnHeader">
+                                                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                                            <TextBlock Name ="TextBlock"  Text="Action" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                            </TextBlock>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="TextBlock" Property="Foreground" Value="Black"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </GridViewColumn.HeaderContainerStyle>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <DockPanel Width="217.57">
+                                                <Button x:Name="DoneBtn" Content="Done" Background="#8699DA" HorizontalAlignment="Center" Width="100"/>
+                                            </DockPanel>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
                             </GridView>
                         </ListView.View>
+                        
                     </ListView>
                 </Border>
             </Border>

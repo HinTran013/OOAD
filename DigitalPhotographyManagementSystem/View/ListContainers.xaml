@@ -16,28 +16,31 @@
         </Border.Effect>
         <StackPanel Margin="4">
             <DockPanel x:Name="MainContent" Height="600" Margin="5,5,5,0">
-                
+
             </DockPanel>
-            <Border CornerRadius="15" 
+            <Grid>
+                <Border Margin="0" Background="White" MouseDown="Border_MouseDown"/>
+                <Border CornerRadius="15" 
                     Background="#EA9769"
                     Margin="0,10,0,0"
                     Height="60"
                     Width="170">
-                <Border.Effect>
-                    <DropShadowEffect ShadowDepth="1" 
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" 
                                           BlurRadius="4"
                                           Opacity="0.5"
                                           Direction="270"/>
-                </Border.Effect>
-                <Button FontSize="20"
+                    </Border.Effect>
+                    <Button FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
                         Height="60" 
                         FontWeight="Normal"
                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="Button_Click">
-                    EXIT
-                </Button>
-            </Border>
+                        EXIT
+                    </Button>
+                </Border>
+            </Grid>
         </StackPanel>
     </Border>
 </Window>
