@@ -396,7 +396,7 @@
                                           Direction="270"/>
                     </Border.Effect>
                 </Border>
-                <Border Background="#FFDE3636" 
+                <Border Background="#F23005" 
                         CornerRadius="10"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top">

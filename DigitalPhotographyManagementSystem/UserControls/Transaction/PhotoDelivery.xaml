@@ -24,7 +24,7 @@
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
 
-            <Label Content="LIST BOX OF PHOTO IN STORAGE" FontWeight="Bold" Margin="255,0,0,0"/>
+            <Label Content="LIST BOX OF PHOTO IN STORAGE" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="3"/>
             <Label Grid.Column="1" Grid.Row="0" Content="Date:" HorizontalContentAlignment="Right"/>
             <Label Grid.Column="2" Grid.Row="0" Content="21/12/2021"/>
         </Grid>
