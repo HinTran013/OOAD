@@ -58,7 +58,7 @@
                         </StackPanel>
                     </Grid>
                     <TextBlock x:Name="ReqDetailTxt" Text="Request Detail: " FontSize="12" Margin="15,0" TextWrapping="Wrap"/>
-                    <ListView x:Name="listInvoiceService" Margin="15,0">
+                    <ListView x:Name="listInvoiceService" Margin="15,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="No." Width="90">

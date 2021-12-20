@@ -69,8 +69,8 @@ namespace DAL
                     billdetails.Add(new billDetailDTO
                     (
                         (string)detail["service"],
-                        (int)detail["unitQuantity"],
-                        (int)detail["unitPrice"]
+                        (int)detail["unitPrice"],
+                        (int)detail["unitQuantity"]
                     ));
                 }
                 paymentBillDTO paymentBill = new paymentBillDTO

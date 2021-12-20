@@ -57,7 +57,7 @@
                         </StackPanel>
                     </Grid>
                     <TextBlock x:Name="ReqDetailTxt" Text="Request Detail: " FontSize="12" Margin="15,0" TextWrapping="Wrap"/>
-                    <ListView x:Name="listPaymentBillService" Margin="15,0">
+                    <ListView x:Name="listPaymentBillService" Margin="15,5,15,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="Template">
@@ -231,15 +231,15 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" VerticalAlignment="Center">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <TextBlock Text="Name: " FontSize="10" Margin="5"/>
+                                <TextBlock Text="Name: " FontSize="10" Margin="0,5,5,5"/>
                                 <TextBlock x:Name="StaffNameTxt" Text="Tran Van B" FontSize="10" Margin="5" FontWeight="DemiBold"/>
                             </StackPanel>
                         </StackPanel>
                         <StackPanel Grid.Column="1">
-                            <TextBlock x:Name="DueDateTxt" Text="18 Dec 21" FontSize="25" Margin="5"/>
+                            <TextBlock x:Name="DueDateTxt" Text="18 Dec 21" FontSize="25" Margin="0,5,5,5" HorizontalAlignment="Left"/>
                         </StackPanel>
                         <StackPanel Grid.Column="2" VerticalAlignment="Center">
-                            <Viewbox>
+                            <Viewbox Height="34" HorizontalAlignment="Right" VerticalAlignment="Center">
                                 <TextBlock x:Name="TotalMoneyTxt" Text="VNĐ 2.000.000" FontSize="25" Margin="5" HorizontalAlignment="Right" Foreground="#FF62013C" FontWeight="Bold"/>
                             </Viewbox>
                         </StackPanel>

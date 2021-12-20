@@ -3,6 +3,7 @@ using DTO;
 using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,9 +54,7 @@ namespace DigitalPhotographyManagementSystem.View
             staffDTO staff = staffBUS.GetStaffByUsername(paymentBill.staffUsername.ToLower());
             StaffNameTxt.Text = staff.name;
             TotalMoneyTxt.Text = "VNĐ " + String.Format("{0:#,0}", paymentBill.totalMoney);
-            DueDateTxt.Text = paymentBill.dueDate;
-
-
+            DueDateTxt.Text = DateTime.Parse(paymentBill.dueDate, new CultureInfo("vi-VN", true)).ToString("dd MMM yy");
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
