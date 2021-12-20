@@ -121,7 +121,7 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="100" >
+                                        <Grid Width="100" HorizontalAlignment="Center">
                                             <TextBlock Text="{Binding No}" TextAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
@@ -149,12 +149,13 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="200" >
+                                        <Grid Width="200" HorizontalAlignment="Center" >
                                             <TextBlock Text="{Binding ideaID}" TextAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
+                            
                             <GridViewColumn Width="200">
                                 <GridViewColumn.HeaderContainerStyle>
                                     <Style TargetType="{x:Type GridViewColumnHeader}">
@@ -177,7 +178,7 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="370" >
+                                        <Grid Width="200" HorizontalAlignment="Center">
                                             <TextBlock Text="{Binding ideaSubject}" TextAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
@@ -205,7 +206,7 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="300" >
+                                        <Grid Width="200" HorizontalAlignment="Center">
                                             <TextBlock Text="{Binding StaffID}" TextAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
@@ -233,7 +234,7 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="300" >
+                                        <Grid Width="255" HorizontalAlignment="Center">
                                             <TextBlock Text="{Binding Date}" TextAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
