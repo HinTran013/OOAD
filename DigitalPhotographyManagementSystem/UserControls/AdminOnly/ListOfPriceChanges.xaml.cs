@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using DTO;
 using BUS;
 using DigitalPhotographyManagementSystem.View;
+using System.Text.RegularExpressions;
 
 namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
 {
@@ -57,6 +58,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
 
         private void showInitData()
         {
+            i = 1;
             List<servicesDTO> services = new List<servicesDTO>();
             services = servicesBUS.GetAllServices();
             
@@ -92,6 +94,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
             
             if(servicesBUS.InserNewService(newService.name, newService.price, newService.description))
             {
+                
                 showServices.Add(newService);
                 showInitData();
                 var messageBoxResult = MsgBox.Show("Success", "Add service successfully!", MessageBoxTyp.Information);
@@ -101,7 +104,38 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
 
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
         {
+            int initTotalService = listService.Items.Count;
 
+            if(listService.SelectedItems.Count != 0)
+            {
+                for (int i = listService.SelectedItems.Count - 1; i >= 0; i--)
+                {
+                    var selectedService = listService.SelectedItems[i] as services;
+
+                    if (servicesBUS.DeleteOneServiceByID(selectedService.fullID))
+                    {
+                        showServices.Remove(selectedService);
+                    }
+                }
+            }
+            else
+            {
+                var messageBoxResult = MsgBox.Show("Warning", "Please select atleast one service to delete!", MessageBoxTyp.Warning);
+            }
+
+            if(initTotalService > listService.Items.Count)
+            {
+                var messageBoxResult = MsgBox.Show("Success", "Delete service successfully!", MessageBoxTyp.Information);
+            }
+
+            showInitData();
+        }
+
+        private void priceTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            //To limit the characters which are the numbers in the textbox
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

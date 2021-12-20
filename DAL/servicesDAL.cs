@@ -40,6 +40,24 @@ namespace DAL
             }
         }
 
+        public bool DeleteOneServiceByID(ObjectId id)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("services");
+                var filter = new BsonDocument
+                {
+                    { "_id", id }
+                };
+                collection.DeleteOne(filter);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public List<servicesDTO> GetAllServices()
         {
             try

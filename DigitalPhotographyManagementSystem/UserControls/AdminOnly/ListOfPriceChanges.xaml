@@ -112,7 +112,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid Width="244" >
-                                                <TextBlock Text="{Binding name}" TextAlignment="Center"/>
+                                                <TextBox Text="{Binding name}" TextAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -141,7 +141,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid Width="220" >
-                                                <TextBlock Text="{Binding price}" TextAlignment="Center"/>
+                                                <TextBox x:Name="priceTextBox" Text="{Binding price}" TextAlignment="Center" PreviewTextInput="priceTextBox_PreviewTextInput"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -170,7 +170,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid Width="285" >
-                                                <TextBlock Text="{Binding description}" TextAlignment="Center"/>
+                                                <TextBox Text="{Binding description}" TextAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
