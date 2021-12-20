@@ -32,5 +32,10 @@ namespace BUS
         {
             return services.InserNewService(newName, newPrice, newDescription);
         }
+
+        public static bool DeleteOneServiceByID(ObjectId id)
+        {
+            return services.DeleteOneServiceByID(id);
+        }
     }
 }
