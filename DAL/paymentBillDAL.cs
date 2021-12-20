@@ -113,7 +113,7 @@ namespace DAL
                         (string)item["customerRequestDetail"],
                         (string)item["staffUsername"],
                         (string)item["state"],
-                        (string)item["date"],
+                        (string)item["dueDate"],
                         null,
                         (double)item["couponDiscount"],
                         (ObjectId)item["_id"]
