@@ -61,7 +61,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
             invoices = invoiceBUS.GetAllPrintedInvoices();
 
             printed = new ObservableCollection<PrintedBill>();
-
+            
             GetInvoices();
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listInvoice.ItemsSource);
@@ -70,6 +70,31 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 
         private void GetInvoices()
         {
+            foreach (invoiceDTO item in invoices)
+            {
+                printed.Add(new PrintedBill
+                {
+                    No = num++,
+                    invoiceID = item.objectId.ToString().Substring(item.objectId.ToString().Length - 5),
+                    invoiceIDFull = item.objectId,
+                    customerName = item.customerName,
+                    dateTime = item.date,
+                    staffUsername = item.staffUsername,
+                    numService = invoiceBUS.GetNumServicesFromID((ObjectId)item.objectId)
+                });
+            }
+
+            listInvoice.ItemsSource = printed;
+        }
+
+        private void UpdateList()
+        {
+            invoices = invoiceBUS.GetAllPrintedInvoices();
+            printed.Clear();
+            listInvoice.ItemsSource = null;
+
+            num = 1;
+
             foreach (invoiceDTO item in invoices)
             {
                 printed.Add(new PrintedBill
@@ -124,7 +149,11 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
             var calculatebillView = (sender as FrameworkElement).DataContext as PrintedBill;
 
             CalculateBill bill = new CalculateBill(calculatebillView.invoiceIDFull, accountStaff);
-            bill.ShowDialog();
+
+            if(bill.ShowDialog() == true)
+            {
+                UpdateList();
+            }
 
             CollectionViewSource.GetDefaultView(listInvoice.ItemsSource).Refresh();
         }

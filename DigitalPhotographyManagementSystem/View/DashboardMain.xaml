@@ -9,6 +9,44 @@
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent">
+    <Window.Resources>
+        <Storyboard x:Key="StoryboardTitle">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="border">
+                <EasingThicknessKeyFrame KeyTime="0" Value="0,0,0,-5"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.3" Value="0,-7,0,7"/>
+            </ThicknessAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="viewbox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="30"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="40"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="viewbox">
+                <EasingThicknessKeyFrame KeyTime="0" Value="10,0"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.3" Value="10,-1,10,0"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="StoryboardTitle_Rev">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="border">
+                <SplineThicknessKeyFrame KeyTime="0" Value="0,-7,0,7"/>
+                <SplineThicknessKeyFrame KeyTime="0:0:0.3" Value="0,0,0,-5"/>
+            </ThicknessAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="viewbox">
+                <SplineDoubleKeyFrame KeyTime="0" Value="40"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.3" Value="30"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="viewbox">
+                <EasingThicknessKeyFrame KeyTime="0" Value="10,-1,10,0" />
+                <EasingThicknessKeyFrame KeyTime="0:0:0.3" Value="10,0"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="border">
+            <BeginStoryboard Storyboard="{StaticResource StoryboardTitle}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="border">
+            <BeginStoryboard x:Name="StoryboardTitle_Rev_BeginStoryboard" Storyboard="{StaticResource StoryboardTitle_Rev}"/>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid Margin="10" Grid.Column="2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -57,25 +95,29 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Column="0">
                     <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10,15,0,0">
-                        <TextBlock x:Name="TxtDeptName" Text="Accounting Department" HorizontalAlignment="Left"
+                        <Border Background="#FFEFF0F2" ToolTip="Your department">
+                            <TextBlock x:Name="TxtDeptName" Text="Accounting Department" HorizontalAlignment="Left"
                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
                                FontSize="15" Foreground="#FF716969"/>
+                        </Border>
                         <TextBlock/>
                         <TextBlock Text=" / " HorizontalAlignment="Left"
                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
                                FontSize="15"/>
                         <TextBlock/>
-                        <TextBlock x:Name="TxtTitleSmall" Text="HOME" HorizontalAlignment="Left"
+                        <Border Background="#FFEFF0F2" ToolTip="Current screen">
+                            <TextBlock x:Name="TxtTitleSmall" Text="HOME" HorizontalAlignment="Left" 
                                FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
                                FontSize="15" Foreground="#FF383030"/>
+                        </Border>
                         <TextBlock/>
                     </StackPanel>
                 </Grid>
-                <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#FF8699DA" CornerRadius="10" HorizontalAlignment="Center" Margin="0,0,0,-5">
+                <Border x:Name="border" Grid.Row="1" Grid.ColumnSpan="2" Background="#FF8699DA" CornerRadius="10" HorizontalAlignment="Center" Margin="0,0,0,-5">
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="5" ShadowDepth="1"/>
                     </Border.Effect>
-                    <Viewbox HorizontalAlignment="Center" Height="30" Margin="10,0">
+                    <Viewbox x:Name="viewbox" HorizontalAlignment="Center" Height="30" Margin="10,0">
                         <TextBlock x:Name="TxtTitle" Text="HOME"
                             FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
                             FontSize="40" Margin="0,0,0,5"  HorizontalAlignment="Center" Foreground="White"/>

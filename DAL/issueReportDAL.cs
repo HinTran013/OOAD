@@ -93,6 +93,33 @@ namespace DAL
                 return null;
             }
         }
+        public List<issueReportDTO> GetAllUnsolvedIssueReports()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("issueReports");
+                var issueReports = new List<issueReportDTO>();
+                var list = collection.Find(new BsonDocument()).ToListAsync().Result;
+                foreach (BsonDocument item in list)
+                {
+                    issueReports.Add(new issueReportDTO
+                    (
+                        (string)item["title"],
+                        (string)item["date"],
+                        (string)item["issueType"],
+                        (string)item["description"],
+                        (string)item["staffUsername"],
+                         (bool)item["isSolved"],
+                        (ObjectId)item["_id"]
+                    ));
+                }
+                return issueReports;
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public bool UpdateStateByID(ObjectId id, bool newState)
         {
             try

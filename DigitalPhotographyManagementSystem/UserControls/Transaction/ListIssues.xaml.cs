@@ -34,6 +34,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
         public string StaffID { get; set; }
         public string desc { get; set; }
         public bool IsSolved { get; set; }
+        public string State { get; set; }
     }
     public partial class ListIssues : UserControl
     {
@@ -57,7 +58,8 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
                     Type = item.issueType,
                     StaffID = item.staffUsername,
                     desc = item.description,
-                    IsSolved = (bool)item.isSolved
+                    IsSolved = (bool)item.isSolved,
+                    State = (bool)item.isSolved ? "SOLVED" : "ERROR"
                 };
                 issuePrints.Add(newissueReportPrint);
             }
@@ -85,7 +87,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
                 if (cbbSearchBy.SelectedIndex == 4)
                     return (item as IssuePrint).IsSolved.ToString().IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
                 if (cbbSearchBy.SelectedIndex == 5)
-                    return (item as IssuePrint).StaffID.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                    return (item as IssuePrint).State.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
                 else
                     return true;
             }
@@ -110,41 +112,30 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
         private void SolvedBtn_Click(object sender, RoutedEventArgs e)
         {
             var issue = (sender as FrameworkElement).DataContext as IssuePrint;
+            
             //Button btn = sender as Button;
             if (issue != null)
             {
                 string str;
                 bool newState = false;
-                if (issue.IsSolved == true)
-                {
-                    if (MsgBox.Show("Confirmation", "Please type 'ERROR' to unsolve") == MessageBoxResult.OK)
-                    {
-                        str = MsgBox.Value;
-
-                        if (str == "ERROR")
-                        {
-                            MsgBox.Show("Successfully unsolve the issue", MessageBoxTyp.Information);
-                            newState = false;
-                            issue.IsSolved = newState;
-                        }
-                        else
-                        {
-                            MsgBox.Show("Error! Failed to unsolve the issue!", MessageBoxTyp.Error);
-                            return;
-                        }
-                    }
-                    else return;
-                }
-                else
+                if (issue.IsSolved == false)
                 {
                     if (MsgBox.Show("Confirmation", "Please type 'SOLVED' to unsolve") == MessageBoxResult.OK)
                     {
                         str = MsgBox.Value;
                         if (str == "SOLVED")
                         {
-                            MsgBox.Show("Successfully solve the issue", MessageBoxTyp.Information);
+                            
                             newState = true;
                             issue.IsSolved = newState;
+
+                            issueReportBUS.UpdateStateByID(issue.fullIssueID, newState);
+                            //issuePrints.Remove(issue);
+                            issuePrints[issuePrints.IndexOf(issue)].IsSolved = true;
+                            issuePrints[issuePrints.IndexOf(issue)].State = (bool)issuePrints[issuePrints.IndexOf(issue)].IsSolved ? "SOLVED" : "ERROR";
+                            CollectionViewSource.GetDefaultView(listIssue.ItemsSource).Refresh();
+
+                            MsgBox.Show("Successfully solve the issue", MessageBoxTyp.Information);
                         }
                         else
                         {
@@ -154,11 +145,6 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
                     }
                     else return;
                 }
-
-                issueReportBUS.UpdateStateByID(issue.fullIssueID, newState);
-
-                //issuePrints.Remove(issue);
-                CollectionViewSource.GetDefaultView(listIssue.ItemsSource).Refresh();
             }
         }
     }

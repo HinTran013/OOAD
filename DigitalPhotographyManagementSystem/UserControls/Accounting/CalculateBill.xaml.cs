@@ -93,6 +93,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 
         private void CloseBtn_Click(object sender, RoutedEventArgs e)
         {
+            this.DialogResult = false;
             this.Close();
         }
 
@@ -114,6 +115,12 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 
         private void PayBtn_Click(object sender, RoutedEventArgs e)
         {
+            if(PayBtn.IsEnabled == false)
+            {
+                MsgBox.Show("The bill has already been paid! Please close the tab!", MessageBoxTyp.Information);
+                return;
+            }
+            
             invoiceBUS.UpdateStateInvoiceFromID((ObjectId)invoice.objectId, "CALC");
 
             List<billDetailDTO> details = new List<billDetailDTO>();
@@ -147,7 +154,10 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 
             MsgBox.Show("The bill has been paid! Please tell the customer to remember to pick up their photos!", MessageBoxTyp.Information);
 
+            PayBtn.IsEnabled = false;
             CouponTxt.IsReadOnly = true;
+
+            this.DialogResult = true;
         }
     }
 }
