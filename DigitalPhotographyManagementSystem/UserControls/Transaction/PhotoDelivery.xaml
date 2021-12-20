@@ -112,7 +112,7 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Invoice ID" Width="250">
+                            <GridViewColumn Header="Invoice ID" Width="150">
                                 <GridViewColumn.HeaderContainerStyle>
                                     <Style TargetType="{x:Type GridViewColumnHeader}">
                                         <Setter Property="Template">
@@ -134,7 +134,7 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="250" >
+                                        <Grid Width="150" >
                                             <TextBlock Text="{Binding invoiceID}" TextAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
@@ -196,9 +196,35 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Status" Width="150" DisplayMemberBinding="{Binding state}" ></GridViewColumn>
-
-                            <GridViewColumn Header="Action" Width="215">
+                            <GridViewColumn Header="Status" Width="150" DisplayMemberBinding="{Binding state}" >
+                                <GridViewColumn.HeaderContainerStyle>
+                                    <Style TargetType="{x:Type GridViewColumnHeader}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="GridViewColumnHeader">
+                                                    <Border Background="{TemplateBinding Background}">
+                                                        <TextBlock x:Name="TextBlock" Text="Status" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        </TextBlock>
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Foreground" Value="Black" TargetName="TextBlock"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </GridViewColumn.HeaderContainerStyle>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Width="150" >
+                                            <TextBlock Text="{Binding state}" TextAlignment="Center"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Action" Width="165">
                                 <GridViewColumn.HeaderContainerStyle>
                                     <Style TargetType="{x:Type GridViewColumnHeader}">
                                         <Setter Property="Template">
@@ -220,7 +246,7 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <DockPanel Width="202.918">
+                                        <DockPanel Width="152.155">
                                             <Button Content="Done" Background="#8699DA" HorizontalAlignment="Center"/>
                                         </DockPanel>
                                     </DataTemplate>
