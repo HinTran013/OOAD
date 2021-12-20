@@ -218,7 +218,7 @@
                         <Viewbox Margin="10,0,0,0" DockPanel.Dock="Top" Height="60" HorizontalAlignment="Left">
                             <TextBlock x:Name="RevenueTxt" Text="VNĐ 10.000.000" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" TextAlignment="Center" Foreground="White"/>
                         </Viewbox>
-                        <TextBlock Text="Revenue" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0" Foreground="White"/>
+                        <TextBlock Text="Revenue this month" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0" Foreground="White"/>
                     </DockPanel>
                 </StackPanel>
             </Border>
@@ -300,7 +300,7 @@
                         <Viewbox Margin="10,0,0,0" DockPanel.Dock="Top" Height="60" HorizontalAlignment="Left">
                             <TextBlock x:Name="ExpenTxt" Text="VNĐ 1.000.000" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" TextAlignment="Center" Foreground="White"/>
                         </Viewbox>
-                        <TextBlock Text="Expenditure" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0" Foreground="White"/>
+                        <TextBlock Text="Expenditure this month" DockPanel.Dock="Bottom" VerticalAlignment="Center" FontSize="14" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito" Margin="10,0,0,0" Foreground="White"/>
                     </DockPanel>
                 </StackPanel>
             </Border>
@@ -416,8 +416,10 @@
                 <lvc:PieChart x:Name="IssueChart" 
                               Series="{Binding IssueSeries}" 
                               InitialRotation="270"
-                                    AnimationsSpeed="00:00:00.500"
-                                    FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Foreground="White" LegendTextBrush="White" Margin="30,30,30,10"/>
+                              AnimationsSpeed="00:00:00.500"
+                              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
+                              Foreground="White" LegendTextBrush="Black" Margin="30,30,30,10"
+                              LegendPosition="Right" LegendFontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"/>
 
             </Grid>
             <Grid Grid.Column="1">
@@ -455,8 +457,11 @@
                 <lvc:PieChart x:Name="InvoiceChart" 
                               Series="{Binding InvoiceSeries}" 
                               InitialRotation="270"
-                                    AnimationsSpeed="00:00:00.500"
-                                    FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Foreground="White" LegendTextBrush="White"  Margin="30,30,30,10" Grid.ColumnSpan="2"/>
+                              AnimationsSpeed="00:00:00.500"
+                              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" 
+                              Foreground="White" LegendTextBrush="Black"  Margin="30,30,30,10" 
+                              Grid.ColumnSpan="2" LegendPosition="Right" 
+                              LegendFontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito"/>
             </Grid>
         </Grid>
     </Grid>

@@ -61,38 +61,39 @@ namespace DigitalPhotographyManagementSystem.ServiceClass
             {
                 new PieSeries<double>
                 {
-                    Name = "Unsolve Issues",
-                    Values = new double[] { issueReportBUS.CountAllUnsolvedIssues() },
-                    Fill = new SolidColorPaint(SKColors.Red),
-                    Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 3 }
-
+                    Name = "Solved Issues",
+                    Values = new double[] { issueReportBUS.CountAllSolvedIssues() },
+                    Fill = new SolidColorPaint(SKColors.DarkGreen),
+                    Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 3 },
+                    HoverPushout = 30
                 },
                 new PieSeries<double>
                 {
-                    Name = "Solved Issues",
-                    Values = new double[] { issueReportBUS.CountAllSolvedIssues() },
-                    Fill = new SolidColorPaint(SKColors.GreenYellow),
-                    Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 3 }
-
+                    Name = "Unsolved Issues",
+                    Values = new double[] { issueReportBUS.CountAllUnsolvedIssues() },
+                    Fill = new SolidColorPaint(SKColors.Red),
+                    Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 3 },
+                    HoverPushout = 30
                 }
             };
         public ISeries[] InvoiceSeries { get; set; }
             = new ISeries[]
-            {
-                new PieSeries<double>
-                {
-                    Name = "Unfinished Invoices",
-                    Values = new double[] { 3 },
-                    Fill = new SolidColorPaint(SKColor.Parse("FFB8860B")),
-                    Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 3 }
-
-                },
+            {   
                 new PieSeries<double>
                 {
                     Name = "Finished Invoices",
                     Values = new double[] { 7 },
-                    Fill = new SolidColorPaint(SKColors.GreenYellow),
-                    Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 3 }
+                    Fill = new SolidColorPaint(SKColors.DarkGreen),
+                    Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 3 },
+                    HoverPushout = 30
+                },
+                new PieSeries<double>
+                {
+                    Name = "Unfinished Invoices",
+                    Values = new double[] { 3 },
+                    Fill = new SolidColorPaint(SKColor.Parse("F2B705")),
+                    Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 3 },
+                    HoverPushout = 30,
                 }
             };
         /*public void RevExpValues()

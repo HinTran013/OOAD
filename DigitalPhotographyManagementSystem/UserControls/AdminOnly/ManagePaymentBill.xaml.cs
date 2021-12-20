@@ -33,7 +33,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
         public string Date { get; set; }
         public string StaffID { get; set; }
         public long Services { get; set; }
-        public int TotalMoney { get; set; }
+        public string TotalMoney { get; set; }
         public string State { get; set; }
         public double CouponPercent { get; set; }
     }
@@ -60,7 +60,8 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
                     StaffID = item.staffUsername,
                     Services = paymentBillBUS.GetNumServicesFromID((ObjectId)item.objectId),
                     State = item.state,
-                    CouponPercent = item.couponDiscount
+                    CouponPercent = item.couponDiscount,
+                    TotalMoney = String.Format("{0:#,0}", item.totalMoney) + " VNĐ"
                 };
                 paymentPrint.Add(newPaymentBillPrint);
             }

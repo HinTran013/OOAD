@@ -46,7 +46,8 @@ namespace DAL
                     {"dueDate", newPaymentBill.dueDate },
                     {"billDetail", billDetails},
                     {"couponDiscount", newPaymentBill.couponDiscount },
-                    {"totalMoney", newPaymentBill.totalMoney }
+                    {"totalMoney", newPaymentBill.totalMoney },
+                    {"lastModified", DateTime.Now}
                 };
 
                 collection.InsertOneAsync(newDoc);
@@ -102,8 +103,17 @@ namespace DAL
                 var collection = db.GetCollection<BsonDocument>("paymentBills");
                 var paymentBills = new List<paymentBillDTO>();
                 var list = collection.Find(new BsonDocument()).ToListAsync().Result;
+                List<billDetailDTO> billDetail = new List<billDetailDTO>();
                 foreach (BsonDocument item in list)
                 {
+                    foreach (var detail in item["billDetail"].AsBsonArray)
+                    {
+                        billDetail.Add(new billDetailDTO(
+                            (string)detail["service"],
+                            (int)detail["unitPrice"],
+                            (int)detail["unitQuantity"]
+                        ));
+                    }
                     paymentBills.Add(new paymentBillDTO
                     (
                         (string)item["customerName"],
@@ -114,9 +124,10 @@ namespace DAL
                         (string)item["staffUsername"],
                         (string)item["state"],
                         (string)item["dueDate"],
-                        null,
+                        billDetail,
                         (double)item["couponDiscount"],
-                        (ObjectId)item["_id"]
+                        (ObjectId)item["_id"],
+                        (DateTime)item["lastModified"]
                     ));
                 }
                 return paymentBills;
@@ -139,5 +150,26 @@ namespace DAL
                 return -1;
             }
         }
+        /*public int CalculateRevenueFromMonth(int month)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("paymentBills");
+                var billCompleted = collection.Find(x => ((string)x["state"]) == "COMPLETED").ToListAsync().Result;
+                var billOverdue = collection.Find(x => ((string)x["state"]) == "OVERDUE").ToListAsync().Result;
+                int sum;
+                foreach (var bill in billCompleted)
+                {
+                    foreach (var detail in bill["billDetail"].AsBsonArray)
+                    {
+                        
+                    }
+                }
+            }
+            catch
+            {
+                return -1;
+            }
+        }*/
     }
 }

@@ -26,7 +26,7 @@ namespace DigitalPhotographyManagementSystem.View
         public int No { get; set; }
         public string ServiceName { get; set; }
         public int UnitQuantity { get; set; }
-        public int UnitPrice { get; set; }
+        public string UnitPrice { get; set; }
     }
     public partial class PaymentBill_View : Window
     {
@@ -48,13 +48,14 @@ namespace DigitalPhotographyManagementSystem.View
                     No = i++,
                     ServiceName = item.service,
                     UnitQuantity = item.unitQuantity,
-                    UnitPrice = item.unitPrice
+                    UnitPrice = String.Format("{0:#,0}", item.unitPrice)
                 });
             }
             staffDTO staff = staffBUS.GetStaffByUsername(paymentBill.staffUsername.ToLower());
             StaffNameTxt.Text = staff.name;
             TotalMoneyTxt.Text = "VNĐ " + String.Format("{0:#,0}", paymentBill.totalMoney);
             DueDateTxt.Text = DateTime.Parse(paymentBill.dueDate, new CultureInfo("vi-VN", true)).ToString("dd MMM yy");
+            CouponPerTxt.Text = "Discount: " + paymentBill.couponDiscount.ToString() + "%";
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)

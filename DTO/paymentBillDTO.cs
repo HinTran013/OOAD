@@ -22,6 +22,8 @@ namespace DTO
         private double _totalMoney;
         private double _couponDiscount;
         private ObjectId? _objectId;
+        private DateTime _lastModified;
+
 
         public paymentBillDTO()
         {
@@ -37,6 +39,7 @@ namespace DTO
             this._totalMoney = -1;
             this._billDetails = null;
             this._dueDate = null;
+            this._lastModified = default(DateTime);
         }
 
         //constructor with params
@@ -52,8 +55,10 @@ namespace DTO
 
             string dueDate,
             List<billDetailDTO> billDetails,
-            double discount
-        ){
+            double discount,
+            DateTime lastModified = default(DateTime)
+        )
+        {
             this._customerName = customerName;
             this._customerAddress = customerAddress;
             this._customerPhoneNo = customerPhoneNo;
@@ -72,7 +77,10 @@ namespace DTO
                 {
                     this._totalMoney += billDetail.unitPrice;
                 }
+                this._totalMoney -= this._totalMoney * couponDiscount / 100;
             }
+            else totalMoney = 0;
+            this._lastModified = lastModified;
         }
         public paymentBillDTO
         (
@@ -86,7 +94,8 @@ namespace DTO
             string dueDate,
             List<billDetailDTO> billDetails,
             double discount,
-            ObjectId? objectId
+            ObjectId? objectId,
+            DateTime lastModified = default(DateTime)
         )
         {
             this._customerName = customerName;
@@ -107,7 +116,10 @@ namespace DTO
                 {
                     this._totalMoney += billDetail.unitPrice;
                 }
+                this._totalMoney -= this._totalMoney * couponDiscount / 100;
             }
+            else totalMoney = 0;
+            this._lastModified = lastModified;
         }
 
         public string customerName { get => _customerName; set => _customerName = value; }
@@ -118,7 +130,7 @@ namespace DTO
         public string state { get => _state; set => _state = value; }
         public string staffUsername { get => _staffUsername; set => _staffUsername = value; }
         public string dueDate { get => _dueDate; set => _dueDate = value; }
-
+        public DateTime lastModified { get => _lastModified; set => _lastModified = value; }
         public List<billDetailDTO> billDetails { get => _billDetails; set => _billDetails = value; }
         public double totalMoney { get => _totalMoney; set => _totalMoney = value; }
         public ObjectId? objectId { get => _objectId; set => _objectId = value; }

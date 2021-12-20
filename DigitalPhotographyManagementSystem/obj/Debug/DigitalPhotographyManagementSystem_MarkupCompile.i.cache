@@ -11,9 +11,9 @@ false
 DEBUG;TRACE
 D:\GitHubServer\OOAD\DigitalPhotographyManagementSystem\App.xaml
 37-2140732432
-302108091888
+30-1426373955
 46536713543
-153-833419857
+153-1675869916
 UserControls\Account Information\AccountInformation.xaml;UserControls\Accounting\CalculateBill.xaml;UserControls\Accounting\ListPaymentBill.xaml;UserControls\Accounting\ReportPrices.xaml;UserControls\AdminOnly\CreateAccount.xaml;UserControls\AdminOnly\ListAccounts.xaml;UserControls\AdminOnly\ListFund.xaml;UserControls\AdminOnly\ListInvoices.xaml;UserControls\AdminOnly\ListOfPriceChanges.xaml;UserControls\AdminOnly\UpdateAccountContainerWindow.xaml;UserControls\AdminOnly\ManagePaymentBill.xaml;UserControls\DashboardHome.xaml;UserControls\Marketing\AdCampaign.xaml;UserControls\Marketing\CreateCoupon.xaml;UserControls\Marketing\IdeaProposing.xaml;UserControls\Marketing\ListAdsCampaign.xaml;UserControls\Marketing\ListIdea.xaml;UserControls\Marketing\PrintPhoto.xaml;UserControls\Technical\InvoiceDetail.xaml;UserControls\Technical\ListOfInvoices.xaml;UserControls\Transaction\InvoiceCreating.xaml;UserControls\Transaction\IssuesReport.xaml;UserControls\Transaction\ListIssues.xaml;UserControls\Transaction\PhotoDelivery.xaml;UserControls\UserControlMenuDrawer.xaml;UserControls\UserControlSingleItem.xaml;View\AboutBox.xaml;View\AdsDetail_View.xaml;View\DashboardMain.xaml;View\FundBill_View.xaml;View\IdeaDetail_View.xaml;View\Invoice_View.xaml;View\IssueDetail_View.xaml;View\ListContainers.xaml;View\LoginWindow.xaml;View\MsgBox.xaml;View\PaymentBill_View.xaml;
 
 True

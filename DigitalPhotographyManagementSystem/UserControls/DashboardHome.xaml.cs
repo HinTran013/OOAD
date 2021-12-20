@@ -7,6 +7,7 @@ using DigitalPhotographyManagementSystem.View;
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,12 +31,43 @@ namespace DigitalPhotographyManagementSystem.UserControls
         public DashboardHome()
         {
             InitializeComponent();
+            RevenueTxt.Text = "VNĐ " + String.Format("{0:#,0}",CalculateRevenue(DateTime.Now.ToString("M")));
+            ExpenTxt.Text = "VNĐ " + String.Format("{0:#,0}", CalculateExpenditure(DateTime.Now.ToString("M")));
             AdsTxt.Text = adCampaignBUS.CountAllCampaigns().ToString();
             IdeasTxt.Text = ideaBUS.CountAllIdeas().ToString();
             IssuesTxt.Text = issueReportBUS.CountAllUnsolvedIssues().ToString();
             InvoicesTxt.Text = invoiceBUS.CountAllIncompleteInvoices().ToString();
         }
-
+        private double CalculateRevenue(string month)
+        {
+            List<paymentBillDTO> paymentBills = new List<paymentBillDTO>();
+            double rev = 0;
+            paymentBills = paymentBillBUS.GetAllPaymentBills().FindAll(x => x.state == "COMPLETED" && x.lastModified.ToString("M") == month);
+            if (paymentBills != null)
+                foreach (var bill in paymentBills)
+                {
+                    rev += bill.totalMoney;
+                }
+            paymentBills = paymentBillBUS.GetAllPaymentBills().FindAll(x => x.state == "OVERDUE" && x.lastModified.ToString("M") == month);
+            if (paymentBills != null)
+                foreach (var bill in paymentBills)
+                {
+                    rev -= bill.totalMoney;
+                }
+            return rev;
+        }
+        private double CalculateExpenditure(string month)
+        {
+            List<fundBillDTO> fundBills = new List<fundBillDTO>();
+            double exp = 0;
+            fundBills = fundBillBUS.GetAllFundBills().FindAll(x => DateTime.Parse(x.date, new CultureInfo("vi-VN", true)).ToString("M") == month);
+            if (fundBills != null)
+                foreach(var bill in fundBills)
+                {
+                    exp += bill.totalMoney;
+                }
+            return exp;
+        }
         private void AdsBD_MouseDown(object sender, MouseButtonEventArgs e)
         {
             ListAdsCampaign listAdsCampaign = new ListAdsCampaign();

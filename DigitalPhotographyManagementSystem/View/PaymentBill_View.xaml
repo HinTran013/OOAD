@@ -56,7 +56,14 @@
                             <TextBlock x:Name="EmailTxt" Text="Email: " FontSize="12" Margin="5" HorizontalAlignment="Right" TextAlignment="Right"/>
                         </StackPanel>
                     </Grid>
-                    <TextBlock x:Name="ReqDetailTxt" Text="Request Detail: " FontSize="12" Margin="15,0" TextWrapping="Wrap"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="327*"/>
+                            <ColumnDefinition Width="151*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="ReqDetailTxt" Text="Request Detail: " FontSize="12" Margin="15,0" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="CouponPerTxt" Grid.Column="1" TextAlignment="Right" Text="Discount: 10%" Margin="0,0,20,0" VerticalAlignment="Center" />
+                    </Grid>
                     <ListView x:Name="listPaymentBillService" Margin="15,5,15,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
@@ -118,7 +125,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid Width="50" >
-                                                <TextBlock Text="{Binding No}" TextAlignment="Center"/>
+                                                <TextBlock Text="{Binding No}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -146,7 +153,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid Width="175" >
-                                                <TextBlock Text="{Binding ServiceName}" TextAlignment="Center"/>
+                                                <TextBlock Text="{Binding ServiceName}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -174,7 +181,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid Width="115" >
-                                                <TextBlock Text="{Binding UnitQuantity}" TextAlignment="Center"/>
+                                                <TextBlock Text="{Binding UnitQuantity}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -202,7 +209,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid Width="115" >
-                                                <TextBlock Text="{Binding UnitPrice}" TextAlignment="Center"/>
+                                                <TextBlock Text="{Binding UnitPrice}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
