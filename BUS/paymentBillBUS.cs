@@ -29,5 +29,13 @@ namespace BUS
         {
             return paymentBill.GetNumServicesFromID(objectId);
         }
+        public static List<paymentBillDTO> GetPaymentBillsWithState(string state)
+        {
+            return paymentBill.GetPaymentBillsWithState(state);
+        }
+        public static bool UpdateStateWithObjectId(ObjectId id, string newState)
+        {
+            return paymentBill.UpdateStateWithObjectId(id, newState);
+        }
     }
 }
