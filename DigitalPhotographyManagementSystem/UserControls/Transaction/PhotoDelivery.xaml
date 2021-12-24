@@ -17,7 +17,7 @@
 
     <StackPanel>
 
-        <Grid Margin="60 30 60 0">
+        <Grid Margin="60 15 60 5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="1*"/>
@@ -28,15 +28,62 @@
             <Label Grid.Column="1" Grid.Row="0" 
                    Content="Today:" 
                    HorizontalContentAlignment="Right"
-                   Margin="0,0,5,0"/>
+                   VerticalContentAlignment="Center"
+                   Margin="0,0,5,0"
+                   FontSize="20"/>
             <TextBlock Grid.Column="2" Grid.Row="0"
                        VerticalAlignment="Center"
                        x:Name="DateTimeTxt"
-                       Text="21/12/2021">
+                       Text="21/12/2021" 
+                       FontSize="19"
+                       FontWeight="DemiBold">
             </TextBlock>
         </Grid>
+        <Border CornerRadius="10" Margin="60,0" Background="#8699DA">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" Opacity="0.5" ShadowDepth="1"/>
+            </Border.Effect>
+            <Grid>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="54"/>
+                        <ColumnDefinition Width="696"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Grid.Column="0" Kind="Magnify" Height="60" Width="60" Foreground="#DDFFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,0,0,0"/>
+                    <TextBox    Background="White" FontSize="15" Grid.Column="1" Height="60"  
+                                Margin="5,5,0,5"
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                x:Name="SearchTxt"
+                                AcceptsReturn="False"
+                                materialDesign:HintAssist.Hint="Search"
+                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}"/>
+                    <Grid Grid.Column="2">
+                        <Border x:Name="bdSearch"  Background="White" CornerRadius="5" Margin="5" Cursor="Hand">
+                            <ComboBox x:Name="SearchCbb" 
+                                      IsReadOnly="True" 
+                                      Margin="2"
+                                      Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                                      materialDesign:HintAssist.Hint="Search By"
+                                      FontSize="17"
+                                      SelectedIndex="0" 
+                                      Cursor="Hand" 
+                                      IsTextSearchEnabled="False" 
+                                      Background="White">
+                                <ComboBoxItem Content="Invoice ID"/>
+                                <ComboBoxItem Content="Customer's Name"/>
+                                <ComboBoxItem Content="Due Date"/>
+                                <ComboBoxItem Content="State"/>
+                            </ComboBox>
+                        </Border>
+
+                    </Grid>
+                </Grid>
+
+            </Grid>
+        </Border>
         <Border Margin="60 10 60 0" 
-                Height="520" 
+                Height="490" 
                 CornerRadius="10" 
                 Background="#8699DA">
             <Border.Effect>
@@ -46,7 +93,9 @@
                                           Direction="270"/>
             </Border.Effect>
             <Border Margin="5" CornerRadius="10" Background="White">
-                <ListView Name="listInvoice" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView Name="listInvoice" 
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                          MouseDoubleClick="listInvoice_MouseDoubleClick">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="Template">
@@ -247,7 +296,10 @@
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <DockPanel Width="152.155">
-                                            <Button Content="Done" Background="#8699DA" HorizontalAlignment="Center"/>
+                                            <Button x:Name="DoneBtn"
+                                                    Content="Done" 
+                                                    Background="#8699DA" 
+                                                    HorizontalAlignment="Center" Click="DoneBtn_Click"/>
                                         </DockPanel>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>

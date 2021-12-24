@@ -137,6 +137,56 @@ namespace DAL
                 return null;
             }
         }
+        public List<paymentBillDTO> GetPaymentBillsWithState(string state)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("paymentBills");
+                var paymentBills = new List<paymentBillDTO>();
+
+                var list = collection.Find(x => (string)x["state"] == state).ToListAsync().Result;
+
+                foreach (BsonDocument item in list)
+                {
+                    paymentBills.Add(new paymentBillDTO
+                    (
+                        (string)item["customerName"],
+                        (string)item["customerAddress"],
+                        (string)item["customerPhoneNo"],
+                        (string)item["customerEmail"],
+                        (string)item["customerRequestDetail"],
+                        (string)item["staffUsername"],
+                        (string)item["state"],
+                        (string)item["dueDate"],
+                        null,
+                        (double)item["couponDiscount"],
+                        (ObjectId)item["_id"]
+                    ));
+                }
+                return paymentBills;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public bool UpdateStateWithObjectId(ObjectId id, string newState)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("paymentBills");
+
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+                var update = Builders<BsonDocument>.Update.Set("state", newState);
+                var result = collection.UpdateOne(filter, update);
+                return true;
+
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public long GetNumServicesFromID(ObjectId objectId)
         {
             try
