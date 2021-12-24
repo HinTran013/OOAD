@@ -134,7 +134,7 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}">
-                                                        <TextBlock Name="TextBlock" Text="Idea ID" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock Name="TextBlock" Text="Idea's ID" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
@@ -207,7 +207,7 @@
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Grid Width="200" HorizontalAlignment="Center">
-                                            <TextBlock Text="{Binding StaffID}" TextAlignment="Center"/>
+                                            <TextBlock Text="{Binding Date}" TextAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -235,7 +235,7 @@
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Grid Width="255" HorizontalAlignment="Center">
-                                            <TextBlock Text="{Binding Date}" TextAlignment="Center"/>
+                                            <TextBlock Text="{Binding StaffID}" TextAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
