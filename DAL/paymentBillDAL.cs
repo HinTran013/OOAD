@@ -200,26 +200,5 @@ namespace DAL
                 return -1;
             }
         }
-        /*public int CalculateRevenueFromMonth(int month)
-        {
-            try
-            {
-                var collection = db.GetCollection<BsonDocument>("paymentBills");
-                var billCompleted = collection.Find(x => ((string)x["state"]) == "COMPLETED").ToListAsync().Result;
-                var billOverdue = collection.Find(x => ((string)x["state"]) == "OVERDUE").ToListAsync().Result;
-                int sum;
-                foreach (var bill in billCompleted)
-                {
-                    foreach (var detail in bill["billDetail"].AsBsonArray)
-                    {
-                        
-                    }
-                }
-            }
-            catch
-            {
-                return -1;
-            }
-        }*/
     }
 }

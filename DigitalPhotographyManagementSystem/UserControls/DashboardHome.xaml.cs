@@ -31,8 +31,9 @@ namespace DigitalPhotographyManagementSystem.UserControls
         public DashboardHome()
         {
             InitializeComponent();
-            RevenueTxt.Text = "VNĐ " + String.Format("{0:#,0}",CalculateRevenue(DateTime.Now.ToString("M")));
-            ExpenTxt.Text = "VNĐ " + String.Format("{0:#,0}", CalculateExpenditure(DateTime.Now.ToString("M")));
+            TitleTxt.Text = DateTime.Parse("5/12/2021", new CultureInfo("vi-VN", true)).ToString("MM");
+            RevenueTxt.Text = "VNĐ " + String.Format("{0:#,0}",CalculateRevenue(DateTime.Now.ToString("MM")));
+            ExpenTxt.Text = "VNĐ " + String.Format("{0:#,0}", CalculateExpenditure(DateTime.Now.ToString("MM")));
             AdsTxt.Text = adCampaignBUS.CountAllCampaigns().ToString();
             IdeasTxt.Text = ideaBUS.CountAllIdeas().ToString();
             IssuesTxt.Text = issueReportBUS.CountAllUnsolvedIssues().ToString();
@@ -40,27 +41,31 @@ namespace DigitalPhotographyManagementSystem.UserControls
         }
         private double CalculateRevenue(string month)
         {
-            List<paymentBillDTO> paymentBills = new List<paymentBillDTO>();
+            List<paymentBillDTO> paymentBills = paymentBillBUS.GetAllPaymentBills();
+            List<paymentBillDTO> completedPaymentBills = new List<paymentBillDTO>();
+            List<paymentBillDTO> overduedPaymentBills = new List<paymentBillDTO>();
+
             double rev = 0;
-            paymentBills = paymentBillBUS.GetAllPaymentBills().FindAll(x => x.state == "COMPLETED" && x.lastModified.ToString("M") == month);
             if (paymentBills != null)
-                foreach (var bill in paymentBills)
+            {
+                completedPaymentBills = paymentBills.FindAll(x => x.state == "COMPLETED" && x.lastModified.ToString("MM") == month);
+                overduedPaymentBills = paymentBills.FindAll(x => x.state == "OVERDUE" && x.lastModified.ToString("MM") == month);
+                foreach (var bill in completedPaymentBills)
                 {
                     rev += bill.totalMoney;
                 }
-            paymentBills = paymentBillBUS.GetAllPaymentBills().FindAll(x => x.state == "OVERDUE" && x.lastModified.ToString("M") == month);
-            if (paymentBills != null)
-                foreach (var bill in paymentBills)
+                foreach (var bill in overduedPaymentBills)
                 {
                     rev -= bill.totalMoney;
                 }
+            }
             return rev;
         }
         private double CalculateExpenditure(string month)
         {
             List<fundBillDTO> fundBills = new List<fundBillDTO>();
             double exp = 0;
-            fundBills = fundBillBUS.GetAllFundBills().FindAll(x => DateTime.Parse(x.date, new CultureInfo("vi-VN", true)).ToString("M") == month);
+            fundBills = fundBillBUS.GetAllFundBills().FindAll(x => DateTime.Parse(x.date, new CultureInfo("vi-VN", true)).ToString("MM") == month);
             if (fundBills != null)
                 foreach(var bill in fundBills)
                 {

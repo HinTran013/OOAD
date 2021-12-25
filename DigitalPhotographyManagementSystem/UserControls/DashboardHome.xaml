@@ -185,7 +185,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <TextBlock Text="Welcome to Digital Photography Management's Dashboard" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Margin="30,0,0,0" VerticalAlignment="Center" FontSize="20" />
+            <TextBlock x:Name="TitleTxt" Text="Welcome to Digital Photography Management's Dashboard" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Black" Margin="30,0,0,0" VerticalAlignment="Center" FontSize="20" />
         </Grid>
         <Grid Grid.Row="1" Margin="30,0">
             <Grid.ColumnDefinitions>
