@@ -31,7 +31,6 @@ namespace DigitalPhotographyManagementSystem.UserControls
         public DashboardHome()
         {
             InitializeComponent();
-            TitleTxt.Text = DateTime.Parse("5/12/2021", new CultureInfo("vi-VN", true)).ToString("MM");
             RevenueTxt.Text = "VNĐ " + String.Format("{0:#,0}",CalculateRevenue(DateTime.Now.ToString("MM")));
             ExpenTxt.Text = "VNĐ " + String.Format("{0:#,0}", CalculateExpenditure(DateTime.Now.ToString("MM")));
             AdsTxt.Text = adCampaignBUS.CountAllCampaigns().ToString();

@@ -56,6 +56,17 @@ namespace DigitalPhotographyManagementSystem.ServiceClass
                     LineSmoothness = 1
                 }
             };
+        /*private double[] GetDayRevExp()
+        {
+            List<paymentBillDTO> paymentBills = paymentBillBUS.GetAllPaymentBills();
+            List<paymentBillDTO> completedPaymentBills = paymentBills.FindAll(x => x.state == "COMPLETED" && x.lastModified.ToString("MM") == month);
+            List<paymentBillDTO> overduedPaymentBills = new List<paymentBillDTO>();
+            List<fundBillDTO> fundBills = fundBillBUS.GetAllFundBills();
+
+            double[] values = new double[];
+
+            return values;
+        }*/
         public ISeries[] IssueSeries { get; set; }
             = new ISeries[]
             {

@@ -83,7 +83,7 @@
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid Width="90" >
+                                            <Grid Width="90" HorizontalAlignment="Center" >
                                                 <TextBlock Text="{Binding No}" TextAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
@@ -111,7 +111,7 @@
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid Width="250" >
+                                            <Grid Width="250" HorizontalAlignment="Center" >
                                                 <TextBlock Text="{Binding ServiceName}" TextAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
@@ -139,7 +139,7 @@
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid Width="107" >
+                                            <Grid Width="107" HorizontalAlignment="Center" >
                                                 <TextBlock Text="{Binding UnitQuantity}" TextAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
