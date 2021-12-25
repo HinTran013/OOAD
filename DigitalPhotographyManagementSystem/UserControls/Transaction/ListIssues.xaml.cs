@@ -43,26 +43,8 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
         {
             InitializeComponent();
             DateTimeTxt.Text = "Date time: " + DateTime.Now.ToString("dd/MM/yyyy");
-            List<issueReportDTO> issueReports = issueReportBUS.GetAllIssueReports();
-            int i = 1;
             issuePrints = new ObservableCollection<IssuePrint>();
-            foreach (issueReportDTO item in issueReports)
-            {
-                var newissueReportPrint = new IssuePrint()
-                {
-                    No = i++,
-                    issueID = item.objectId.ToString().Substring(item.objectId.ToString().Length - 5),
-                    fullIssueID = (ObjectId)item.objectId,
-                    Title = item.title,
-                    Date = item.date,
-                    Type = item.issueType,
-                    StaffID = item.staffUsername,
-                    desc = item.description,
-                    IsSolved = (bool)item.isSolved,
-                    State = (bool)item.isSolved ? "SOLVED" : "ERROR"
-                };
-                issuePrints.Add(newissueReportPrint);
-            }
+            PopulateData();
 
             listIssue.ItemsSource = issuePrints;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listIssue.ItemsSource);
@@ -146,6 +128,34 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
                     else return;
                 }
             }
+        }
+        private void PopulateData()
+        {
+            List<issueReportDTO> issueReports = issueReportBUS.GetAllIssueReports();
+            int i = 1;
+            foreach (issueReportDTO item in issueReports)
+            {
+                var newissueReportPrint = new IssuePrint()
+                {
+                    No = i++,
+                    issueID = item.objectId.ToString().Substring(item.objectId.ToString().Length - 5),
+                    fullIssueID = (ObjectId)item.objectId,
+                    Title = item.title,
+                    Date = item.date,
+                    Type = item.issueType,
+                    StaffID = item.staffUsername,
+                    desc = item.description,
+                    IsSolved = (bool)item.isSolved,
+                    State = (bool)item.isSolved ? "SOLVED" : "ERROR"
+                };
+                issuePrints.Add(newissueReportPrint);
+            }
+        }
+        private void refreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (issuePrints != null)
+                issuePrints.Clear();
+            PopulateData();
         }
     }
 }

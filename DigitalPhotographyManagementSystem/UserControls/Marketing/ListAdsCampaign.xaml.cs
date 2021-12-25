@@ -42,25 +42,8 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
         {
             InitializeComponent();
             DateTimeTxt.Text = "Date time: " + DateTime.Now.ToString("dd/MM/yyyy");
-            List<adCampaignDTO> adCampaigns = adCampaignBUS.GetAllAdCampaigns();
-            int i = 1;
             adPrints = new ObservableCollection<AdCampaignPrint>();
-            foreach (adCampaignDTO item in adCampaigns)
-            {
-                var newAdPrint = new AdCampaignPrint()
-                {
-                    No = i++,
-                    adsID = item.objectId.ToString().Substring(item.objectId.ToString().Length - 5),
-                    fullAdsID = (ObjectId)item.objectId,
-                    campaignName = item.campaignName,
-                    DateStart = item.dateStart,
-                    DateEnd = item.dateEnd,
-                    StaffID = item.staffUsername,
-                    type = item.type,
-                    desc = item.description
-                };
-                adPrints.Add(newAdPrint);
-            }
+            PopulateData();
 
             listAdCampaign.ItemsSource = adPrints;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listAdCampaign.ItemsSource);
@@ -106,10 +89,32 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
                 invoice_View.ShowDialog();
             }
         }
-
-        private void SearchTxtBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        private void PopulateData()
         {
-
+            List<adCampaignDTO> adCampaigns = adCampaignBUS.GetAllAdCampaigns();
+            int i = 1;
+            foreach (adCampaignDTO item in adCampaigns)
+            {
+                var newAdPrint = new AdCampaignPrint()
+                {
+                    No = i++,
+                    adsID = item.objectId.ToString().Substring(item.objectId.ToString().Length - 5),
+                    fullAdsID = (ObjectId)item.objectId,
+                    campaignName = item.campaignName,
+                    DateStart = item.dateStart,
+                    DateEnd = item.dateEnd,
+                    StaffID = item.staffUsername,
+                    type = item.type,
+                    desc = item.description
+                };
+                adPrints.Add(newAdPrint);
+            }
+        }
+        private void refreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (adPrints != null)
+                adPrints.Clear();
+            PopulateData();
         }
     }
 }

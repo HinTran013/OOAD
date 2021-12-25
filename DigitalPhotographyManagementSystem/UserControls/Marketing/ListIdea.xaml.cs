@@ -40,9 +40,16 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
         {
             InitializeComponent();
             DateTimeTxt.Text = "Date time: " + DateTime.Now.ToString("dd/MM/yyyy");
+            ideaPrints = new ObservableCollection<IdeaPrint>();
+            PopulateData();
+            listIdeas.ItemsSource = ideaPrints;
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listIdeas.ItemsSource);
+            view.Filter = IdeaFilter;
+        }
+        private void PopulateData()
+        {
             List<ideaDTO> ideas = ideaBUS.GetAllIdeas();
             int i = 1;
-            ideaPrints = new ObservableCollection<IdeaPrint>();
             foreach (ideaDTO item in ideas)
             {
                 var newIdeaPrint = new IdeaPrint()
@@ -57,10 +64,6 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
                 };
                 ideaPrints.Add(newIdeaPrint);
             }
-
-            listIdeas.ItemsSource = ideaPrints;
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listIdeas.ItemsSource);
-            view.Filter = IdeaFilter;
         }
         private bool IdeaFilter(object item)
         {
@@ -97,6 +100,13 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
                 IdeaDetail_View ideaDetail_View = new IdeaDetail_View(idea);
                 ideaDetail_View.ShowDialog();
             }
+        }
+
+        private void refreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ideaPrints != null)
+                ideaPrints.Clear();
+            PopulateData();
         }
     }
 }

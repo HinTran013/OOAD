@@ -44,10 +44,18 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
         {
             InitializeComponent();
             DateTimeTxt.Text = "Date time: " + DateTime.Now.ToString("dd/MM/yyyy");
+            paymentPrint = new ObservableCollection<PaymentPrint>();
+            PopulateData();
+
+            listPayment.ItemsSource = paymentPrint;
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listPayment.ItemsSource);
+            view.Filter = PaymentFilter;
+        }
+        private void PopulateData()
+        {
             List<paymentBillDTO> paymentBills = new List<paymentBillDTO>();
             paymentBills = paymentBillBUS.GetAllPaymentBills();
             int i = 1;
-            paymentPrint = new ObservableCollection<PaymentPrint>();
             foreach (paymentBillDTO item in paymentBills)
             {
                 var newPaymentBillPrint = new PaymentPrint()
@@ -65,10 +73,6 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
                 };
                 paymentPrint.Add(newPaymentBillPrint);
             }
-
-            listPayment.ItemsSource = paymentPrint;
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listPayment.ItemsSource);
-            view.Filter = PaymentFilter;
         }
         private bool PaymentFilter(object item)
         {
@@ -105,6 +109,13 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
                 PaymentBill_View paymentBill_View = new PaymentBill_View(paymentBill.fullpaymentID);
                 paymentBill_View.ShowDialog();
             }
+        }
+
+        private void refreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (paymentPrint != null)
+                paymentPrint.Clear();
+            PopulateData();
         }
     }
 }

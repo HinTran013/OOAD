@@ -53,10 +53,19 @@ namespace DigitalPhotographyManagementSystem.UserControls
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             Account = acc;
             DateTimeTxt.Text = "Date time: " + DateTime.Now.ToString("dd/MM/yyyy");
+            invoicePrint = new ObservableCollection<InvoicePrint>();
+            PopulateData();
+            
+
+            listInvoice.ItemsSource = invoicePrint;
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listInvoice.ItemsSource);
+            view.Filter = InvoiceFilter;
+        }
+        private void PopulateData()
+        {
             List<invoiceDTO> invoices = new List<invoiceDTO>();
             invoices = invoiceBUS.GetAllUnprintedInvoices();
             int i = 1;
-            invoicePrint = new ObservableCollection<InvoicePrint>();
             foreach (invoiceDTO item in invoices)
             {
                 var newInvoicePrint = new InvoicePrint()
@@ -71,12 +80,7 @@ namespace DigitalPhotographyManagementSystem.UserControls
                 };
                 invoicePrint.Add(newInvoicePrint);
             }
-
-            listInvoice.ItemsSource = invoicePrint;
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listInvoice.ItemsSource);
-            view.Filter = InvoiceFilter;
         }
-
         private bool InvoiceFilter(object item)
         {
             if (String.IsNullOrEmpty(SearchTxtBox.Text))
@@ -134,10 +138,6 @@ namespace DigitalPhotographyManagementSystem.UserControls
                     MsgBox.Show("Please input value", MessageBoxTyp.Warning);
                     return;
                 }
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "Excel|*.xlsx|Excel 2003|*.xls";
-                openFileDialog.FilterIndex = 1;
-                openFileDialog.ShowDialog();
                 invoiceBUS.UpdateStateInvoiceFromID(invoice.fullInvoiceID, "PRINT");
                 fundBillBUS.AddFundBill(new fundBillDTO
                 (
@@ -374,6 +374,13 @@ namespace DigitalPhotographyManagementSystem.UserControls
             }
             else
                 return;
+        }
+
+        private void refreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (invoicePrint != null)
+                invoicePrint.Clear();
+            PopulateData();
         }
     }
 }

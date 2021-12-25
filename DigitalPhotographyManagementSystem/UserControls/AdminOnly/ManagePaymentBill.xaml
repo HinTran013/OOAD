@@ -59,7 +59,7 @@
 
             </Grid>
         </Border>
-        <Border Margin="60 10 60 0" Height="460" CornerRadius="10" Background="#8699DA">
+        <Border Margin="60 10 60 0" Height="450" CornerRadius="10" Background="#8699DA">
             <Border Margin="5" CornerRadius="10" Background="White">
                 <ListView Name="listPayment" FontSize="15" MouseDoubleClick="listPayment_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListView.ItemContainerStyle>
@@ -361,6 +361,27 @@
                     </ListView.View>
                 </ListView>
             </Border>
+        </Border>
+        <Border CornerRadius="15" 
+                    Background="#EA9769"
+                    Width="150"
+                    HorizontalAlignment="Center" Margin="0,10,0,0">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+            </Border.Effect>
+            <Button 
+                        x:Name="refreshButton"
+                        FontSize="20"
+                        Foreground="White" Background="Transparent"
+                        BorderBrush="{x:Null}" 
+                        Height="50" 
+                        FontWeight="Normal"
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" RenderTransformOrigin="0.5,0.504" Click="refreshButton_Click">
+                Refresh
+            </Button>
         </Border>
     </StackPanel>
 </UserControl>

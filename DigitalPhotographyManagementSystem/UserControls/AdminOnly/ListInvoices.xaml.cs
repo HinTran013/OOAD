@@ -30,10 +30,17 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
         {
             InitializeComponent();
             DateTimeTxt.Text = "Date time: " + DateTime.Now.ToString("dd/MM/yyyy");
+            invoicePrint = new ObservableCollection<InvoicePrint>();
+            PopulateData();           
+            listInvoice.ItemsSource = invoicePrint;
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listInvoice.ItemsSource);
+            view.Filter = InvoiceFilter;
+        }
+        private void PopulateData()
+        {
             List<invoiceDTO> invoices = new List<invoiceDTO>();
             invoices = invoiceBUS.GetAllInvoices();
             int i = 1;
-            invoicePrint = new ObservableCollection<InvoicePrint>();
             foreach (invoiceDTO item in invoices)
             {
                 var newInvoicePrint = new InvoicePrint()
@@ -49,10 +56,6 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
                 };
                 invoicePrint.Add(newInvoicePrint);
             }
-
-            listInvoice.ItemsSource = invoicePrint;
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listInvoice.ItemsSource);
-            view.Filter = InvoiceFilter;
         }
         private bool InvoiceFilter(object item)
         {
@@ -89,6 +92,13 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
                 Invoice_View invoice_View = new Invoice_View(invoice.fullInvoiceID);
                 invoice_View.ShowDialog();
             }
+        }
+
+        private void refreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (invoicePrint != null)
+                invoicePrint.Clear();
+            PopulateData();
         }
     }
 }

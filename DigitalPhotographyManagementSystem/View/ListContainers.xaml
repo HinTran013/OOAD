@@ -15,7 +15,7 @@
             <DropShadowEffect BlurRadius="5" ShadowDepth="1" RenderingBias="Quality"/>
         </Border.Effect>
         <StackPanel Margin="4">
-            <DockPanel x:Name="MainContent" Height="600" Margin="5,5,5,0">
+            <DockPanel x:Name="MainContent" Height="595" Margin="5,5,5,0">
 
             </DockPanel>
             <Grid>

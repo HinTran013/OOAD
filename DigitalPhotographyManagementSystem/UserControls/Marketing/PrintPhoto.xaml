@@ -60,7 +60,7 @@
 
             </Grid>
         </Border>
-        <Border Margin="60 10 60 0" Height="460" CornerRadius="10" Background="#8699DA">
+        <Border Margin="60 10 60 0" Height="450" CornerRadius="10" Background="#8699DA">
             <Border Margin="5" CornerRadius="10" Background="White">
                 <ListView Name="listInvoice" FontSize="15" MouseDoubleClick="listInvoice_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListView.ItemContainerStyle>
@@ -310,9 +310,30 @@
             </Border>
         </Border>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,9.7,0,0">
+            <Border CornerRadius="10" 
+                    Background="#EA9769"
+                    Width="150"
+                    HorizontalAlignment="Center" Margin="0,0,10,0">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                </Border.Effect>
+                <Button 
+                        x:Name="refreshButton"
+                        FontSize="20"
+                        Foreground="White" Background="Transparent"
+                        BorderBrush="{x:Null}" 
+                        Height="50" 
+                        FontWeight="Normal"
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" RenderTransformOrigin="0.5,0.504" Click="refreshButton_Click">
+                    Refresh
+                </Button>
+            </Border>
             <Border CornerRadius="7" 
                     Background="#8699DA"
-                    Margin="0,0,10,0" Height="35">
+                    Margin="0,0,10,0" Height="50">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" 
                                           BlurRadius="4"
@@ -334,7 +355,7 @@
             </Border>
             <Border CornerRadius="7" 
                     Background="#8699DA"
-                    Margin="0,0,10,0" Height="35">
+                    Height="50">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="1" 
                                           BlurRadius="4"
@@ -354,7 +375,6 @@
                     </StackPanel>
                 </Button>
             </Border>
-           
         </StackPanel>
     </StackPanel>
 </UserControl>

@@ -77,7 +77,8 @@
                             Foreground="White" Background="Transparent"
                             BorderBrush="{x:Null}" 
                             Height="50" FontWeight="Normal"
-                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" IsDefault="True" >Sign In</Button>
+                            FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
+                                IsDefault="True" >Sign In</Button>
                     </Border>
 
                     <Label HorizontalAlignment="Center"

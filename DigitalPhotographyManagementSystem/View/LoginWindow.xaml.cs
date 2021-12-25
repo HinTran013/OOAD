@@ -55,6 +55,12 @@ namespace DigitalPhotographyManagementSystem.View
             staffDTO staff = new staffDTO();
             if (staffBUS.Login(Uname_txt.Text.ToLower(), Pass_txt.Password.ToLower()))
             {
+                if (RememberPass.IsChecked == true && (Properties.Settings.Default.Username != Uname_txt.Text || Properties.Settings.Default.Password != Pass_txt.Password))
+                {
+                    Properties.Settings.Default.Username = Uname_txt.Text;
+                    Properties.Settings.Default.Password = Pass_txt.Password;
+                    Properties.Settings.Default.Save();
+                }
                 staff = staffBUS.GetStaffByUsername(Uname_txt.Text.ToLower());
                 DashboardMain.GetInstance(staff).Show();
                 this.Close();

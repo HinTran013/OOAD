@@ -39,10 +39,18 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
         public ListFund()
         {
             InitializeComponent();
+            fundPrints = new ObservableCollection<FundPrint>();
             DateTimeTxt.Text = "Date time: " + DateTime.Now.ToString("dd/MM/yyyy");
+            PopulateData();
+            listFunds.ItemsSource = fundPrints;
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listFunds.ItemsSource);
+            view.Filter = FundFilter;
+        }
+
+        private void PopulateData()
+        {
             List<fundBillDTO> funds = fundBillBUS.GetAllFundBills();
             int i = 1;
-            fundPrints = new ObservableCollection<FundPrint>();
             foreach (fundBillDTO item in funds)
             {
                 var newfundPrint = new FundPrint()
@@ -57,11 +65,8 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
                 };
                 fundPrints.Add(newfundPrint);
             }
-
-            listFunds.ItemsSource = fundPrints;
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listFunds.ItemsSource);
-            view.Filter = FundFilter;
         }
+
         private bool FundFilter(object item)
         {
             if (String.IsNullOrEmpty(SearchTxtBox.Text))
@@ -97,6 +102,13 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
                 FundBill_View fundBill_View = new FundBill_View(fund);
                 fundBill_View.ShowDialog();
             }
+        }
+
+        private void refreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (fundPrints != null)
+                fundPrints.Clear();
+            PopulateData();
         }
     }
 }
