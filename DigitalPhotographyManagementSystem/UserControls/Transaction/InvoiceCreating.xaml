@@ -281,7 +281,7 @@
                             BorderBrush="White"
                             BorderThickness="0"
                             materialDesign:HintAssist.IsFloating="True"
-                            materialDesign:HintAssist.Hint="Due Date"/>
+                            materialDesign:HintAssist.Hint="Due Date" SelectedDateChanged="DueDateTxt_SelectedDateChanged"/>
             </Border>
             <Label HorizontalAlignment="Left"
                    VerticalAlignment="Center"

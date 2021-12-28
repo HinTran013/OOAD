@@ -93,12 +93,8 @@ namespace DigitalPhotographyManagementSystem.UserControls
                 if (item.state == "COMPLETED") return false;
 
                 string time = item.dueDate + " 00:00:00 AM";
-                //Console.WriteLine(timeNow);
-                //Console.WriteLine(DateTime.Parse(time));
                 if (DateTime.Compare(timeNow, DateTime.Parse(time)) <= 0)
                 {
-                    //paymentBillBUS.UpdateStateWithObjectId(item.objectId, )
-                    //Console.WriteLine("1111111");
                     return false;
                 }
                 else
