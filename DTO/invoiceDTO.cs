@@ -19,6 +19,7 @@ namespace DTO
         private string _date;
         private List<invoiceDetailDTO> _invoiceDetails;
         private ObjectId? _objectId;
+        private double _totalMoney;
 
         public invoiceDTO()
         {
@@ -32,6 +33,7 @@ namespace DTO
             this._date = null;
             this._objectId = null;
             this._invoiceDetails = null;
+            this._totalMoney = 0;
         }
 
         public invoiceDTO(
@@ -43,7 +45,8 @@ namespace DTO
             string staffUsername,
             string state,
             string date,
-            List<invoiceDetailDTO> invoiceDetails
+            List<invoiceDetailDTO> invoiceDetails,
+            double total = 0
         )
         {
             this._customerName = customerName;
@@ -56,6 +59,7 @@ namespace DTO
             this._customerEmail = customerEmail;
             this._date = date;
             this._objectId = null;
+            this._totalMoney = total;
         }
         public invoiceDTO(
             string customerName,
@@ -67,7 +71,8 @@ namespace DTO
             string state,
             string date,
             List<invoiceDetailDTO> invoiceDetails,
-            ObjectId? objectId
+            ObjectId? objectId,
+            double total = 0
         )
         {
             this._customerName = customerName;
@@ -80,6 +85,7 @@ namespace DTO
             this._customerEmail = customerEmail;
             this._date = date;
             this._objectId = objectId;
+            this._totalMoney = total;
         }
         public ObjectId? objectId { get => _objectId; set => _objectId = value; }
         public string date { get => _date; set => _date = value; }
@@ -91,5 +97,6 @@ namespace DTO
         public string customerName { get => _customerName; set => _customerName = value; }
         public string customerRequestDetail { get => _customerRequestDetail; set => _customerRequestDetail = value; }
         public string staffUsername { get => _staffUsername; set => _staffUsername = value; }
+        public double totalMoney { get => _totalMoney; set => _totalMoney = value; }
     }
 }

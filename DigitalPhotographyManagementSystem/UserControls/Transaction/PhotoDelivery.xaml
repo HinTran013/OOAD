@@ -83,7 +83,7 @@
             </Grid>
         </Border>
         <Border Margin="60 10 60 0" 
-                Height="490" 
+                Height="445" 
                 CornerRadius="10" 
                 Background="#8699DA">
             <Border.Effect>
@@ -308,6 +308,29 @@
                     </ListView.View>
                 </ListView>
             </Border>
+        </Border>
+        <Border CornerRadius="15" 
+                Background="#EA9769"
+                Width="150"
+                Height="55"
+                HorizontalAlignment="Center" 
+                Margin="0,7,0,0">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="1" 
+                                  BlurRadius="4"
+                                  Opacity="0.5"
+                                  Direction="270"/>
+            </Border.Effect>
+            <Button x:Name="RefreshBtn"
+                    FontSize="20"
+                    Foreground="White" Background="Transparent"
+                    BorderBrush="{x:Null}"
+                    Height="auto"
+                    FontWeight="Normal"
+                    FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" 
+                    RenderTransformOrigin="0.5,0.504" Click="RefreshBtn_Click">
+                Refresh
+            </Button>
         </Border>
     </StackPanel>
 </UserControl>

@@ -274,16 +274,14 @@
                 </Border.Effect>
                 <DatePicker x:Name="DueDateTxt"
                             FontSize="14"
-                                Foreground="Black"
-                                FontWeight="Bold"
-                                Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                Style="{StaticResource MaterialDesignOutlinedDatePicker}"
-                                BorderBrush="White"
-                                BorderThickness="0"
-                               
-                                materialDesign:HintAssist.IsFloating="True"
-                                materialDesign:HintAssist.Hint="Due Date"
-                                />
+                            Foreground="Black"
+                            FontWeight="Bold"
+                            Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                            BorderBrush="White"
+                            BorderThickness="0"
+                            materialDesign:HintAssist.IsFloating="True"
+                            materialDesign:HintAssist.Hint="Due Date" SelectedDateChanged="DueDateTxt_SelectedDateChanged"/>
             </Border>
             <Label HorizontalAlignment="Left"
                    VerticalAlignment="Center"
