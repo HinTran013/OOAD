@@ -43,6 +43,8 @@ namespace DigitalPhotographyManagementSystem.View
 
         private staffDTO accountStaff;
 
+        double sumTotal;
+
         public InvoiceCreating(staffDTO staff)
         {
             InitializeComponent();
@@ -58,6 +60,7 @@ namespace DigitalPhotographyManagementSystem.View
             SetServices();
 
             serviceNo = 1;
+            sumTotal = 0;
             serList.Clear();
 
             timeNow = DateTime.Now;
@@ -166,6 +169,11 @@ namespace DigitalPhotographyManagementSystem.View
             if(serviceList.Items.Count > 0) RearrangeNo();
         }
 
+        private void CheckDueDate()
+        {
+
+        }
+
         private bool CheckInputs()
         {
             if(DueDateTxt.SelectedDate == null)
@@ -239,8 +247,11 @@ namespace DigitalPhotographyManagementSystem.View
                     list.Add(new invoiceDetailDTO()
                     {
                         service = item.ServiceType,
-                        unitQuantity = item.Quantity
+                        unitQuantity = item.Quantity,
+                        unitPrice = item.Price
                     });
+
+                    sumTotal += item.Price * item.Quantity;
                 }
 
                 invoiceDTO invoice = new invoiceDTO(
@@ -252,7 +263,8 @@ namespace DigitalPhotographyManagementSystem.View
                     accountStaff.username,
                     "CREATED",
                     timeNow.ToString("dd/MM/yyyy"),
-                    list);
+                    list,
+                    sumTotal);
 
                 invoiceBUS.AddNewInvoice(invoice);
 

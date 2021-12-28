@@ -140,7 +140,7 @@ namespace DigitalPhotographyManagementSystem.UserControls
         {
             num = 1;
             listBill = paymentBillBUS.GetAllPaymentBills();
-            listInvoiceDelivery = new ObservableCollection<InvoiceDelivery>();
+            listInvoiceDelivery.Clear();
 
             listInvoice.ItemsSource = null;
 
@@ -196,6 +196,11 @@ namespace DigitalPhotographyManagementSystem.UserControls
                 }
             }
             else return;
+        }
+
+        private void RefreshBtn_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateList();
         }
     }
 }

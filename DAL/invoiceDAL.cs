@@ -31,6 +31,7 @@ namespace DAL
                     { 
                         { "service", invoice.service},
                         { "unitQuantity", invoice.unitQuantity },
+                        { "unitPrice", invoice.unitPrice }
                     });
                 }
                 var newDoc = new BsonDocument
@@ -43,6 +44,7 @@ namespace DAL
                     {"staffUsername", newInvoice.staffUsername },
                     {"state", newInvoice.state },
                     {"date", newInvoice.date },
+                    { "totalMoney", newInvoice.totalMoney },
                     {"invoiceDetail", invoiceDetails}
                 };
                 collection.InsertOneAsync(newDoc);
@@ -184,7 +186,8 @@ namespace DAL
                     invoicedetails.Add(new invoiceDetailDTO
                     (
                         (string)detail["service"],
-                        (int)detail["unitQuantity"]
+                        (int)detail["unitQuantity"],
+                        (double)detail["unitPrice"]
                     ));
                 }
                 invoiceDTO invoice = new invoiceDTO
@@ -198,7 +201,8 @@ namespace DAL
                     (string)inv["state"],
                     (string)inv["date"],
                     invoicedetails,
-                    (ObjectId)inv["_id"]
+                    (ObjectId)inv["_id"],
+                    (double)inv["totalMoney"]
                 );
 
                 return invoice;
@@ -244,7 +248,8 @@ namespace DAL
                         (string)item["state"],
                         (string)item["date"],
                         null,
-                        (ObjectId)item["_id"]
+                        (ObjectId)item["_id"],
+                        (double)item["totalMoney"]
                     ));
                 }
                 return invoices;
