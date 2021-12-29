@@ -41,6 +41,49 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
         public ListAccounts()
         {
             InitializeComponent();
+            DateTimeTxt.Text = "Date time: " + DateTime.Now.ToString("dd/MM/yyyy");
+            showInitData();
+        }
+
+        private void updateAccountBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var rowItem = (sender as Button).DataContext as account;
+                string username = rowItem.username;
+                UpdateAccountContainerWindow dialog = new UpdateAccountContainerWindow(username);
+                dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                dialog.ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private bool AccountFilter(object item)
+        {
+            if (String.IsNullOrEmpty(SearchTxtBox.Text))
+            {
+                return true;
+            }
+            else
+            {
+                if (cbbSearchBy.SelectedIndex == 0)
+                    return (item as account).name.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+
+                if (cbbSearchBy.SelectedIndex == 1)
+                    return (item as account).username.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+
+                if (cbbSearchBy.SelectedIndex == 2)
+                    return (item as account).department.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                else
+                    return true;
+            }
+        }
+
+        private void showInitData()
+        {
             List<staffDTO> staffs = new List<staffDTO>();
             staffs = staffBUS.GetAllStaffs();
             int i = 1;
@@ -62,22 +105,18 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
 
             listAccount.ItemsSource = showAccounts;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listAccount.ItemsSource);
+            view.Filter = AccountFilter;
         }
 
-        private void updateAccountBtn_Click(object sender, RoutedEventArgs e)
+        private void SearchTxtBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            try
-            {
-                var rowItem = (sender as Button).DataContext as account;
-                string username = rowItem.username;
-                UpdateAccountContainerWindow dialog = new UpdateAccountContainerWindow(username);
-                dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                dialog.ShowDialog();
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
+            CollectionViewSource.GetDefaultView(listAccount.ItemsSource).Refresh();
+        }
+
+        private void refreshBtn_Click(object sender, RoutedEventArgs e)
+        {
+            showInitData();
+            var messageBoxResult = MsgBox.Show("Success", "Refresh service successfully!", MessageBoxTyp.Information);
         }
     }
 }

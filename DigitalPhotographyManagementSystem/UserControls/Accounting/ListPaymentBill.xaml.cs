@@ -131,14 +131,6 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
             }
         }
 
-        private void ExportBtn_Click(object sender, RoutedEventArgs e)
-        {
-            //Test
-
-            CalculateBill test = new CalculateBill(null, accountStaff);
-            test.ShowDialog();
-        }
-
         private void SearchTxt_TextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(listInvoice.ItemsSource).Refresh();
@@ -156,6 +148,11 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
             }
 
             CollectionViewSource.GetDefaultView(listInvoice.ItemsSource).Refresh();
+        }
+
+        private void RefreshBtn_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateList();
         }
     }
 }

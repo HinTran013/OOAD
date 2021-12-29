@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -43,9 +45,18 @@ namespace DigitalPhotographyManagementSystem.View
 
         private staffDTO accountStaff;
 
+        double sumTotal;
+
         public InvoiceCreating(staffDTO staff)
         {
             InitializeComponent();
+
+            var newCulture = new CultureInfo("");
+            newCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
+            CultureInfo.DefaultThreadCurrentCulture = newCulture;
+            CultureInfo.DefaultThreadCurrentUICulture = newCulture;
+            Thread.CurrentThread.CurrentCulture = newCulture;
+            Thread.CurrentThread.CurrentUICulture = newCulture;
 
             accountStaff = staff;
             serList = new List<ServiceItem>();
@@ -58,6 +69,7 @@ namespace DigitalPhotographyManagementSystem.View
             SetServices();
 
             serviceNo = 1;
+            sumTotal = 0;
             serList.Clear();
 
             timeNow = DateTime.Now;
@@ -164,6 +176,24 @@ namespace DigitalPhotographyManagementSystem.View
             }
 
             if(serviceList.Items.Count > 0) RearrangeNo();
+
+
+        }
+
+        private bool CheckDueDate(string due)
+        {
+            if(due != null)
+            {
+                string dueDate = due + " 00:00:00 AM";
+
+                if (DateTime.Compare(timeNow, DateTime.Parse(dueDate)) <= 0)
+                {
+                    return true;
+                }
+                else return false;
+            }
+
+            return false;
         }
 
         private bool CheckInputs()
@@ -224,8 +254,6 @@ namespace DigitalPhotographyManagementSystem.View
                 return false;
             }
 
-
-
             return true;
         }
 
@@ -239,8 +267,11 @@ namespace DigitalPhotographyManagementSystem.View
                     list.Add(new invoiceDetailDTO()
                     {
                         service = item.ServiceType,
-                        unitQuantity = item.Quantity
+                        unitQuantity = item.Quantity,
+                        unitPrice = item.Price
                     });
+
+                    sumTotal += item.Price * item.Quantity;
                 }
 
                 invoiceDTO invoice = new invoiceDTO(
@@ -251,8 +282,9 @@ namespace DigitalPhotographyManagementSystem.View
                     RequestTxt.Text == "" ? "None" : RequestTxt.Text,
                     accountStaff.username,
                     "CREATED",
-                    timeNow.ToString("dd/MM/yyyy"),
-                    list);
+                    DueDateTxt.Text,
+                    list,
+                    sumTotal);
 
                 invoiceBUS.AddNewInvoice(invoice);
 
@@ -271,6 +303,25 @@ namespace DigitalPhotographyManagementSystem.View
         {
             NewForm();
             ResetInputs();
+        }
+
+        private void DueDateTxt_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DueDateTxt.SelectedDate == null) return;
+
+            if (CheckDueDate(DueDateTxt.Text))
+            {
+                return;
+            }
+            else
+            {
+                var messageBoxResult = MsgBox.Show("Warning",
+                                                   "The due date must be later than the current date!",
+                                                   MessageBoxButton.OK,
+                                                   MessageBoxImg.Warning);
+                DueDateTxt.SelectedDate = null;
+                return;
+            }
         }
     }
 }

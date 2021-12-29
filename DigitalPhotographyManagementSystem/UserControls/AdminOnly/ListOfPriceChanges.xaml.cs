@@ -41,6 +41,8 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
         public ListOfPriceChanges()
         {
             InitializeComponent();
+            DateTimeTxt.Text = "Date time: " + DateTime.Now.ToString("dd/MM/yyyy");
+
             showInitData();
         }
 
@@ -80,6 +82,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
 
             listService.ItemsSource = showServices;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listService.ItemsSource);
+            view.Filter = PriceFilter;
         }
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
@@ -136,6 +139,33 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
             //To limit the characters which are the numbers in the textbox
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private bool PriceFilter(object item)
+        {
+            if (String.IsNullOrEmpty(SearchTxtBox.Text))
+            {
+                return true;
+            }
+            else
+            {
+                if (cbbSearchBy.SelectedIndex == 0)
+                    return (item as services).name.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                else
+                    return true;
+            }
+        }
+
+        private void SearchTxtBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(listService.ItemsSource).Refresh();
+        }
+
+        private void refreshBtn_Click(object sender, RoutedEventArgs e)
+        {
+            showInitData();
+
+            var messageBoxResult = MsgBox.Show("Success", "Refresh service successfully!", MessageBoxTyp.Information);
         }
     }
 }
