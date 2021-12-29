@@ -259,7 +259,8 @@
 
             <Grid Grid.Row="1" Margin="60, 0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="800"/>
+                    <ColumnDefinition Width="640"/>
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Border CornerRadius="15" 
@@ -285,8 +286,30 @@
                     </Button>
                 </Border>
 
-               
                 <Grid Grid.Column="1" HorizontalAlignment="Right">
+                    <Border CornerRadius="15" 
+                    Background="#8699DA"
+                    Height="50px"
+                    Width="150">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                        </Border.Effect>
+                        <Button 
+                        x:Name="refreshBtn"
+                        FontSize="20"
+                        Foreground="White" Background="Transparent"
+                        BorderBrush="{x:Null}" 
+                        Height="Auto" FontWeight="Normal"
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Margin="0,0,0.4,-0.4" Click="refreshBtn_Click">
+                            Refresh
+                        </Button>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Column="2" HorizontalAlignment="Right">
                     <Border CornerRadius="15" 
                     Background="#8699DA"
                     Height="50px"

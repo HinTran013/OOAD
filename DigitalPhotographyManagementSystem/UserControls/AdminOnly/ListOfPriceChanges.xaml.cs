@@ -160,5 +160,12 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
         {
             CollectionViewSource.GetDefaultView(listService.ItemsSource).Refresh();
         }
+
+        private void refreshBtn_Click(object sender, RoutedEventArgs e)
+        {
+            showInitData();
+
+            var messageBoxResult = MsgBox.Show("Success", "Refresh service successfully!", MessageBoxTyp.Information);
+        }
     }
 }
