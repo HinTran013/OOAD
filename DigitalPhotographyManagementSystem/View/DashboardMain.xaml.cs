@@ -64,9 +64,9 @@ namespace DigitalPhotographyManagementSystem.View
             {
                 var menuMarketDept = new List<SubItem>();
                 menuMarketDept.Add(new SubItem("Propose New Ideas", IdeaProposing.GetInstance(Account)));
-                menuMarketDept.Add(new SubItem("Ad Campaign", AdCampaign.GetInstance(Account)));
-                menuMarketDept.Add(new SubItem("Print Photos", new PrintPhoto(Account)));
+                menuMarketDept.Add(new SubItem("Create Ad Campaign", AdCampaign.GetInstance(Account)));
                 menuMarketDept.Add(new SubItem("Create Coupon", CreateCoupon.GetInstance()));
+                menuMarketDept.Add(new SubItem("Print Photos", new PrintPhoto(Account)));
                 menuMarketDept.Add(new SubItem("Manage Ad Campaigns", new ListAdsCampaign()));
                 menuMarketDept.Add(new SubItem("Manage Ideas", new ListIdea()));
 
@@ -109,17 +109,20 @@ namespace DigitalPhotographyManagementSystem.View
                 {
                     var paymentBill = new ItemMenu("Create Payment Bill", PackIconKind.Payment, CommandType.UControl, new ListPaymentBill(Account));
                     var report = new ItemMenu("Report Price Of Photos", PackIconKind.Report, CommandType.UControl, new ReportPrices());
-
+                    SideMenu.Children.Add(new UserControlSingleItem(paymentBill, this));
+                    SideMenu.Children.Add(new UserControlSingleItem(report, this));
                 }
                 else if (Account.type == "Marketing")
                 {
                     var propose = new ItemMenu("Propose New Ideas", PackIconKind.Idea, CommandType.UControl, IdeaProposing.GetInstance(Account));
-                    var adCamp = new ItemMenu("Ad Campaign", PackIconKind.Ads, CommandType.UControl, AdCampaign.GetInstance(Account));
+                    var adCamp = new ItemMenu("Create Ad Campaign", PackIconKind.Ads, CommandType.UControl, AdCampaign.GetInstance(Account));
+                    var coupon = new ItemMenu("Create Coupon", PackIconKind.Coupon, CommandType.UControl, new CreateCoupon());
                     var print = new ItemMenu("Print Photos", PackIconKind.Printer, CommandType.UControl, new PrintPhoto(Account));
                     var adList = new ItemMenu("Manage Ad Campaigns", PackIconKind.GoogleAds, CommandType.UControl, new ListAdsCampaign());
                     var ideaList = new ItemMenu("Manage Ideas", PackIconKind.HeadIdea, CommandType.UControl, new ListIdea());
                     SideMenu.Children.Add(new UserControlSingleItem(propose, this));
                     SideMenu.Children.Add(new UserControlSingleItem(adCamp, this));
+                    SideMenu.Children.Add(new UserControlSingleItem(coupon, this));
                     SideMenu.Children.Add(new UserControlSingleItem(print, this));
                     SideMenu.Children.Add(new UserControlSingleItem(adList, this));
                     SideMenu.Children.Add(new UserControlSingleItem(ideaList, this));
