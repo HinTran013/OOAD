@@ -11,9 +11,9 @@
             Background="White"
             TextElement.FontWeight="Medium"
             TextElement.FontSize="25"
-            FontFamily="{DynamicResource MaterialDesignFont}"
+            
              
-            Height="653" Width="1084">
+            Height="653" Width="1084" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito">
 
     <StackPanel>
 
@@ -155,7 +155,7 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="90" >
+                                        <Grid Width="90" HorizontalAlignment="Center" >
                                             <TextBlock Text="{Binding No}" TextAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
@@ -183,13 +183,13 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="150" >
+                                        <Grid Width="150" HorizontalAlignment="Center" >
                                             <TextBlock Text="{Binding invoiceID}" TextAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Customer Name" Width="250" DisplayMemberBinding="{Binding customerName}" >
+                            <GridViewColumn Header="Customer Name" Width="250">
                                 <GridViewColumn.HeaderContainerStyle>
                                     <Style TargetType="{x:Type GridViewColumnHeader}">
                                         <Setter Property="Template">
@@ -211,13 +211,13 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="250" >
+                                        <Grid Width="250" HorizontalAlignment="Center" >
                                             <TextBlock Text="{Binding customerName}" TextAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Due Date" Width="150" DisplayMemberBinding="{Binding dueDate}" >
+                            <GridViewColumn Header="Due Date" Width="150">
                                 <GridViewColumn.HeaderContainerStyle>
                                     <Style TargetType="{x:Type GridViewColumnHeader}">
                                         <Setter Property="Template">
@@ -239,13 +239,13 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="150" >
+                                        <Grid Width="150" HorizontalAlignment="Center" >
                                             <TextBlock Text="{Binding dueDate}" TextAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Status" Width="150" DisplayMemberBinding="{Binding state}" >
+                            <GridViewColumn Header="Status" Width="150">
                                 <GridViewColumn.HeaderContainerStyle>
                                     <Style TargetType="{x:Type GridViewColumnHeader}">
                                         <Setter Property="Template">
@@ -267,7 +267,7 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="150" >
+                                        <Grid Width="150" HorizontalAlignment="Center" >
                                             <TextBlock Text="{Binding state}" TextAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>

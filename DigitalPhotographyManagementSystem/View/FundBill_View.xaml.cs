@@ -26,12 +26,11 @@ namespace DigitalPhotographyManagementSystem.View
         {
             InitializeComponent();
             fundPrint = fundprint;
-            StaffNameTxt.Text = "Customer: " + staffBUS.GetStaffByUsername(fundPrint.StaffID).name;
+            StaffNameTxt.Text = "Customer: " + staffBUS.GetStaffByUsername(fundPrint.StaffID.ToLower()).name;
             DateTimeTxt.Text = fundPrint.Date;
             BillIDTxt.Text = fundPrint.FundID;
             InvoiceIDTxt.Text = fundPrint.InvoiceID;
-            MoneyTxt.Text = String.Format("{0:#,0}", fundPrint.Cost) + " VNĐ";
-
+            MoneyTxt.Text = String.Format("{0:#,0}", fundPrint.Cost);
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)

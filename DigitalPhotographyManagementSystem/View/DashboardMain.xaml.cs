@@ -69,8 +69,8 @@ namespace DigitalPhotographyManagementSystem.View
                 menuMarketDept.Add(new SubItem("Print Photos", new PrintPhoto(Account)));
                 menuMarketDept.Add(new SubItem("Manage Ad Campaigns", new ListAdsCampaign()));
                 menuMarketDept.Add(new SubItem("Manage Ideas", new ListIdea()));
-
                 var marketSubMenu = new ItemMenu("MARKETING DEPT", menuMarketDept, PackIconKind.Megaphone);
+
                 var menuTransDept = new List<SubItem>();
                 menuTransDept.Add(new SubItem("Create Invoice", new InvoiceCreating(Account)));
                 menuTransDept.Add(new SubItem("Photo Delivery", new PhotoDelivery(Account)));
