@@ -251,9 +251,6 @@
     </Compile>
     <Compile Include="ServiceClass\ItemMenu.cs" />
     <Compile Include="ServiceClass\SubItem.cs" />
-    <Compile Include="UserControls\Technical\InvoiceDetail.xaml.cs">
-      <DependentUpon>InvoiceDetail.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Technical\ListOfInvoices.xaml.cs">
       <DependentUpon>ListOfInvoices.xaml</DependentUpon>
     </Compile>
@@ -383,10 +380,6 @@
     <Page Include="UserControls\Marketing\PrintPhoto.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UserControls\Technical\InvoiceDetail.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Technical\ListOfInvoices.xaml">
       <SubType>Designer</SubType>

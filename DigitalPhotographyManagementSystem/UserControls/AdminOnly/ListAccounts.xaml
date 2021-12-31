@@ -252,13 +252,13 @@
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
-                                <GridViewColumn Header="Action" Width="180">
+                                <GridViewColumn Header="Action" Width="190">
                                     <GridViewColumn.HeaderContainerStyle>
                                         <Style TargetType="{x:Type GridViewColumnHeader}">
                                             <Setter Property="Template">
                                                 <Setter.Value>
                                                     <ControlTemplate TargetType="GridViewColumnHeader">
-                                                        <Border Background="{TemplateBinding Background}" Height="40">
+                                                        <Border Background="{TemplateBinding Background}" Height="40" CornerRadius="10">
                                                             <TextBlock Name ="TextBlock"  Text="Action" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="18" Foreground="DimGray">
                                                             </TextBlock>
                                                         </Border>
@@ -274,7 +274,7 @@
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <DockPanel HorizontalAlignment="Stretch" LastChildFill="True" Width="159">
+                                            <DockPanel HorizontalAlignment="Stretch" LastChildFill="True" Width="164">
                                                 <Button x:Name="updateAccountBtn" Width="108" Content="Change Information" Background="#8699DA" Margin="10,0,0,0" Foreground="White" Click="updateAccountBtn_Click"/>
                                             </DockPanel>
                                         </DataTemplate>

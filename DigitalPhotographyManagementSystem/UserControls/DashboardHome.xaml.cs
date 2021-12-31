@@ -55,7 +55,7 @@ namespace DigitalPhotographyManagementSystem.UserControls
                 }
                 foreach (var bill in overduedPaymentBills)
                 {
-                    rev -= bill.totalMoney;
+                    rev += bill.totalMoney;
                 }
             }
             return rev;
