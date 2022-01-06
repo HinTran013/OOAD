@@ -109,7 +109,8 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
             if (fundPrints != null)
                 fundPrints.Clear();
             PopulateData();
-            
+            MsgBox.Show("Success", "Refresh service successfully!", MessageBoxTyp.Information);
+
         }
     }
 }
