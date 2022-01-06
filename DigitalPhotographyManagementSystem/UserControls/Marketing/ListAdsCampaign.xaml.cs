@@ -115,6 +115,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
             if (adPrints != null)
                 adPrints.Clear();
             PopulateData();
+            MsgBox.Show("Success", "Refresh service successfully!", MessageBoxTyp.Information);
         }
     }
 }

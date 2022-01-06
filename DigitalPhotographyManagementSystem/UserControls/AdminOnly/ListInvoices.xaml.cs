@@ -99,6 +99,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
             if (invoicePrint != null)
                 invoicePrint.Clear();
             PopulateData();
+            MsgBox.Show("Success", "Refresh service successfully!", MessageBoxTyp.Information);
         }
     }
 }

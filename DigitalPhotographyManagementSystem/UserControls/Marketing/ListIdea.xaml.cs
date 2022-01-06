@@ -107,6 +107,8 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
             if (ideaPrints != null)
                 ideaPrints.Clear();
             PopulateData();
+            MsgBox.Show("Success", "Refresh service successfully!", MessageBoxTyp.Information);
+
         }
     }
 }

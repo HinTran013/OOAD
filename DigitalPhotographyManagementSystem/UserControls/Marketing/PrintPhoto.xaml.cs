@@ -381,6 +381,7 @@ namespace DigitalPhotographyManagementSystem.UserControls
             if (invoicePrint != null)
                 invoicePrint.Clear();
             PopulateData();
+            MsgBox.Show("Success", "Refresh service successfully!", MessageBoxTyp.Information);
         }
     }
 }

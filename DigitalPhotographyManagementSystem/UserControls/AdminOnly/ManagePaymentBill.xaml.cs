@@ -116,6 +116,8 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
             if (paymentPrint != null)
                 paymentPrint.Clear();
             PopulateData();
+            MsgBox.Show("Success", "Refresh service successfully!", MessageBoxTyp.Information);
+
         }
     }
 }

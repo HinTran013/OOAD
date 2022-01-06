@@ -109,6 +109,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
             if (fundPrints != null)
                 fundPrints.Clear();
             PopulateData();
+            
         }
     }
 }
