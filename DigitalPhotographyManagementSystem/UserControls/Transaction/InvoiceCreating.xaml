@@ -608,8 +608,12 @@
                                                     </GridViewColumn.HeaderContainerStyle>
                                                     <GridViewColumn.CellTemplate>
                                                         <DataTemplate>
-                                                            <Grid Width="120" >
-                                                                <TextBox x:Name="QuantityTxtbox" Text="{Binding Quantity}" TextAlignment="Center" PreviewTextInput="QuantityTxtbox_PreviewTextInput"/>
+                                                            <Grid Width="120" 
+                                                                  HorizontalAlignment="Center">
+                                                                <TextBox x:Name="QuantityTxtbox" 
+                                                                         Text="{Binding Quantity}" 
+                                                                         TextAlignment="Center" 
+                                                                         PreviewTextInput="QuantityTxtbox_PreviewTextInput"/>
                                                             </Grid>
                                                         </DataTemplate>
                                                     </GridViewColumn.CellTemplate>

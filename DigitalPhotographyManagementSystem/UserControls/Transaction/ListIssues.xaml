@@ -299,12 +299,12 @@
                                                     Background="#8699DA" 
                                                     Click="SolvedBtn_Click" 
                                                     Margin="10,0,0,0" Foreground="White" HorizontalAlignment="Center"/>
-                                            <Button x:Name="DeleteBtn" 
+                                            <!--<Button x:Name="DeleteBtn" 
                                                     Visibility="Collapsed" 
                                                     Content="Delete" 
                                                     Background="#8699DA" 
                                                     Click="SolvedBtn_Click"
-                                                    Margin="10,0,0,0" Foreground="White" HorizontalAlignment="Center"/>
+                                                    Margin="10,0,0,0" Foreground="White" HorizontalAlignment="Center"/>-->
                                         </DockPanel>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>

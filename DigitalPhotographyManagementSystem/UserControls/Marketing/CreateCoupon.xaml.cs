@@ -130,12 +130,12 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
 
         private void StartDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (StartDate.SelectedDate > EndDate.SelectedDate)
-            {
-                MsgBox.Show("Warning", "End Date must be the same or later than Start Date.", MessageBoxButton.OK, MessageBoxImg.Warning);
-                EndDate.SelectedDate = null;
-                EndDate.Focus();
-            }
+            //if (StartDate.SelectedDate > EndDate.SelectedDate)
+            //{
+            //    MsgBox.Show("Warning", "End Date must be the same or later than Start Date.", MessageBoxButton.OK, MessageBoxImg.Warning);
+            //    EndDate.SelectedDate = null;
+            //    EndDate.Focus();
+            //}
         }
     }
 }

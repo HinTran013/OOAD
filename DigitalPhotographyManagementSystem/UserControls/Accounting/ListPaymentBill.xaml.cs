@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using DTO;
 using BUS;
 using MongoDB.Bson;
+using DigitalPhotographyManagementSystem.View;
 
 namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 {
@@ -153,6 +154,8 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
         private void RefreshBtn_Click(object sender, RoutedEventArgs e)
         {
             UpdateList();
+
+            MsgBox.Show("Success", "Refresh service successfully!", MessageBoxTyp.Information);
         }
     }
 }
