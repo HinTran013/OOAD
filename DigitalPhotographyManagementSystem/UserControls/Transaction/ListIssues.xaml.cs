@@ -156,6 +156,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
             if (issuePrints != null)
                 issuePrints.Clear();
             PopulateData();
+            MsgBox.Show("Success", "Refresh service successfully!", MessageBoxTyp.Information);
         }
     }
 }

@@ -115,6 +115,7 @@
                                         BorderBrush="White"
                                         BorderThickness="0"
                                         SelectedDate="{x:Static sys:DateTime.Now}"
+                                        SelectedDateChanged="StartDate_SelectedDateChanged"
                                         materialDesign:HintAssist.IsFloating="True"
                                         materialDesign:HintAssist.Hint="Start Date"/>
                         </Border>

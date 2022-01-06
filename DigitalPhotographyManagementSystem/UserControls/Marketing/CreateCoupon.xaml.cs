@@ -67,19 +67,6 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
         {
             if (CheckInput())
             {
-                /* adCampaignDTO adCampaign = new adCampaignDTO(AdsCampNameTxt.Text, ((DateTime)StartDate.SelectedDate).ToString("dd/MM/yyyy"), ((DateTime)EndDate.SelectedDate).ToString("dd/MM/yyyy"), AdsCampTypeCbb.SelectedValue.ToString(), Account.username);
-                if (adCampaignBUS.AddNewAdCampaign(adCampaign))
-                {
-                    MsgBox.Show("Campaign successfully submitted!", MessageBoxTyp.Information);
-                    AdsCampNameTxt.Text = "";
-                    DescTxt.Text = "";
-                    AdsCampTypeCbb.SelectedItem = null;
-                    StartDate.SelectedDate = null;
-                    EndDate.SelectedDate = null;
-                    AdsCampNameTxt.Focus();
-                }
-                else
-                    MsgBox.Show("Error while submitting, please try again!", MessageBoxTyp.Information);*/
                 couponDTO coupon = new couponDTO(CouponCodeTxt.Text, CouponTitleTxt.Text, ((DateTime)StartDate.SelectedDate).ToString("dd/MM/yyyy"), ((DateTime)EndDate.SelectedDate).ToString("dd/MM/yyyy"), float.Parse(CouponPerTxt.Text), DescTxt.Text);
                 if (couponBUS.AddNewCoupon(coupon))
                 {
@@ -139,6 +126,16 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
         public static void Release()
         {
             __instance = null;
+        }
+
+        private void StartDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (StartDate.SelectedDate > EndDate.SelectedDate)
+            {
+                MsgBox.Show("Warning", "End Date must be the same or later than Start Date.", MessageBoxButton.OK, MessageBoxImg.Warning);
+                EndDate.SelectedDate = null;
+                EndDate.Focus();
+            }
         }
     }
 }
