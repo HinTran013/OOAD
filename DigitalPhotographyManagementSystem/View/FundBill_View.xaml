@@ -49,13 +49,13 @@
                             </StackPanel>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Margin="10" VerticalAlignment="Bottom">
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                 <TextBlock Text="Fund Bill ID:" FontSize="12" Margin="5"/>
                                 <TextBlock x:Name="BillIDTxt" Text="0001" FontSize="12" Margin="5" FontWeight="DemiBold"/>
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                 <TextBlock Text="Invoice ID:" FontSize="12" Margin="5"/>
-                                <TextBlock x:Name="InvoiceIDTxt" Text="0001" FontSize="12" Margin="16,5,5,5" FontWeight="DemiBold"/>
+                                <TextBlock x:Name="InvoiceIDTxt" Text="0001" FontSize="12" Margin="5,5,5,5" FontWeight="DemiBold"/>
                             </StackPanel>
                         </StackPanel>
                     </Grid>
