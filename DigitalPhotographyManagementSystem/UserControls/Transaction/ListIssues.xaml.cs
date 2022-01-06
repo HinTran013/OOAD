@@ -36,7 +36,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
         public bool IsSolved { get; set; }
         public string State { get; set; }
     }
-    public partial class ListIssues : UserControl
+    public partial class ListIssues : System.Windows.Controls.UserControl
     {
         private ObservableCollection<IssuePrint> issuePrints;
         public ListIssues()
@@ -94,7 +94,11 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
         private void SolvedBtn_Click(object sender, RoutedEventArgs e)
         {
             var issue = (sender as FrameworkElement).DataContext as IssuePrint;
-            
+
+            //(sender as System.Windows.Controls.Button).Background = null;
+            //(sender as System.Windows.Controls.Button).Foreground = System.Windows.Media.Brushes.DarkGreen;
+            //(sender as System.Windows.Controls.Button).BorderBrush = System.Windows.Media.Brushes.DarkGreen;
+            //(sender as System.Windows.Controls.Button).Content = "SOLVED";
             //Button btn = sender as Button;
             if (issue != null)
             {
@@ -107,7 +111,6 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
                         str = MsgBox.Value;
                         if (str == "SOLVED")
                         {
-                            
                             newState = true;
                             issue.IsSolved = newState;
 
@@ -116,12 +119,12 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
                             issuePrints[issuePrints.IndexOf(issue)].IsSolved = true;
                             issuePrints[issuePrints.IndexOf(issue)].State = (bool)issuePrints[issuePrints.IndexOf(issue)].IsSolved ? "SOLVED" : "ERROR";
                             CollectionViewSource.GetDefaultView(listIssue.ItemsSource).Refresh();
-
+                            
                             MsgBox.Show("Successfully solve the issue", MessageBoxTyp.Information);
                         }
                         else
                         {
-                            MsgBox.Show("Error! Failed to solve the issue!", MessageBoxTyp.Error);
+                            MsgBox.Show("Error! Please try again!", MessageBoxTyp.Error);
                             return;
                         }
                     }

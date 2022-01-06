@@ -64,6 +64,7 @@
                                           Direction="270"/>
                             </Border.Effect>
                             <ComboBox   x:Name="TypeTxt"
+                                        Cursor="Hand"
                                         FontWeight="Bold"
                                         Foreground="Black"
                                         FontSize="15"
@@ -72,7 +73,14 @@
                                         IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
                                         materialDesign:HintAssist.Hint="Issues Type"
                                         ItemsSource="{Binding ShortStringList}">
-                                <ComboBoxItem Content="Some issues"/>
+                                <ComboBoxItem Content="Blurred photos"/>
+                                <ComboBoxItem Content="Hues-related issues"/>
+                                <ComboBoxItem Content="Brightness-related issues"/>
+                                <ComboBoxItem Content="Lost details in photos"/>
+                                <ComboBoxItem Content="Flash-related issues"/>
+                                <ComboBoxItem Content="Editing-related issues"/>
+                                <ComboBoxItem Content="Damaged photos"/>
+                                <ComboBoxItem Content="Others"/>
                             </ComboBox>
                         </Border>
                     </Grid>

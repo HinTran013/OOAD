@@ -99,7 +99,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Accounting
 
         private void CheckBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(couponBUS.CheckCouponWithCode(CouponTxt.Text) > 0)
+            if(couponBUS.CheckCouponWithCode(CouponTxt.Text) > 0 && !couponBUS.CheckCouponDate(CouponTxt.Text))
             {
                 couponDiscount = couponBUS.CheckCouponWithCode(CouponTxt.Text);
                 SumTxt.Text = SumTotal(couponDiscount).ToString("C0", culture) + " VND";

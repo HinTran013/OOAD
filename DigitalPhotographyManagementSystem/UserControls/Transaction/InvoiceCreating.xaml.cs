@@ -131,8 +131,10 @@ namespace DigitalPhotographyManagementSystem.View
                 {
                     if(ServiceCbb.SelectedItem.ToString() == serList[i].ServiceType)
                     {
-                        serList[i].Quantity++;
-                        RearrangeNo();
+                        var messageBoxResult = MsgBox.Show("Warning",
+                                                            "This service has already added!",
+                                                            MessageBoxButton.OK,
+                                                            MessageBoxImg.Warning);
                         ServiceCbb.SelectedItem = null;
                         return;
                     }
@@ -196,6 +198,23 @@ namespace DigitalPhotographyManagementSystem.View
             return false;
         }
 
+        private bool IsEmailValid(string email)
+        {
+            if (email.Trim().EndsWith("."))
+            {
+                return false;
+            }
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         private bool CheckInputs()
         {
             if(DueDateTxt.SelectedDate == null)
@@ -250,6 +269,16 @@ namespace DigitalPhotographyManagementSystem.View
                                                    "There aren't any services required! Please select at least 1 service!",
                                                    MessageBoxButton.OK,
                                                    MessageBoxImg.Warning);
+
+                return false;
+            }
+
+            if(!IsEmailValid(EmailTxt.Text))
+            {
+                var messageBoxResult = MsgBox.Show("Warning",
+                                                    "Email field is wrong formatted!",
+                                                    MessageBoxButton.OK,
+                                                    MessageBoxImg.Warning);
 
                 return false;
             }
@@ -322,6 +351,13 @@ namespace DigitalPhotographyManagementSystem.View
                 DueDateTxt.SelectedDate = null;
                 return;
             }
+        }
+
+        private void QuantityTxtbox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            //To limit the characters which are the numbers in the textbox
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

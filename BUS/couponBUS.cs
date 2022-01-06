@@ -20,5 +20,9 @@ namespace BUS
         {
             return coupon.CheckCouponWithCode(str);
         }
+        public static bool CheckCouponDate(string str)
+        {
+            return coupon.CheckCouponDate(str);
+        }
     }
 }
