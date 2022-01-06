@@ -122,8 +122,8 @@
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid Width="50" >
-                                                <TextBlock Text="{Binding No}" TextAlignment="Center"/>
+                                            <Grid Width="50" HorizontalAlignment="Center" >
+                                                <TextBlock Text="{Binding No}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -178,8 +178,8 @@
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid Width="220" >
-                                                <TextBlock Text="{Binding customerName}" TextAlignment="Center"/>
+                                            <Grid Width="220" HorizontalAlignment="Center" >
+                                                <TextBlock Text="{Binding customerName}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -206,8 +206,8 @@
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid Width="120" >
-                                                <TextBlock Text="{Binding Date}" TextAlignment="Center"/>
+                                            <Grid Width="120" HorizontalAlignment="Center" >
+                                                <TextBlock Text="{Binding Date}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -234,8 +234,8 @@
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid Width="120" >
-                                                <TextBlock Text="{Binding StaffID}" TextAlignment="Center"/>
+                                            <Grid Width="120" HorizontalAlignment="Center" >
+                                                <TextBlock Text="{Binding StaffID}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -262,8 +262,8 @@
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid Width="170" >
-                                                <TextBlock Text="{Binding Services}" TextAlignment="Center"/>
+                                            <Grid Width="170" HorizontalAlignment="Center" >
+                                                <TextBlock Text="{Binding Services}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>

@@ -124,8 +124,8 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="50" >
-                                            <TextBlock Text="{Binding No}" TextAlignment="Center"/>
+                                        <Grid Width="50" HorizontalAlignment="Center" >
+                                            <TextBlock Text="{Binding No}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -153,8 +153,8 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="120" >
-                                            <TextBlock Text="{Binding adsID}" TextAlignment="Center"/>
+                                        <Grid Width="120" HorizontalAlignment="Center" >
+                                            <TextBlock Text="{Binding adsID}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -182,8 +182,8 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="220" >
-                                            <TextBlock Text="{Binding campaignName}" TextAlignment="Center"/>
+                                        <Grid Width="220" HorizontalAlignment="Center" >
+                                            <TextBlock Text="{Binding campaignName}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -211,8 +211,8 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="120" >
-                                            <TextBlock Text="{Binding DateStart}" TextAlignment="Center"/>
+                                        <Grid Width="120" HorizontalAlignment="Center" >
+                                            <TextBlock Text="{Binding DateStart}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -240,8 +240,8 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="120" >
-                                            <TextBlock Text="{Binding DateEnd}" TextAlignment="Center"/>
+                                        <Grid Width="120" HorizontalAlignment="Center" >
+                                            <TextBlock Text="{Binding DateEnd}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -269,8 +269,8 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="180" >
-                                            <TextBlock Text="{Binding type}" TextAlignment="Center" TextWrapping="Wrap"/>
+                                        <Grid Width="180" HorizontalAlignment="Center" >
+                                            <TextBlock Text="{Binding type}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -298,8 +298,8 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="145" >
-                                            <TextBlock Text="{Binding StaffID}" TextAlignment="Center"/>
+                                        <Grid Width="145" HorizontalAlignment="Center" >
+                                            <TextBlock Text="{Binding StaffID}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>

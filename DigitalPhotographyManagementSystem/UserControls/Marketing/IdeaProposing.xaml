@@ -52,7 +52,7 @@
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                              materialDesign:HintAssist.Hint="Description of the idea"
                              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                             FontWeight="Normal" 
+                             FontWeight="Normal" TextWrapping="Wrap"
                              Height="465"/>
                 </Border>
             </StackPanel>
@@ -73,7 +73,7 @@
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
                         Height="50" FontWeight="Normal"
-                        IsDefault="True"
+                        IsDefault="False"
                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold"
                         Click="SubmitBtn_Click">
                     Submit

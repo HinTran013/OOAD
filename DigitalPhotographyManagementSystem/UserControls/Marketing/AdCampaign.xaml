@@ -146,7 +146,7 @@
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                              materialDesign:HintAssist.Hint="Detail information about the ad campaign"
                              FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito Light" 
-                             FontWeight="Normal"
+                             FontWeight="Normal" TextWrapping="Wrap"
                              FontSize="16"/>
                 </Border>
             </StackPanel>
@@ -169,7 +169,7 @@
                         BorderBrush="{x:Null}" 
                         Height="50" FontWeight="Normal"
                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold"
-                        IsDefault="True"
+                        IsDefault="False"
                         Click ="SubmitBtn_Click">
                     Submit
                 </Button>

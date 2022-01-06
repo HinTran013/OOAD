@@ -148,8 +148,8 @@
                     <Border CornerRadius="10" 
                         BorderThickness="2"
                         BorderBrush="#789ADE"
-                        Margin="30,10,30,0"
-                        Height="390" Background="White">
+                        Margin="30,20,30,0"
+                        Height="380" Background="White">
                         <TextBox x:Name="DescTxt" BorderThickness="0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"

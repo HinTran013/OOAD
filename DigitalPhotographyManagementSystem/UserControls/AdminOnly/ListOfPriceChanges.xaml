@@ -112,7 +112,7 @@
                                                 <Setter Property="Template">
                                                     <Setter.Value>
                                                         <ControlTemplate TargetType="GridViewColumnHeader">
-                                                            <Border Background="{TemplateBinding Background}">
+                                                            <Border Background="{TemplateBinding Background}" CornerRadius="10">
                                                                 <TextBlock Name ="TextBlock"  Text="No." HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
                                                                 </TextBlock>
                                                             </Border>
@@ -128,8 +128,8 @@
                                         </GridViewColumn.HeaderContainerStyle>
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Grid Width="80" >
-                                                    <TextBlock Text="{Binding No}" TextAlignment="Center"/>
+                                                <Grid Width="80" HorizontalAlignment="Center" >
+                                                    <TextBlock Text="{Binding No}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                                 </Grid>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
@@ -157,8 +157,8 @@
                                         </GridViewColumn.HeaderContainerStyle>
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Grid Width="244" >
-                                                    <TextBox Text="{Binding name}" TextAlignment="Center"/>
+                                                <Grid Width="244" HorizontalAlignment="Center" >
+                                                    <TextBox Text="{Binding name}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                                 </Grid>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
@@ -186,8 +186,8 @@
                                         </GridViewColumn.HeaderContainerStyle>
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Grid Width="180" >
-                                                    <TextBox x:Name="priceTextBox" Text="{Binding price}" TextAlignment="Center" PreviewTextInput="priceTextBox_PreviewTextInput"/>
+                                                <Grid Width="180" HorizontalAlignment="Center" >
+                                                    <TextBox x:Name="priceTextBox" Text="{Binding price}" TextAlignment="Center" PreviewTextInput="priceTextBox_PreviewTextInput" HorizontalAlignment="Center"/>
                                                 </Grid>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
@@ -215,8 +215,8 @@
                                         </GridViewColumn.HeaderContainerStyle>
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Grid Width="255" >
-                                                    <TextBox Text="{Binding description}" TextAlignment="Center"/>
+                                                <Grid Width="255" HorizontalAlignment="Center" >
+                                                    <TextBox Text="{Binding description}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                                 </Grid>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>

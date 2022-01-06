@@ -203,8 +203,8 @@
                                                 </GridViewColumn.HeaderContainerStyle>
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <Grid Width="85" >
-                                                            <TextBlock Text="{Binding No}" TextAlignment="Center"/>
+                                                        <Grid Width="85" HorizontalAlignment="Center" >
+                                                            <TextBlock Text="{Binding No}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                                         </Grid>
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
@@ -231,7 +231,7 @@
                                                 </GridViewColumn.HeaderContainerStyle>
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <Grid Width="210" >
+                                                        <Grid Width="210" HorizontalAlignment="Center" >
                                                             <TextBlock Text="{Binding Type}" TextAlignment="Center"/>
                                                         </Grid>
                                                     </DataTemplate>
@@ -259,8 +259,8 @@
                                                 </GridViewColumn.HeaderContainerStyle>
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <Grid Width="295" >
-                                                            <TextBlock Text="{Binding OldPrice}" TextAlignment="Center"/>
+                                                        <Grid Width="295" HorizontalAlignment="Center" >
+                                                            <TextBlock Text="{Binding OldPrice}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                                         </Grid>
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
@@ -287,8 +287,8 @@
                                                 </GridViewColumn.HeaderContainerStyle>
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <Grid Width="295" >
-                                                            <TextBlock Text="{Binding NewPrice}" TextAlignment="Center"/>
+                                                        <Grid Width="295" HorizontalAlignment="Center" >
+                                                            <TextBlock Text="{Binding NewPrice}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                                         </Grid>
                                                     </DataTemplate>
                                                 </GridViewColumn.CellTemplate>
@@ -315,7 +315,7 @@
                                                 </GridViewColumn.HeaderContainerStyle>
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <DockPanel Width="120">
+                                                        <DockPanel Width="110">
                                                             <Button x:Name="DeleteBtn" Content="Delete" Background="#8699DA" Click="DeleteBtn_Click" HorizontalAlignment="Center"/>
                                                         </DockPanel>
                                                     </DataTemplate>

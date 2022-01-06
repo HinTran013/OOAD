@@ -124,7 +124,7 @@
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid Width="50" >
+                                            <Grid Width="50" HorizontalAlignment="Center" >
                                                 <TextBlock Text="{Binding No}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
@@ -152,7 +152,7 @@
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid Width="175" >
+                                            <Grid Width="175" HorizontalAlignment="Center" >
                                                 <TextBlock Text="{Binding ServiceName}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
@@ -180,7 +180,7 @@
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid Width="115" >
+                                            <Grid Width="115" HorizontalAlignment="Center" >
                                                 <TextBlock Text="{Binding UnitQuantity}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>
@@ -208,7 +208,7 @@
                                     </GridViewColumn.HeaderContainerStyle>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid Width="115" >
+                                            <Grid Width="115" HorizontalAlignment="Center" >
                                                 <TextBlock Text="{Binding UnitPrice}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                             </Grid>
                                         </DataTemplate>

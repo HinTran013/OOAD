@@ -122,8 +122,8 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="50" >
-                                            <TextBlock Text="{Binding No}" TextAlignment="Center"/>
+                                        <Grid Width="50" HorizontalAlignment="Center" >
+                                            <TextBlock Text="{Binding No}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -150,8 +150,8 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="170" >
-                                            <TextBlock Text="{Binding FundID}" TextAlignment="Center"/>
+                                        <Grid Width="170" HorizontalAlignment="Center" >
+                                            <TextBlock Text="{Binding FundID}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -178,8 +178,8 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="170" >
-                                            <TextBlock Text="{Binding InvoiceID}" TextAlignment="Center"/>
+                                        <Grid Width="170" HorizontalAlignment="Center" >
+                                            <TextBlock Text="{Binding InvoiceID}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -207,8 +207,8 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="120" >
-                                            <TextBlock Text="{Binding Date}" TextAlignment="Center"/>
+                                        <Grid Width="120" HorizontalAlignment="Center" >
+                                            <TextBlock Text="{Binding Date}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -235,8 +235,8 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="235" >
-                                            <TextBlock Text="{Binding Cost}" TextAlignment="Center"/>
+                                        <Grid Width="235" HorizontalAlignment="Center" >
+                                            <TextBlock Text="{Binding Cost}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -264,8 +264,8 @@
                                 </GridViewColumn.HeaderContainerStyle>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid Width="210" >
-                                            <TextBlock Text="{Binding StaffID}" TextAlignment="Center"/>
+                                        <Grid Width="210" HorizontalAlignment="Center" >
+                                            <TextBlock Text="{Binding StaffID}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
