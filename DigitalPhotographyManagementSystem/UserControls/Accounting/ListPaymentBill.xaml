@@ -65,7 +65,8 @@
                                           Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                           materialDesign:HintAssist.Hint="Search By"
                                           Background="White" FontSize="17"
-                                          SelectedIndex="0">
+                                          SelectedIndex="0"
+                                          Cursor="Hand">
                                     <ComboBoxItem Content="Invoice ID"/>
                                     <ComboBoxItem Content="Customer's Name"/>
                                     <ComboBoxItem Content="StaffID"/>

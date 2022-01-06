@@ -65,6 +65,7 @@
                                           Direction="270"/>
                             </Border.Effect>
                             <ComboBox   x:Name="TypeCbb"
+                                        Cursor="Hand"
                                         FontWeight="Bold"
                                         Foreground="Black"
                                         FontSize="15"

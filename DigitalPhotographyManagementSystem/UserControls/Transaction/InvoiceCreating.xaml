@@ -585,6 +585,7 @@
                                                         </DataTemplate>
                                                     </GridViewColumn.CellTemplate>
                                                 </GridViewColumn>
+                                                
                                                 <GridViewColumn Header="Quantity" Width="120">
                                                     <GridViewColumn.HeaderContainerStyle>
                                                         <Style TargetType="{x:Type GridViewColumnHeader}">
@@ -592,7 +593,7 @@
                                                                 <Setter.Value>
                                                                     <ControlTemplate TargetType="GridViewColumnHeader">
                                                                         <Border Background="{TemplateBinding Background}">
-                                                                            <TextBlock Name ="TextBlock"  Text="Quantity" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                                            <TextBlock Name ="TextBlock" Text="Quantity" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
                                                                             </TextBlock>
                                                                         </Border>
                                                                         <ControlTemplate.Triggers>
@@ -607,12 +608,13 @@
                                                     </GridViewColumn.HeaderContainerStyle>
                                                     <GridViewColumn.CellTemplate>
                                                         <DataTemplate>
-                                                            <Grid Width="120" HorizontalAlignment="Center" >
-                                                                <TextBlock Text="{Binding Quantity}" TextAlignment="Center" HorizontalAlignment="Center"/>
+                                                            <Grid Width="120" >
+                                                                <TextBox x:Name="QuantityTxtbox" Text="{Binding Quantity}" TextAlignment="Center" PreviewTextInput="QuantityTxtbox_PreviewTextInput"/>
                                                             </Grid>
                                                         </DataTemplate>
                                                     </GridViewColumn.CellTemplate>
                                                 </GridViewColumn>
+                                                
                                                 <GridViewColumn Header="Price per Service" Width="205">
                                                     <GridViewColumn.HeaderContainerStyle>
                                                         <Style TargetType="{x:Type GridViewColumnHeader}">
