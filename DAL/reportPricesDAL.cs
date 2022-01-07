@@ -40,7 +40,8 @@ namespace DAL
                     { "date", form.date },
                     { "subject", form.subject },
                     { "serviceList", serviceList },
-                    { "accountantID", form.accountantID }
+                    { "accountantID", form.accountantID },
+                    { "state", form.state }
                 };
 
                 collection.InsertOneAsync(newDoc);
@@ -51,5 +52,35 @@ namespace DAL
                 return false;
             }
         }
+
+        //public List<reportPricesDTO> GetAllPriceRequests()
+        //{
+        //    try
+        //    {
+        //        var collection = db.GetCollection<BsonDocument>("staffs");
+        //        var staffsDoc = collection.Find(_ => true).ToListAsync().Result;
+        //        List<staffDTO> staffs = new List<staffDTO>();
+        //        foreach (BsonDocument item in staffsDoc)
+        //        {
+        //            staffs.Add(new staffDTO(
+        //                (string)item["name"],
+        //                null,
+        //                (bool)item["gender"],
+        //                (string)item["email"],
+        //                (string)item["phoneNumber"],
+        //                (int)item["salary"],
+        //                (string)item["address"],
+        //                (string)item["type"],
+        //                (string)item["description"],
+        //                (string)item["username"],
+        //                (string)item["password"]));
+        //        }
+        //        return staffs;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
     }
 }

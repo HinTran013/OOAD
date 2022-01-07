@@ -14,6 +14,7 @@ namespace DTO
         private string _accountantID;
         private List<servicesDTO> _newServices;
         private List<double> _newPrices;
+        private bool _state;
 
         public reportPricesDTO()
         {
@@ -23,16 +24,17 @@ namespace DTO
             _newServices = null;
             _newPrices = null;
             _accountantID = null;
-            
+            _state = false;
         }
 
-        public reportPricesDTO(string date, string subject, List<servicesDTO>list, List<double> prices , string accountantID = null)
+        public reportPricesDTO(string date, string subject, List<servicesDTO>list, List<double> prices , string accountantID = null, bool state = false)
         {
             _date = date;
             _subject = subject;
             _newServices = list;
             _newPrices = prices;
             _accountantID = accountantID;
+            _state = state;
         }
 
        
@@ -41,5 +43,6 @@ namespace DTO
         public string accountantID { get => _accountantID; set => _accountantID = value; }
         public List<servicesDTO> newServices { get => _newServices; set => _newServices = value; }
         public List<double> newPrices { get => _newPrices; set => _newPrices = value; }
+        public bool state { get => _state; set => _state = value; }
     }
 }
