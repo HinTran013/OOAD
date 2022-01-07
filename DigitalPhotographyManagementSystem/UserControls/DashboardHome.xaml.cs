@@ -31,9 +31,13 @@ namespace DigitalPhotographyManagementSystem.UserControls
         public DashboardHome()
         {
             InitializeComponent();
-            RevenueTxt.Text = "VNĐ " + String.Format("{0:#,0}",CalculateRevenue(DateTime.Now.ToString("MM")));
+            PopulateData();
+        }
+        private void PopulateData()
+        {
+            RevenueTxt.Text = "VNĐ " + String.Format("{0:#,0}", CalculateRevenue(DateTime.Now.ToString("MM")));
             ExpenTxt.Text = "VNĐ " + String.Format("{0:#,0}", CalculateExpenditure(DateTime.Now.ToString("MM")));
-            AdsTxt.Text = adCampaignBUS.CountAllCampaigns().ToString();
+            AdsTxt.Text = adCampaignBUS.CountAllRunningCampaigns().ToString();
             IdeasTxt.Text = ideaBUS.CountAllIdeas().ToString();
             IssuesTxt.Text = issueReportBUS.CountAllUnsolvedIssues().ToString();
             InvoicesTxt.Text = invoiceBUS.CountAllIncompleteInvoices().ToString();
@@ -112,6 +116,12 @@ namespace DigitalPhotographyManagementSystem.UserControls
             ListFund listFund = new ListFund();
             ListContainers listContainers = new ListContainers(listFund);
             listContainers.ShowDialog();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PopulateData();
+            MsgBox.Show("Success", "Refresh service successfully!", MessageBoxTyp.Information);
         }
     }
 }

@@ -78,6 +78,7 @@
                                 <ComboBoxItem Content="Social media marketing campaign"></ComboBoxItem>
                                 <ComboBoxItem Content="Email marketing campaign"></ComboBoxItem>
                                 <ComboBoxItem Content="Referral marketing campaign"></ComboBoxItem>
+                                <ComboBoxItem Content="Other"></ComboBoxItem>
                             </ComboBox>
                         </Border>
                     </Grid>
@@ -129,6 +130,7 @@
                                         Style="{StaticResource MaterialDesignOutlinedDatePicker}"
                                         BorderBrush="White"
                                         BorderThickness="0"
+                                        SelectedDate="{x:Static sys:DateTime.Now}"
                                         materialDesign:HintAssist.IsFloating="True"
                                         materialDesign:HintAssist.Hint="End date"
                                         SelectedDateChanged="EndDate_SelectedDateChanged"/>

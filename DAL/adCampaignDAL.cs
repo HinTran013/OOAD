@@ -3,6 +3,7 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,16 +43,17 @@ namespace DAL
                 return false;
             }
         }
-        public long CountAllCampaigns()
+        public long CountAllRunningCampaigns()
         {
             try
             {
                 var collection = db.GetCollection<BsonDocument>("adCampaigns");
-                return collection.CountDocumentsAsync(new BsonDocument()).Result;
+                var list = collection.Find(new BsonDocument()).ToListAsync().Result;
+                return list.LongCount(x => (DateTime.Parse((string)x["dateEnd"], new CultureInfo("vi-VN", true)) >= DateTime.Now) && (DateTime.Parse((string)x["dateStart"], new CultureInfo("vi-VN", true)) <= DateTime.Now));
             }
             catch
             {
-                return -1;
+                return 0;
             }
         }
         public List<adCampaignDTO> GetAllAdCampaigns()

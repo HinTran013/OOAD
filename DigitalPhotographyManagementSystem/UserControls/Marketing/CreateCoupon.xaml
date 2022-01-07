@@ -141,6 +141,7 @@
                                         Style="{StaticResource MaterialDesignOutlinedDatePicker}"
                                         BorderBrush="White"
                                         BorderThickness="0"
+                                        SelectedDate="{x:Static sys:DateTime.Now}"
                                         materialDesign:HintAssist.IsFloating="True"
                                         materialDesign:HintAssist.Hint="End date"
                                         SelectedDateChanged="EndDate_SelectedDateChanged"/>

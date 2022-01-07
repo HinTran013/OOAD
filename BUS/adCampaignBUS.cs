@@ -16,9 +16,9 @@ namespace BUS
         {
             return adCampaign.InsertNewAdCampaignRecord(newAdCampaign);
         }
-        public static long CountAllCampaigns()
+        public static long CountAllRunningCampaigns()
         {
-            return adCampaign.CountAllCampaigns();
+            return adCampaign.CountAllRunningCampaigns();
         }
         public static List<adCampaignDTO> GetAllAdCampaigns()
         {

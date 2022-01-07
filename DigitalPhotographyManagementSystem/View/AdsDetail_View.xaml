@@ -108,12 +108,10 @@
                                 <TextBox x:Name="DateStartTxt" FontSize="15"
                                         Foreground="Black"
                                         FontWeight="Bold"
-                                        Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         BorderBrush="White"
                                         BorderThickness="0"
                                         IsReadOnly="True"
-                                        materialDesign:HintAssist.IsFloating="True"
                                         materialDesign:HintAssist.Hint="Start Date"/>
                             </Border>
                         </Grid>
@@ -134,12 +132,10 @@
                                 <TextBox x:Name="DateEndTxt" FontSize="15"
                                         Foreground="Black"
                                         FontWeight="Bold"
-                                        Text="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                         BorderBrush="White"
                                         BorderThickness="0"
                                         IsReadOnly="True"
-                                        materialDesign:HintAssist.IsFloating="True"
                                         materialDesign:HintAssist.Hint="End date"/>
                             </Border>
                         </Grid>

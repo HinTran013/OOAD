@@ -106,6 +106,18 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
                 }
             }
         }
+        private void StartDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (EndDate != null)
+            {
+                if (StartDate.SelectedDate > EndDate.SelectedDate)
+                {
+                    MsgBox.Show("Warning", "End Date must be the same or later than Start Date.", MessageBoxButton.OK, MessageBoxImg.Warning);
+                    StartDate.SelectedDate = null;
+                    StartDate.Focus();
+                }
+            }
+        }
         public static AdCampaign GetInstance(staffDTO acc)
         {
             if (__instance == null) __instance = new AdCampaign(acc);
@@ -116,14 +128,6 @@ namespace DigitalPhotographyManagementSystem.UserControls.Marketing
             __instance = null;
         }
 
-        private void StartDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //if (StartDate.SelectedDate > EndDate.SelectedDate)
-            //{
-            //    MsgBox.Show("Warning", "End Date must be the same or later than Start Date.", MessageBoxButton.OK, MessageBoxImg.Warning);
-            //    EndDate.SelectedDate = null;
-            //    EndDate.Focus();
-            //}
-        }
+
     }
 }
