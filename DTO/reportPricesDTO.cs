@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace DTO
         private List<servicesDTO> _newServices;
         private List<double> _newPrices;
         private bool _state;
+        private ObjectId? _reportID;
 
         public reportPricesDTO()
         {
@@ -25,9 +27,10 @@ namespace DTO
             _newPrices = null;
             _accountantID = null;
             _state = false;
+            _reportID = null;
         }
 
-        public reportPricesDTO(string date, string subject, List<servicesDTO>list, List<double> prices , string accountantID = null, bool state = false)
+        public reportPricesDTO(string date, string subject, List<servicesDTO>list, List<double> prices , string accountantID = null, bool state = false, ObjectId? reportID = null)
         {
             _date = date;
             _subject = subject;
@@ -35,9 +38,10 @@ namespace DTO
             _newPrices = prices;
             _accountantID = accountantID;
             _state = state;
+            _reportID = reportID;
         }
 
-       
+        public ObjectId? reportID { get => _reportID; set => _reportID = value; }
         public string date { get => _date; set => _date = value; }
         public string subject { get => _subject; set => _subject = value; }
         public string accountantID { get => _accountantID; set => _accountantID = value; }

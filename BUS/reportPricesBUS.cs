@@ -17,5 +17,10 @@ namespace BUS
         {
             return reportPrices.InsertNewReportPricesRecord(form);
         }
+
+        public static List<reportPricesDTO> GetAllPriceRequests()
+        {
+            return reportPrices.GetAllPriceRequests();
+        }
     }
 }

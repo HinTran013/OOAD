@@ -25,135 +25,67 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
     /// Interaction logic for ListOfPriceChanges.xaml
     /// </summary>
     /// 
-    public class services
+    public class requestModel
     {
         public int No { get; set; }
         public ObjectId fullID { get; set; }
-        public string name { get; set; }
-        public double price { get; set; }
-        public string description { get; set; }
+        public string subject { get; set; }
+        public string date { get; set; }
+        public string state { get; set; }
     }
 
     public partial class ListOfPriceChanges : UserControl
     {
-        private ObservableCollection<services> showServices;
-        private int i = 1;
+        ObservableCollection<requestModel> showRequests;
+
         public ListOfPriceChanges()
         {
             InitializeComponent();
             DateTimeTxt.Text = "Date time: " + DateTime.Now.ToString("dd/MM/yyyy");
-
+            showRequests = new ObservableCollection<requestModel>();
             showInitData();
-        }
-
-        private void confirmChangeBtn_Click(object sender, RoutedEventArgs e)
-        {
-            var rowItem = (sender as Button).DataContext as services;
-            servicesDTO newService = new servicesDTO(
-                rowItem.fullID,
-                rowItem.name,
-                rowItem.price,
-                rowItem.description);
-            servicesBUS.ReplaceOneService(newService);
-            var messageBoxResult = MsgBox.Show("Success", "Change service information successfully!", MessageBoxTyp.Information);
         }
 
         private void showInitData()
         {
-            i = 1;
-            List<servicesDTO> services = new List<servicesDTO>();
-            services = servicesBUS.GetAllServices();
-            
+            List<reportPricesDTO> requests = new List<reportPricesDTO>();
+            requests = reportPricesBUS.GetAllPriceRequests();
+            int i = 1;
 
-            showServices = new ObservableCollection<services>();
+            showRequests = new ObservableCollection<requestModel>();
 
-            foreach (servicesDTO item in services)
+            foreach (reportPricesDTO item in requests)
             {
-                var newShowService = new services()
+                var newRequest = new requestModel()
                 {
                     No = i++,
-                    name = item.name,
-                    fullID = (ObjectId)item.serviceID,
-                    price = item.price,
-                    description = item.description
+                    date = item.date,
+                    fullID = (ObjectId)item.reportID,
+                    subject = item.subject,
+                    state = item.state ? "Solved" : "Not Solved"
                 };
-                showServices.Add(newShowService);
+                showRequests.Add(newRequest);
             }
 
-            listService.ItemsSource = showServices;
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listService.ItemsSource);
-            view.Filter = PriceFilter;
+            listService.ItemsSource = showRequests;
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listAccount.ItemsSource);
+            //view.Filter = AccountFilter;
         }
 
-        private void addBtn_Click(object sender, RoutedEventArgs e)
+        private bool RequestFilter(object item)
         {
-            services newService = new services()
-            {
-                No = i++,
-                name = "",
-                price = 0,
-                description = ""
-            };
-            
-            if(servicesBUS.InserNewService(newService.name, newService.price, newService.description))
-            {
-                
-                showServices.Add(newService);
-                showInitData();
-                var messageBoxResult = MsgBox.Show("Success", "Add service successfully!", MessageBoxTyp.Information);
-            }
-            
-        }
-
-        private void deleteBtn_Click(object sender, RoutedEventArgs e)
-        {
-            int initTotalService = listService.Items.Count;
-
-            if(listService.SelectedItems.Count != 0)
-            {
-                for (int i = listService.SelectedItems.Count - 1; i >= 0; i--)
-                {
-                    var selectedService = listService.SelectedItems[i] as services;
-
-                    if (servicesBUS.DeleteOneServiceByID(selectedService.fullID))
-                    {
-                        showServices.Remove(selectedService);
-                    }
-                }
-            }
-            else
-            {
-                var messageBoxResult = MsgBox.Show("Warning", "Please select atleast one service to delete!", MessageBoxTyp.Warning);
-            }
-
-            if(initTotalService > listService.Items.Count)
-            {
-                var messageBoxResult = MsgBox.Show("Success", "Delete service successfully!", MessageBoxTyp.Information);
-            }
-
-            showInitData();
-        }
-
-        private void priceTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            //To limit the characters which are the numbers in the textbox
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
-        }
-
-        private bool PriceFilter(object item)
-        {
-            if (String.IsNullOrEmpty(SearchTxtBox.Text))
-            {
-                return true;
-            }
-            else
-            {
-                if (cbbSearchBy.SelectedIndex == 0)
-                    return (item as services).name.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
-                else
-                    return true;
-            }
+            //if (String.IsNullOrEmpty(SearchTxtBox.Text))
+            //{
+            //    return true;
+            //}
+            //else
+            //{
+            //    if (cbbSearchBy.SelectedIndex == 0)
+            //        return (item as services).name.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+            //    else
+            //        return true;
+            //}
+            return false;
         }
 
         private void SearchTxtBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -164,7 +96,6 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
         private void refreshBtn_Click(object sender, RoutedEventArgs e)
         {
             showInitData();
-
             var messageBoxResult = MsgBox.Show("Success", "Refresh service successfully!", MessageBoxTyp.Information);
         }
     }

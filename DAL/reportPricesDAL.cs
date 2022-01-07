@@ -53,34 +53,33 @@ namespace DAL
             }
         }
 
-        //public List<reportPricesDTO> GetAllPriceRequests()
-        //{
-        //    try
-        //    {
-        //        var collection = db.GetCollection<BsonDocument>("staffs");
-        //        var staffsDoc = collection.Find(_ => true).ToListAsync().Result;
-        //        List<staffDTO> staffs = new List<staffDTO>();
-        //        foreach (BsonDocument item in staffsDoc)
-        //        {
-        //            staffs.Add(new staffDTO(
-        //                (string)item["name"],
-        //                null,
-        //                (bool)item["gender"],
-        //                (string)item["email"],
-        //                (string)item["phoneNumber"],
-        //                (int)item["salary"],
-        //                (string)item["address"],
-        //                (string)item["type"],
-        //                (string)item["description"],
-        //                (string)item["username"],
-        //                (string)item["password"]));
-        //        }
-        //        return staffs;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        public List<reportPricesDTO> GetAllPriceRequests()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("reportPrices");
+                var reportsDoc = collection.Find(_ => true).ToListAsync().Result;
+                List<reportPricesDTO> reports = new List<reportPricesDTO>();
+                foreach (BsonDocument item in reportsDoc)
+                {
+                    reports.Add(new reportPricesDTO(
+                        (string)item["date"],
+                        (string)item["subject"],
+                        null,
+                        null,
+                        (string)item["accountantID"],
+                        (bool)item["state"],
+                        (ObjectId)item["_id"]
+                        )
+                        );
+                }
+
+                return reports;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
