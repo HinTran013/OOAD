@@ -249,40 +249,19 @@
         </Grid>
 
         <Grid Grid.Row="2">
-            <Border CornerRadius="15" 
-                    Background="#8699DA"
-                    Margin="900,5,30,10"
-                    Width="150">
-                <Border.Effect>
-                    <DropShadowEffect ShadowDepth="1" 
-                                          BlurRadius="4"
-                                          Opacity="0.5"
-                                          Direction="270"/>
-                </Border.Effect>
-                <Button 
-                        x:Name="confirmButton"
-                        FontSize="20"
-                        Foreground="White" Background="Transparent"
-                        BorderBrush="{x:Null}" 
-                        Height="50" 
-                        FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="ConfirmForm">
-                    Confirm
-                </Button>
-            </Border>
-
-            <Border CornerRadius="15" 
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Border CornerRadius="15" 
                     Background="#EA9769"
-                    Margin="720,5,210,10"
                     Width="150"
+                    Margin="0,0,20,10"
                     HorizontalAlignment="Right">
-                <Border.Effect>
-                    <DropShadowEffect ShadowDepth="1" 
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" 
                                           BlurRadius="4"
                                           Opacity="0.5"
                                           Direction="270"/>
-                </Border.Effect>
-                <Button 
+                    </Border.Effect>
+                    <Button 
                         x:Name="cancelButton"
                         FontSize="20"
                         Foreground="White" Background="Transparent"
@@ -290,9 +269,34 @@
                         Height="50" 
                         FontWeight="Normal"
                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" RenderTransformOrigin="0.5,0.504" Click="cancelButton_Click">
-                    Cancel
-                </Button>
-            </Border>
+                        Cancel
+                    </Button>
+                </Border>
+                
+                <Border CornerRadius="15" 
+                    Background="#8699DA"
+                    Margin="0,0,0,10"
+                    Width="150">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                    </Border.Effect>
+                    <Button 
+                        x:Name="confirmButton"
+                        FontSize="20"
+                        Foreground="White" Background="Transparent"
+                        BorderBrush="{x:Null}" 
+                        Height="50" 
+                        FontWeight="Normal"
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="ConfirmForm">
+                        Confirm
+                    </Button>
+                </Border>
+
+                
+            </StackPanel>
         </Grid>
     </Grid>
 </UserControl>

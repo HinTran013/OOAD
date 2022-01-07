@@ -56,10 +56,9 @@
 
             </Grid>
         </Border>
-        <Grid Height="520">
+        <Grid Height="430">
             <Grid.RowDefinitions>
                 <RowDefinition Height="430"/>
-                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Border Margin="60,5,60,0"
@@ -256,25 +255,21 @@
                     </Border>
                 </Border>
             </Grid>
-
-            <Grid Grid.Row="1" Margin="60, 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="640"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Border CornerRadius="15" 
+        </Grid>
+        <StackPanel Orientation="Horizontal" Margin="0, 20, 0, 0" HorizontalAlignment="Center">
+            <Border CornerRadius="15" 
                     Background="#EA9769"
                     Width="150"
                     Height="50"
+                    Margin="0,0,20,0"
                     HorizontalAlignment="Right">
-                    <Border.Effect>
-                        <DropShadowEffect ShadowDepth="1" 
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" 
                                           BlurRadius="4"
                                           Opacity="0.5"
                                           Direction="270"/>
-                    </Border.Effect>
-                    <Button 
+                </Border.Effect>
+                <Button 
                         x:Name="deleteBtn"
                         FontSize="20"
                         Foreground="White" Background="Transparent"
@@ -282,56 +277,55 @@
                         Height="50" 
                         FontWeight="Normal"
                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="deleteBtn_Click">
-                        Delete
-                    </Button>
-                </Border>
+                    Delete
+                </Button>
+            </Border>
 
-                <Grid Grid.Column="1" HorizontalAlignment="Right">
-                    <Border CornerRadius="15" 
-                    Background="#8699DA"
+
+            <Border CornerRadius="15" 
+                    Background="#EA9769"
                     Height="50px"
+                    Margin="0,0,20,0"
                     Width="150">
-                        <Border.Effect>
-                            <DropShadowEffect ShadowDepth="1" 
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" 
                                           BlurRadius="4"
                                           Opacity="0.5"
                                           Direction="270"/>
-                        </Border.Effect>
-                        <Button 
+                </Border.Effect>
+                <Button 
                         x:Name="refreshBtn"
                         FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
                         Height="Auto" FontWeight="Normal"
                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Margin="0,0,0.4,-0.4" Click="refreshBtn_Click">
-                            Refresh
-                        </Button>
-                    </Border>
-                </Grid>
+                    Refresh
+                </Button>
+            </Border>
 
-                <Grid Grid.Column="2" HorizontalAlignment="Right">
-                    <Border CornerRadius="15" 
+
+
+            <Border CornerRadius="15" 
                     Background="#8699DA"
                     Height="50px"
                     Width="150">
-                        <Border.Effect>
-                            <DropShadowEffect ShadowDepth="1" 
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" 
                                           BlurRadius="4"
                                           Opacity="0.5"
                                           Direction="270"/>
-                        </Border.Effect>
-                        <Button 
+                </Border.Effect>
+                <Button 
                         x:Name="addBtn"
                         FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
                         Height="50" FontWeight="Normal"
                         FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="addBtn_Click">
-                            Add New
-                        </Button>
-                    </Border>
-                </Grid>
-            </Grid>
-        </Grid>
+                    Add New
+                </Button>
+            </Border>
+        </StackPanel>
     </StackPanel>
 </UserControl>

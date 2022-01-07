@@ -44,31 +44,7 @@ namespace DigitalPhotographyManagementSystem.UserControls.Technical
         public ListOfInvoices()
         {
             InitializeComponent();
-            List<invoiceDTO> invoices = new List<invoiceDTO>();
-            invoices = invoiceBUS.GetAllCreatedStateInvoices();
-            int i = 1;
-            invoiceCreated = new ObservableCollection<InvoiceCreated>();
-
-            foreach (invoiceDTO item in invoices)
-            {
-                var newInvoiceCreated = new InvoiceCreated()
-                {
-                    No = i++,
-                    invoiceID = item.objectId.ToString().Substring(item.objectId.ToString().Length - 5),
-                    fullInvoiceID = (ObjectId)item.objectId,
-                    customerName = item.customerName,
-                    Date = item.date,
-                    StaffID = item.staffUsername,
-                    Services = invoiceBUS.GetNumServicesFromID((ObjectId)item.objectId)
-                };
-                realInvoiceID.Add(item.objectId.ToString());
-                invoiceCreated.Add(newInvoiceCreated);
-            }
-
-            listInvoice.ItemsSource = invoiceCreated;
-
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listInvoice.ItemsSource);
-            view.Filter = InvoiceFilter;
+            initData();
         }
 
         private bool InvoiceFilter(object item)
@@ -137,6 +113,55 @@ namespace DigitalPhotographyManagementSystem.UserControls.Technical
                 invoiceCreated.Remove(invoice);
 
                 MsgBox.Show("Updated the new state of invoice!", MessageBoxTyp.Information);
+            }
+        }
+
+        private bool initData()
+        {
+            try
+            {
+                List<invoiceDTO> invoices = new List<invoiceDTO>();
+                invoices = invoiceBUS.GetAllCreatedStateInvoices();
+                int i = 1;
+                invoiceCreated = new ObservableCollection<InvoiceCreated>();
+
+                foreach (invoiceDTO item in invoices)
+                {
+                    var newInvoiceCreated = new InvoiceCreated()
+                    {
+                        No = i++,
+                        invoiceID = item.objectId.ToString().Substring(item.objectId.ToString().Length - 5),
+                        fullInvoiceID = (ObjectId)item.objectId,
+                        customerName = item.customerName,
+                        Date = item.date,
+                        StaffID = item.staffUsername,
+                        Services = invoiceBUS.GetNumServicesFromID((ObjectId)item.objectId)
+                    };
+                    realInvoiceID.Add(item.objectId.ToString());
+                    invoiceCreated.Add(newInvoiceCreated);
+                }
+
+                listInvoice.ItemsSource = invoiceCreated;
+
+                CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listInvoice.ItemsSource);
+                view.Filter = InvoiceFilter;
+                return true;
+            }
+            catch 
+            {
+                return false;
+            }
+        }
+
+        private void refreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (initData())
+            {
+                MsgBox.Show("Refresh successfully!", MessageBoxTyp.Information);
+            }
+            else
+            {
+                MsgBox.Show("Refresh failed!", MessageBoxTyp.Error);
             }
         }
     }
