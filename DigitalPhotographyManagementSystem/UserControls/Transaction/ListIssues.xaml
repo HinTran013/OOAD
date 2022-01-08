@@ -269,7 +269,7 @@
                                                        Text="{Binding State}" 
                                                        TextAlignment="Center" 
                                                        HorizontalAlignment="Center" 
-                                                       SourceUpdated="StateTxt_SourceUpdated" 
+ 
                                                        Loaded="StateTxt_Loaded"/>
                                         </Grid>
                                     </DataTemplate>
@@ -302,14 +302,12 @@
                                         <DockPanel HorizontalAlignment="Center" Width="180">
                                             <Button x:Name="SolvedBtn" 
                                                     Visibility="Visible" 
-                                                    Content="{Binding State}" 
+                                                    Content="SOLVE" 
                                                     Background="#8699DA" 
                                                     Click="SolvedBtn_Click" 
                                                     Margin="10,0,0,0" 
                                                     Foreground="White" 
-                                                    HorizontalAlignment="Center"
-                                                    Loaded="SolvedBtn_Loaded" 
-                                                    SourceUpdated="SolvedBtn_SourceUpdated"/>
+                                                    HorizontalAlignment="Center"/>
                                             <!--<Button x:Name="DeleteBtn" 
                                                     Visibility="Collapsed" 
                                                     Content="Delete" 

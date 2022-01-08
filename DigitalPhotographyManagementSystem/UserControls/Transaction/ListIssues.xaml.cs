@@ -195,38 +195,28 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
             }
         }
 
-        private void SolvedBtn_Loaded(object sender, RoutedEventArgs e)
-        {
-            //if((sender as Button).Content == "ERROR")
-            //{
-            //    (sender as Button).Background = null;
-            //    (sender as Button).Foreground = Brushes.DarkGreen;
-            //    (sender as Button).BorderBrush = Brushes.DarkGreen;
-            //    (sender as Button).Content = "SOLVED";
-            //}
+        //private void SolvedBtn_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    if ((sender as Button).Content == "ERROR")
+        //    {
+        //        (sender as Button).Background = null;
+        //        (sender as Button).Foreground = Brushes.DarkGreen;
+        //        (sender as Button).BorderBrush = Brushes.DarkGreen;
+        //        (sender as Button).Content = "SOLVED";
+        //    }
 
-            //if ((sender as Button).Content == "SOLVED")
-            //{
-            //    (sender as Button).Background = null;
-            //    (sender as Button).Foreground = Brushes.DarkRed;
-            //    (sender as Button).BorderBrush = Brushes.DarkRed;
-            //    (sender as Button).Content = "ERROR";
-            //}
+        //    if ((sender as Button).Content == "SOLVED")
+        //    {
+        //        (sender as Button).Background = null;
+        //        (sender as Button).Foreground = Brushes.DarkRed;
+        //        (sender as Button).BorderBrush = Brushes.DarkRed;
+        //        (sender as Button).Content = "ERROR";
+        //    }
 
-            (sender as Button).Background = null;
-            (sender as Button).Foreground = Brushes.DarkGreen;
-            (sender as Button).BorderBrush = Brushes.DarkGreen;
-            (sender as Button).Content = "SOLVE";
-        }
-
-        private void SolvedBtn_SourceUpdated(object sender, DataTransferEventArgs e)
-        {
-            
-        }
-
-        private void StateTxt_SourceUpdated(object sender, DataTransferEventArgs e)
-        {
-
-        }
+        //    (sender as Button).Background = null;
+        //    (sender as Button).Foreground = Brushes.DarkGreen;
+        //    (sender as Button).BorderBrush = Brushes.DarkGreen;
+        //    (sender as Button).Content = "SOLVE";
+        //}
     }
 }
