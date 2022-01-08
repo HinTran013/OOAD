@@ -94,12 +94,6 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
         private void SolvedBtn_Click(object sender, RoutedEventArgs e)
         {
             var issue = (sender as FrameworkElement).DataContext as IssuePrint;
-
-            //(sender as System.Windows.Controls.Button).Background = null;
-            //(sender as System.Windows.Controls.Button).Foreground = System.Windows.Media.Brushes.DarkGreen;
-            //(sender as System.Windows.Controls.Button).BorderBrush = System.Windows.Media.Brushes.DarkGreen;
-            //(sender as System.Windows.Controls.Button).Content = "SOLVED";
-            //Button btn = sender as Button;
             if (issue != null)
             {
                 string str;
@@ -130,6 +124,32 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
                     }
                     else return;
                 }
+                //else
+                //{
+                //    if (MsgBox.Show("Confirmation", "Please type 'ERROR' to un-solve") == MessageBoxResult.OK)
+                //    {
+                //        str = MsgBox.Value;
+                //        if (str == "ERROR")
+                //        {
+                //            newState = false;
+                //            issue.IsSolved = newState;
+
+                //            issueReportBUS.UpdateStateByID(issue.fullIssueID, newState);
+                //            //issuePrints.Remove(issue);
+                //            issuePrints[issuePrints.IndexOf(issue)].IsSolved = false;
+                //            issuePrints[issuePrints.IndexOf(issue)].State = (bool)issuePrints[issuePrints.IndexOf(issue)].IsSolved ? "SOLVED" : "ERROR";
+                //            CollectionViewSource.GetDefaultView(listIssue.ItemsSource).Refresh();
+
+                //            MsgBox.Show("Successfully un-solve the issue", MessageBoxTyp.Information);
+                //        }
+                //        else
+                //        {
+                //            MsgBox.Show("Error! Please try again!", MessageBoxTyp.Error);
+                //            return;
+                //        }
+                //    }
+                //    else return;
+                //}
             }
         }
         private void PopulateData()
@@ -160,6 +180,53 @@ namespace DigitalPhotographyManagementSystem.UserControls.Transaction
                 issuePrints.Clear();
             PopulateData();
             MsgBox.Show("Success", "Refresh service successfully!", MessageBoxTyp.Information);
+        }
+
+        private void StateTxt_Loaded(object sender, RoutedEventArgs e)
+        {
+            if((sender as TextBlock).Text == "SOLVED")
+            {
+                (sender as TextBlock).Foreground = Brushes.Green;
+            }
+
+            if ((sender as TextBlock).Text == "ERROR")
+            {
+                (sender as TextBlock).Foreground = Brushes.Red;
+            }
+        }
+
+        private void SolvedBtn_Loaded(object sender, RoutedEventArgs e)
+        {
+            //if((sender as Button).Content == "ERROR")
+            //{
+            //    (sender as Button).Background = null;
+            //    (sender as Button).Foreground = Brushes.DarkGreen;
+            //    (sender as Button).BorderBrush = Brushes.DarkGreen;
+            //    (sender as Button).Content = "SOLVED";
+            //}
+
+            //if ((sender as Button).Content == "SOLVED")
+            //{
+            //    (sender as Button).Background = null;
+            //    (sender as Button).Foreground = Brushes.DarkRed;
+            //    (sender as Button).BorderBrush = Brushes.DarkRed;
+            //    (sender as Button).Content = "ERROR";
+            //}
+
+            (sender as Button).Background = null;
+            (sender as Button).Foreground = Brushes.DarkGreen;
+            (sender as Button).BorderBrush = Brushes.DarkGreen;
+            (sender as Button).Content = "SOLVE";
+        }
+
+        private void SolvedBtn_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+            
+        }
+
+        private void StateTxt_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+
         }
     }
 }

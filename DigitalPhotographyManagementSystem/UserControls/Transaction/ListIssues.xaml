@@ -241,7 +241,8 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Width="145">
+                            
+                            <GridViewColumn Width="160">
                                 <GridViewColumn.HeaderContainerStyle>
                                     <Style TargetType="{x:Type GridViewColumnHeader}">
                                         <Setter Property="Template">
@@ -264,20 +265,26 @@
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Grid Width="145" HorizontalAlignment="Center" >
-                                            <TextBlock Text="{Binding State}" TextAlignment="Center" HorizontalAlignment="Center"/>
+                                            <TextBlock x:Name="StateTxt"
+                                                       Text="{Binding State}" 
+                                                       TextAlignment="Center" 
+                                                       HorizontalAlignment="Center" 
+                                                       SourceUpdated="StateTxt_SourceUpdated" 
+                                                       Loaded="StateTxt_Loaded"/>
                                         </Grid>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
+                            
                             <!--SOLVE STATUS-->
-                            <GridViewColumn Width="180">
+                            <GridViewColumn Width="165">
                                 <GridViewColumn.HeaderContainerStyle>
                                     <Style TargetType="{x:Type GridViewColumnHeader}">
                                         <Setter Property="Template">
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="GridViewColumnHeader">
                                                     <Border Background="{TemplateBinding Background}">
-                                                        <TextBlock x:Name="TextBlock" Text="Solve Status" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                        <TextBlock x:Name="TextBlock" Text="Action" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
                                                         </TextBlock>
                                                     </Border>
                                                     <ControlTemplate.Triggers>
@@ -295,10 +302,14 @@
                                         <DockPanel HorizontalAlignment="Center" Width="180">
                                             <Button x:Name="SolvedBtn" 
                                                     Visibility="Visible" 
-                                                    Content="Solved" 
+                                                    Content="{Binding State}" 
                                                     Background="#8699DA" 
                                                     Click="SolvedBtn_Click" 
-                                                    Margin="10,0,0,0" Foreground="White" HorizontalAlignment="Center"/>
+                                                    Margin="10,0,0,0" 
+                                                    Foreground="White" 
+                                                    HorizontalAlignment="Center"
+                                                    Loaded="SolvedBtn_Loaded" 
+                                                    SourceUpdated="SolvedBtn_SourceUpdated"/>
                                             <!--<Button x:Name="DeleteBtn" 
                                                     Visibility="Collapsed" 
                                                     Content="Delete" 
