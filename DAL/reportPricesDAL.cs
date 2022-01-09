@@ -81,5 +81,41 @@ namespace DAL
                 throw ex;
             }
         }
+
+        public reportPricesDTO GetReportFromID(ObjectId objectId)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("reportPrices");
+                var report = collection.Find(x => ((ObjectId)x["_id"]) == objectId).SingleAsync().Result;
+                var reportDetails = new List<reportPricesDetailDTO>();
+                foreach (BsonDocument detail in report["serviceList"].AsBsonArray)
+                {
+                    reportDetails.Add(new reportPricesDetailDTO
+                    (
+                        (string)detail["serviceType"],
+                        (int)detail["oldPrice"],
+                        (int)detail["newPrice"]
+                    ));
+                }
+
+                reportPricesDTO gottenReport = new reportPricesDTO(
+                    (string)report["date"],
+                    (string)report["subject"],
+                    null,
+                    null,
+                    (string)report["accountantID"],
+                    (bool)report["state"],
+                    null,
+                    reportDetails
+                    );
+
+                return gottenReport;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

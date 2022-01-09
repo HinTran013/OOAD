@@ -14,11 +14,11 @@ namespace BUS
 {
     public class reportPricesDetailBUS
     {
-        static reportPricesDetailDAL detail = new reportPricesDetailDAL();
+        //static reportPricesDetailDAL detail = new reportPricesDetailDAL();
 
-        public static bool AddNewReportPrice(reportPricesDetailDTO newprice)
-        {
-            return detail.InsertNewPriceRecord(newprice);
-        }
+        //public static bool AddNewReportPrice(reportPricesDetailDTO newprice)
+        //{
+        //    return detail.InsertNewPriceRecord(newprice);
+        //}
     }
 }

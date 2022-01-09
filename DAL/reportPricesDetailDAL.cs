@@ -23,26 +23,26 @@ namespace DAL
             this.db = client.GetDatabase("PhotographyManagement");
         }
 
-        public bool InsertNewPriceRecord(reportPricesDetailDTO detail)
-        {
-            try
-            {
-                var collection = db.GetCollection<BsonDocument>("reportPricesDetail");
-                var newDoc = new BsonDocument
-            {
-                    { "reportPricesID", detail.reportPricesID},
-                    { "photoType", detail.photoType },
-                    { "oldPrice", detail.oldPrice },
-                    { "newPrice", detail.newPrice }
-            };
+    //    public bool InsertNewPriceRecord(reportPricesDetailDTO detail)
+    //    {
+    //        try
+    //        {
+    //            var collection = db.GetCollection<BsonDocument>("reportPricesDetail");
+    //            var newDoc = new BsonDocument
+    //        {
+    //                { "reportPricesID", detail.reportPricesID},
+    //                { "photoType", detail.photoType },
+    //                { "oldPrice", detail.oldPrice },
+    //                { "newPrice", detail.newPrice }
+    //        };
 
-                collection.InsertOneAsync(newDoc);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+    //            collection.InsertOneAsync(newDoc);
+    //            return true;
+    //        }
+    //        catch
+    //        {
+    //            return false;
+    //        }
+    //    }
     }
 }

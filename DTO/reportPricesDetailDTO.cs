@@ -4,37 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/*          THIS IS FOR TESTING PURPOSE!
-            DO NOT USE THIS FOR BUILDING!       */
-
 namespace DTO
 {
     public class reportPricesDetailDTO
     {
-        private string _reportPricesID;
-        private string _photoType;
-        private Nullable<double> _oldPrice;
-        private Nullable<double> _newPrice;
+        private string _serviceType;
+        private int _oldPrice;
+        private int _newPrice;
 
-        public reportPricesDetailDTO(string reportPricesID, string photoType, double oldPrices, double newPrices)
+        public reportPricesDetailDTO(string serviceType, int oldPrice, int newPrice)
         {
-            _reportPricesID = reportPricesID;
-            _photoType = photoType;
-            _oldPrice = oldPrices;
-            _newPrice = newPrices;
+            this._serviceType = serviceType;
+            this._oldPrice = oldPrice;
+            this._newPrice = newPrice;
         }
 
         public reportPricesDetailDTO()
         {
-            _reportPricesID = null;
-            _photoType = null;
-            _oldPrice = null;
-            _newPrice = null;
+            _serviceType = null;
+            _oldPrice = -1;
+            _newPrice = -1;
         }
 
-        public string reportPricesID { get => _reportPricesID; set => _reportPricesID = value; }
-        public string photoType { get => _photoType; set => _photoType = value; }
-        public double? oldPrice { get => _oldPrice; set => _oldPrice = value; }
-        public double? newPrice { get => _newPrice; set => _newPrice = value; }
+        public string serviceType { get => _serviceType; set => _serviceType = value; }
+        public int oldPrice { get => _oldPrice; set => _oldPrice = value; }
+        public int newPrice { get => _newPrice; set => _newPrice = value; }
     }
 }
