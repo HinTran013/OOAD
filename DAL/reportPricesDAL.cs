@@ -58,7 +58,7 @@ namespace DAL
             try
             {
                 var collection = db.GetCollection<BsonDocument>("reportPrices");
-                var reportsDoc = collection.Find(_ => true).ToListAsync().Result;
+                var reportsDoc = collection.Find(_ => true).SortByDescending(x => x["_id"]).ToListAsync().Result;
                 List<reportPricesDTO> reports = new List<reportPricesDTO>();
                 foreach (BsonDocument item in reportsDoc)
                 {
@@ -94,8 +94,8 @@ namespace DAL
                     reportDetails.Add(new reportPricesDetailDTO
                     (
                         (string)detail["serviceType"],
-                        (int)detail["oldPrice"],
-                        (int)detail["newPrice"]
+                        (double)detail["oldPrice"],
+                        (double)detail["newPrice"]
                     ));
                 }
 
@@ -115,6 +115,23 @@ namespace DAL
             catch
             {
                 return null;
+            }
+        }
+
+        public bool UpdateStateById(ObjectId id, bool newValue)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("reportPrices");
+
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+                var update = Builders<BsonDocument>.Update.Set("state", newValue);
+                collection.UpdateOne(filter, update);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

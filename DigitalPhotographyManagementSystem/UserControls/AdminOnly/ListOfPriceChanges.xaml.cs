@@ -63,29 +63,34 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
                     date = item.date,
                     fullID = (ObjectId)item.reportID,
                     subject = item.subject,
-                    state = item.state ? "Solved" : "Not Solved"
+                    state = item.state ? "SOLVED" : "NOT SOLVED"
                 };
                 showRequests.Add(newRequest);
             }
 
             listService.ItemsSource = showRequests;
-            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listAccount.ItemsSource);
-            //view.Filter = AccountFilter;
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listService.ItemsSource);
+            view.Filter = RequestFilter;
         }
 
         private bool RequestFilter(object item)
         {
-            //if (String.IsNullOrEmpty(SearchTxtBox.Text))
-            //{
-            //    return true;
-            //}
-            //else
-            //{
-            //    if (cbbSearchBy.SelectedIndex == 0)
-            //        return (item as services).name.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
-            //    else
-            //        return true;
-            //}
+            if (String.IsNullOrEmpty(SearchTxtBox.Text))
+            {
+                return true;
+            }
+            else
+            {
+                if (cbbSearchBy.SelectedIndex == 0)
+                    return (item as requestModel).subject.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                else if (cbbSearchBy.SelectedIndex == 1)
+                    return (item as requestModel).date.IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                else if (cbbSearchBy.SelectedIndex == 2)
+                    return (item as requestModel).state.ToString().IndexOf(SearchTxtBox.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                else
+                    return true;
+            }
+
             return false;
         }
 
@@ -107,6 +112,19 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
             invoiceDetailWindow dialog = new invoiceDetailWindow(itemID);
             dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             dialog.ShowDialog();
+        }
+
+        private void stateTxt_Loaded(object sender, RoutedEventArgs e)
+        {
+            if ((sender as TextBlock).Text == "SOLVED")
+            {
+                (sender as TextBlock).Foreground = Brushes.Green;
+            }
+
+            if ((sender as TextBlock).Text == "NOT SOLVED")
+            {
+                (sender as TextBlock).Foreground = Brushes.Red;
+            }
         }
     }
 }

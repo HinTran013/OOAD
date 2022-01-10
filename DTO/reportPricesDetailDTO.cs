@@ -9,10 +9,10 @@ namespace DTO
     public class reportPricesDetailDTO
     {
         private string _serviceType;
-        private int _oldPrice;
-        private int _newPrice;
+        private double _oldPrice;
+        private double _newPrice;
 
-        public reportPricesDetailDTO(string serviceType, int oldPrice, int newPrice)
+        public reportPricesDetailDTO(string serviceType, double oldPrice, double newPrice)
         {
             this._serviceType = serviceType;
             this._oldPrice = oldPrice;
@@ -27,7 +27,7 @@ namespace DTO
         }
 
         public string serviceType { get => _serviceType; set => _serviceType = value; }
-        public int oldPrice { get => _oldPrice; set => _oldPrice = value; }
-        public int newPrice { get => _newPrice; set => _newPrice = value; }
+        public double oldPrice { get => _oldPrice; set => _oldPrice = value; }
+        public double newPrice { get => _newPrice; set => _newPrice = value; }
     }
 }

@@ -80,9 +80,9 @@
                                                             <Setter.Value>
                                                                 <ControlTemplate TargetType="ListViewItem">
                                                                     <Border CornerRadius="2" SnapsToDevicePixels="True" Height="42" 
-                                        BorderThickness="{TemplateBinding BorderThickness}" 
-                                        BorderBrush="{TemplateBinding BorderBrush}" 
-                                        Background="{TemplateBinding Background}">
+                                                                        BorderThickness="{TemplateBinding BorderThickness}" 
+                                                                        BorderBrush="{TemplateBinding BorderBrush}" 
+                                                                        Background="{TemplateBinding Background}">
                                                                         <Border Name="InnerBorder" CornerRadius="1"   BorderThickness="1">
                                                                             <Grid>
                                                                                 <Grid.RowDefinitions>
@@ -91,8 +91,8 @@
                                                                                 </Grid.RowDefinitions>
                                                                                 <Rectangle Name="UpperHighlight" Visibility="Collapsed" Fill="#75FFFFFF" />
                                                                                 <GridViewRowPresenter Grid.RowSpan="2"
-                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                                                                             </Grid>
                                                                         </Border>
                                                                     </Border>
@@ -110,8 +110,9 @@
                                                     </Style>
                                                 </ListView.ItemContainerStyle>
                                                 <ListView.View>
+                                                    
                                                     <GridView>
-                                                        <GridViewColumn Header="No." Width="85">
+                                                        <GridViewColumn Header="No." Width="100">
                                                             <GridViewColumn.HeaderContainerStyle>
                                                                 <Style TargetType="{x:Type GridViewColumnHeader}">
                                                                     <Setter Property="Template">
@@ -133,13 +134,14 @@
                                                             </GridViewColumn.HeaderContainerStyle>
                                                             <GridViewColumn.CellTemplate>
                                                                 <DataTemplate>
-                                                                    <Grid Width="85" HorizontalAlignment="Center" >
+                                                                    <Grid Width="100" HorizontalAlignment="Center" >
                                                                         <TextBlock Text="{Binding No}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                                                     </Grid>
                                                                 </DataTemplate>
                                                             </GridViewColumn.CellTemplate>
                                                         </GridViewColumn>
-                                                        <GridViewColumn Header="Photo type" Width="210" DisplayMemberBinding="{Binding Type}" >
+
+                                                        <GridViewColumn Header="serviceType" Width="290">
                                                             <GridViewColumn.HeaderContainerStyle>
                                                                 <Style TargetType="{x:Type GridViewColumnHeader}">
                                                                     <Setter Property="Template">
@@ -161,13 +163,13 @@
                                                             </GridViewColumn.HeaderContainerStyle>
                                                             <GridViewColumn.CellTemplate>
                                                                 <DataTemplate>
-                                                                    <Grid Width="210" HorizontalAlignment="Center" >
-                                                                        <TextBlock Text="{Binding Type}" TextAlignment="Center"/>
+                                                                    <Grid Width="290" HorizontalAlignment="Center" >
+                                                                        <TextBlock Text="{Binding serviceType}" TextAlignment="Center"/>
                                                                     </Grid>
                                                                 </DataTemplate>
                                                             </GridViewColumn.CellTemplate>
                                                         </GridViewColumn>
-                                                        <GridViewColumn Header="Old price" Width="295">
+                                                        <GridViewColumn Header="Old price" Width="290">
                                                             <GridViewColumn.HeaderContainerStyle>
                                                                 <Style TargetType="{x:Type GridViewColumnHeader}">
                                                                     <Setter Property="Template">
@@ -189,13 +191,13 @@
                                                             </GridViewColumn.HeaderContainerStyle>
                                                             <GridViewColumn.CellTemplate>
                                                                 <DataTemplate>
-                                                                    <Grid Width="295" HorizontalAlignment="Center" >
-                                                                        <TextBlock Text="{Binding OldPrice}" TextAlignment="Center" HorizontalAlignment="Center"/>
+                                                                    <Grid Width="290" HorizontalAlignment="Center" >
+                                                                        <TextBlock Text="{Binding oldPrice}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                                                     </Grid>
                                                                 </DataTemplate>
                                                             </GridViewColumn.CellTemplate>
                                                         </GridViewColumn>
-                                                        <GridViewColumn Header="New price" Width="295">
+                                                        <GridViewColumn Header="New price" Width="290">
                                                             <GridViewColumn.HeaderContainerStyle>
                                                                 <Style TargetType="{x:Type GridViewColumnHeader}">
                                                                     <Setter Property="Template">
@@ -217,13 +219,13 @@
                                                             </GridViewColumn.HeaderContainerStyle>
                                                             <GridViewColumn.CellTemplate>
                                                                 <DataTemplate>
-                                                                    <Grid Width="295" HorizontalAlignment="Center" >
-                                                                        <TextBlock Text="{Binding NewPrice}" TextAlignment="Center" HorizontalAlignment="Center"/>
+                                                                    <Grid Width="290" HorizontalAlignment="Center" >
+                                                                        <TextBlock Text="{Binding newPrice}" TextAlignment="Center" HorizontalAlignment="Center"/>
                                                                     </Grid>
                                                                 </DataTemplate>
                                                             </GridViewColumn.CellTemplate>
                                                         </GridViewColumn>
-                                                        <GridViewColumn Header="Action" Width="128">
+                                                        <GridViewColumn Header="Action" Width="280">
                                                             <GridViewColumn.HeaderContainerStyle>
                                                                 <Style TargetType="{x:Type GridViewColumnHeader}">
                                                                     <Setter Property="Template">
@@ -245,9 +247,10 @@
                                                             </GridViewColumn.HeaderContainerStyle>
                                                             <GridViewColumn.CellTemplate>
                                                                 <DataTemplate>
-                                                                    <DockPanel Width="110">
-                                                                        <Button x:Name="rejectBtn" Content="Reject" Background="#8699DA" HorizontalAlignment="Center"/>
-                                                                        <Button x:Name="approveBtn" Content="Approve" Background="#8699DA" HorizontalAlignment="Center"/>
+                                                                    <DockPanel Width="280" HorizontalAlignment="Center">
+                                                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                                            
+                                                                        </StackPanel>
                                                                     </DockPanel>
                                                                 </DataTemplate>
                                                             </GridViewColumn.CellTemplate>
@@ -263,27 +266,53 @@
                     </Grid>
                 </Grid>
 
-                <Border CornerRadius="15" 
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Border CornerRadius="15" 
+                        Background="#EA9769"
+                        Width="150"
+                        Height="50"
+                        Margin="0, 15, 15, 0"
+                        >
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="1" 
+                                          BlurRadius="4"
+                                          Opacity="0.5"
+                                          Direction="270"/>
+                        </Border.Effect>
+                        <Button x:Name="rejectBtn"
+                        FontSize="20"
+                        Foreground="White" Background="Transparent"
+                        BorderBrush="{x:Null}" 
+                        Height="auto" FontWeight="Normal"
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="rejectBtn_Click">
+                            Reject
+                        </Button>
+                    </Border>
+
+                    <Border CornerRadius="15" 
                         Background="#8699DA"
                         Width="150"
                         Height="50"
                         Margin="0, 15, 0, 0"
                         >
-                    <Border.Effect>
-                        <DropShadowEffect ShadowDepth="1" 
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="1" 
                                           BlurRadius="4"
                                           Opacity="0.5"
                                           Direction="270"/>
-                    </Border.Effect>
-                    <Button x:Name="ReportBtn"
+                        </Border.Effect>
+                        <Button x:Name="approveBtn"
                         FontSize="20"
                         Foreground="White" Background="Transparent"
                         BorderBrush="{x:Null}" 
                         Height="auto" FontWeight="Normal"
-                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold">
-                        Done
-                    </Button>
-                </Border>
+                        FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Click="approveBtn_Click">
+                            Approve
+                        </Button>
+                    </Border>
+                </StackPanel>
+
+                
 
             </StackPanel>
         </Border>

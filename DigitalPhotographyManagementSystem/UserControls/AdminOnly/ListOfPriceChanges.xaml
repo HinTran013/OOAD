@@ -17,7 +17,7 @@
                 <ColumnDefinition Width="0.1*"/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <Label Content="LIST OF PRICE REQUESTS" FontSize="25" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="0,0,0,9"/>
+            <Label Content="LIST OF PRICE REPORT" FontSize="25" FontWeight="Bold" FontFamily="/DigitalPhotographyManagementSystem;component/Fonts/#Nunito ExtraBold" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="0,0,0,9"/>
             <TextBlock x:Name="DateTimeTxt" Grid.Column="2" Grid.Row="0" Text="Date time: 12/12/2021" VerticalAlignment="Center" FontSize="18"/>
         </Grid>
         <Border CornerRadius="10" Margin="60,0" Background="#8699DA">
@@ -41,13 +41,15 @@
                                 materialDesign:HintAssist.Hint="Search"
                                 IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}"/>
                     <Grid Grid.Column="2">
-                        <Border x:Name="bdSearch" IsEnabled="false"  Background="White" CornerRadius="5" Margin="5" Cursor="Hand">
+                        <Border x:Name="bdSearch" IsEnabled="True"  Background="White" CornerRadius="5" Margin="5" Cursor="Hand">
                             <ComboBox x:Name="cbbSearchBy" IsReadOnly="True" Margin="2"
                                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                         materialDesign:HintAssist.Hint="Search By"
                                         FontSize="17"
                                         SelectedIndex="0" Cursor="Hand" IsTextSearchEnabled="False" Background="White">
-                                <ComboBoxItem Content="Service name"/>
+                                <ComboBoxItem Content="Subject"/>
+                                <ComboBoxItem Content="Date"/>
+                                <ComboBoxItem Content="State"/>
                             </ComboBox>
                         </Border>
 
@@ -141,7 +143,7 @@
                                                     <Setter.Value>
                                                         <ControlTemplate TargetType="GridViewColumnHeader">
                                                             <Border Background="{TemplateBinding Background}" Height="40">
-                                                                <TextBlock Name ="TextBlock"  Text="Request Subject" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                                <TextBlock Name ="TextBlock"  Text="Report Subject" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
                                                                 </TextBlock>
                                                             </Border>
                                                             <ControlTemplate.Triggers>
@@ -199,7 +201,7 @@
                                                     <Setter.Value>
                                                         <ControlTemplate TargetType="GridViewColumnHeader">
                                                             <Border Background="{TemplateBinding Background}">
-                                                                <TextBlock Name ="TextBlock"  Text="State" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
+                                                                <TextBlock Name="TextBlock"  Text="State" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nunito Black" FontSize="20" Foreground="DimGray">
                                                                 </TextBlock>
                                                             </Border>
                                                             <ControlTemplate.Triggers>
@@ -215,7 +217,7 @@
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <Grid Width="255" HorizontalAlignment="Center" >
-                                                    <TextBlock Text="{Binding state}" TextAlignment="Center" HorizontalAlignment="Center"/>
+                                                    <TextBlock x:Name="stateTxt" Text="{Binding state}" TextAlignment="Center" HorizontalAlignment="Center" Loaded="stateTxt_Loaded"/>
                                                 </Grid>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>

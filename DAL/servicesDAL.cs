@@ -120,5 +120,22 @@ namespace DAL
                 throw ex;
             }
         }
+
+        public bool UpdateServicePriceByName(string name, double newPrice)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("services");
+
+                var filter = Builders<BsonDocument>.Filter.Eq("serviceName", name);
+                var update = Builders<BsonDocument>.Update.Set("servicePrice", newPrice);
+                collection.UpdateOne(filter, update);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

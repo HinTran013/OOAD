@@ -37,5 +37,10 @@ namespace BUS
         {
             return services.DeleteOneServiceByID(id);
         }
+
+        public static bool UpdateServicePriceByName(string name, double newPrice)
+        {
+            return services.UpdateServicePriceByName(name, newPrice);
+        }
     }
 }
