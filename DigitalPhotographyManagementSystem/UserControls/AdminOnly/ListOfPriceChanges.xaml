@@ -244,7 +244,7 @@
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <DockPanel HorizontalAlignment="Stretch" LastChildFill="True" Width="158.011">
-                                                    <Button x:Name="viewBtn" Width="140" Content="View Detail" Background="#8699DA" Margin="10,0,0,0" Foreground="White"/>
+                                                    <Button x:Name="viewBtn" Width="140" Content="View Detail" Background="#8699DA" Margin="10,0,0,0" Foreground="White" Click="viewBtn_Click"/>
                                                 </DockPanel>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>

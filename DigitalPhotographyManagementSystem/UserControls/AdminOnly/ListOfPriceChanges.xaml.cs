@@ -18,6 +18,7 @@ using DTO;
 using BUS;
 using DigitalPhotographyManagementSystem.View;
 using System.Text.RegularExpressions;
+using DigitalPhotographyManagementSystem.UserControls.AdminOnly;
 
 namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
 {
@@ -97,6 +98,15 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
         {
             showInitData();
             var messageBoxResult = MsgBox.Show("Success", "Refresh service successfully!", MessageBoxTyp.Information);
+        }
+
+        private void viewBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var rowItem = (sender as Button).DataContext as requestModel;
+            ObjectId itemID = rowItem.fullID;
+            invoiceDetailWindow dialog = new invoiceDetailWindow(itemID);
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            dialog.ShowDialog();
         }
     }
 }
