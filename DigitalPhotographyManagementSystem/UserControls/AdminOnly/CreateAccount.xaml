@@ -222,6 +222,7 @@
                         Width="504">
                     <TextBox  
                               x:Name="salaryTextBox"
+                              MaxLength="9"
                               BorderThickness="0"
                               Style="{StaticResource MaterialDesignOutlinedTextBox}"
                               materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
