@@ -46,6 +46,13 @@ namespace DigitalPhotographyManagementSystem.UserControls.AdminOnly
             SubjectTxt.IsEnabled = false;
             fullID = ID;
             reportPricesDTO report = reportPricesBUS.GetReportFromID(ID);
+            if(report.state == true)
+            {
+                approveBtnBorder.Visibility = Visibility.Collapsed;
+                approveBtn.Visibility = Visibility.Collapsed;
+                rejectBtn.Visibility = Visibility.Collapsed;
+                rejectBtnBorder.Visibility = Visibility.Collapsed;
+            }
 
             SubjectTxt.Text = report.subject;
             DateTimeTxt.Text = "Date created: " + report.date;
