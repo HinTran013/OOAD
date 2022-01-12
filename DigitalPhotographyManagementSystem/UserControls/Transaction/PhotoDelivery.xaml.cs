@@ -70,7 +70,7 @@ namespace DigitalPhotographyManagementSystem.UserControls
 
         private bool InvoiceFilter(object item)
         {
-            if (string.IsNullOrEmpty(SearchTxt.Text)) return true;
+            if (String.IsNullOrEmpty(SearchTxt.Text)) return true;
             else
             {
                 if (SearchCbb.SelectedIndex == 0)
@@ -197,6 +197,11 @@ namespace DigitalPhotographyManagementSystem.UserControls
         private void RefreshBtn_Click(object sender, RoutedEventArgs e)
         {
             UpdateList();
+        }
+
+        private void SearchTxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(listInvoice.ItemsSource).Refresh();
         }
     }
 }

@@ -57,7 +57,7 @@
                                 x:Name="SearchTxt"
                                 AcceptsReturn="False"
                                 materialDesign:HintAssist.Hint="Search"
-                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}"/>
+                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}" TextChanged="SearchTxt_TextChanged"/>
                     <Grid Grid.Column="2">
                         <Border x:Name="bdSearch"  Background="White" CornerRadius="5" Margin="5" Cursor="Hand">
                             <ComboBox x:Name="SearchCbb" 
